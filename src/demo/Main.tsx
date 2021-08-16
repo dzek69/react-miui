@@ -3,14 +3,10 @@ import classnames from "classnames";
 
 import styles from "./Main.module.scss";
 
-import { CheckboxDemo } from "./components/form/Checkbox";
 import { safeUseHash } from "./utils/safeUseHash";
+import { componentsMap } from "./componentsMap";
 
 type BG = "white" | "transparent";
-
-const componentsMap: { [key: string]: (typeof React.Component) | React.FC } = {
-    checkbox: CheckboxDemo,
-};
 
 const Main: React.FC = (props) => {
     const [bg, setBg] = useState<BG>("white");

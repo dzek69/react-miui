@@ -1,0 +1,23 @@
+.item {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+
+    &:not(:first-child) > * {
+        border-top: 0.37px solid var(--header-border);
+    }
+
+    > * {
+        display: block;
+        padding: 20px 0;
+        text-decoration: none;
+    }
+}
+
+.button {
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}

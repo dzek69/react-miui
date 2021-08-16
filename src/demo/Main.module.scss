@@ -8,6 +8,7 @@
 .component {
     padding: 20px;
     flex: 1;
+    overflow: auto;
 
     &--transparent {
         background-position: 0px 0px, 10px 10px;

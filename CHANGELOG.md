@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.0.1+] - xxxx-xx-xx
+### Added
+- Header + StickyHeader component
+- List + Item components
+### Fixed
+- scrolling on the demo page
+
 ## [0.0.1] - 2021-08-16
 ### Added
 - first version

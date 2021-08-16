@@ -1,0 +1,10 @@
+.stickyHeader {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__content {
+        flex: 1;
+        overflow: auto;
+    }
+}

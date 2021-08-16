@@ -1,0 +1,16 @@
+.header {
+    height: 44px;
+    border-bottom: 0.37px solid var(--header-border);
+    background: var(--header-bg);
+    display: flex;
+    align-items: center;
+    padding: 0 16.666px;
+    font-size: 15px;
+    font-weight: bold;
+    box-sizing: border-box;
+    color: var(--header-text);
+}
+
+.header--center {
+    justify-content: center;
+}

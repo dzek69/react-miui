@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Checkbox } from "../../../components/form/Checkbox";
+
+import { Checkbox } from "../../../index.js";
 
 const CheckboxDemo: React.FC = (props) => {
     const [v, setV] = useState(false);
