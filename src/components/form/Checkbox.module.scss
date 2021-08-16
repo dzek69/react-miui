@@ -1,0 +1,40 @@
+.checkbox {
+    input {
+        width: 0;
+        height: 0;
+        transform: scale(0);
+
+        + span {
+            border-radius: 100px;
+            background: var(--inactive-bg);
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+                width: 12px;
+                height: 12px;
+                fill: white;
+            }
+        }
+
+        &:focus {
+            + span {
+                box-shadow: 0 0 5px black;
+            }
+        }
+
+        &:checked {
+            + span {
+                color: var(--main-color);
+                background: currentColor;
+            }
+        }
+
+        + span + span:not(:empty) {
+            margin-left: 1em;
+        }
+    }
+}

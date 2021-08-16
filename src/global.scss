@@ -1,0 +1,34 @@
+// Font-size ratio: 1,6 (666?)
+// Border ratio: 2,6666
+// Dimensions ratio: 3
+
+// @TODO prefix variable names
+:root {
+    --main-color: #008ad2; // used
+    --main-color-alt: #006AA9;
+
+    --active-bg: #d3d3d3;
+    --inactive-bg: #d3d3d3; // used
+
+    --icon: #636363;
+    --border: #d5d5d5;
+    --button-border: #bababa;
+
+    --header-border: #c8c8c9;
+    --header-bg: #efeff0;
+    --header-text: #484848;
+
+    --toolbar--border: #ababab;
+    --toolbar--bg: #f8f8f8;
+
+    --color1: #00aeeb;
+    --color2: #9d6ee5;
+    --color3: #00c293;
+    --color4: #ff5290;
+    --color5: #ff7259;
+    --color6: #4083f7;
+}
+
+*:focus { // @TODO take care of focus
+    outline: none!important;
+}

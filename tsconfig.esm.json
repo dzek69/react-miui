@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "incremental": false,
-        "target": "es2017",
-        "module": "commonjs",
+        "target": "es2019",
+        "module": "es2015",
         "lib": [
             "es2019",
             "dom"
@@ -14,7 +14,7 @@
         "declarationMap": true,
         "sourceMap": true,
         "outFile": null,
-        "outDir": "./dist",
+        "outDir": "./esm",
         "rootDir": "./src",
         "composite": false,
         "tsBuildInfoFile": null,

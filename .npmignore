@@ -1,4 +1,6 @@
 /.idea/
+/.cache/
+/.next/
 /build-scripts/
 /test/
 
@@ -12,3 +14,4 @@
 /.editorconfig
 /tsconfig.*
 /.eslintrc.json
+

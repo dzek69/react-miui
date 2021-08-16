@@ -2,14 +2,14 @@
     "compilerOptions": {
         "incremental": false,
         "target": "es2019",
-        "module": "es2015",
+        "module": "esnext",
         "lib": [
             "es2019",
             "dom"
         ],
         "allowJs": true,
         "checkJs": false,
-        "jsx": "react",
+        "jsx": "preserve",
         "declaration": true,
         "declarationMap": true,
         "sourceMap": true,
@@ -52,10 +52,12 @@
         "experimentalDecorators": null,
         "emitDecoratorMetadata": null,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true
     },
     "include": [
-        "src/"
+        "src/",
+        "next-env.d.ts"
     ],
     "exclude": [
         "src/**/*.spec.ts",
