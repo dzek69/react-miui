@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Header + StickyHeader component
 - List + Item components
 - multi-level menu support in demo
+- mobile preview on demo
 ### Fixed
 - scrolling on the demo page
 

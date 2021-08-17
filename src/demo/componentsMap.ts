@@ -1,7 +1,11 @@
 import type React from "react";
 import { CheckboxDemo } from "./components/form/Checkbox";
 import { HeaderDemo } from "./components/layout/header/Header";
-import { StickyHeaderDemo } from "./components/layout/header/StickyHeader";
+import {
+    StickyHeaderBottomDemo,
+    StickyHeaderDemo, StickyHeaderLeftCenterDemo, StickyHeaderLeftDemo, StickyHeaderRightDemo,
+    StickyHeaderTopBottomDemo,
+} from "./components/layout/header/StickyHeader";
 import { ListItemDemo } from "./components/layout/list/List.Item";
 
 type AnyComponent = React.ComponentClass | React.FC;
@@ -25,10 +29,32 @@ const componentsMap: TheMap = {
     Header: {
         name: "Header",
         Component: HeaderDemo,
-    },
-    StickyHeader: {
-        name: "Sticky header",
-        Component: StickyHeaderDemo,
+        children: {
+            Sticky: {
+                name: "Sticky header",
+                Component: StickyHeaderDemo,
+            },
+            StickyBottom: {
+                name: "On bottom",
+                Component: StickyHeaderBottomDemo,
+            },
+            StickyTopBottom: {
+                name: "On top & bottom",
+                Component: StickyHeaderTopBottomDemo,
+            },
+            StickyLeft: {
+                name: "On left",
+                Component: StickyHeaderLeftDemo,
+            },
+            StickyRight: {
+                name: "On right",
+                Component: StickyHeaderRightDemo,
+            },
+            StickyLeftCentered: {
+                name: "On left centered",
+                Component: StickyHeaderLeftCenterDemo,
+            },
+        },
     },
     ListItem: {
         name: "List & Item",

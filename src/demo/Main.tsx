@@ -7,7 +7,7 @@ import { safeUseHash } from "./utils/safeUseHash";
 import type { TheMap, TheMapItem } from "./componentsMap";
 import { componentsMap } from "./componentsMap";
 
-type BG = "white" | "transparent";
+type BG = "white" | "transparent" | "mobile";
 type AnyComponent = React.ComponentClass | React.FC;
 
 interface ComponentInfo {
@@ -60,6 +60,7 @@ const Main: React.FC = (props) => {
 
     const componentCls = classnames(styles.component, {
         [styles["component--transparent"]]: bg === "transparent",
+        [styles["component--mobile"]]: bg === "mobile",
     });
 
     return (
@@ -67,6 +68,7 @@ const Main: React.FC = (props) => {
             <h1 className={styles.header}>{info.name}</h1>
             <button onClick={() => { setBg("transparent"); }}>Transparent</button>
             <button onClick={() => { setBg("white"); }}>White</button>
+            <button onClick={() => { setBg("mobile"); }}>Mobile</button>
 
             <div className={componentCls}>
                 <Component />
