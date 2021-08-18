@@ -7,6 +7,7 @@ import {
     StickyHeaderTopBottomDemo,
 } from "./components/layout/header/StickyHeader";
 import { ListItemDemo } from "./components/layout/list/List.Item";
+import { DirectionPadDemo } from "./components/ui/directionPad/Pad";
 
 type AnyComponent = React.ComponentClass | React.FC;
 
@@ -59,6 +60,10 @@ const componentsMap: TheMap = {
     ListItem: {
         name: "List & Item",
         Component: ListItemDemo,
+    },
+    Pad: {
+        name: "Direction pad",
+        Component: DirectionPadDemo,
     },
 };
 

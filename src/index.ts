@@ -3,3 +3,4 @@ export * from "./components/layout/header/Header.js";
 export * from "./components/layout/header/StickyHeader.js";
 export * from "./components/layout/list/List.js";
 export * from "./components/layout/list/Item.js";
+export * from "./components/ui/directionPad/Pad.js";

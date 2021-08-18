@@ -6,10 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
-## [0.0.1+] - xxxx-xx-xx
+## [0.0.2] - 2021-08-17
 ### Added
 - Header + StickyHeader component
 - List + Item components
+- Direction pad component
 - multi-level menu support in demo
 - mobile preview on demo
 ### Fixed
