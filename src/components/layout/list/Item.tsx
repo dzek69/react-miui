@@ -39,7 +39,9 @@ const Item: React.FC<Props> = (props) => {
     }
     if (onClick) {
         return (
-            <li {...liProps}><button className={styles.button} onClick={onClick} {...restProps}>{children}</button></li>
+            <li {...liProps}>
+                <button className={styles.button} onClick={props.onClick} {...restProps}>{children}</button>
+            </li>
         );
     }
     return <li {...liProps}><div {...restProps}>{children}</div></li>;

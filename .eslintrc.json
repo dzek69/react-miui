@@ -2,7 +2,8 @@
     "root": true,
     "extends": [
         "@dzek69/eslint-config-base",
-        "@dzek69/eslint-config-typescript"
+        "@dzek69/eslint-config-typescript",
+        "@dzek69/eslint-config-react"
     ],
     "env": {
         "node": true,
@@ -11,6 +12,9 @@
     "parserOptions": {
         "sourceType": "module",
         "project": "./tsconfig.lint.json"
+    },
+    "rules": {
+        "react/prop-types": "off"
     },
     "ignorePatterns": [],
     "overrides": [
@@ -31,7 +35,8 @@
                 "@typescript-eslint/no-magic-numbers": "off",
                 "@typescript-eslint/no-unsafe-call": "off",
                 "@typescript-eslint/no-unsafe-member-access": "off",
-                "no-unused-labels": "off"
+                "no-unused-labels": "off",
+                "react/no-multi-comp": "off"
             }
         },
         {
@@ -41,6 +46,23 @@
             "rules": {
                 "max-len": "off"
             }
+        },
+        {
+            "files": [
+                "src/demo/**/*.tsx"
+            ],
+            "rules": {
+                "react/no-multi-comp": "off"
+            }
         }
-    ]
+    ],
+    "settings": {
+        "react": {
+            "createClass": "createReactClass",
+            "pragma": "React",
+            "version": "detect",
+            "flowVersion": "detect"
+        },
+        "propWrapperFunctions": []
+    }
 }

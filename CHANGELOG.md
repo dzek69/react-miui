@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.0.3] - 2021-08-17
+### Dev
+- added react eslint rules, updated base eslint rules
+- code style fixed for the rules
+
 ## [0.0.2] - 2021-08-17
 ### Added
 - Header + StickyHeader component

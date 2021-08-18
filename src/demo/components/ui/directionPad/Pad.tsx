@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { DirectionPad } from "../../../..";
 
 const DirectionPadDemo: React.FC = (props) => {
     const [lastClick, setLastClick] = useState("<none>");
 
+    const handleLeftClick = useCallback(() => {
+        setLastClick("left");
+    }, []);
+    const handleRightClick = useCallback(() => {
+        setLastClick("right");
+    }, []);
+    const handleUpClick = useCallback(() => {
+        setLastClick("up");
+    }, []);
+    const handleDownClick = useCallback(() => {
+        setLastClick("down");
+    }, []);
+    const handleMiddleClick = useCallback(() => {
+        setLastClick("res");
+    }, []);
+
     return (
         <>
-            <DirectionPad onLeftPress={() => { setLastClick("left"); }} onRightPress={() => { setLastClick("right"); }}
-                onUpPress={() => { setLastClick("up"); }}
-                onDownPress={() => { setLastClick("down"); }}
-                onMiddlePress={() => { setLastClick("res"); }}
+            <DirectionPad
+                onLeftPress={handleLeftClick}
+                onRightPress={handleRightClick}
+                onUpPress={handleUpClick}
+                onDownPress={handleDownClick}
+                onMiddlePress={handleMiddleClick}
                 middleLabel={"RES"}
             />
             <div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import classnames from "classnames";
 
 import styles from "./Main.module.scss";
@@ -47,6 +47,16 @@ const Main: React.FC = (props) => {
     const hashWithoutHash = hash.substr(1);
     const info = getComponentByHash(hashWithoutHash);
 
+    const handleTransparentBg = useCallback(() => {
+        setBg("transparent");
+    }, []);
+    const handleWhiteBg = useCallback(() => {
+        setBg("white");
+    }, []);
+    const handleMobileBg = useCallback(() => {
+        setBg("mobile");
+    }, []);
+
     if (!info) {
         return (
             <div className={styles.container}>
@@ -66,9 +76,9 @@ const Main: React.FC = (props) => {
     return (
         <div className={styles.container}>
             <h1 className={styles.header}>{info.name}</h1>
-            <button onClick={() => { setBg("transparent"); }}>Transparent</button>
-            <button onClick={() => { setBg("white"); }}>White</button>
-            <button onClick={() => { setBg("mobile"); }}>Mobile</button>
+            <button onClick={handleTransparentBg}>Transparent</button>
+            <button onClick={handleWhiteBg}>White</button>
+            <button onClick={handleMobileBg}>Mobile</button>
 
             <div className={componentCls}>
                 <Component />

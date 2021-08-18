@@ -1,6 +1,6 @@
 {
   "name": "react-miui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Jacek Nowacki",
   "license": "MIT",
   "scripts": {
@@ -33,8 +33,9 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-typescript": "^7.12.7",
-    "@dzek69/eslint-config-base": "^2.0.0",
+    "@dzek69/eslint-config-base": "^2.1.0",
     "@dzek69/eslint-config-typescript": "^0.4.0",
+    "@dzek69/eslint-config-react": "^1.2.2",
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
@@ -42,7 +43,8 @@
     "@typescript-eslint/parser": "^4.11.1",
     "babel-plugin-module-extension": "^0.1.3",
     "babel-plugin-module-resolver": "^4.1.0",
-    "eslint": "^7.14.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.24.0",
     "fast-glob": "^3.2.7",
     "fs-extra": "^9.0.1",
     "husky": "^4.3.0",

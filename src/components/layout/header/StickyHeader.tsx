@@ -46,6 +46,7 @@ const StickyHeader: React.FC<Props> & Content = (props) => {
         </div>
     );
 };
+// eslint-disable-next-line react/no-multi-comp
 StickyHeader.Content = ({ children }) => {
     return <>{children}</>;
 };
