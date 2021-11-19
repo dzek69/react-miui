@@ -1,0 +1,26 @@
+.action {
+    height: calc(102px / var(--ratio-dimensions));
+    width: calc(102px / var(--ratio-dimensions));
+    border-radius: 100px;
+    border: calc(1px / var(--ratio-border)) solid var(--button-border);
+    background: white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.a {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.button {
+    border: none;
+    padding: 0;
+    background: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(18px / var(--ratio-dimensions));
+}

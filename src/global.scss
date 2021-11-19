@@ -1,9 +1,9 @@
-// Font-size ratio: 1,6 (666?)
-// Border ratio: 2,6666
-// Dimensions ratio: 3
-
 // @TODO prefix variable names
 :root {
+    --ratio-dimensions: 3;
+    --ratio-border:     2.666666;
+    --ratio-font:       1.666666;
+
     --main-color: #008ad2; // used
     --main-color-alt: #006AA9;
 
@@ -19,16 +19,24 @@
     --header-text: #484848;
 
     --toolbar-border: #ababab;
-    --toolbar-bg: #f8f8f8;
+    --toolbarf-bg: #f8f8f8;
 
-    --color1: #00aeeb;
-    --color2: #9d6ee5;
-    --color3: #00c293;
-    --color4: #ff5290;
-    --color5: #ff7259;
-    --color6: #4083f7;
+    // Shades: https://maketintsandshades.com/#038bf4,ff7200,7357e8,3ec234,3ec234,ff388f,ea2700
+    --blue1: #038bf4;
+    --orange1: #ff7200;
+    --purple1: #7357e8;
+    --green1: #3ec234;
+    --green1-darker: #38af2f;
+    --pink1: #ff388f;
+    --red1: #ea2700;
+
+    --grey1: #737373;
 }
 
 *:focus { // @TODO take care of focus
     outline: none!important;
+}
+
+body {
+    font-size: 15px;
 }

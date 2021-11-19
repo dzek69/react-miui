@@ -1,6 +1,6 @@
 {
   "name": "react-miui",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "author": "Jacek Nowacki",
   "license": "MIT",
   "scripts": {
@@ -14,7 +14,8 @@
     "lint:fix": "yarn lint --fix",
     "prepack": "yarn compile",
     "prepublishOnly": "yarn audit && yarn lint && yarn test && yarn docs",
-    "start:dev": "next dev"
+    "start:dev": "next dev",
+    "deploy:dev": "next build && next export && netlify deploy --dir out"
   },
   "exports": {
     "./global.scss": "./src/global.scss",
@@ -34,8 +35,8 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-typescript": "^7.12.7",
     "@dzek69/eslint-config-base": "^2.1.0",
-    "@dzek69/eslint-config-typescript": "^0.4.0",
     "@dzek69/eslint-config-react": "^1.2.2",
+    "@dzek69/eslint-config-typescript": "^0.4.0",
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
@@ -50,8 +51,7 @@
     "husky": "^4.3.0",
     "jest": "^27.0.6",
     "must": "^0.13.4",
-    "next": "^11.1.0",
-    "nodemon": "^2.0.6",
+    "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-use": "^17.2.4",
@@ -71,7 +71,7 @@
     }
   },
   "libraryTemplate": {
-    "version": "3.3.1",
+    "version": "3.4.0",
     "language": "typescript",
     "fixDefaultForCommonJS": true,
     "jsx": true

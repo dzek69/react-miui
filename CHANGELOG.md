@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.1.0] - 2021-11-19
+### Added
+- Icon component
+- Action component
+- EqualActions component
+- Button component
+- Header will automatically wrap Action components with EqualActions
+### Changed
+- Header component now has padding by default
+### Fixed
+- checkbox dimensions
+- header on the right had border on the wrong side
+### Dev
+- deps upgrade
+
 ## [0.0.3] - 2021-08-17
 ### Dev
 - added react eslint rules, updated base eslint rules

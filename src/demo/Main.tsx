@@ -1,14 +1,15 @@
 import React, { useCallback, useState } from "react";
 import classnames from "classnames";
 
+import type { AnyComponent } from "../types";
+import type { TheMap, TheMapItem } from "./componentsMap";
+
 import styles from "./Main.module.scss";
 
 import { safeUseHash } from "./utils/safeUseHash";
-import type { TheMap, TheMapItem } from "./componentsMap";
 import { componentsMap } from "./componentsMap";
 
 type BG = "white" | "transparent" | "mobile";
-type AnyComponent = React.ComponentClass | React.FC;
 
 interface ComponentInfo {
     Component: AnyComponent;

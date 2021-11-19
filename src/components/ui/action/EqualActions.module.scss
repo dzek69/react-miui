@@ -1,0 +1,6 @@
+.actions {
+    --actions-count: 1;
+    display: inline-grid;
+    grid-template-columns: repeat(var(--actions-count), 1fr);
+    gap: calc(56px / var(--ratio-dimensions));
+}

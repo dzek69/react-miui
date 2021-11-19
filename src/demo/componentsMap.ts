@@ -1,4 +1,4 @@
-import type React from "react";
+import type { AnyComponent } from "../types";
 import { CheckboxDemo } from "./components/form/Checkbox";
 import { HeaderDemo } from "./components/layout/header/Header";
 import {
@@ -8,8 +8,15 @@ import {
 } from "./components/layout/header/StickyHeader";
 import { ListItemDemo } from "./components/layout/list/List.Item";
 import { DirectionPadDemo } from "./components/ui/directionPad/Pad";
-
-type AnyComponent = React.ComponentClass | React.FC;
+import { IconsDemo } from "./components/ui/icons/Icons";
+import { ButtonDemo } from "./components/ui/button/ButtonDemo";
+import {
+    ActionDemo,
+    ActionLabelsOnBottom,
+    ActionsDemo,
+    ActionsOnBottom,
+    ActionsOnLeft,
+} from "./components/ui/action/Action";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -23,6 +30,10 @@ interface TheMapItem {
 }
 
 const componentsMap: TheMap = {
+    Button: {
+        name: "Button",
+        Component: ButtonDemo,
+    },
     Checkbox: {
         name: "Checkbox",
         Component: CheckboxDemo,
@@ -57,6 +68,28 @@ const componentsMap: TheMap = {
             },
         },
     },
+    Action: {
+        name: "Action",
+        Component: ActionDemo,
+        children: {
+            ActionOnBottom: {
+                name: "Actions on header",
+                Component: ActionsOnBottom,
+            },
+            ActionLabelsOnBottom: {
+                name: "Actions with labels on header",
+                Component: ActionLabelsOnBottom,
+            },
+            ActionOnLeft: {
+                name: "Actions on left header",
+                Component: ActionsOnLeft,
+            },
+            Actions: {
+                name: "Actions (wrapper)",
+                Component: ActionsDemo,
+            },
+        },
+    },
     ListItem: {
         name: "List & Item",
         Component: ListItemDemo,
@@ -64,6 +97,10 @@ const componentsMap: TheMap = {
     Pad: {
         name: "Direction pad",
         Component: DirectionPadDemo,
+    },
+    Icons: {
+        name: "Icons",
+        Component: IconsDemo,
     },
 };
 

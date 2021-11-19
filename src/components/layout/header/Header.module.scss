@@ -16,11 +16,11 @@
 }
 
 .header--top, .header--bottom {
-    padding: 0 16.666px;
+    padding: 13px 16.666px;
     min-height: 44px;
 }
 .header--left, .header--right {
-    padding: 16.666px 0;
+    padding: 16.666px 13px;
     min-width: 44px;
     flex-direction: column;
 }
@@ -36,7 +36,7 @@
     border-right: 0.37px solid var(--border-color);
 }
 .header--right {
-    border-right: 0.37px solid var(--border-color);
+    border-left: 0.37px solid var(--border-color);
     order: 2;
 }
 
