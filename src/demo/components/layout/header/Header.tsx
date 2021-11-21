@@ -27,6 +27,14 @@ const CenteredHeaderDemo = () => {
     );
 };
 
+const ToolbarVariantDemo = () => {
+    return (
+        <>
+            <Header center={true} variant={"toolbar"}>Toolbar version</Header>
+        </>
+    );
+};
+
 const handleClick = () => { alert(1); };
 
 // eslint-disable-next-line max-lines-per-function
@@ -108,4 +116,4 @@ const HeaderWithButtonsOnSideDemo = () => {
     );
 };
 
-export { HeaderDemo, CenteredHeaderDemo, HeaderWithButtonsDemo, HeaderWithButtonsOnSideDemo };
+export { HeaderDemo, CenteredHeaderDemo, ToolbarVariantDemo, HeaderWithButtonsDemo, HeaderWithButtonsOnSideDemo };

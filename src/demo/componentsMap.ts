@@ -4,7 +4,7 @@ import {
     CenteredHeaderDemo,
     HeaderDemo,
     HeaderWithButtonsDemo,
-    HeaderWithButtonsOnSideDemo,
+    HeaderWithButtonsOnSideDemo, ToolbarVariantDemo,
 } from "./components/layout/header/Header";
 import {
     StickyHeaderBottomDemo,
@@ -22,6 +22,7 @@ import {
     ActionsOnBottom,
     ActionsOnLeft,
 } from "./components/ui/action/Action";
+import { ToggleDemo } from "./components/form/Toggle";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -43,6 +44,10 @@ const componentsMap: TheMap = {
         name: "Checkbox",
         Component: CheckboxDemo,
     },
+    Toggle: {
+        name: "Toggle",
+        Component: ToggleDemo,
+    },
     Header: {
         name: "Header",
         Component: HeaderDemo,
@@ -50,6 +55,10 @@ const componentsMap: TheMap = {
             Centered: {
                 name: "Centered",
                 Component: CenteredHeaderDemo,
+            },
+            Toolbar: {
+                name: "Toolbar",
+                Component: ToolbarVariantDemo,
             },
             WithButtons: {
                 name: "With buttons",

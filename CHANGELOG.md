@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.3.0] - 2021-11-21
+### Added
+- Toggle component
+- Missing demo of `toolbar` variant of Header
+
 ## [0.2.0] - 2021-11-21
 ### Added
 - `back` icon

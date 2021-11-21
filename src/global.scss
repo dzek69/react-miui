@@ -10,6 +10,9 @@
     --active-bg: #d3d3d3;
     --inactive-bg: #d3d3d3; // used
 
+    --toggle-handle-bg: #e0e0e0;
+    --toggle-handle-border: #cdcdcd;
+
     --icon: #636363;
     --border: #d5d5d5;
     --button-border: #bababa;
@@ -19,11 +22,12 @@
     --header-text: #484848;
 
     --toolbar-border: #ababab;
-    --toolbarf-bg: #f8f8f8;
+    --toolbar-bg: #f8f8f8;
 
     // Shades: https://maketintsandshades.com/#038bf4,ff7200,7357e8,3ec234,3ec234,ff388f,ea2700
     --blue1: #038bf4;
     --orange1: #ff7200;
+    --orange1-darker: #cc5b00;
     --purple1: #7357e8;
     --green1: #3ec234;
     --green1-darker: #38af2f;
