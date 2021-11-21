@@ -1,5 +1,6 @@
 import React from "react";
 import classnames from "classnames";
+import type { ReactNode } from "react";
 
 import styles from "./Header.module.scss";
 import { Action } from "../../ui/action/Action";
@@ -8,10 +9,17 @@ import { EqualActions } from "../../ui/action/EqualActions";
 interface Props {
     center?: boolean;
     variant?: "toolbar";
-    position?: "top" | "left" | "right" | "bottom";
+    /**
+     * This indicates just how the borders are drawn and how content is aligned, not the actual position on the screen.
+     * To set up position on the screen you need to properly style parent element.
+     */
+    position?: "top" | "left" | "right" | "bottom"; // @TODO disallow left/right if not inside StickyHeader?
     className?: string;
+    before?: ReactNode;
+    after?: ReactNode;
 }
 
+// eslint-disable-next-line max-statements
 const Header: React.FC<Props> = (props) => {
     const { center, children, variant, position = "top" } = props;
 
@@ -30,12 +38,26 @@ const Header: React.FC<Props> = (props) => {
 
     let contents = children;
     if (justActions) {
-        contents = <EqualActions>{contents}</EqualActions>;
+        contents = <EqualActions className={styles.actions}>{contents}</EqualActions>;
+    }
+
+    let before: ReactNode;
+    if (props.before != null) {
+        before = <div className={styles.before}>{props.before}</div>;
+    }
+
+    let after: ReactNode;
+    if (props.after != null) {
+        after = <div className={styles.after}>{props.after}</div>;
     }
 
     return (
         <div className={cls}>
-            {contents}
+            {before}
+            <div className={styles.contents}>
+                {contents}
+            </div>
+            {after}
         </div>
     );
 };

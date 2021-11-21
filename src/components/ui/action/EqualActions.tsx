@@ -2,11 +2,16 @@ import React from "react";
 import { Action } from "./Action";
 
 import styles from "./EqualActions.module.scss";
+import classnames from "classnames";
 
-const EqualActions: React.FC = (props) => {
+interface Props {
+    className?: string;
+}
+
+const EqualActions: React.FC<Props> = (props) => {
     React.Children.forEach(props.children, (child) => {
         if (!child || typeof child !== "object" || !("type" in child) || child.type !== Action) {
-            throw new TypeError("Every child of Actions must be an Action component");
+            throw new TypeError("Every child of EqualActions must be an Action component");
         }
     });
 
@@ -16,7 +21,7 @@ const EqualActions: React.FC = (props) => {
     } as React.CSSProperties;
 
     return (
-        <div className={styles.actions} style={style}>
+        <div className={classnames(styles.actions, props.className)} style={style}>
             {props.children}
         </div>
     );

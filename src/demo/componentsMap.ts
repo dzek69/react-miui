@@ -1,6 +1,11 @@
 import type { AnyComponent } from "../types";
 import { CheckboxDemo } from "./components/form/Checkbox";
-import { HeaderDemo } from "./components/layout/header/Header";
+import {
+    CenteredHeaderDemo,
+    HeaderDemo,
+    HeaderWithButtonsDemo,
+    HeaderWithButtonsOnSideDemo,
+} from "./components/layout/header/Header";
 import {
     StickyHeaderBottomDemo,
     StickyHeaderDemo, StickyHeaderLeftCenterDemo, StickyHeaderLeftDemo, StickyHeaderRightDemo,
@@ -42,29 +47,45 @@ const componentsMap: TheMap = {
         name: "Header",
         Component: HeaderDemo,
         children: {
+            Centered: {
+                name: "Centered",
+                Component: CenteredHeaderDemo,
+            },
+            WithButtons: {
+                name: "With buttons",
+                Component: HeaderWithButtonsDemo,
+                children: {
+                    OnLeft: {
+                        name: "On the side",
+                        Component: HeaderWithButtonsOnSideDemo,
+                    },
+                },
+            },
             Sticky: {
-                name: "Sticky header",
+                name: "Sticky",
                 Component: StickyHeaderDemo,
-            },
-            StickyBottom: {
-                name: "On bottom",
-                Component: StickyHeaderBottomDemo,
-            },
-            StickyTopBottom: {
-                name: "On top & bottom",
-                Component: StickyHeaderTopBottomDemo,
-            },
-            StickyLeft: {
-                name: "On left",
-                Component: StickyHeaderLeftDemo,
-            },
-            StickyRight: {
-                name: "On right",
-                Component: StickyHeaderRightDemo,
-            },
-            StickyLeftCentered: {
-                name: "On left centered",
-                Component: StickyHeaderLeftCenterDemo,
+                children: {
+                    StickyBottom: {
+                        name: "On bottom",
+                        Component: StickyHeaderBottomDemo,
+                    },
+                    StickyTopBottom: {
+                        name: "On top & bottom",
+                        Component: StickyHeaderTopBottomDemo,
+                    },
+                    StickyLeft: {
+                        name: "On left",
+                        Component: StickyHeaderLeftDemo,
+                    },
+                    StickyRight: {
+                        name: "On right",
+                        Component: StickyHeaderRightDemo,
+                    },
+                    StickyLeftCentered: {
+                        name: "On left centered",
+                        Component: StickyHeaderLeftCenterDemo,
+                    },
+                },
             },
         },
     },
@@ -84,8 +105,8 @@ const componentsMap: TheMap = {
                 name: "Actions on left header",
                 Component: ActionsOnLeft,
             },
-            Actions: {
-                name: "Actions (wrapper)",
+            EqualActions: {
+                name: "EqualActions (wrapper)",
                 Component: ActionsDemo,
             },
         },

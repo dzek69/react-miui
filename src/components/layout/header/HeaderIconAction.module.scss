@@ -1,0 +1,22 @@
+.btn, .a {
+    padding: 7px;
+    background: none;
+    border-radius: 666px;
+    display: inline-block;
+    border: calc(2px / var(--ratio-border)) solid transparent;
+    color: var(--header-text);
+
+    &:hover {
+        background: #00000022;
+    }
+    &:active {
+        background: #00000011;
+        color: currentColor;
+    }
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+}

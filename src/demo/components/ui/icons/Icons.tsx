@@ -1,23 +1,24 @@
 import React from "react";
-import { Icon, ICON } from "../../../../index.js";
+import { Icon, ICON, Item, List } from "../../../../index.js";
+
+import styles from "./Icons.module.scss";
 
 const IconsDemo: React.FC = () => {
     const icons = Object.values(ICON).map((value) => {
         return (
-            <li key={value}>
-                <Icon name={value} />
-                {value}
-            </li>
+            <Item key={value}>
+                <div className={styles.row}>
+                    {value}
+                    <Icon name={value} />
+                </div>
+            </Item>
         );
     });
 
     return (
-        <div>
-            Icons:
-            <ul>
-                {icons}
-            </ul>
-        </div>
+        <List>
+            {icons}
+        </List>
     );
 };
 

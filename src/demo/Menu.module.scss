@@ -35,5 +35,7 @@
         &:hover {
             background: var(--active-bg);
         }
+
+        --focus-bg-set: var(--focus-color);
     }
 }

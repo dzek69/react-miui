@@ -26,7 +26,7 @@ const ActionDemo: React.FC = () => {
                 <Action icon={ICON.checkmark} onClick={handleClick} /> - onClick action
             </div>
             <div>
-                <Action icon={ICON.checkmark} onClick={handleClick} label={"Pineapple"} /> - onClick action
+                <Action icon={ICON.checkmark} onClick={handleClick} label={"Pineapple"} /> - onClick action with label
             </div>
         </>
     );
@@ -94,9 +94,9 @@ const ActionLabelsOnBottom = () => {
 const ActionsDemo = () => {
     return (
         <div>
-            To make every action take the same amount of horizontal space you need to wrap every Action with Actions
-            wrapper. Some components (like Header) will do that automatically for you. If you need to use Actions
-            outside of such components - manually wrap them with Actions.
+            To make every action take the same amount of horizontal space you need to wrap every Action with
+            EqualActions wrapper. Some components (like Header) will do that automatically for you. If you need to use
+            Actions outside of such components - manually wrap them with EqualActions.
 
             <div>
                 <EqualActions>

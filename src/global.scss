@@ -31,11 +31,20 @@
     --red1: #ea2700;
 
     --grey1: #737373;
+
+    --focus-color: #dcaf00;
 }
 
-*:focus { // @TODO take care of focus
+*:focus {
     outline: none!important;
 }
+
+*:focus-visible:focus-visible {
+    outline: none!important;
+    border-color: var(--focus-color);
+    background-color: var(--focus-bg-set);
+}
+
 
 body {
     font-size: 15px;

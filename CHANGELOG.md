@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.2.0] - 2021-11-21
+### Added
+- `back` icon
+- support for button icons in the header
+- basic, WIP support for focus indicator
+### Changed
+- Header component no longer has padding by default
+### Fixed
+- Actions should be named EqualActions everywhere, some texts were not updated before releasing
+- some examples leading to 404 page (WIP)
+
 ## [0.1.0] - 2021-11-19
 ### Added
 - Icon component
