@@ -3,8 +3,6 @@ import { Toggle } from "../../../components/form/Toggle";
 import { List } from "../../../components/layout/list/List";
 import { Item } from "../../../components/layout/list/Item";
 
-import styles from "./Toggle.module.scss";
-
 const handleNoop = () => undefined;
 
 const ToggleDemo: React.VFC = () => {
@@ -28,29 +26,21 @@ const ToggleDemo: React.VFC = () => {
 
     return (
         <List>
-            <Item>
-                <div className={styles.row}>
-                    <span>Off</span>
-                    <Toggle onChange={handleNoop} state={false} />
-                </div>
+            <Item ratio={"1/"}>
+                <span>Off</span>
+                <Toggle onChange={handleNoop} state={false} />
             </Item>
-            <Item>
-                <div className={styles.row}>
-                    <span>On</span>
-                    <Toggle onChange={handleNoop} state={true} />
-                </div>
+            <Item ratio={"1/"}>
+                <span>On</span>
+                <Toggle onChange={handleNoop} state={true} />
             </Item>
-            <Item>
-                <div className={styles.row}>
-                    <span>Undetermined</span>
-                    <Toggle onChange={handleNoop} state={null} />
-                </div>
+            <Item ratio={"1/"}>
+                <span>Undetermined</span>
+                <Toggle onChange={handleNoop} state={null} />
             </Item>
-            <Item>
-                <div className={styles.row}>
-                    <span>Dynamic</span>
-                    <Toggle onChange={handleToggle} state={state} />
-                </div>
+            <Item ratio={"1/"}>
+                <span>Dynamic</span>
+                <Toggle onChange={handleToggle} state={state} />
             </Item>
         </List>
     );

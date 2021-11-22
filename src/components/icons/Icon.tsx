@@ -1,12 +1,14 @@
-import type { AnyComponent } from "../../types";
-
 import React from "react";
+
+import type { AnyComponent } from "../../types";
 import { Checkmark } from "./Checkmark";
 import { Back } from "./Back";
+import { Forward } from "./Forward";
 
 enum ICON {
     checkmark = "checkmark",
     back = "back",
+    forward = "forward",
 }
 
 interface Props {
@@ -17,6 +19,7 @@ interface Props {
 const iconsMap = new Map<ICON, AnyComponent>([
     [ICON.checkmark, Checkmark],
     [ICON.back, Back],
+    [ICON.forward, Forward],
 ]);
 
 const Icon: React.FC<Props> = ({ name: iconName, ...props }) => {

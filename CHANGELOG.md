@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.3.0-unreleased.0] - 2021-11-22
+### Added
+- Support for splitting list item row into pieces
+- Label component for list item
+### Changed
+- List item has no default padding
+### Dev
+- demo files from npm package
+
 ## [0.3.0] - 2021-11-21
 ### Added
 - Toggle component

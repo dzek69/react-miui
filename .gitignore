@@ -6,6 +6,8 @@
 /esm/
 /node_modules/
 
+/assets/sources/*.log.csv
+
 /*.tgz
 *.log
 *.tsbuildinfo

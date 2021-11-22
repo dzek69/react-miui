@@ -1,0 +1,9 @@
+.sub {
+    font-size: calc(27px / var(--ratio-font));
+    color: var(--sub);
+    margin-top: calc(27px / var(--ratio-font) / 3);
+}
+
+.root {
+    padding: calc(54px / var(--ratio-dimensions)) 0;
+}

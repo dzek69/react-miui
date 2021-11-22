@@ -23,6 +23,8 @@ import {
     ActionsOnLeft,
 } from "./components/ui/action/Action";
 import { ToggleDemo } from "./components/form/Toggle";
+import { ItemRatioDemo } from "./components/layout/list/ItemRatio";
+import { ItemLabelDemo } from "./components/layout/list/Label";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -123,6 +125,16 @@ const componentsMap: TheMap = {
     ListItem: {
         name: "List & Item",
         Component: ListItemDemo,
+        children: {
+            Ratio: {
+                name: "Alignment",
+                Component: ItemRatioDemo,
+            },
+            Label: {
+                name: "Label",
+                Component: ItemLabelDemo,
+            },
+        },
     },
     Pad: {
         name: "Direction pad",

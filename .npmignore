@@ -6,6 +6,16 @@
 /out/
 /.netlify/
 
+/assets/sources/*.log.csv
+
+/dist/demo
+/dist/pages
+/dist/demo-global.scss
+
+/esm/demo
+/esm/pages
+/esm/demo-global.scss
+
 /babel.config.cjs
 /jest.config.cjs
 /yarn.lock
