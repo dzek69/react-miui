@@ -2,6 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 import styles from "./Item.module.scss";
+import { Value } from "./Value";
 
 interface LinkProps {
     href: string;
@@ -28,7 +29,13 @@ const Item: React.FC<Props> = (props) => {
     const r = ratio ? ratio.split("/") : [];
 
     const ren = React.Children.map(props.children, (child, index) => {
-        const flex = index in r ? r[index] : undefined;
+        let flex = undefined;
+        if (!r.length && child && typeof child === "object" && "type" in child && child.type === Value) {
+            return child;
+        }
+        if (index in r) {
+            flex = r[index];
+        }
         return <div style={{ flex }}>{child}</div>;
     });
 

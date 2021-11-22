@@ -25,6 +25,8 @@ import {
 import { ToggleDemo } from "./components/form/Toggle";
 import { ItemRatioDemo } from "./components/layout/list/ItemRatio";
 import { ItemLabelDemo } from "./components/layout/list/Label";
+import { ListHeaderDemo } from "./components/layout/list/Header";
+import { ValueDemo } from "./components/layout/list/Value";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -130,9 +132,17 @@ const componentsMap: TheMap = {
                 name: "Alignment",
                 Component: ItemRatioDemo,
             },
+            Header: {
+                name: "Header",
+                Component: ListHeaderDemo,
+            },
             Label: {
                 name: "Label",
                 Component: ItemLabelDemo,
+            },
+            Value: {
+                name: "Value",
+                Component: ValueDemo,
             },
         },
     },

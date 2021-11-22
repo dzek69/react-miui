@@ -1,0 +1,8 @@
+.header > * {
+    padding-top: calc(80px / var(--ratio-dimensions));
+    padding-bottom: calc(40px / var(--ratio-dimensions));
+
+    font-size: calc(26px / var(--ratio-font));
+    color: var(--sub);
+    text-transform: uppercase;
+}

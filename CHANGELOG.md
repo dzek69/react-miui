@@ -6,10 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
-## [0.3.0-unreleased.0] - 2021-11-22
+## [0.4.0-unreleased] - 2021-11-22
 ### Added
 - Support for splitting list item row into pieces
-- Label component for list item
+- Label, Value and Header components for list item
 ### Changed
 - List item has no default padding
 ### Dev
