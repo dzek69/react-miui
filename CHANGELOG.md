@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.4.2] - 2021-11-27
+### Fixed
+- A lot of components crashing on unknown imports due to missing extensions
+
 ## [0.4.1] - 2021-11-27
 ### Fixed
 - Missing exports

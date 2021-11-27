@@ -1,8 +1,8 @@
 import React from "react";
-import { Action } from "./Action";
-
-import styles from "./EqualActions.module.scss";
 import classnames from "classnames";
+
+import { Action } from "./Action.js";
+import styles from "./EqualActions.module.scss";
 
 interface Props {
     className?: string;

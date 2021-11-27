@@ -2,8 +2,8 @@ import React from "react";
 import classnames from "classnames";
 
 import styles from "./Item.module.scss";
-import { Value } from "./Value";
-import { Label } from "./Label";
+import { Value } from "./Value.js";
+import { Label } from "./Label.js";
 
 interface LinkProps {
     href: string;

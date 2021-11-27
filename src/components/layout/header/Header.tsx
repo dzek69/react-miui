@@ -3,8 +3,8 @@ import classnames from "classnames";
 import type { ReactNode } from "react";
 
 import styles from "./Header.module.scss";
-import { Action } from "../../ui/action/Action";
-import { EqualActions } from "../../ui/action/EqualActions";
+import { Action } from "../../ui/action/Action.js";
+import { EqualActions } from "../../ui/action/EqualActions.js";
 
 interface Props {
     center?: boolean;

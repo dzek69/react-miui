@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./Checkbox.module.scss";
-import { Checkmark } from "../icons/Checkmark";
+import { Checkmark } from "../icons/Checkmark.js";
 
 interface Props {
     color?: string;

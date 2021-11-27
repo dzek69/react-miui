@@ -1,9 +1,9 @@
 import React from "react";
 
 import type { AnyComponent } from "../../types";
-import { Checkmark } from "./Checkmark";
-import { Back } from "./Back";
-import { Forward } from "./Forward";
+import { Checkmark } from "./Checkmark.js";
+import { Back } from "./Back.js";
+import { Forward } from "./Forward.js";
 
 enum ICON {
     checkmark = "checkmark",

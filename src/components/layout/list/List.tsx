@@ -1,6 +1,6 @@
 import React from "react";
-import { Header } from "./Header";
 
+import { Header } from "./Header.js";
 import styles from "./List.module.scss";
 
 interface SubComponents {
