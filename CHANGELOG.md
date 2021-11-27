@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
-## [0.4.0-unreleased] - 2021-11-22
+## [0.4.0] - 2021-11-27
 ### Added
 - Support for splitting list item row into pieces
 - Label, Value and Header components for list item
@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - List item has no default padding
 ### Dev
 - demo files from npm package
+- some files added to gitignore
 
 ## [0.3.0] - 2021-11-21
 ### Added

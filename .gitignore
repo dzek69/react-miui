@@ -5,6 +5,8 @@
 /dist/
 /esm/
 /node_modules/
+/out/
+/.netlify/
 
 /assets/sources/*.log.csv
 
