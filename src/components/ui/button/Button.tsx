@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 
 import styles from "./Button.module.scss";
-import { makeVariants } from "../../../demo/utils/makeVariants.js";
+import { makeVariants } from "../../../utils/makeVariants.js";
 
 interface Props {
     disabled?: boolean;
