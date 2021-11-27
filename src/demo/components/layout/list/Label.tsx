@@ -1,7 +1,8 @@
 import React from "react";
 import { List } from "../../../../components/layout/list/List";
 import { Item } from "../../../../components/layout/list/Item";
-import { Label } from "../../../../components/layout/list/Label";
+
+const Label = Item.Label;
 
 const ItemLabelDemo = () => {
     return (

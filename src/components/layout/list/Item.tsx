@@ -3,6 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Item.module.scss";
 import { Value } from "./Value";
+import { Label } from "./Label";
 
 interface LinkProps {
     href: string;
@@ -17,8 +18,13 @@ interface Props {
     ratio?: string; // @TODO number/number/number/.. type?
 }
 
+interface SubComponents {
+    Label: typeof Label;
+    Value: typeof Value;
+}
+
 // eslint-disable-next-line max-statements
-const Item: React.FC<Props> = (props) => {
+const Item: React.FC<Props> & SubComponents = (props) => {
     const { className, children, href, to, onClick, Link, ratio, ...restProps } = props;
     const cls = classnames(styles.item, className);
 
@@ -64,5 +70,8 @@ const Item: React.FC<Props> = (props) => {
     }
     return <li {...liProps}><div {...restProps} className={styles.content}>{ren}</div></li>;
 };
+
+Item.Label = Label;
+Item.Value = Value;
 
 export { Item };

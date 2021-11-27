@@ -1,11 +1,11 @@
 import React from "react";
+
 import { List } from "../../../../components/layout/list/List";
 import { Item } from "../../../../components/layout/list/Item";
-import { Value } from "../../../../components/layout/list/Value";
-import { Label } from "../../../../components/layout/list/Label";
 import { ICON, Icon } from "../../../../components/icons/Icon";
-
 import styles from "./Value.module.scss";
+
+const { Label, Value } = Item;
 
 const ValueDemo = () => {
     return (

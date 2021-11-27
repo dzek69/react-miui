@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.4.1] - 2021-11-27
+### Fixed
+- Missing exports
+### Changed
+- Label and Value are subcomponents of Item
+- Header is subcomponent of List
+
 ## [0.4.0] - 2021-11-27
 ### Added
 - Support for splitting list item row into pieces
