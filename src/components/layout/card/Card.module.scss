@@ -1,0 +1,15 @@
+.card {
+    background: var(--background);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+
+    + .card {
+        margin-top: 23px;
+    }
+}
+
+.margin {
+    margin-left: 23px;
+    margin-right: 23px;
+}

@@ -27,6 +27,8 @@ import { ItemRatioDemo } from "./components/layout/list/ItemRatio";
 import { ItemLabelDemo } from "./components/layout/list/Label";
 import { ListHeaderDemo } from "./components/layout/list/Header";
 import { ValueDemo } from "./components/layout/list/Value";
+import { SectionDemo } from "./components/layout/section/Section";
+import { CardDemo } from "./components/layout/card/Card";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -145,6 +147,14 @@ const componentsMap: TheMap = {
                 Component: ValueDemo,
             },
         },
+    },
+    Section: {
+        name: "Section",
+        Component: SectionDemo,
+    },
+    Card: {
+        name: "Card",
+        Component: CardDemo,
     },
     Pad: {
         name: "Direction pad",
