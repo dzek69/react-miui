@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.5.2] - 2021-12-29
+### Fixed
+- button component not accepting most of the props
+
 ## [0.5.1] - 2021-12-17
 ### Fixed
 - newest components not exported

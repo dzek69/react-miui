@@ -5,20 +5,24 @@ import styles from "./Button.module.scss";
 import { makeVariants } from "../../../utils/makeVariants.js";
 
 interface Props {
-    disabled?: boolean;
     variant?: "inline" | "outline";
 }
 
-const Button: React.FC<Props> = (props) => {
+const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & Props> = ({ className, children, ...props }) => {
     const variants = makeVariants(props.variant);
 
     const cls = classnames(styles.btn, {
         [styles["btn--inline"]]: variants.includes("inline"),
         [styles["btn--outline"]]: variants.includes("outline"),
-    });
+    }, className);
 
     return (
-        <button className={cls} disabled={props.disabled}>{props.children}</button>
+        <button
+            {...props}
+            className={cls}
+            disabled={props.disabled}
+        >{children}
+        </button>
     );
 };
 
