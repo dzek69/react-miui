@@ -29,6 +29,10 @@ import { ListHeaderDemo } from "./components/layout/list/Header";
 import { ValueDemo } from "./components/layout/list/Value";
 import { SectionDemo } from "./components/layout/section/Section";
 import { CardDemo } from "./components/layout/card/Card";
+import { InputDemo } from "./components/form/Input";
+import { FormDemo } from "./components/form/Form";
+import { SearchDemo } from "./components/form/Search";
+import { LabelDemo } from "./components/form/Label";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -42,17 +46,35 @@ interface TheMapItem {
 }
 
 const componentsMap: TheMap = {
-    Button: {
-        name: "Button",
-        Component: ButtonDemo,
-    },
-    Checkbox: {
-        name: "Checkbox",
-        Component: CheckboxDemo,
-    },
-    Toggle: {
-        name: "Toggle",
-        Component: ToggleDemo,
+    Form: {
+        name: "Form",
+        Component: FormDemo,
+        children: {
+            Input: {
+                name: "Input",
+                Component: InputDemo,
+            },
+            Label: {
+                name: "Label",
+                Component: LabelDemo,
+            },
+            Search: {
+                name: "Search",
+                Component: SearchDemo,
+            },
+            Button: {
+                name: "Button",
+                Component: ButtonDemo,
+            },
+            Checkbox: {
+                name: "Checkbox",
+                Component: CheckboxDemo,
+            },
+            Toggle: {
+                name: "Toggle",
+                Component: ToggleDemo,
+            },
+        },
     },
     Header: {
         name: "Header",

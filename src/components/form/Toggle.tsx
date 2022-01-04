@@ -8,7 +8,7 @@ interface Props {
     state: boolean | null;
 }
 
-const Toggle: React.VFC<Props> = (props) => {
+const Toggle: React.FC<Props> = (props) => {
     const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         if (props.state == null) {
             return;

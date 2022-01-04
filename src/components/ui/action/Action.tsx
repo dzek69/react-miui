@@ -19,7 +19,7 @@ interface Props {
     // if className ever goes here make sure that `a` gets classnames merged
 }
 
-const Action: React.VFC<Props> = (props) => {
+const Action: React.FC<Props> = (props) => {
     const { icon, label, href, to, Link, ...restProps } = props;
 
     let iconElem: ReactNode = icon;

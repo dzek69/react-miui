@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.6.0] - 2022-01-04
+### Added
+- input component
+- label component (for forms)
+- search container
+- icons: battery, search
+### Dev
+- replaced deprecated type VFC with FC
+
 ## [0.5.2] - 2021-12-29
 ### Fixed
 - button component not accepting most of the props

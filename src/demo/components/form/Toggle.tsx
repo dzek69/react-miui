@@ -5,7 +5,7 @@ import { Item } from "../../../components/layout/list/Item";
 
 const handleNoop = () => undefined;
 
-const ToggleDemo: React.VFC = () => {
+const ToggleDemo: React.FC = () => {
     const [state, ss] = useState<boolean | null>(null);
 
     useEffect(() => {

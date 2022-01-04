@@ -1,0 +1,15 @@
+.label + .label {
+    margin-top: 23px;
+    display: block;
+}
+
+.text {
+    font-size: calc(28px / var(--ratio-font));
+    margin-bottom: calc(24px / var(--ratio-dimensions));
+    color: var(--sub);
+}
+
+.textBig {
+    font-size: calc(34px / var(--ratio-font));
+
+}

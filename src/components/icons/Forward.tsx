@@ -4,7 +4,7 @@ interface Props {
     className?: string;
 }
 
-const Forward: React.VFC<Props> = (props) => {
+const Forward: React.FC<Props> = (props) => {
     return (
         <svg
             width={"9"}

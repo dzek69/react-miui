@@ -4,7 +4,7 @@ interface Props {
     className?: string;
 }
 
-const Back: React.VFC<Props> = (props) => {
+const Back: React.FC<Props> = (props) => {
     return (
         <svg
             width={"9"}
