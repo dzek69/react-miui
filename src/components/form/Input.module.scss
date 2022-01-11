@@ -7,6 +7,8 @@
     display: block;
     width: 100%;
     background: none;
+    font-family: inherit;
+    padding: 1.2em 0;
 
     &::placeholder {
         color: var(--sub);
@@ -22,6 +24,13 @@
     padding: 0 calc(36px / var(--ratio-dimensions));
     border: calc(1px / var(--ratio-border)) solid var(--border);
     align-items: center;
+}
+
+.textarea {
+    padding: 1.2em calc(36px / var(--ratio-dimensions));
+    height: unset;
+    resize: vertical;
+    min-height: calc(103px * 3 / var(--ratio-dimensions))
 }
 
 .prefix {

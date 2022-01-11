@@ -4,6 +4,7 @@ import { SectionContainer } from "../../../components/layout/section/SectionCont
 import { Input } from "../../../components/form/Input";
 import { Label } from "../../../components/form/Label";
 import { Button } from "../../../components/ui/button/Button";
+import { TextArea } from "../../../components/form/TextArea";
 
 // @TODO add checkbox
 // @TODO add toggle
@@ -18,6 +19,9 @@ const FormDemo = () => {
                     </Label>
                     <Label label={"E-mail"}>
                         <Input placeholder={"Don't forget the @"} suffix={".com"} />
+                    </Label>
+                    <Label label={"Your story"}>
+                        <TextArea placeholder={"Hello"} />
                     </Label>
                     <Label>
                         <Button>Submit</Button>

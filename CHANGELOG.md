@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.7.0] - 2022-01-11
+### Added
+- textarea component
+
 ## [0.6.0] - 2022-01-04
 ### Added
 - input component

@@ -1,6 +1,7 @@
 export * from "./components/form/Checkbox.js";
 export * from "./components/form/Input.js";
 export * from "./components/form/Label.js";
+export * from "./components/form/TextArea.js";
 export * from "./components/form/Toggle.js";
 
 export * from "./components/icons/Icon.js";
