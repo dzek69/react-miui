@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    margin-top: calc(100px / var(--ratio-dimensions));
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+}
+
+.button {
+    border: none;
+    border-top: 1px solid var(--modal-button-border);
+    background: var(--modal-button-bg);
+    flex: 1;
+    height: calc(156px / var(--ratio-dimensions));
+    font-weight: 500;
+
+    &:not(:first-child) {
+        border-left: 1px solid var(--modal-button-border);
+    }
+
+    &:first-child {
+        border-bottom-left-radius: calc(12px / var(--ratio-dimensions));
+    }
+
+    &:last-child {
+        border-bottom-right-radius: calc(12px / var(--ratio-dimensions));
+    }
+}
+
+.buttonMain {
+    color: var(--main-color);
+}

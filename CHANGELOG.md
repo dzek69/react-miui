@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.8.0] - 2022-01-27
+### Added
+- modal component
+- toaster component
+### Changed
+- List, Item, Header components support inset variant
+- Item has new prop - `selected` for marking current active item
+### Fixed
+- Item border is on the item itself, not on the child element (fixes some compatibility issues and 1px shorter button element)
+- passing `variant` prop into button html element on Button component
+### Dev
+- fixed menu scrolling
+
 ## [0.7.0] - 2022-01-11
 ### Added
 - textarea component

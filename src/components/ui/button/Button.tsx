@@ -8,8 +8,10 @@ interface Props {
     variant?: "inline" | "outline";
 }
 
-const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & Props> = ({ className, children, ...props }) => {
-    const variants = makeVariants(props.variant);
+const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & Props> = ({
+    className, children, variant, ...props
+}) => {
+    const variants = makeVariants(variant);
 
     const cls = classnames(styles.btn, {
         [styles["btn--inline"]]: variants.includes("inline"),

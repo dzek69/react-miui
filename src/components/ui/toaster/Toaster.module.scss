@@ -1,0 +1,32 @@
+@keyframes show {
+    from {
+        transform: translateY(calc(100% + calc(190px / var(--ratio-dimensions))))
+    }
+}
+
+.toast {
+    position: fixed;
+    bottom: 0;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+
+    span {
+        background: rgba(56, 50, 46, 0.85);
+        color: #F9F6F2;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.37);
+        border-radius: 12px; // around 22 @TODO use calc here
+        display: inline-block;
+        padding: 1em 1em;
+        animation: show 500ms 1;
+        animation-fill-mode: forwards;
+        margin-bottom: calc(190px / var(--ratio-dimensions));
+    }
+}
+
+.hide {
+    transition: opacity 300ms;
+    opacity: 0;
+}

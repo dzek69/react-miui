@@ -1,0 +1,92 @@
+@keyframes overlay {
+    from {
+        background: #00000000;
+    }
+
+    to {
+        background: #0000004c;
+    }
+}
+
+.overlay {
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: overlay 300ms;
+    animation-fill-mode: forwards;
+}
+
+.overlayOnBottom {
+    align-items: flex-end;
+    padding-bottom: calc(24px / var(--ratio-dimensions));
+}
+
+@keyframes container {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.container {
+    background: var(--modal-bg);
+    border-radius: calc(12px / var(--ratio-dimensions));
+    max-width: 333px;
+    width: calc(100% - 30px);
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
+    animation: container 300ms;
+    animation-fill-mode: forwards;
+}
+
+.full {
+    width: calc(100vw - 30px);
+    max-width: 1000px;
+}
+
+.isClosing {
+    // keep this after .overlay .container to prevent overwriting
+    animation-direction: reverse;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    + .title {
+        margin-right: 40px;
+        margin-top: -4px;
+    }
+}
+
+.title {
+    font-size: calc(40px / var(--ratio-font));
+    text-align: center;
+    color: black;
+    margin: calc(90px / var(--ratio-dimensions)) 0;
+}
+
+.negateMargin {
+    margin: 0 -20px -20px;
+}
+
+.removeMargin {
+    margin: 0;
+}

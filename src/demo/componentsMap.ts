@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import type { AnyComponent } from "../types";
 import { CheckboxDemo } from "./components/form/Checkbox";
 import {
@@ -33,6 +34,10 @@ import { InputDemo } from "./components/form/Input";
 import { FormDemo } from "./components/form/Form";
 import { SearchDemo } from "./components/form/Search";
 import { LabelDemo } from "./components/form/Label";
+import { ToasterDemo } from "./components/ui/toaster/Toaster";
+import { ModalCenteredDemo, ModalDemo, ModalOptionsDemo } from "./components/ui/modal/Modal";
+import { ListInsetDemo } from "./components/layout/list/Inset";
+import { ListSelectionDemo } from "./components/layout/list/Selection";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -160,6 +165,14 @@ const componentsMap: TheMap = {
                 name: "Header",
                 Component: ListHeaderDemo,
             },
+            Inset: {
+                name: "Inset",
+                Component: ListInsetDemo,
+            },
+            Selection: {
+                name: "Selection",
+                Component: ListSelectionDemo,
+            },
             Label: {
                 name: "Label",
                 Component: ItemLabelDemo,
@@ -185,6 +198,24 @@ const componentsMap: TheMap = {
     Icons: {
         name: "Icons",
         Component: IconsDemo,
+    },
+    Toaster: {
+        name: "Toaster",
+        Component: ToasterDemo,
+    },
+    Modal: {
+        name: "Modal",
+        Component: ModalDemo,
+        children: {
+            Centered: {
+                name: "Centered & smaller",
+                Component: ModalCenteredDemo,
+            },
+            WithOptions: {
+                name: "With options to pick",
+                Component: ModalOptionsDemo,
+            },
+        },
     },
 };
 
