@@ -1,0 +1,11 @@
+.button {
+    border: none;
+    padding: 0;
+    font-size: calc(29px / var(--ratio-font));
+    color: var(--selector-text);
+    background: none;
+}
+
+.active {
+    color: var(--selector-active);
+}

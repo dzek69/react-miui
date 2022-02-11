@@ -38,6 +38,8 @@ import { ToasterDemo } from "./components/ui/toaster/Toaster";
 import { ModalCenteredDemo, ModalDemo, ModalOptionsDemo } from "./components/ui/modal/Modal";
 import { ListInsetDemo } from "./components/layout/list/Inset";
 import { ListSelectionDemo } from "./components/layout/list/Selection";
+import { TabsDemo } from "./components/ui/tabs/Tabs";
+import { ChoiceDemo } from "./components/form/Choice";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -78,6 +80,10 @@ const componentsMap: TheMap = {
             Toggle: {
                 name: "Toggle",
                 Component: ToggleDemo,
+            },
+            Choice: {
+                name: "Choice",
+                Component: ChoiceDemo,
             },
         },
     },
@@ -152,6 +158,10 @@ const componentsMap: TheMap = {
                 Component: ActionsDemo,
             },
         },
+    },
+    Tabs: {
+        name: "Tabs",
+        Component: TabsDemo,
     },
     ListItem: {
         name: "List & Item",

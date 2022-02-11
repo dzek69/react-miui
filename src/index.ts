@@ -1,3 +1,4 @@
+export * from "./components/form/choice/Choice.js";
 export * from "./components/form/Checkbox.js";
 export * from "./components/form/Input.js";
 export * from "./components/form/Label.js";
@@ -21,4 +22,5 @@ export * from "./components/ui/button/Button.js";
 export * from "./components/ui/directionPad/Pad.js";
 export * from "./components/ui/modal/Modal.js";
 export * from "./components/ui/modal/ModalButtons.js";
+export * from "./components/ui/tabs/Selector.js";
 export * from "./components/ui/toaster/Toaster.js";
