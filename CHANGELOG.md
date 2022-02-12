@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.9.1] - 2022-02-12
+### Fixed
+- class not applied even when specified in props of List elements
+### Added
+- List.Header class name support
+
 ## [0.9.0] - 2022-02-11
 ### Added
 - choice component

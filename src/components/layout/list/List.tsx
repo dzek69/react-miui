@@ -30,13 +30,12 @@ const List: React.FC<Props> & SubComponents = (props) => {
         return child;
     });
 
+    const cls = classnames(props.className, styles.list, {
+        [styles.inset]: v.includes("inset"),
+    });
+
     return (
-        <ul
-            className={classnames(styles.list, {
-                [styles.inset]: v.includes("inset"),
-            })}
-        >{chld}
-        </ul>
+        <ul className={cls}>{chld}</ul>
     );
 };
 
