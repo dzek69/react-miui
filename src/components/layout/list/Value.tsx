@@ -1,10 +1,15 @@
 import React from "react";
+import classnames from "classnames";
 
 import styles from "./Value.module.scss";
 
-const Value: React.FC = (props) => {
+interface Props {
+    className?: string;
+}
+
+const Value: React.FC<Props> = (props) => {
     return (
-        <div className={styles.value}>{props.children}</div>
+        <div className={classnames(styles.value, props.className)}>{props.children}</div>
     );
 };
 
