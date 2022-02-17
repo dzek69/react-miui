@@ -6,9 +6,9 @@ import { Checkmark } from "../icons/Checkmark.js";
 
 interface Props {
     color?: string;
-    name: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    checked: boolean;
+    name?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    checked?: boolean;
     disabled?: boolean;
     readOnly?: boolean;
 }
