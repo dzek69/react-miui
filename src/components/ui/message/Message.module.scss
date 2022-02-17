@@ -1,0 +1,31 @@
+.container {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: calc(47px / var(--ratio-dimensions)) calc(83px / var(--ratio-dimensions));
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.box {
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    margin: 12px;
+}
+
+.warning {
+    background-color: var(--yellow3);
+    border-color: var(--yellow1);
+    color: var(--yellow2);
+}
+
+.error {
+    background-color: var(--pinky3);
+    border-color: var(--pinky1);
+    color: var(--pinky2);
+}
+
+.info {
+    background-color: var(--blue3);
+    border-color: var(--blue2);
+    color: var(--blue1);
+}

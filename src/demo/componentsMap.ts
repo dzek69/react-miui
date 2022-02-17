@@ -40,6 +40,7 @@ import { ListInsetDemo } from "./components/layout/list/Inset";
 import { ListSelectionDemo } from "./components/layout/list/Selection";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
 import { ChoiceDemo } from "./components/form/Choice";
+import { MessageDemo } from "./components/ui/message/Message";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -212,6 +213,10 @@ const componentsMap: TheMap = {
     Toaster: {
         name: "Toaster",
         Component: ToasterDemo,
+    },
+    Message: {
+        name: "Message",
+        Component: MessageDemo,
     },
     Modal: {
         name: "Modal",
