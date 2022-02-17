@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.9.4] - 2022-02-17
+### Fixed
+- checkbox onChange typings
+
 ## [0.9.3] - 2022-02-17
 ### Added
 - disabled/readonly support for checkbox
