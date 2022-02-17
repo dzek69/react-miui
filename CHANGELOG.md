@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.9.3] - 2022-02-17
+### Added
+- disabled/readonly support for checkbox
+- disabled/readonly support for input
+### Changed
+- checkbox styles to less collide with disabled/readonly styles
+### Fixed
+- input text prefix wrapping
+
 ## [0.9.2] - 2022-02-15
 ### Changed
 - Added class support to list label and list value components

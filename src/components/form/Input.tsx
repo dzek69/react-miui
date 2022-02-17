@@ -29,6 +29,8 @@ const Input: React.FC<Omit<React.InputHTMLAttributes<HTMLInputElement>, "prefix"
 
     const wrapperCls = classnames(styles.wrapper, {
         [styles.wrapperFocused]: focused,
+        [styles.disabled]: props.disabled,
+        [styles.readOnly]: props.readOnly,
     }, className);
 
     const prefixElem = prefix ? <div className={styles.prefix}>{prefix}</div> : null;

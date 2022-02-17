@@ -7,11 +7,12 @@
 
     --background: white;
 
-    --main-color: #008ad2; // used
+    --main-color: #008ad2;
     --main-color-alt: #006AA9;
 
-    --active-bg: #d3d3d3;
-    --inactive-bg: #d3d3d3; // used
+    --active-bg: #e7e7e7;
+    --inactive-bg: #d3d3d3;
+    --inactive-dark-bg: #999;
 
     --toggle-handle-bg: #e0e0e0;
     --toggle-handle-border: #cdcdcd;
@@ -31,6 +32,9 @@
     --modal-bg: #f7f7f7;
     --modal-button-bg: #f8f8f8;
     --modal-button-border: #c2c2c2;
+
+    --input-disabled-bg: #f3f3f3;
+    --input-disabled-text: #959595;
 
     --choice-bg: #ffffff;
     --choice-text: #999999;
