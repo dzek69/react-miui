@@ -23,5 +23,6 @@ export * from "./components/ui/directionPad/Pad.js";
 export * from "./components/ui/message/Message.js";
 export * from "./components/ui/modal/Modal.js";
 export * from "./components/ui/modal/ModalButtons.js";
+export * from "./components/ui/pop/Pop.js";
 export * from "./components/ui/tabs/Selector.js";
 export * from "./components/ui/toaster/Toaster.js";

@@ -7,9 +7,9 @@ interface Props {
 const Search: React.FC<Props> = (props) => {
     return (
         <svg
-            baseProfile={"basic"}
             width={"16"}
             height={"16"}
+            viewBox={"0 0 16 16"}
             xmlns={"http://www.w3.org/2000/svg"}
             className={props.className}
         >

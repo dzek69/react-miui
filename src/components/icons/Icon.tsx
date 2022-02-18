@@ -6,6 +6,9 @@ import { Back } from "./Back.js";
 import { Forward } from "./Forward.js";
 import { Search } from "./Search.js";
 import { Battery } from "./Battery.js";
+import { Heart } from "./Heart.js";
+import { Trash } from "./Trash.js";
+import { Config } from "./Config.js";
 
 enum ICON {
     checkmark = "checkmark",
@@ -13,6 +16,9 @@ enum ICON {
     forward = "forward",
     search = "search",
     battery = "battery",
+    heart = "heart",
+    trash = "trash",
+    config = "config",
 }
 
 interface Props {
@@ -26,6 +32,9 @@ const iconsMap = new Map<ICON, AnyComponent>([
     [ICON.forward, Forward],
     [ICON.search, Search],
     [ICON.battery, Battery],
+    [ICON.heart, Heart],
+    [ICON.trash, Trash],
+    [ICON.config, Config],
 ]);
 
 const Icon: React.FC<Props> = ({ name: iconName, ...props }) => {

@@ -41,6 +41,7 @@ import { ListSelectionDemo } from "./components/layout/list/Selection";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
 import { ChoiceDemo } from "./components/form/Choice";
 import { MessageDemo } from "./components/ui/message/Message";
+import { PopDemo } from "./components/ui/pop/Pop";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -231,6 +232,10 @@ const componentsMap: TheMap = {
                 Component: ModalOptionsDemo,
             },
         },
+    },
+    Pop: {
+        name: "Pop up menu",
+        Component: PopDemo,
     },
 };
 

@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.11.0] - 2022-02-18
+### Added
+- config, heart, trash icons
+- `Pop` component
+### Changed
+- checkmark icon
+
 ## [0.10.1] - 2022-02-17
 ### Fixed
 - added missing export for Message
