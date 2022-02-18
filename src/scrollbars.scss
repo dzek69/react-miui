@@ -1,0 +1,22 @@
+.miui-scrollbars {
+    overflow-y: auto;
+    scrollbar-color: var(--scrollbars-thumb) var(--scrollbars-bg);
+    scrollbar-width: thin !important;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical {
+        background: var(--scrollbars-thumb);
+        background-clip: padding-box;
+        border: 2px solid var(--scrollbars-bg);
+        min-height: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical:active {
+        background: var(--scrollbars-thumb);
+        border: 2px solid var(--scrollbars-bg);
+    }
+}

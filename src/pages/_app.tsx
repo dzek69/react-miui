@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 
 import "../global.scss";
 import "../demo-global.scss";
+import "../scrollbars.scss";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
     <>

@@ -1,6 +1,6 @@
 {
   "name": "react-miui",
-  "version": "0.11.0",
+  "version": "0.11.0+",
   "author": "Jacek Nowacki",
   "license": "MIT",
   "scripts": {
@@ -28,7 +28,8 @@
   "types": "./esm/index.d.ts",
   "module": "./esm/index.js",
   "dependencies": {
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "oop-timers": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

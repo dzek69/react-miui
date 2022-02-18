@@ -2,6 +2,7 @@ import React from "react";
 
 import styles from "./Menu.module.scss";
 import type { componentsMap } from "./componentsMap";
+import classnames from "classnames";
 
 interface Props {
     ancestors?: string[];
@@ -27,7 +28,7 @@ const Menu: React.FC<Props> = (props) => {
 
     if (!props.ancestors!.length) {
         cmp.unshift(<li key={"--main"}><a href={"#"}>Main</a></li>);
-        return <menu className={styles.menu}>{contents}</menu>;
+        return <menu className={classnames(styles.menu, "miui-scrollbars")}>{contents}</menu>;
     }
 
     return contents;

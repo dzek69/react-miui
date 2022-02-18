@@ -7,7 +7,12 @@ import styles from "./StickyHeader.module.scss";
 const err = new TypeError("StickyHeader needs two children - Header and StickyHeader.Content");
 
 interface Content {
-    Content: React.FC;
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    Content: React.FC<ContentProps>;
+}
+
+interface ContentProps {
+    className?: string;
 }
 
 interface Props {
@@ -35,7 +40,12 @@ const StickyHeader: React.FC<Props> & Content = (props) => {
     content = content as never;
 
     const cls = classnames(styles.stickyHeader, styles[`stickyHeader--${position}`]);
-    const contentCls = classnames(styles.stickyHeader__content, styles[`stickyHeader__content--${position}`]);
+
+    const contentCls = classnames(
+        styles.stickyHeader__content,
+        styles[`stickyHeader__content--${position}`],
+        (content as { props: ContentProps }).props.className,
+    );
 
     return (
         <div className={cls}>

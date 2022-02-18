@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Header, StickyHeader } from "../../../../index.js";
+import { Header, HeaderIconAction, ICON, StickyHeader } from "../../../../index.js";
+import styles from "./StickyHeader.module.scss";
 
 const LongContent: React.FC = () => {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers,react/no-array-index-key
@@ -79,7 +80,32 @@ const StickyHeaderLeftCenterDemo = () => {
     );
 };
 
+const handleNoop = () => null;
+
+const StickyColoredBg = () => {
+    return (
+        <StickyHeader position={"top"}>
+            <Header
+                center={true}
+                variant={"colored"}
+                before={<HeaderIconAction icon={ICON.back} onClick={handleNoop} />}
+                after={"Text"}
+                className={styles.header}
+            >
+                Some text
+            </Header>
+            <StickyHeader.Content className={"miui-scrollbars"}>
+                <div className={styles.coloredBox}>
+                    To achieve this effect set <kbd>variant=colored</kbd> & apply these with className:<br />
+                    <pre>--custom-header-color: green;<br />--custom-text-color: white;</pre>
+                </div>
+                <LongContent />
+            </StickyHeader.Content>
+        </StickyHeader>
+    );
+};
+
 export {
     StickyHeaderDemo, StickyHeaderBottomDemo, StickyHeaderTopBottomDemo, StickyHeaderLeftDemo, StickyHeaderRightDemo,
-    StickyHeaderLeftCenterDemo,
+    StickyHeaderLeftCenterDemo, StickyColoredBg,
 };

@@ -4,7 +4,7 @@
     border-radius: 666px;
     display: inline-block;
     border: calc(2px / var(--ratio-border)) solid transparent;
-    color: var(--header-text);
+    color: currentColor;
 
     &:hover {
         background: #00000022;
@@ -19,4 +19,5 @@
     width: 16px;
     height: 16px;
     display: block;
+    fill: currentColor;
 }

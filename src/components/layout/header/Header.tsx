@@ -8,7 +8,7 @@ import { EqualActions } from "../../ui/action/EqualActions.js";
 
 interface Props {
     center?: boolean;
-    variant?: "toolbar";
+    variant?: "toolbar" | "colored";
     /**
      * This indicates just how the borders are drawn and how content is aligned, not the actual position on the screen.
      * To set up position on the screen you need to properly style parent element.
@@ -34,6 +34,7 @@ const Header: React.FC<Props> = (props) => {
     const cls = classnames(styles.header, {
         [styles["header--center"]]: center,
         [styles["header--toolbar"]]: variant === "toolbar",
+        [styles["header--colored"]]: variant === "colored",
     }, styles[`header--${position}`], props.className);
 
     let contents = children;

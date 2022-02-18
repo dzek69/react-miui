@@ -4,7 +4,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [UNRELEASED]
-(nothing yet)
+### Added
+- support for colored header
+- custom scrollbars (opt-in)
+- `Drawer` component
+### Changed
+- added a prop for controlling closing `Pop` on `Escape` key
+- added className for sticky header content component
+### Fixed
+- header icons not reacting to text color change
 
 ## [0.11.0] - 2022-02-18
 ### Added

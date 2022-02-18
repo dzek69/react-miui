@@ -1,14 +1,15 @@
 import React, { Component, createRef } from "react";
 
-import { HandleEsc } from "./HandleEsc";
 import { OnButtonClick } from "./OnButtonClick";
 import { PopOption } from "./PopOption";
 import styles from "./Pop.module.scss";
+import { HandleEsc } from "../../utils/HandleEsc";
 
 interface Props {
     open: boolean;
     onClose: () => void;
     anchor?: HTMLElement | "prev" | "next";
+    closeOnEsc?: boolean;
 }
 
 interface State {
@@ -137,9 +138,12 @@ class Pop extends Component<Props, State> {
             return null;
         }
 
+        const closeOnEsc = this.props.closeOnEsc ?? true;
+        const esc = closeOnEsc && <HandleEsc onPress={this.handleEsc} />;
+
         return (
             <div className={styles.overlay} ref={this.rootRef} onClick={this.handleOverlayClick}>
-                <HandleEsc onPress={this.handleEsc} />
+                {esc}
                 <OnButtonClick onClick={this.handleEsc}>
                     <ul className={styles.pop} style={style}>
                         {this.props.children}

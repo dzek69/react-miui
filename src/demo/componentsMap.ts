@@ -8,6 +8,7 @@ import {
     HeaderWithButtonsOnSideDemo, ToolbarVariantDemo,
 } from "./components/layout/header/Header";
 import {
+    StickyColoredBg,
     StickyHeaderBottomDemo,
     StickyHeaderDemo, StickyHeaderLeftCenterDemo, StickyHeaderLeftDemo, StickyHeaderRightDemo,
     StickyHeaderTopBottomDemo,
@@ -42,6 +43,7 @@ import { TabsDemo } from "./components/ui/tabs/Tabs";
 import { ChoiceDemo } from "./components/form/Choice";
 import { MessageDemo } from "./components/ui/message/Message";
 import { PopDemo } from "./components/ui/pop/Pop";
+import { DrawerDemo } from "./components/ui/drawer/Drawer";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -135,6 +137,10 @@ const componentsMap: TheMap = {
                         name: "On left centered",
                         Component: StickyHeaderLeftCenterDemo,
                     },
+                    StickyColoredBg: {
+                        name: "With colored background",
+                        Component: StickyColoredBg,
+                    },
                 },
             },
         },
@@ -218,6 +224,10 @@ const componentsMap: TheMap = {
     Message: {
         name: "Message",
         Component: MessageDemo,
+    },
+    Drawer: {
+        name: "Drawer",
+        Component: DrawerDemo,
     },
     Modal: {
         name: "Modal",

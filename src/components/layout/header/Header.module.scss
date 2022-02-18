@@ -15,6 +15,12 @@
     --background-color: var(--toolbar-bg);
 }
 
+.header--colored {
+    --border-color: var(--custom-header-color);
+    --background-color: var(--custom-header-color);
+    color: var(--custom-text-color);
+}
+
 .header--top, .header--bottom {
     padding: 0 16.666px;
     min-height: 44px;
