@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Pop` component
 ### Changed
 - checkmark icon
+### Dev
+- next.js upgrade
 
 ## [0.10.1] - 2022-02-17
 ### Fixed
