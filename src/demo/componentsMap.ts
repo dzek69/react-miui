@@ -44,6 +44,7 @@ import { ChoiceDemo } from "./components/form/Choice";
 import { MessageDemo } from "./components/ui/message/Message";
 import { PopDemo } from "./components/ui/pop/Pop";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
+import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -212,6 +213,16 @@ const componentsMap: TheMap = {
     Pad: {
         name: "Direction pad",
         Component: DirectionPadDemo,
+    },
+    Stats: {
+        name: "Stats",
+        Component: StatsDemo,
+        children: {
+            DarkOnLight: {
+                name: "Dark on light",
+                Component: StatsDarkDemo,
+            },
+        },
     },
     Icons: {
         name: "Icons",

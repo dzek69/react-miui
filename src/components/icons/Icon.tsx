@@ -9,6 +9,7 @@ import { Battery } from "./Battery.js";
 import { Heart } from "./Heart.js";
 import { Trash } from "./Trash.js";
 import { Config } from "./Config.js";
+import { Dots } from "./Dots.js";
 
 enum ICON {
     checkmark = "checkmark",
@@ -19,6 +20,7 @@ enum ICON {
     heart = "heart",
     trash = "trash",
     config = "config",
+    dots = "dots",
 }
 
 interface Props {
@@ -35,6 +37,7 @@ const iconsMap = new Map<ICON, AnyComponent>([
     [ICON.heart, Heart],
     [ICON.trash, Trash],
     [ICON.config, Config],
+    [ICON.dots, Dots],
 ]);
 
 const Icon: React.FC<Props> = ({ name: iconName, ...props }) => {

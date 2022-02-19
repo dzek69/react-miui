@@ -1,0 +1,29 @@
+.coloredBox {
+    height: 300px;
+    background: var(--green1-darker);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
+.header {
+    --custom-header-color: var(--green1-darker);
+    --custom-text-color: white;
+}
+
+.header2 {
+    --custom-header-color: var(--active-bg);
+    --custom-text-color: white;
+}
+
+.coloredBox2 {
+    height: 300px;
+    background: var(--active-bg);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
