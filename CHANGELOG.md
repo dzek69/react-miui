@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.13.0] - 2022-02-23
+### Added
+- `Spacer` util component
+- export of `HandleEsc` util component
+### Changed
+- added className support for `Action` and `ModalButtons`
+
 ## [0.12.1] - 2022-02-19
 ### Fixed
 - crashes on some components when using without `react-use` installed

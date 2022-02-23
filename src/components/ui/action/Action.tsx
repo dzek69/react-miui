@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 import type { ReactNode } from "react";
 
 import type { ICON } from "../../icons/Icon";
@@ -16,7 +17,7 @@ interface Props {
     icon?: ICON | Exclude<ReactNode, string>;
     Link?: React.ComponentClass<LinkProps> | React.FC<LinkProps>;
     label?: ReactNode;
-    // if className ever goes here make sure that `a` gets classnames merged
+    className?: string;
 }
 
 const Action: React.FC<Props> = (props) => {
@@ -41,15 +42,15 @@ const Action: React.FC<Props> = (props) => {
             throw new TypeError("`to` prop given without `Link` component");
         }
 
-        return <Link href={to} {...restProps}><a className={styles.a}>{content}</a></Link>;
+        return <Link href={to} {...restProps}><a className={classnames(styles.a, props.className)}>{content}</a></Link>;
     }
 
     if (href) {
-        return <a href={href} className={styles.a} {...restProps}>{content}</a>;
+        return <a href={href} className={classnames(styles.a, props.className)} {...restProps}>{content}</a>;
     }
 
     return (
-        <button onClick={props.onClick} className={styles.button}>
+        <button onClick={props.onClick} className={classnames(styles.button, props.className)}>
             {content}
         </button>
     );
