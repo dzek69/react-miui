@@ -1,6 +1,6 @@
 WIP.
 
-Old MIUI inspired design components for React.
+Old MIUI inspired design components for React. Breaking changes may happen until `1.0.0`.
 
 Usage:
 - Import `global.scss`

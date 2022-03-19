@@ -28,19 +28,23 @@ const ToggleDemo: React.FC = () => {
         <List>
             <Item ratio={"1/"}>
                 <span>Off</span>
-                <Toggle onChange={handleNoop} state={false} />
+                <Toggle onChange={handleNoop} value={false} />
             </Item>
             <Item ratio={"1/"}>
                 <span>On</span>
-                <Toggle onChange={handleNoop} state={true} />
+                <Toggle onChange={handleNoop} value={true} />
             </Item>
             <Item ratio={"1/"}>
                 <span>Undetermined</span>
-                <Toggle onChange={handleNoop} state={null} />
+                <Toggle onChange={handleNoop} value={null} />
             </Item>
             <Item ratio={"1/"}>
                 <span>Dynamic</span>
-                <Toggle onChange={handleToggle} state={state} />
+                <Toggle onChange={handleToggle} value={state} />
+            </Item>
+            <Item ratio={"1/"}>
+                <span>Disabled</span>
+                <Toggle onChange={handleToggle} value={state} disabled={true} />
             </Item>
         </List>
     );

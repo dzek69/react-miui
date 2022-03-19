@@ -45,6 +45,7 @@ import { MessageDemo } from "./components/ui/message/Message";
 import { PopDemo } from "./components/ui/pop/Pop";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
+import { SelectDemo } from "./components/form/Select";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -65,6 +66,10 @@ const componentsMap: TheMap = {
             Input: {
                 name: "Input",
                 Component: InputDemo,
+            },
+            Select: {
+                name: "Select",
+                Component: SelectDemo,
             },
             Label: {
                 name: "Label",

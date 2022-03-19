@@ -2,6 +2,7 @@ export * from "./components/form/choice/Choice.js";
 export * from "./components/form/Checkbox.js";
 export * from "./components/form/Input.js";
 export * from "./components/form/Label.js";
+export * from "./components/form/Select.js";
 export * from "./components/form/TextArea.js";
 export * from "./components/form/Toggle.js";
 
@@ -25,6 +26,8 @@ export * from "./components/ui/message/Message.js";
 export * from "./components/ui/modal/Modal.js";
 export * from "./components/ui/modal/ModalButtons.js";
 export * from "./components/ui/pop/Pop.js";
+export * from "./components/ui/stats/Stats.js";
+
 export * from "./components/ui/tabs/Selector.js";
 export * from "./components/ui/toaster/Toaster.js";
 

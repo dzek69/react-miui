@@ -30,7 +30,16 @@
             background: var(--toggle-handle-border);
             border-color: var(--toggle-handle-border);
         }
+
+        &:disabled:checked + .toggle {
+            border-color: var(--toggle-handle-border-disabled);
+            background: var(--toggle-handle-bg-disabled);
+        }
     }
+}
+
+.disabled {
+    background: var(--toggle-bg-disabled);
 }
 
 .toggle {
