@@ -6,6 +6,7 @@ import styles from "./Message.module.scss";
 interface Props {
     type: "warning" | "error" | "info" | "tip";
     variant?: "box";
+    className?: string;
 }
 
 const Message: React.FC<Props> = (props) => {
@@ -14,7 +15,7 @@ const Message: React.FC<Props> = (props) => {
         [styles.warning]: props.type === "warning",
         [styles.error]: props.type === "error",
         [styles.info]: props.type === "info",
-    });
+    }, props.className);
     return <div className={cls}>{props.children}</div>;
 };
 
