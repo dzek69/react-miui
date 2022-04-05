@@ -16,6 +16,7 @@ export * from "./components/layout/list/List.js";
 export * from "./components/layout/list/Item.js";
 export * from "./components/layout/section/SearchContainer.js";
 export * from "./components/layout/section/Section.js";
+export * from "./components/layout/table/Table.js";
 
 export * from "./components/ui/action/Action.js";
 export * from "./components/ui/action/EqualActions.js";

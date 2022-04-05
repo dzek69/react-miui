@@ -46,6 +46,7 @@ import { PopDemo } from "./components/ui/pop/Pop";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
 import { SelectDemo } from "./components/form/Select";
+import { TableDemo } from "./components/layout/table/TableDemo";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -262,6 +263,10 @@ const componentsMap: TheMap = {
     Pop: {
         name: "Pop up menu",
         Component: PopDemo,
+    },
+    Table: {
+        name: "Table",
+        Component: TableDemo,
     },
 };
 
