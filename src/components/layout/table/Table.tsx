@@ -1,6 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 
+import { makeVariants } from "../../../utils/index.js";
 import styles from "./Table.module.scss";
 
 type Variant = "striped" | "raw" | "wide" | "centered";
@@ -12,11 +13,13 @@ interface Props {
 const Table: React.FC<React.TableHTMLAttributes<HTMLTableElement> & Props> = (
     { className, children, variant, ...props },
 ) => {
+    const v = makeVariants(variant);
+
     const cls = classnames(className, {
-        [styles.table]: variant !== "raw",
-        [styles.striped]: variant === "striped",
-        [styles.full]: variant === "wide",
-        [styles.centered]: variant === "centered",
+        [styles.table]: !v.includes("raw"),
+        [styles.striped]: v.includes("striped"),
+        [styles.full]: v.includes("wide"),
+        [styles.centered]: v.includes("centered"),
     });
     return <table className={cls} {...props}>{children}</table>;
 };
