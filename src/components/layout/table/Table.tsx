@@ -18,7 +18,7 @@ const Table: React.FC<React.TableHTMLAttributes<HTMLTableElement> & Props> = (
     const cls = classnames(className, {
         [styles.table]: !v.includes("raw"),
         [styles.striped]: v.includes("striped"),
-        [styles.full]: v.includes("wide"),
+        [styles.wide]: v.includes("wide"),
         [styles.centered]: v.includes("centered"),
     });
     return <table className={cls} {...props}>{children}</table>;
