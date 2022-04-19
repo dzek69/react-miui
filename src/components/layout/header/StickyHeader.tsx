@@ -17,6 +17,7 @@ interface ContentProps {
 
 interface Props {
     position?: "top" | "left" | "right" | "bottom";
+    className?: string;
 }
 
 const StickyHeader: React.FC<Props> & Content = (props) => {
@@ -39,7 +40,7 @@ const StickyHeader: React.FC<Props> & Content = (props) => {
     header = header as never; // @TODO find a better way to silence TS on cloneElement
     content = content as never;
 
-    const cls = classnames(styles.stickyHeader, styles[`stickyHeader--${position}`]);
+    const cls = classnames(styles.stickyHeader, styles[`stickyHeader--${position}`], props.className);
 
     const contentCls = classnames(
         styles.stickyHeader__content,

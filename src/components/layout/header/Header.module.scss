@@ -1,6 +1,7 @@
 .header {
     --border-color: var(--header-border);
     --background-color: var(--header-bg);
+    background-clip: padding-box;
     background: var(--background-color);
     display: flex;
     align-items: center;

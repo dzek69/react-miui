@@ -40,7 +40,7 @@ import { ModalCenteredDemo, ModalDemo, ModalOptionsDemo } from "./components/ui/
 import { ListInsetDemo } from "./components/layout/list/Inset";
 import { ListSelectionDemo } from "./components/layout/list/Selection";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
-import { ChoiceDemo } from "./components/form/Choice";
+import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice";
 import { MessageDemo } from "./components/ui/message/Message";
 import { PopDemo } from "./components/ui/pop/Pop";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
@@ -95,6 +95,12 @@ const componentsMap: TheMap = {
             Choice: {
                 name: "Choice",
                 Component: ChoiceDemo,
+                children: {
+                    Darker: {
+                        name: "Customized colors",
+                        Component: ChoiceDemo2,
+                    },
+                },
             },
         },
     },

@@ -15,7 +15,7 @@
 
     span {
         display: flex;
-        padding: 0;
+        padding: 0 1em;
         flex: 1;
         height: 100%;
         align-items: center;
@@ -30,6 +30,9 @@
     position: relative;
     border-radius: 8px;
     overflow: hidden;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
 
     label {
         flex: 1;
@@ -40,4 +43,8 @@
             border-left: 1px solid var(--choice-border);
         }
     }
+}
+
+.wide {
+    width: 100%;
 }

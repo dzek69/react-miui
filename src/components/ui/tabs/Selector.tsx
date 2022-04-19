@@ -5,13 +5,13 @@ import { toObjectValue } from "../../../utils";
 import { Item } from "./Item";
 import styles from "./Selector.module.scss";
 
-interface Props {
-    values: Value[];
+interface Props<T extends string> {
+    values: Value<T>[];
     value?: string;
     onChange?: (value: string) => void;
 }
 
-const Selector: React.FC<Props> = (props) => {
+const Selector = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>>> => {
     const [current, setCurrent] = useState(props.value);
 
     const handleCurrent = useCallback((value: string) => {

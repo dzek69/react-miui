@@ -1,16 +1,16 @@
 import React, { useCallback } from "react";
-import type { ObjectValue } from "../../../types/form";
+import type { ObjectValue, Value } from "../../../types/form";
 
-interface Props {
+interface Props<T extends string> {
     name: string;
     value: ObjectValue;
-    onChange: (value: string) => void;
+    onChange: (value: Exclude<Value<T>, ObjectValue>) => void;
     active: boolean;
 }
 
-const ChoiceItem: React.FC<Props> = (props) => {
+const ChoiceItem = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>>> => {
     const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        props.onChange(e.currentTarget.value);
+        props.onChange(e.currentTarget.value as Exclude<Value<T>, ObjectValue>);
     }, [props.onChange]);
 
     return (

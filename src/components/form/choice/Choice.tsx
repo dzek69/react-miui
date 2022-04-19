@@ -1,18 +1,25 @@
 import React from "react";
+import classnames from "classnames";
 
-import type { Value } from "../../../types/form";
-import { toObjectValue } from "../../../utils";
+import type { ObjectValue, Value } from "../../../types/form";
+import { makeVariants, toObjectValue } from "../../../utils";
 import { ChoiceItem } from "./ChoiceItem";
 import styles from "./Choice.module.scss";
 
-interface Props {
-    values: Value[];
+type Variant = "wide";
+
+interface Props<T extends string> {
+    values: Value<T>[];
     value: string;
     name: string;
-    onChange: (value: string) => void;
+    onChange: (value: Exclude<Value<T>, ObjectValue>) => void;
+    className?: string;
+    variant?: Variant | Variant[];
 }
 
-const Choice: React.FC<Props> = (props) => {
+// @TODO auto width mode by default?
+
+const Choice = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>>> => {
     const opts = props.values.map(option => {
         const opt = toObjectValue(option);
         return (
@@ -26,7 +33,14 @@ const Choice: React.FC<Props> = (props) => {
         );
     });
 
-    return <div className={styles.choice}>{opts}</div>;
+    const v = makeVariants(props.variant);
+
+    const cls = classnames(
+        styles.choice, props.className,
+        { [styles.wide]: v.includes("wide") },
+    );
+
+    return <div className={cls}>{opts}</div>;
 };
 
 export { Choice };
