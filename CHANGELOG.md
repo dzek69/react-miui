@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.15.5] - 2022-05-06
+### Added
+- `If` helper component
+### Changed
+- added `left` variant for `Choice`
+### Fixed
+- `Choice` words wrapping
+- too generic css selectors causing problems within `PopOption` sometimes
+### Dev
+- styles upgrade for demo
+
 ## [0.15.4] - 2022-04-19
 ### Added
 - `className` support for `StickyHeader` and `Choice`

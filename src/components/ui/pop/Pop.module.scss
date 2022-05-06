@@ -14,40 +14,41 @@
     background: white;
     margin: 0;
     padding: 0;
+    list-style-type: none;
+}
 
-    ul, li {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
+.li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 
-    li + li {
+    + .li {
         border-top: 1px solid var(--border);
     }
+}
 
-    button {
-        border: none;
-        background: white;
-        height: calc(116px / var(--ratio-dimensions));
-        padding: 0 calc(42px / var(--ratio-dimensions));
-        box-sizing: border-box;
-        width: 100%;
-        min-width: calc(460px / var(--ratio-dimensions));
-        text-align: left;
-        color: var(--pop-text);
-        font-size: calc(26px / var(--ratio-font));
-        display: flex;
-        align-items: center;
+.button {
+    border: none;
+    background: white;
+    height: calc(116px / var(--ratio-dimensions));
+    padding: 0 calc(42px / var(--ratio-dimensions));
+    box-sizing: border-box;
+    width: 100%;
+    min-width: calc(460px / var(--ratio-dimensions));
+    text-align: left;
+    color: var(--pop-text);
+    font-size: calc(26px / var(--ratio-font));
+    display: flex;
+    align-items: center;
 
-        svg {
-            fill: currentColor;
-            margin-right: calc(42px / var(--ratio-dimensions));
-        }
-
-        &:hover {
-            background: var(--active-bg);
-        }
+    &:hover {
+        background: var(--active-bg);
     }
+}
+
+.icon {
+    fill: currentColor;
+    margin-right: calc(42px / var(--ratio-dimensions));
 }
 
 .fakeIcon {

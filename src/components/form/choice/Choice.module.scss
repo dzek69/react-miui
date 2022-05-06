@@ -23,6 +23,7 @@
         font-size: calc(24px / var(--ratio-font));
         color: var(--choice-text);
         background: var(--choice-bg);
+        white-space: nowrap;
     }
 
     display: flex;
@@ -47,4 +48,9 @@
 
 .wide {
     width: 100%;
+}
+
+.left {
+    margin-left: unset;
+    margin-right: unset;
 }

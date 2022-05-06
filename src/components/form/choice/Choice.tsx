@@ -6,7 +6,7 @@ import { makeVariants, toObjectValue } from "../../../utils";
 import { ChoiceItem } from "./ChoiceItem";
 import styles from "./Choice.module.scss";
 
-type Variant = "wide";
+type Variant = "wide" | "left";
 
 interface Props<T extends string> {
     values: Value<T>[];
@@ -38,6 +38,7 @@ const Choice = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>
     const cls = classnames(
         styles.choice, props.className,
         { [styles.wide]: v.includes("wide") },
+        { [styles.left]: v.includes("left") },
     );
 
     return <div className={cls}>{opts}</div>;

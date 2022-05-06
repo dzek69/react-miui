@@ -6,7 +6,7 @@ import styles from "./Choice.module.scss";
 
 interface Props {}
 
-const values: ("Single" | "Multiple")[] = ["Single", "Multiple"];
+const values: ("Single" | "Multiple words")[] = ["Single", "Multiple words"];
 
 const ChoiceDemo: React.FC<Props> = () => {
     const [current, handleCurrent] = useState(values[0]);
@@ -21,11 +21,11 @@ const ChoiceDemo: React.FC<Props> = () => {
 const values2 = [
     {
         label: "Option 1",
-        value: "opt",
+        value: "one",
     },
     {
         label: "Option 2",
-        value: "xxx",
+        value: "two",
     },
 ];
 
@@ -33,18 +33,30 @@ const ChoiceDemo2: React.FC<Props> = () => {
     const [current, handleCurrent] = useState(values2[0].value);
 
     return (
-        <Section variant={["vertical", "horizontal"]}>
-            <Choice
-                values={values2}
-                value={current}
-                name={"rnd"}
-                onChange={handleCurrent}
-                className={styles.darker}
-                variant={"wide"}
-            />
+        <>
+            <Section variant={["vertical", "horizontal"]}>
+                <Choice
+                    values={values2}
+                    value={current}
+                    name={"rnd"}
+                    onChange={handleCurrent}
+                    className={styles.darker}
+                    variant={"wide"}
+                />
 
-            Current: {current}
-        </Section>
+                Current: {current}
+            </Section>
+            <Section variant={["vertical", "horizontal"]}>
+                <Choice
+                    values={values2}
+                    value={current}
+                    name={"rn2d"}
+                    onChange={handleCurrent}
+                    variant={"left"}
+                />
+            </Section>
+
+        </>
     );
 };
 

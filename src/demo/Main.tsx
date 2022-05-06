@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import classnames from "classnames";
 
 import type { AnyComponent } from "../types";
@@ -8,6 +8,7 @@ import styles from "./Main.module.scss";
 
 import { safeUseHash } from "./utils/safeUseHash";
 import { componentsMap } from "./componentsMap";
+import { Choice } from "../components/form/choice/Choice";
 
 type BG = "white" | "transparent" | "mobile";
 
@@ -41,22 +42,14 @@ const getComponentByHash = (hash: string): ComponentInfo | null => {
     return null;
 };
 
+const values: BG[] = ["white", "transparent", "mobile"];
+
 const Main: React.FC = (props) => {
-    const [bg, setBg] = useState<BG>("white");
+    const [bg, handleBgChange] = useState<BG>("white");
 
     const hash = safeUseHash();
     const hashWithoutHash = hash.substr(1);
     const info = getComponentByHash(hashWithoutHash);
-
-    const handleTransparentBg = useCallback(() => {
-        setBg("transparent");
-    }, []);
-    const handleWhiteBg = useCallback(() => {
-        setBg("white");
-    }, []);
-    const handleMobileBg = useCallback(() => {
-        setBg("mobile");
-    }, []);
 
     if (!info) {
         return (
@@ -77,9 +70,7 @@ const Main: React.FC = (props) => {
     return (
         <div className={styles.container}>
             <h1 className={styles.header}>{info.name}</h1>
-            <button onClick={handleTransparentBg}>Transparent</button>
-            <button onClick={handleWhiteBg}>White</button>
-            <button onClick={handleMobileBg}>Mobile</button>
+            <Choice values={values} value={bg} name={"x"} onChange={handleBgChange} />
 
             <div className={componentCls}>
                 <Component />
