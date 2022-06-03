@@ -6,6 +6,7 @@ import classnames from "classnames";
 
 interface Props {
     onChange: (newValue: boolean) => void;
+    undeterminedClickValue?: boolean;
     disabled?: boolean;
     value: boolean | null;
 }
@@ -13,6 +14,9 @@ interface Props {
 const Toggle: React.FC<Props> = (props) => {
     const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         if (props.value == null) {
+            if ("undeterminedClickValue" in props) {
+                props.onChange(props.undeterminedClickValue!);
+            }
             return;
         }
         props.onChange(e.target.checked);

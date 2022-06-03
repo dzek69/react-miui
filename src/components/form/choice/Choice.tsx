@@ -17,6 +17,7 @@ interface Props<T extends string> {
     variant?: Variant | Variant[];
 }
 
+// @TODO handle disabled / readonly!
 // @TODO auto width mode by default?
 
 const Choice = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>>> => {
