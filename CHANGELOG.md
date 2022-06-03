@@ -3,7 +3,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.15.6] - 2022-05-06
+## [0.15.7] - 2022-06-03
+### Fixed
+- `Button` should allow multiple variants
+
+## [0.15.6] - 2022-06-03
 ### Added
 - `undeterminedClickValue` prop for `Toggle`
 

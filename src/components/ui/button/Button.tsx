@@ -2,10 +2,12 @@ import React from "react";
 import classnames from "classnames";
 
 import styles from "./Button.module.scss";
-import { makeVariants } from "../../../utils/makeVariants.js";
+import { makeVariants } from "../../../utils/index.js";
+
+type Variant = "inline" | "outline";
 
 interface Props {
-    variant?: "inline" | "outline";
+    variant?: Variant | Variant[];
 }
 
 const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & Props> = ({
