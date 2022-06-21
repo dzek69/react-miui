@@ -2,11 +2,13 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Toggle } from "../../../components/form/Toggle";
 import { List } from "../../../components/layout/list/List";
 import { Item } from "../../../components/layout/list/Item";
+import { useToaster } from "../../../components/ui/toaster/Toaster";
 
 const handleNoop = () => undefined;
 
 const ToggleDemo: React.FC = () => {
     const [state, ss] = useState<boolean | null>(null);
+    const toast = useToaster();
 
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/no-magic-numbers
@@ -24,6 +26,11 @@ const ToggleDemo: React.FC = () => {
         }, 1000);
     }, [state]);
 
+    const handleCtx: React.MouseEventHandler = useCallback((e) => {
+        e.preventDefault();
+        toast("You right-clicked / long pressed the toggle");
+    }, []);
+
     return (
         <List>
             <Item ratio={"1/"}>
@@ -39,8 +46,8 @@ const ToggleDemo: React.FC = () => {
                 <Toggle onChange={handleNoop} value={null} />
             </Item>
             <Item ratio={"1/"}>
-                <span>Dynamic</span>
-                <Toggle onChange={handleToggle} value={state} />
+                <span>Dynamic with right click</span>
+                <Toggle onChange={handleToggle} onContextMenu={handleCtx} value={state} />
             </Item>
             <Item ratio={"1/"}>
                 <span>Disabled</span>

@@ -6,6 +6,7 @@ import classnames from "classnames";
 
 interface Props {
     onChange: (newValue: boolean) => void;
+    onContextMenu?: React.MouseEventHandler;
     undeterminedClickValue?: boolean;
     disabled?: boolean;
     value: boolean | null;
@@ -27,7 +28,7 @@ const Toggle: React.FC<Props> = (props) => {
     });
 
     return (
-        <label className={cls}>
+        <label className={cls} onContextMenu={props.onContextMenu}>
             <input
                 type={"checkbox"}
                 checked={Boolean(props.value)}
