@@ -5,7 +5,7 @@ import styles from "./Stats.module.scss";
 
 interface Stat {
     label: string;
-    value: string;
+    value: React.ReactNode;
 }
 
 interface Props {
