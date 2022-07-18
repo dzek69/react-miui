@@ -1,6 +1,11 @@
 import React from "react";
 import { Input } from "../../../components/form/Input";
 import { ICON, Icon } from "../../../components/icons/Icon";
+import { countries } from "./countries.const";
+
+const handleSuggestionMatch = (s: string, picked: boolean) => {
+    alert("Suggestion " + (picked ? "picked" : "matched") + " : " + s);
+};
 
 const InputDemo: React.FC = () => {
     return (
@@ -10,6 +15,11 @@ const InputDemo: React.FC = () => {
             <Input prefix={"Text prefix"} value={"Polly W. Wilson"} />
             <Input prefix={"Disabled"} value={"Clayton J. Foster"} disabled={true} />
             <Input prefix={"Read only"} value={"Norma J. Gomez"} readOnly={true} />
+            <Input
+                placeholder={"With suggestions, try country name"}
+                suggestions={countries}
+                onSuggestionMatch={handleSuggestionMatch}
+            />
         </>
     );
 };

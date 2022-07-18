@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.16.0] - 2022-07-18
+### Added
+- suggestions support for `Input`
+
 ## [0.15.9] - 2022-06-29
 ### Changed
 - `Stats` accepts ReactNode as a value now instead of just a string
