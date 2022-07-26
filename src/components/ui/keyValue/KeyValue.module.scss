@@ -1,0 +1,57 @@
+.container {
+    --kv-border-color: var(--header-border);
+    --kv-border: calc(1px / var(--ratio-border)) solid var(--kv-border-color);
+    --kv-background-color: white;
+    --kv-hover-background-color: var(--active-bg);
+    border: 1px solid var(--kv-border-color);
+    background-color: var(--kv-background-color);
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    display: inline-flex;
+    box-sizing: border-box;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    background: none;
+}
+
+button.item:hover {
+    background: var(--kv-hover-background-color)
+}
+
+.kv {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.key {
+    font-size: calc(22px / var(--ratio-font));
+    color: var(--sub);
+}
+
+.value {
+    font-size: calc(29px / var(--ratio-font));
+}
+
+.itemNotFirstRow {
+    border-top: var(--kv-border);
+}
+
+.itemNotFirstCol {
+    border-left: var(--kv-border);
+}
+
+.itemLastWithoutFullRow {
+    border-right: var(--kv-border);
+}
+
+.missingItem {
+    border-top: var(--kv-border);
+    border-left: var(--kv-border);
+}

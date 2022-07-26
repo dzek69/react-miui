@@ -24,6 +24,7 @@ export * from "./components/ui/action/EqualActions.js";
 export * from "./components/ui/button/Button.js";
 export * from "./components/ui/directionPad/Pad.js";
 export * from "./components/ui/drawer/Drawer.js";
+export * from "./components/ui/keyValue/KeyValue.js";
 export * from "./components/ui/message/Message.js";
 export * from "./components/ui/modal/Modal.js";
 export * from "./components/ui/modal/ModalButtons.js";
