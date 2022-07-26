@@ -1,3 +1,4 @@
+/* eslint-disable import/max-dependencies */
 export * from "./components/form/choice/Choice.js";
 export * from "./components/form/Checkbox.js";
 export * from "./components/form/Input.js";
@@ -27,6 +28,7 @@ export * from "./components/ui/message/Message.js";
 export * from "./components/ui/modal/Modal.js";
 export * from "./components/ui/modal/ModalButtons.js";
 export * from "./components/ui/pop/Pop.js";
+export * from "./components/ui/pop/PopOption.js";
 export * from "./components/ui/stats/Stats.js";
 
 export * from "./components/ui/tabs/Selector.js";

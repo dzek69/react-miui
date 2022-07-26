@@ -1,7 +1,8 @@
 import React from "react";
-import { Input } from "../../../components/form/Input";
-import { ICON, Icon } from "../../../components/icons/Icon";
-import { countries } from "./countries.const";
+
+import { Input, ICON, Icon } from "../../../index.js";
+
+import { countries } from "./countries.const.js";
 
 const handleSuggestionMatch = (s: string, picked: boolean) => {
     alert("Suggestion " + (picked ? "picked" : "matched") + " : " + s);

@@ -1,7 +1,8 @@
 import React from "react";
+
 import classnames from "classnames";
 
-import { ModalButton } from "./ModalButton";
+import { ModalButton } from "./ModalButton.js";
 import styles from "./ModalButtons.module.scss";
 
 interface Props {

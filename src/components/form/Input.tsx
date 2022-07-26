@@ -1,9 +1,12 @@
 import React, { useCallback, useState } from "react";
+
 import classnames from "classnames";
 
 import type { ObjectValue, Value } from "../../types/form";
+
 import { useRandomId } from "../../utils/index.js";
-import { Suggestions } from "./Suggestions";
+
+import { Suggestions } from "./Suggestions.js";
 import styles from "./Input.module.scss";
 
 interface CustomProps<T extends string> {

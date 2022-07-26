@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
-import { DirectionPad } from "../../../..";
+
+import { DirectionPad } from "../../../../index.js";
 
 const DirectionPadDemo: React.FC = (props) => {
     const [lastClick, setLastClick] = useState("<none>");

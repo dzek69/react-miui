@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./Pad.module.scss";
 
 interface Props {
-    onClick?: () => void;
+    onClick?: (() => void) | undefined;
 }
 
 const PadButton: React.FC<Props> = (props) => {

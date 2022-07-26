@@ -1,8 +1,7 @@
 import React from "react";
 
-import { List } from "../../../../components/layout/list/List";
-import { Item } from "../../../../components/layout/list/Item";
-import { ICON, Icon } from "../../../../components/icons/Icon";
+import { List, Item, ICON, Icon } from "../../../../index.js";
+
 import styles from "./Value.module.scss";
 
 const { Label, Value } = Item;

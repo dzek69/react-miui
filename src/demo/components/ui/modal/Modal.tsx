@@ -1,12 +1,6 @@
 import React, { useCallback, useState } from "react";
-import { Modal } from "../../../../components/ui/modal/Modal";
-import { Button } from "../../../../components/ui/button/Button";
-import { Input } from "../../../../components/form/Input";
-import { Checkbox } from "../../../../components/form/Checkbox";
-import { Label } from "../../../../components/form/Label";
-import { ModalButtons } from "../../../../components/ui/modal/ModalButtons";
-import { List } from "../../../../components/layout/list/List";
-import { Item } from "../../../../components/layout/list/Item";
+
+import { Modal, Button, Input, Checkbox, Label, ModalButtons, List, Item } from "../../../../index.js";
 
 interface Props {}
 

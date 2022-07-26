@@ -1,9 +1,11 @@
 import React from "react";
+
 import classnames from "classnames";
 
+import { makeVariants } from "../../../utils/index.js";
+
 import { Header } from "./Header.js";
-import { makeVariants } from "../../../utils/makeVariants";
-import { Item } from "./Item";
+import { Item } from "./Item.js";
 import styles from "./List.module.scss";
 
 type Variant = "inset";

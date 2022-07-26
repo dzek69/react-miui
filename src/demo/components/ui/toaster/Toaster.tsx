@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
-import { useToaster } from "../../../../components/ui/toaster/Toaster";
-import { Button } from "../../../../components/ui/button/Button";
-import { Input } from "../../../../components/form/Input";
+
+import { useToaster, Button, Input } from "../../../../index.js";
 
 interface Props {}
 

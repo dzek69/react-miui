@@ -1,11 +1,13 @@
 import React from "react";
+
 import classnames from "classnames";
+
+import { makeVariants } from "../../../utils/index.js";
+import { ICON, Icon } from "../../icons/Icon.js";
 
 import styles from "./Item.module.scss";
 import { Value } from "./Value.js";
 import { Label } from "./Label.js";
-import { makeVariants } from "../../../utils/makeVariants";
-import { ICON, Icon } from "../../icons/Icon";
 
 interface LinkProps {
     href: string;
@@ -63,7 +65,7 @@ const Item: React.FC<Props> & SubComponents = (props) => {
         if (index in r) {
             flex = r[index];
         }
-        return <div style={{ flex }}>{pre}{child}</div>;
+        return <div style={flex ? { flex } : undefined}>{pre}{child}</div>;
     });
 
     if (to) {
@@ -74,7 +76,7 @@ const Item: React.FC<Props> & SubComponents = (props) => {
         return <li {...liProps}><Link href={to} {...restProps}><a className={innerCls}>{ren}</a></Link></li>;
     }
     if (href) {
-        const aProps: typeof restProps & { onClick?: Props["onClick"]} = { ...restProps };
+        const aProps: typeof restProps & { onClick?: Props["onClick"] } = { ...restProps };
         if (onClick) {
             aProps.onClick = onClick;
         }

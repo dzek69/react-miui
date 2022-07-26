@@ -1,7 +1,6 @@
 import React from "react";
-import { Stats } from "../../../../components/ui/stats/Stats";
-import { Header } from "../../../../components/layout/header/Header";
-import { StickyHeader } from "../../../../components/layout/header/StickyHeader";
+
+import { Stats, Header, StickyHeader } from "../../../../index.js";
 
 import styles from "./Stats.module.scss";
 

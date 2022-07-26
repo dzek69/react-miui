@@ -1,9 +1,12 @@
 import React from "react";
-import classnames from "classnames";
 import type { ReactNode } from "react";
 
+import classnames from "classnames";
+
 import type { ICON } from "../../icons/Icon";
+
 import { Icon } from "../../icons/Icon.js";
+
 import styles from "./Action.module.scss";
 
 interface LinkProps { // @TODO extract? - same on list item

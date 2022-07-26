@@ -1,6 +1,6 @@
 import React from "react";
-import { Label } from "../../../components/form/Label";
-import { Select } from "../../../components/form/Select";
+
+import { Label, Select } from "../../../index.js";
 
 const SelectDemo: React.FC = () => {
     return (

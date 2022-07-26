@@ -1,11 +1,11 @@
 {
   "name": "react-miui",
-  "version": "0.16.0",
+  "version": "0.16.0+",
   "author": "Jacek Nowacki",
   "license": "MIT",
   "scripts": {
     "test": "NODE_ENV=test jest",
-    "docs": "typedoc src/index.ts --out docs --listInvalidSymbolLinks --includes tutorials --theme pages-plugin --includeVersion",
+    "docs": "typedoc src/index.ts --out docs --includeVersion --pluginPages ./pagesconfig.json",
     "compile": "yarn compile:esm && yarn compile:cjs",
     "compile:esm": "rm -rf esm && tsc --project tsconfig.esm.json && node ./build-scripts/compile.esm.after.mjs",
     "compile:cjs": "rm -rf dist && tsc --project tsconfig.cjs.json && node ./build-scripts/compile.cjs.after.mjs",
@@ -29,23 +29,24 @@
   "module": "./esm/index.js",
   "dependencies": {
     "classnames": "^2.3.1",
-    "oop-timers": "^4.0.1"
+    "oop-timers": "^4.0.1",
+    "nodemon": "^2.0.19"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-typescript": "^7.12.7",
-    "@dzek69/eslint-config-base": "^2.1.0",
+    "@dzek69/eslint-config-base": "^2.2.0",
     "@dzek69/eslint-config-react": "^1.2.2",
-    "@dzek69/eslint-config-typescript": "^0.4.0",
+    "@dzek69/eslint-config-typescript": "^1.0.1",
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.11.1",
-    "@typescript-eslint/parser": "^4.11.1",
+    "@typescript-eslint/eslint-plugin": "^5.30.3",
+    "@typescript-eslint/parser": "^5.30.3",
     "babel-plugin-module-extension": "^0.1.3",
     "babel-plugin-module-resolver": "^4.1.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.18.0",
     "eslint-plugin-react": "^7.24.0",
     "fast-glob": "^3.2.7",
     "fs-extra": "^9.0.1",
@@ -58,9 +59,12 @@
     "react-use": "^17.2.4",
     "sass": "^1.35.2",
     "ts-node": "^9.0.0",
-    "typedoc": "^0.21.10",
-    "typedoc-plugin-pages-fork-fork": "^0.0.3",
-    "typescript": "^4.2.4"
+    "typedoc": "^0.23.8",
+    "typescript": "^4.7.4",
+    "eslint-plugin-import": "^2.26.0",
+    "@dzek69/eslint-config-import": "^1.0.0",
+    "@dzek69/eslint-config-import-typescript": "^1.0.0",
+    "@knodes/typedoc-plugin-pages": "^0.23.1"
   },
   "peerDependencies": {
     "react": "^17.0.0",
@@ -72,7 +76,7 @@
     }
   },
   "libraryTemplate": {
-    "version": "3.4.1",
+    "version": "3.5.0",
     "language": "typescript",
     "fixDefaultForCommonJS": true,
     "jsx": true

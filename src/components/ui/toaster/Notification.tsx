@@ -1,7 +1,9 @@
 import React, { useCallback } from "react";
+
 import classnames from "classnames";
 
 import type { Toast } from "./types";
+
 import styles from "./Toaster.module.scss";
 
 interface Props {

@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+
 import classnames from "classnames";
 
+import { makeVariants } from "../../../utils/index.js";
+
+import { ModalNegateMargin } from "./ModalNoMargin.js";
 import styles from "./Modal.module.scss";
-import { makeVariants } from "../../../utils/makeVariants";
-import { ModalNegateMargin } from "./ModalNoMargin";
 
 type Variant = "bottom" | "full";
 

@@ -1,7 +1,8 @@
 import React from "react";
 
 import type { ICON } from "../../icons/Icon";
-import { Icon } from "../../icons/Icon";
+
+import { Icon } from "../../icons/Icon.js";
 
 import styles from "./Pop.module.scss";
 

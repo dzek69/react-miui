@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Choice } from "../../../components/form/choice/Choice";
-import { Section } from "../../../components/layout/section/Section";
+
+import { Choice, Section } from "../../../index.js";
 
 import styles from "./Choice.module.scss";
 

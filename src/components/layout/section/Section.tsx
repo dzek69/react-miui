@@ -1,8 +1,10 @@
 import React from "react";
+
 import classnames from "classnames";
 
-import { SectionContainer } from "./SectionContainer.js";
 import { makeVariants } from "../../../utils/makeVariants.js";
+
+import { SectionContainer } from "./SectionContainer.js";
 import styles from "./Section.module.scss";
 
 interface SubComponents {

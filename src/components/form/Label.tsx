@@ -1,8 +1,10 @@
 import React from "react";
 
-import styles from "./Label.module.scss";
-import { makeVariants } from "../../utils/makeVariants";
 import classnames from "classnames";
+
+import { makeVariants } from "../../utils/index.js";
+
+import styles from "./Label.module.scss";
 
 interface Props {
     label?: React.ReactNode;

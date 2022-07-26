@@ -1,8 +1,9 @@
 import type { ChangeEvent } from "react";
 import React, { useCallback } from "react";
 
-import styles from "./Toggle.module.scss";
 import classnames from "classnames";
+
+import styles from "./Toggle.module.scss";
 
 interface Props {
     onChange: (newValue: boolean) => void;
@@ -15,8 +16,8 @@ interface Props {
 const Toggle: React.FC<Props> = (props) => {
     const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         if (props.value == null) {
-            if ("undeterminedClickValue" in props) {
-                props.onChange(props.undeterminedClickValue!);
+            if (typeof props.undeterminedClickValue === "boolean") {
+                props.onChange(props.undeterminedClickValue);
             }
             return;
         }

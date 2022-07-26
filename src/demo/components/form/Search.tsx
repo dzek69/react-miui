@@ -1,15 +1,10 @@
 import React from "react";
-import { SearchContainer } from "../../../components/layout/section/SearchContainer";
-import { Input } from "../../../components/form/Input";
-import { ICON, Icon } from "../../../components/icons/Icon";
-import { Section } from "../../../components/layout/section/Section";
-import { SectionContainer } from "../../../components/layout/section/SectionContainer";
-import { List } from "../../../components/layout/list/List";
-import { Item } from "../../../components/layout/list/Item";
+
+import { SearchContainer, Input, ICON, Icon, Section, List, Item } from "../../../index.js";
 
 const SearchDemo = () => {
     return (
-        <SectionContainer>
+        <Section.Container>
             <SearchContainer>
                 <Input placeholder={"Search..."} prefix={<Icon name={ICON.search} />} />
             </SearchContainer>
@@ -29,7 +24,7 @@ const SearchDemo = () => {
                     <Item>Dolor</Item>
                 </List>
             </Section>
-        </SectionContainer>
+        </Section.Container>
     );
 };
 

@@ -1,11 +1,6 @@
 import React, { useCallback, useState } from "react";
-import { Pop } from "../../../../components/ui/pop/Pop";
-import { Header } from "../../../../components/layout/header/Header";
-import { StickyHeader } from "../../../../components/layout/header/StickyHeader";
-import { HeaderIconAction } from "../../../../components/layout/header/HeaderIconAction";
-import { ICON } from "../../../../components/icons/Icon";
-import { PopOption } from "../../../../components/ui/pop/PopOption";
-import { Section } from "../../../../components/layout/section/Section";
+
+import { Pop, Header, StickyHeader, HeaderIconAction, ICON, Section } from "../../../../index.js";
 
 interface Props {}
 
@@ -39,9 +34,9 @@ const PopDemo: React.FC<Props> = () => {
         <>
             <HeaderIconAction icon={ICON.config} onClick={handleToggle} />
             <Pop anchor={"prev"} open={open} onClose={handleClose}>
-                <PopOption icon={ICON.heart} onClick={handleClick}>Add new list</PopOption>
-                <PopOption icon={ICON.trash} onClick={handleClick}>Remove empty lists</PopOption>
-                <PopOption onClick={handleClick}>Configure</PopOption>
+                <Pop.Option icon={ICON.heart} onClick={handleClick}>Add new list</Pop.Option>
+                <Pop.Option icon={ICON.trash} onClick={handleClick}>Remove empty lists</Pop.Option>
+                <Pop.Option onClick={handleClick}>Configure</Pop.Option>
             </Pop>
         </>
     );
@@ -50,15 +45,15 @@ const PopDemo: React.FC<Props> = () => {
         <>
             <HeaderIconAction icon={ICON.checkmark} onClick={handleLeftToggle} />
             <Pop anchor={"prev"} open={leftOpen} onClose={handleLeftClose}>
-                <PopOption icon={ICON.heart} onClick={handleClick}>Add new list</PopOption>
-                <PopOption icon={ICON.trash} onClick={handleClick}>Remove empty lists</PopOption>
-                <PopOption onClick={handleClick}>Configure</PopOption>
-                <PopOption icon={ICON.heart} onClick={handleClick}>Add new list</PopOption>
-                <PopOption icon={ICON.trash} onClick={handleClick}>Remove empty lists</PopOption>
-                <PopOption onClick={handleClick}>Configure</PopOption>
-                <PopOption icon={ICON.heart} onClick={handleClick}>Add new list</PopOption>
-                <PopOption icon={ICON.trash} onClick={handleClick}>Remove empty lists</PopOption>
-                <PopOption onClick={handleClick}>Configure</PopOption>
+                <Pop.Option icon={ICON.heart} onClick={handleClick}>Add new list</Pop.Option>
+                <Pop.Option icon={ICON.trash} onClick={handleClick}>Remove empty lists</Pop.Option>
+                <Pop.Option onClick={handleClick}>Configure</Pop.Option>
+                <Pop.Option icon={ICON.heart} onClick={handleClick}>Add new list</Pop.Option>
+                <Pop.Option icon={ICON.trash} onClick={handleClick}>Remove empty lists</Pop.Option>
+                <Pop.Option onClick={handleClick}>Configure</Pop.Option>
+                <Pop.Option icon={ICON.heart} onClick={handleClick}>Add new list</Pop.Option>
+                <Pop.Option icon={ICON.trash} onClick={handleClick}>Remove empty lists</Pop.Option>
+                <Pop.Option onClick={handleClick}>Configure</Pop.Option>
             </Pop>
         </>
     );

@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
-import { Drawer } from "../../../../components/ui/drawer/Drawer";
+
+import { Drawer } from "../../../../index.js";
 
 interface Props {}
 

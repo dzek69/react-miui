@@ -1,8 +1,10 @@
 import React from "react";
+
 import classnames from "classnames";
 
-import styles from "./Button.module.scss";
 import { makeVariants } from "../../../utils/index.js";
+
+import styles from "./Button.module.scss";
 
 type Variant = "inline" | "outline";
 

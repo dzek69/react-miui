@@ -1,7 +1,6 @@
 import React from "react";
-import { Section } from "../../../../components/layout/section/Section.js";
-import { List } from "../../../../components/layout/list/List";
-import { Item } from "../../../../components/layout/list/Item";
+
+import { Section, List, Item } from "../../../../index.js";
 
 const SectionDemo = () => {
     return (

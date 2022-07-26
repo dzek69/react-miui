@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Header, HeaderIconAction, ICON, StickyHeader } from "../../../../index.js";
+
 import styles from "./StickyHeader.module.scss";
 
 const LongContent: React.FC = () => {

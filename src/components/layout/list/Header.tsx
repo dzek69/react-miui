@@ -1,7 +1,9 @@
 import React from "react";
+
 import classnames from "classnames";
 
-import { makeVariants } from "../../../utils/makeVariants";
+import { makeVariants } from "../../../utils/index.js";
+
 import styles from "./Item.module.scss";
 import headerStyles from "./Header.module.scss";
 

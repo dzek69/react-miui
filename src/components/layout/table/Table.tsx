@@ -1,7 +1,9 @@
 import React from "react";
+
 import classnames from "classnames";
 
 import { makeVariants } from "../../../utils/index.js";
+
 import styles from "./Table.module.scss";
 
 type Variant = "striped" | "raw" | "wide" | "centered";

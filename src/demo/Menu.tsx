@@ -1,8 +1,10 @@
 import React from "react";
 
-import styles from "./Menu.module.scss";
-import type { componentsMap } from "./componentsMap";
 import classnames from "classnames";
+
+import type { componentsMap } from "./componentsMap";
+
+import styles from "./Menu.module.scss";
 
 interface Props {
     ancestors?: string[];
@@ -12,7 +14,7 @@ interface Props {
 const Menu: React.FC<Props> = (props) => {
     const cmp = Object.entries(props.list).map(([urlHash, component]) => {
         const label = component.name;
-        const children = `children` in component && component.children
+        const children = component.children
             ? <Menu ancestors={[...props.ancestors!, urlHash]} list={component.children} />
             : null;
 

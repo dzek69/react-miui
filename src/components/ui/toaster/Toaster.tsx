@@ -1,8 +1,9 @@
 import React, { createContext, useContext } from "react";
 
 import type { Toast } from "./types";
+
 // eslint-disable-next-line @typescript-eslint/no-shadow
-import { Notification } from "./Notification";
+import { Notification } from "./Notification.js";
 
 type ToasterFn = (text: string) => void;
 
@@ -82,7 +83,7 @@ class ToasterProvider extends React.Component<Props, State> {
         }));
     };
 
-    public render() {
+    public override render() {
         const notifications = this.state.list.map((t) => {
             return <Notification onRemove={this._handleRemove} key={t.id} toast={t} />;
         });

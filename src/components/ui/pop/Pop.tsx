@@ -1,9 +1,10 @@
 import React, { Component, createRef } from "react";
 
-import { OnButtonClick } from "./OnButtonClick";
-import { PopOption } from "./PopOption";
+import { HandleEsc } from "../../utils/HandleEsc.js";
+
+import { OnButtonClick } from "./OnButtonClick.js";
+import { PopOption } from "./PopOption.js";
 import styles from "./Pop.module.scss";
-import { HandleEsc } from "../../utils/HandleEsc";
 
 interface Props {
     open: boolean;
@@ -58,7 +59,7 @@ class Pop extends Component<Props, State> {
         this.rootRef = createRef();
     }
 
-    public componentDidUpdate(prevProps: Props) {
+    public override componentDidUpdate(prevProps: Props) {
         if (!prevProps.open && this.props.open) {
             this.onOpen();
         }
@@ -82,6 +83,7 @@ class Pop extends Component<Props, State> {
         if (this.props.anchor === "next") {
             return this.rootRef.current.nextElementSibling;
         }
+        return null;
     }
 
     private readonly onOpen = () => {
@@ -117,7 +119,7 @@ class Pop extends Component<Props, State> {
         this.props.onClose();
     };
 
-    public render() {
+    public override render() {
         const style: React.CSSProperties = {};
 
         if (this.state.vertical === "top") {

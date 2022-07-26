@@ -1,12 +1,10 @@
 import React from "react";
+
 import Link from "next/link";
-import { Action } from "../../../../components/ui/action/Action";
-import { ICON } from "../../../../components/icons/Icon";
-import { StickyHeader } from "../../../../components/layout/header/StickyHeader";
-import { Header } from "../../../../components/layout/header/Header";
+
+import { Action, ICON, StickyHeader, Header, EqualActions } from "../../../../index.js";
 
 import styles from "./ActionDemo.module.scss";
-import { EqualActions } from "../../../../components/ui/action/EqualActions";
 
 const handleClick = () => { alert(1); };
 

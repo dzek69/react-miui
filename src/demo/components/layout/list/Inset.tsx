@@ -1,7 +1,6 @@
 import React from "react";
-import { List } from "../../../../components/layout/list/List";
-import { Item } from "../../../../components/layout/list/Item";
-import { Header } from "../../../../components/layout/list/Header";
+
+import { List, Item, Header } from "../../../../index.js";
 
 const ListInsetDemo = () => {
     return (

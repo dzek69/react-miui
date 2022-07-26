@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Message } from "../../../../components/ui/message/Message";
+import { Message } from "../../../../index.js";
 
 interface Props {}
 

@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from "react";
 
 import type { Value } from "../../../types/form";
-import { toObjectValue } from "../../../utils";
-import { Item } from "./Item";
+
+import { toObjectValue } from "../../../utils/index.js";
+
+import { Item } from "./Item.js";
 import styles from "./Selector.module.scss";
 
 interface Props<T extends string> {

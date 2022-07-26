@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+
 import classnames from "classnames";
 
 import type { AnyComponent } from "../types";
 import type { TheMap, TheMapItem } from "./componentsMap";
 
-import styles from "./Main.module.scss";
+import { Choice } from "../components/form/choice/Choice.js";
 
-import { safeUseHash } from "./utils/safeUseHash";
-import { componentsMap } from "./componentsMap";
-import { Choice } from "../components/form/choice/Choice";
+import styles from "./Main.module.scss";
+import { safeUseHash } from "./utils/safeUseHash.js";
+import { componentsMap } from "./componentsMap.js";
 
 type BG = "white" | "transparent" | "mobile";
 

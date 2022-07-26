@@ -1,6 +1,7 @@
 import React from "react";
-import classnames from "classnames";
 import type { ReactNode } from "react";
+
+import classnames from "classnames";
 
 import styles from "./Label.module.scss";
 

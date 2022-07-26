@@ -1,7 +1,8 @@
 import React from "react";
 
+import { List } from "../../layout/list/List.js";
+
 import styles from "./Modal.module.scss";
-import { List } from "../../layout/list/List";
 
 interface Props {}
 

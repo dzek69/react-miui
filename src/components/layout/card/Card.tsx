@@ -1,7 +1,9 @@
 import React from "react";
+
 import classnames from "classnames";
 
 import { makeVariants } from "../../../utils/makeVariants.js";
+
 import styles from "./Card.module.scss";
 
 type Variants = "margin";

@@ -16,7 +16,7 @@
 /esm/pages
 /esm/demo-global.scss
 
-/babel.config.cjs
+/babel.config.js
 /jest.config.cjs
 /yarn.lock
 /*.tgz
@@ -27,3 +27,6 @@
 /tsconfig.*
 /.eslintrc.json
 
+
+/pagesconfig.json
+/next-env.d.ts

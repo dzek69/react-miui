@@ -1,5 +1,6 @@
 import React from "react";
-import { Table } from "../../../../components/layout/table/Table";
+
+import { Table } from "../../../../index.js";
 
 import styles from "./TableDemo.module.scss";
 

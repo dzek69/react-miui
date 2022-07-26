@@ -1,8 +1,8 @@
 import React from "react";
+
 import Link from "next/link";
 
-import { Header, ICON, StickyHeader } from "../../../../index.js";
-import { HeaderIconAction } from "../../../../components/layout/header/HeaderIconAction";
+import { Header, ICON, StickyHeader, HeaderIconAction } from "../../../../index.js";
 
 const HeaderDemo = () => {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers,react/no-array-index-key

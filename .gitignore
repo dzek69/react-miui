@@ -13,3 +13,5 @@
 /*.tgz
 *.log
 *.tsbuildinfo
+
+/.next

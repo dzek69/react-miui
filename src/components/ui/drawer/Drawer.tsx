@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+
 import { Timeout } from "oop-timers";
 
+import { HandleEsc } from "../../utils/HandleEsc.js";
+
 import styles from "./Drawer.module.scss";
-import { HandleEsc } from "../../utils/HandleEsc";
 
 const RENDER_TIMEOUT = 500;
 
@@ -25,14 +27,14 @@ class Drawer extends Component<Props, State> {
         };
     }
 
-    public componentDidMount() {
+    public override componentDidMount() {
         this.timeout = new Timeout(() => {
             // eslint-disable-next-line react/no-did-mount-set-state
             this.setState({ shouldRenderWhenClosed: false });
         }, RENDER_TIMEOUT);
     }
 
-    public componentDidUpdate(prevProps: Props) {
+    public override componentDidUpdate(prevProps: Props) {
         if (!prevProps.isOpen && this.props.isOpen) {
             this.onOpen();
         }
@@ -42,7 +44,7 @@ class Drawer extends Component<Props, State> {
         }
     }
 
-    public componentWillUnmount() {
+    public override componentWillUnmount() {
         this.timeout?.stop();
         this.timeout = null;
     }
@@ -62,7 +64,7 @@ class Drawer extends Component<Props, State> {
         this.props.onClose();
     };
 
-    public render() {
+    public override render() {
         // eslint-disable-next-line @typescript-eslint/no-magic-numbers
         const y = this.props.isOpen ? 0 : 100;
         const style = {

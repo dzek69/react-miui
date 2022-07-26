@@ -33,7 +33,7 @@
         "alwaysStrict": true,
         "noUnusedLocals": false,
         "noUnusedParameters": false,
-        "noImplicitReturns": false,
+        "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": false,
         "moduleResolution": "node",
         "baseUrl": null,
@@ -53,7 +53,15 @@
         "emitDecoratorMetadata": null,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "noImplicitOverride": true,
+        "useUnknownInCatchVariables": true,
+        "exactOptionalPropertyTypes": true,
+        "preserveValueImports": false,
+        "moduleSuffixes": [
+            ""
+        ],
+        "moduleDetection": "auto"
     },
     "include": [
         "src/",
