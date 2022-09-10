@@ -21,17 +21,13 @@ interface Props {
     after?: ReactNode;
 }
 
-// eslint-disable-next-line max-statements
 const Header: React.FC<Props> = (props) => {
     const { center, children, variant, position = "top" } = props;
 
-    let justActions = false;
-    if (position === "top" || position === "bottom") {
-        const chld = React.Children.toArray(props.children);
-        justActions = chld.every(c => {
-            return c && typeof c === "object" && "type" in c && c.type === Action;
-        });
-    }
+    const chld = React.Children.toArray(props.children);
+    const justActions = chld.every(c => {
+        return c && typeof c === "object" && "type" in c && c.type === Action;
+    });
 
     const cls = classnames(styles.header, {
         [styles["header--center"]]: center,
@@ -41,7 +37,8 @@ const Header: React.FC<Props> = (props) => {
 
     let contents = children;
     if (justActions) {
-        contents = <EqualActions className={styles.actions}>{contents}</EqualActions>;
+        const mode = position === "top" || position === "bottom" ? "horizontal" : "vertical";
+        contents = <EqualActions className={styles.actions} mode={mode}>{contents}</EqualActions>;
     }
 
     let before: ReactNode;

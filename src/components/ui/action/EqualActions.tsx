@@ -7,6 +7,7 @@ import styles from "./EqualActions.module.scss";
 
 interface Props {
     className?: string;
+    mode?: "horizontal" | "vertical";
 }
 
 const EqualActions: React.FC<Props> = (props) => {
@@ -21,8 +22,10 @@ const EqualActions: React.FC<Props> = (props) => {
         "--actions-count": React.Children.count(props.children),
     } as React.CSSProperties;
 
+    const cls = classnames(styles.actions, props.className, { [styles.vertical]: props.mode === "vertical" });
+
     return (
-        <div className={classnames(styles.actions, props.className)} style={style}>
+        <div className={cls} style={style}>
             {props.children}
         </div>
     );

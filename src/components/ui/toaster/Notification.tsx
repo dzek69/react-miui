@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 
 import classnames from "classnames";
 
@@ -13,17 +13,23 @@ interface Props {
 
 // eslint-disable-next-line @typescript-eslint/no-shadow
 const Notification: React.FC<Props> = (props) => {
+    const [forceHide, setForceHide] = useState(false);
     const handleRemove = useCallback(() => {
         props.onRemove(props.toast.id);
     }, [props.toast.id]);
 
+    const handleForceHide = useCallback(() => {
+        setForceHide(true);
+    }, []);
+
     return (
         <div
             className={classnames(styles.toast, {
-                [styles.hide]: props.toast.hide,
+                [styles.hide]: props.toast.hide || forceHide,
             })}
             key={props.toast.id}
             onTransitionEnd={handleRemove}
+            onClick={handleForceHide}
         >
             <span>{props.toast.text}</span>
         </div>
