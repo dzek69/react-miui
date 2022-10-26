@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import classnames from "classnames";
+import { createPortal } from "react-dom";
 
 import { makeVariants } from "../../../utils/index.js";
 
@@ -17,6 +18,7 @@ interface Props {
     title?: React.ReactNode;
     className?: string;
     variant?: Variant | Variant[];
+    portal?: boolean | HTMLElement;
 }
 
 interface SubComponents {
@@ -32,6 +34,7 @@ const Modal: React.FC<Props> & SubComponents = ({
     className,
     onOverlayClick = "close",
     closeOnEsc = true,
+    portal = true,
     variant,
 }) => {
     const [isClosing, setIsClosing] = useState(false);
@@ -119,7 +122,7 @@ const Modal: React.FC<Props> & SubComponents = ({
         [styles.full]: v.includes("full"),
     });
 
-    return (
+    const tree = (
         <div
             className={overlayCls}
             onClick={handleOverlayClick}
@@ -132,6 +135,13 @@ const Modal: React.FC<Props> & SubComponents = ({
             </div>
         </div>
     );
+
+    if (portal) {
+        const root = typeof portal === "boolean" ? document.body : portal;
+        return createPortal(tree, root);
+    }
+
+    return tree;
 };
 Modal.NegateMargin = ModalNegateMargin;
 
