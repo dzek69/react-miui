@@ -1,5 +1,7 @@
 import React from "react";
 
+import classnames from "classnames";
+
 import type { ICON } from "../../icons/Icon";
 
 import { Icon } from "../../icons/Icon.js";
@@ -10,6 +12,7 @@ interface Props {
     icon?: ICON;
     forceEmptyIcon?: boolean;
     onClick: () => void;
+    className?: string;
 }
 
 const PopOption: React.FC<Props> = (props) => {
@@ -18,7 +21,7 @@ const PopOption: React.FC<Props> = (props) => {
         : ((props.forceEmptyIcon ?? true) ? <span className={styles.fakeIcon} /> : null);
 
     return (
-        <li className={styles.li}>
+        <li className={classnames(props.className, styles.li)}>
             <button onClick={props.onClick} className={styles.button}>{ic}{props.children}</button>
         </li>
     );

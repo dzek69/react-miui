@@ -12,6 +12,7 @@ interface Stat {
 interface Props {
     stats: Stat[];
     variant?: "dark";
+    className?: string;
 }
 
 const Stats: React.FC<Props> = (props) => {
@@ -31,7 +32,7 @@ const Stats: React.FC<Props> = (props) => {
 
     const cls = classnames(styles.stats, {
         [styles["stats-dark"]]: props.variant === "dark",
-    });
+    }, props.className);
 
     return (
         <ul className={cls}>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { Timeout } from "oop-timers";
+import classnames from "classnames";
 
 import { HandleEsc } from "../../utils/HandleEsc.js";
 
@@ -12,6 +13,7 @@ interface Props {
     isOpen: boolean;
     closeOnEsc?: boolean;
     onClose: () => void;
+    className?: string;
 }
 
 interface State {
@@ -76,8 +78,10 @@ class Drawer extends Component<Props, State> {
         const closeOnEsc = this.props.closeOnEsc ?? true;
         const esc = closeOnEsc && <HandleEsc onPress={this.handleEsc} />;
 
+        const cls = classnames(this.props.className, styles.drawer);
+
         return (
-            <div className={styles.drawer} style={style}>
+            <div className={cls} style={style}>
                 {esc}
                 <div className={styles.content}>
                     {shouldRender && this.props.children}

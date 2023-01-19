@@ -1,6 +1,8 @@
 import React from "react";
 import type { ReactNode } from "react";
 
+import classnames from "classnames";
+
 import type { ICON } from "../../icons/Icon";
 
 import { Icon } from "../../icons/Icon.js";
@@ -18,11 +20,11 @@ interface Props {
     to?: string;
     Link?: React.ComponentClass<LinkProps> | React.FC<LinkProps>;
     label?: ReactNode;
-    // if className ever goes here make sure that `a` gets classnames merged
+    className?: string;
 }
 
 const HeaderIconAction: React.FC<Props> = (props) => {
-    const { icon, label, href, to, Link, ...restProps } = props;
+    const { icon, label, href, to, Link, className, ...restProps } = props;
 
     let content: ReactNode = icon;
     if (typeof icon === "string") {
@@ -34,15 +36,18 @@ const HeaderIconAction: React.FC<Props> = (props) => {
             throw new TypeError("`to` prop given without `Link` component");
         }
 
-        return <Link href={to} {...restProps}><a className={styles.a}>{content}</a></Link>;
+        const aCls = classnames(props.className, styles.a);
+        return <Link href={to} {...restProps}><a className={aCls}>{content}</a></Link>;
     }
 
     if (href) {
-        return <a href={href} className={styles.a} {...restProps}>{content}</a>;
+        const aCls = classnames(props.className, styles.a);
+        return <a href={href} className={aCls} {...restProps}>{content}</a>;
     }
 
+    const btnCls = classnames(props.className, styles.btn);
     return (
-        <button className={styles.btn} onClick={props.onClick}>
+        <button className={btnCls} onClick={props.onClick}>
             {content}
         </button>
     );

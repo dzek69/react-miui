@@ -10,11 +10,12 @@ type Variants = "margin";
 
 interface Props {
     variant?: Variants;
+    className?: string;
 }
 
 const Card: React.FC<Props> = (props) => {
     const v = makeVariants(props.variant);
-    const cls = classnames(styles.card, {
+    const cls = classnames(props.className, styles.card, {
         [styles.margin]: v.includes("margin"),
     });
 

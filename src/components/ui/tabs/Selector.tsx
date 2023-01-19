@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from "react";
 
+import classnames from "classnames";
+
 import type { Value } from "../../../types/form";
 
 import { toObjectValue } from "../../../utils/index.js";
@@ -11,6 +13,7 @@ interface Props<T extends string> {
     values: Value<T>[];
     value?: string;
     onChange?: (value: string) => void;
+    className?: string;
 }
 
 const Selector = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>>> => {
@@ -27,7 +30,7 @@ const Selector = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<
         const ov = toObjectValue(v);
         return <Item key={ov.value} value={ov} onClick={handleCurrent} active={crr === ov.value} />;
     });
-    return <div className={styles.selector}>{vals}</div>;
+    return <div className={classnames(props.className, styles.selector)}>{vals}</div>;
 };
 
 export { Selector };

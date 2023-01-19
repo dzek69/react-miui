@@ -13,13 +13,14 @@ interface Props {
     checked?: boolean;
     disabled?: boolean;
     readOnly?: boolean;
+    className?: string;
 }
 
 const Checkbox: React.FC<Props> = (props) => {
     const style: React.CSSProperties = {};
     props.color && (style.color = props.color);
 
-    const cls = classnames(styles.checkbox, {
+    const cls = classnames(props.className, styles.checkbox, {
         [styles.disabled]: props.disabled,
         [styles.readOnly]: props.readOnly,
     });

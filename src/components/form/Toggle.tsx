@@ -11,6 +11,7 @@ interface Props {
     undeterminedClickValue?: boolean;
     disabled?: boolean;
     value: boolean | null;
+    className?: string;
 }
 
 const Toggle: React.FC<Props> = (props) => {
@@ -24,7 +25,7 @@ const Toggle: React.FC<Props> = (props) => {
         props.onChange(e.target.checked);
     }, [props.onChange, props.value]);
 
-    const cls = classnames(styles.container, {
+    const cls = classnames(props.className, styles.container, {
         [styles.disabled]: props.disabled,
     });
 

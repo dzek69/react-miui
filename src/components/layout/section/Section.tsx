@@ -15,12 +15,13 @@ type Variant = "horizontal" | "vertical";
 
 interface Props {
     variant?: Variant | Variant[];
+    className?: string;
 }
 
 const Section: React.FC<Props> & SubComponents = (props) => {
     const v = makeVariants(props.variant);
 
-    const cls = classnames(styles.section, {
+    const cls = classnames(props.className, styles.section, {
         [styles.vertical]: v.includes("vertical"),
         [styles.horizontal]: v.includes("horizontal"),
     });

@@ -9,6 +9,7 @@ import styles from "./Label.module.scss";
 interface Props {
     label?: React.ReactNode;
     variant?: "big";
+    className?: string;
 }
 
 const Label: React.FC<Props> = (props) => {
@@ -20,8 +21,10 @@ const Label: React.FC<Props> = (props) => {
 
     const label = props.label ? <div className={labelCls}>{props.label}</div> : null;
 
+    const rootCls = classnames(props.className, styles.label);
+
     return (
-        <label className={styles.label}>
+        <label className={rootCls}>
             {label}
             {props.children}
         </label>

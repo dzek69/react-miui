@@ -1,5 +1,7 @@
 import React, { Component, createRef } from "react";
 
+import classnames from "classnames";
+
 import { HandleEsc } from "../../utils/HandleEsc.js";
 
 import { OnButtonClick } from "./OnButtonClick.js";
@@ -11,6 +13,7 @@ interface Props {
     onClose: () => void;
     anchor?: HTMLElement | "prev" | "next";
     closeOnEsc?: boolean;
+    className?: string;
 }
 
 interface State {
@@ -143,8 +146,10 @@ class Pop extends Component<Props, State> {
         const closeOnEsc = this.props.closeOnEsc ?? true;
         const esc = closeOnEsc && <HandleEsc onPress={this.handleEsc} />;
 
+        const cls = classnames(this.props.className, styles.overlay);
+
         return (
-            <div className={styles.overlay} ref={this.rootRef} onClick={this.handleOverlayClick}>
+            <div className={cls} ref={this.rootRef} onClick={this.handleOverlayClick}>
                 {esc}
                 <OnButtonClick onClick={this.handleEsc}>
                     <ul className={styles.pop} style={style}>

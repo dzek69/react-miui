@@ -1,10 +1,16 @@
 import React from "react";
 
+import classnames from "classnames";
+
 import styles from "./SearchContainer.module.scss";
 
-const SearchContainer: React.FC = (props) => {
+interface Props {
+    className?: string;
+}
+
+const SearchContainer: React.FC<Props> = (props) => {
     return (
-        <section className={styles.section}>{props.children}</section>
+        <section className={classnames(props.className, styles.section)}>{props.children}</section>
     );
 };
 

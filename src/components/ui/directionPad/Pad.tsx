@@ -1,5 +1,7 @@
 import React from "react";
 
+import classnames from "classnames";
+
 import { PadButton as Button } from "./Button.js";
 import { PadMiddle as Middle } from "./Middle.js";
 import styles from "./Pad.module.scss";
@@ -11,11 +13,12 @@ interface Props {
     onRightPress?: () => void;
     onMiddlePress?: () => void;
     middleLabel?: string;
+    className?: string;
 }
 
 const Pad: React.FC<Props> = (props) => {
     return (
-        <div className={styles.pad}>
+        <div className={classnames(props.className, styles.pad)}>
             <div className={styles.pad__line}>
                 <Button onClick={props.onUpPress} />
             </div>
