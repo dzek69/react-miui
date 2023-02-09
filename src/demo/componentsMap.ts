@@ -57,7 +57,7 @@ interface TheMap {
 
 interface TheMapItem {
     name: string;
-    Component: AnyComponent;
+    Component: AnyComponent<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
     children?: TheMap;
 }
 

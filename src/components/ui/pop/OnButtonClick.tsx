@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 interface Props {
     onClick: () => void;
+    children: React.ReactNode;
 }
 
 const OnButtonClick: React.FC<Props> = (props) => {

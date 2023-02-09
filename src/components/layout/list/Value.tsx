@@ -6,6 +6,7 @@ import styles from "./Value.module.scss";
 
 interface Props {
     className?: string;
+    children: React.ReactNode;
 }
 
 const Value: React.FC<Props> = (props) => {

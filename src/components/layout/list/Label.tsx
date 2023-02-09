@@ -8,6 +8,7 @@ import styles from "./Label.module.scss";
 interface Props {
     sub?: ReactNode;
     className?: string;
+    children: React.ReactNode;
 }
 
 const Label: React.FC<Props> = (props) => {

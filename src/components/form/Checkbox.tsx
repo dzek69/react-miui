@@ -14,6 +14,7 @@ interface Props {
     disabled?: boolean;
     readOnly?: boolean;
     className?: string;
+    children: React.ReactNode;
 }
 
 const Checkbox: React.FC<Props> = (props) => {

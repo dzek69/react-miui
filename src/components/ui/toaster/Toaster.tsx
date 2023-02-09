@@ -14,7 +14,9 @@ const ToasterContext = createContext<ToasterFn>(() => {
 const prefix = `${Date.now()}_`;
 let counter = 0;
 
-interface Props {}
+interface Props {
+    children: React.ReactNode;
+}
 interface State {
     list: Toast[];
 }

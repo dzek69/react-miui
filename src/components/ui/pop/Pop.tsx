@@ -14,6 +14,7 @@ interface Props {
     anchor?: HTMLElement | "prev" | "next";
     closeOnEsc?: boolean;
     className?: string;
+    children: React.ReactNode;
 }
 
 interface State {

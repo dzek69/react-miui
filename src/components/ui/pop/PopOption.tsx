@@ -13,6 +13,7 @@ interface Props {
     forceEmptyIcon?: boolean;
     onClick: () => void;
     className?: string;
+    children: React.ReactNode;
 }
 
 const PopOption: React.FC<Props> = (props) => {

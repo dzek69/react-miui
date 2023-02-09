@@ -14,6 +14,7 @@ interface Props {
     closeOnEsc?: boolean;
     onClose: () => void;
     className?: string;
+    children: React.ReactNode;
 }
 
 interface State {

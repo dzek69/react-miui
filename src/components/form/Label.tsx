@@ -10,6 +10,7 @@ interface Props {
     label?: React.ReactNode;
     variant?: "big";
     className?: string;
+    children: React.ReactNode;
 }
 
 const Label: React.FC<Props> = (props) => {

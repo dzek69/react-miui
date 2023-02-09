@@ -4,7 +4,9 @@ import { List } from "../../layout/list/List.js";
 
 import styles from "./Modal.module.scss";
 
-interface Props {}
+interface Props {
+    children: React.ReactNode;
+}
 
 const ModalNegateMargin: React.FC<Props> = (props) => {
     const chld = React.Children.map(props.children, (child, index) => {

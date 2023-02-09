@@ -29,7 +29,7 @@ interface Props {
     className?: string;
 }
 
-const iconsMap = new Map<ICON, AnyComponent>([
+const iconsMap = new Map<ICON, AnyComponent<{ className?: string }>>([
     [ICON.checkmark, Checkmark],
     [ICON.back, Back],
     [ICON.forward, Forward],

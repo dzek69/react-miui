@@ -6,6 +6,7 @@ import styles from "./SearchContainer.module.scss";
 
 interface Props {
     className?: string;
+    children: React.ReactNode;
 }
 
 const SearchContainer: React.FC<Props> = (props) => {

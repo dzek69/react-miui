@@ -2,6 +2,7 @@ import React from "react";
 
 interface Props {
     condition?: unknown;
+    children: React.ReactNode;
 }
 
 const If: React.FC<Props> = (props) => {

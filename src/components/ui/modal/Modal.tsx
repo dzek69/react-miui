@@ -19,6 +19,7 @@ interface Props {
     className?: string;
     variant?: Variant | Variant[];
     portal?: boolean | HTMLElement;
+    children: React.ReactNode;
 }
 
 interface SubComponents {

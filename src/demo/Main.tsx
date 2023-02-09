@@ -14,7 +14,7 @@ import { componentsMap } from "./componentsMap.js";
 type BG = "white" | "transparent" | "mobile";
 
 interface ComponentInfo {
-    Component: AnyComponent;
+    Component: AnyComponent<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
     name: string;
 }
 

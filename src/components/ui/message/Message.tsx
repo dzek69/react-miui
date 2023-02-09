@@ -8,6 +8,7 @@ interface Props {
     type: "warning" | "error" | "info" | "tip";
     variant?: "box";
     className?: string;
+    children: React.ReactNode;
 }
 
 const Message: React.FC<Props> = (props) => {

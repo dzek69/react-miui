@@ -16,6 +16,7 @@ type Variant = "horizontal" | "vertical";
 interface Props {
     variant?: Variant | Variant[];
     className?: string;
+    children: React.ReactNode;
 }
 
 const Section: React.FC<Props> & SubComponents = (props) => {

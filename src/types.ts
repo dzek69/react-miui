@@ -1,6 +1,6 @@
 import type React from "react";
 
-type AnyComponent = React.ComponentClass | React.FC;
+type AnyComponent<P> = React.ComponentClass<P> | React.FC<P>;
 
 export type {
     AnyComponent,

@@ -11,6 +11,7 @@ import { Label } from "./Label.js";
 
 interface LinkProps {
     href: string;
+    children: React.ReactNode;
 }
 
 type Variant = "inset";
@@ -24,6 +25,7 @@ interface Props {
     ratio?: string; // @TODO number/number/number/.. type?
     variant?: Variant | Variant[];
     selected?: boolean | undefined;
+    children: React.ReactNode;
 }
 
 interface SubComponents {

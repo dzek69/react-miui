@@ -7,6 +7,7 @@ import styles from "./ModalButtons.module.scss";
 
 interface Props {
     className?: string;
+    children: React.ReactNode;
 }
 
 interface SubComponents {

@@ -8,6 +8,7 @@ import styles from "./EqualActions.module.scss";
 interface Props {
     className?: string;
     mode?: "horizontal" | "vertical";
+    children: React.ReactNode;
 }
 
 const EqualActions: React.FC<Props> = (props) => {

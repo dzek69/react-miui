@@ -19,6 +19,7 @@ interface Props {
     className?: string;
     before?: ReactNode;
     after?: ReactNode;
+    children: React.ReactNode;
 }
 
 const Header: React.FC<Props> = (props) => {

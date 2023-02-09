@@ -13,6 +13,7 @@ type Variant = "inset";
 interface Props {
     className?: string;
     variant?: Variant | Variant[];
+    children: React.ReactNode;
 }
 
 interface SubComponents {

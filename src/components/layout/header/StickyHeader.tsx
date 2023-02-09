@@ -14,11 +14,13 @@ interface Content {
 
 interface ContentProps {
     className?: string;
+    children: React.ReactNode;
 }
 
 interface Props {
     position?: "top" | "left" | "right" | "bottom";
     className?: string;
+    children: React.ReactNode;
 }
 
 const StickyHeader: React.FC<Props> & Content = (props) => {

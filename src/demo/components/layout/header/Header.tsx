@@ -1,8 +1,7 @@
 import React from "react";
 
-import Link from "next/link";
-
 import { Header, ICON, StickyHeader, HeaderIconAction } from "../../../../index.js";
+import { NextLink } from "../../../NextLink.js";
 
 const HeaderDemo = () => {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers,react/no-array-index-key
@@ -65,7 +64,7 @@ const HeaderWithButtonsDemo = () => {
                 Some button icons are added on the left to centered aligned title
             </div>
             <Header
-                before={<HeaderIconAction icon={ICON.back} to={"/react-miui"} Link={Link} />}
+                before={<HeaderIconAction icon={ICON.back} to={"/react-miui"} Link={NextLink} />}
                 center={true}
             >Messages
             </Header>

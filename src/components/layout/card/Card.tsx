@@ -11,6 +11,7 @@ type Variants = "margin";
 interface Props {
     variant?: Variants;
     className?: string;
+    children: React.ReactNode;
 }
 
 const Card: React.FC<Props> = (props) => {

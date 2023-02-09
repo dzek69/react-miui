@@ -11,6 +11,7 @@ import styles from "./Action.module.scss";
 
 interface LinkProps { // @TODO extract? - same on list item
     href: string;
+    children: React.ReactNode;
 }
 
 interface Props {

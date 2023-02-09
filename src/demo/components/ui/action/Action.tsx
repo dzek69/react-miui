@@ -1,8 +1,7 @@
 import React from "react";
 
-import Link from "next/link";
-
 import { Action, ICON, StickyHeader, Header, EqualActions } from "../../../../index.js";
+import { NextLink } from "../../../NextLink.js";
 
 import styles from "./ActionDemo.module.scss";
 
@@ -15,7 +14,7 @@ const ActionDemo: React.FC = () => {
                 <Action icon={ICON.checkmark} /> - action without action
             </div>
             <div>
-                <Action icon={ICON.checkmark} Link={Link} to={"react-miui"} /> - internal link action
+                <Action icon={ICON.checkmark} Link={NextLink} to={"react-miui"} /> - internal link action
             </div>
             <div>
                 <Action icon={ICON.checkmark} href={"https://www.npmjs.com/package/react-miui"} /> - external link action
