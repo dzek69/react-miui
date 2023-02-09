@@ -1,6 +1,6 @@
 {
   "name": "react-miui",
-  "version": "0.18.0",
+  "version": "0.18.1",
   "author": "Jacek Nowacki",
   "license": "MIT",
   "scripts": {
@@ -25,8 +25,8 @@
     "./global.scss": "./src/global.scss",
     ".": {
       "require": "./dist/index.js",
-      "default": "./esm/index.js",
-      "types": "./esm/index.d.ts"
+      "types": "./esm/index.d.ts",
+      "default": "./esm/index.js"
     }
   },
   "main": "./dist/index.js",
@@ -82,7 +82,7 @@
     }
   },
   "libraryTemplate": {
-    "version": "3.7.0",
+    "version": "3.7.1",
     "language": "typescript",
     "fixDefaultForCommonJS": true,
     "jsx": true
