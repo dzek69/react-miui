@@ -1,5 +1,7 @@
 import React from "react";
 
+import "@icon-park/react/styles/index.css";
+
 import { ToasterProvider } from "../components/ui/toaster/Toaster.js";
 
 import styles from "./Demo.module.scss";

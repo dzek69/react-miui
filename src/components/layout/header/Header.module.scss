@@ -64,10 +64,22 @@
 .header--top, .header--bottom {
     .before {
         margin-right: calc(50px / var(--ratio-dimensions));
+        height: 100%;
+        padding: 7px 0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .after {
         margin-left: calc(50px / var(--ratio-dimensions));
+        height: 100%;
+        padding: 7px 0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .actions {

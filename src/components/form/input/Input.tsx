@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useId, useState } from "react";
 
 import classnames from "classnames";
 
-import type { ObjectValue, Value } from "../../types/form";
+import type { ObjectValue, Value } from "../../../types/form";
 
-import { useRandomId } from "../../utils/index.js";
+import { Suggestions } from "../Suggestions.js";
 
-import { Suggestions } from "./Suggestions.js";
 import styles from "./Input.module.scss";
+import { InputStyled } from "./Input.styled";
 
 interface CustomProps<T extends string> {
     children?: never;
@@ -29,7 +29,7 @@ const Input = <T extends string>({
     ...props
 }: Props<T>): ReturnType<React.FC<Props<T>>> => {
     const [focused, setFocused] = useState(false);
-    const suggestionsId = useRandomId();
+    const suggestionsId = useId();
     const [info] = useState<{ picked?: boolean }>({});
 
     const handleFocus = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
@@ -86,7 +86,7 @@ const Input = <T extends string>({
     return (
         <div className={wrapperCls}>
             {prefixElem}
-            <input
+            <InputStyled
                 {...props}
                 {...extraProps}
                 onChange={handleChange}

@@ -1,8 +1,11 @@
 .btn, .a {
-    padding: 7px;
+    height: 100%;
+    aspect-ratio: 1;
     background: none;
     border-radius: 666px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: calc(2px / var(--ratio-border)) solid transparent;
     color: currentColor;
 

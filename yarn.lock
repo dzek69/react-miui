@@ -1469,6 +1469,11 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@icon-park/react@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.npmjs.org/@icon-park/react/-/react-1.4.2.tgz#db761ebc0e685702b80c4aaf5b59af5ccda40ecc"
+  integrity sha512-+MtQLjNiRuia3fC/NfpSCTIy5KH5b+NkMB9zYd7p3R4aAIK61AjK0OSraaICJdkKooU9jpzk8m0fY4g9A3JqhQ==
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -1861,6 +1866,11 @@
   integrity sha512-BPS4ynJW/o92PUR4wgriz2Ud5gpST5vz6GQfMixEDK0Z8ZCUv2M7SkBLykH56T++Xs+8ln9zTGbOvNGIe02/jw==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
+
+"@stitches/react@^1.2.8":
+  version "1.2.8"
+  resolved "https://registry.npmjs.org/@stitches/react/-/react-1.2.8.tgz#954f8008be8d9c65c4e58efa0937f32388ce3a38"
+  integrity sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==
 
 "@swc/helpers@0.4.14":
   version "0.4.14"
@@ -4549,10 +4559,10 @@ onetime@^5.1.2:
   resolved "https://registry.npmjs.org/oolong/-/oolong-1.15.1.tgz#90bac9e7ce52f60906ab2228d9e2b115f1086cea"
   integrity sha1-kLrJ585S9gkGqyIo2eKxFfEIbOo=
 
-oop-timers@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.npmjs.org/oop-timers/-/oop-timers-4.0.1.tgz#b725d080f2de6a98ca9d2338e2b4eb7b6c8cc2cf"
-  integrity sha512-2fms3Sz6+R/euNmjPdgeklQmBqcAJ7ws/yMUbhjkh4dLqK5B/Jhs2t9hm5OguX1J8LDwK6howdYU+/zEyfQXWA==
+oop-timers@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/oop-timers/-/oop-timers-5.0.0.tgz#636561abf2d2d5ed870b165e9c678cb01f7ce6d5"
+  integrity sha512-YXDS1v+9/yM6zTWowcrNaaVbe81fuGnpfT5fzkNwOq3/bdrO1lRzm++j6+blOBvWpSzbN4QSEkkmksk6dHUjfw==
 
 optionator@^0.9.1:
   version "0.9.1"

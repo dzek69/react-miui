@@ -1,11 +1,12 @@
 /* eslint-disable import/max-dependencies */
 export * from "./components/form/choice/Choice.js";
 export * from "./components/form/Checkbox.js";
-export * from "./components/form/Input.js";
 export * from "./components/form/Label.js";
 export * from "./components/form/Select.js";
 export * from "./components/form/TextArea.js";
 export * from "./components/form/Toggle.js";
+
+export * from "./components/form/index.js";
 
 export * from "./components/icons/Icon.js";
 
@@ -38,3 +39,5 @@ export * from "./components/ui/toaster/Toaster.js";
 export * from "./components/utils/HandleEsc.js";
 export * from "./components/utils/If.js";
 export * from "./components/utils/Spacer.js";
+
+export { getCssText, styled } from "./theme.js";
