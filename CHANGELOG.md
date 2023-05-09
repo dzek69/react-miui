@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.18.1]+
+## [0.19.0] - 2022-05-09
 ### Added
 - exported `styled` stitches library function, use this to properly style future components outside this lib
 ### Fixed
@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Breaking
 - `PopOption` expects ReactElement as icon now
 - you have to consume exported `getCssText` function to have proper styles with SSR
+### Dev
+- deps bump
 
 ## [0.18.1] - 2021-02-09
 ### Fixed
