@@ -5,7 +5,8 @@
         "@dzek69/eslint-config-typescript",
         "@dzek69/eslint-config-react",
         "@dzek69/eslint-config-import",
-        "@dzek69/eslint-config-import-typescript"
+        "@dzek69/eslint-config-import-typescript",
+        "plugin:storybook/recommended"
     ],
     "env": {
         "node": true,

@@ -1,24 +1,36 @@
-import React from "react";
+import type React from "react";
 
-import classnames from "classnames";
+import type { ComponentProps } from "@stitches/react";
+import type { StyledComponent } from "@stitches/react/types/styled-component";
+import type { ThemeCSS } from "../../../theme";
 
-import styles from "./Message.module.scss";
+import { StyledMessage } from "./Message.styled.js";
 
-interface Props {
-    type: "warning" | "error" | "info" | "tip";
-    variant?: "box";
+type StitchesProps = ComponentProps<typeof StyledMessage>;
+
+interface Props extends StitchesProps {
+    /**
+     * Type of the message, which affects its appearance.
+     */
+    type: NonNullable<StitchesProps["type"]>;
+    /**
+     * Variant of the message, by default the message takes full width and has no space around it.
+     * Box variant adds some space around the message.
+     */
+    variant?: NonNullable<StitchesProps["variant"]>;
+    /**
+     * Additional class name.
+     */
     className?: string;
+    /**
+     * Message content.
+     */
     children: React.ReactNode;
 }
 
-const Message: React.FC<Props> = (props) => {
-    const cls = classnames(styles.container, {
-        [styles.box]: props.variant === "box",
-        [styles.warning]: props.type === "warning",
-        [styles.error]: props.type === "error",
-        [styles.info]: props.type === "info",
-    }, props.className);
-    return <div className={cls}>{props.children}</div>;
-};
+/**
+ * A component that usually displays result of some action or a tip for the user.
+ */
+const Message = StyledMessage as unknown as StyledComponent<"div", Props, {}, ThemeCSS>;
 
 export { Message };
