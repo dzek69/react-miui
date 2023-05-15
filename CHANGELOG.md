@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - storybook
 - `Message` storybook
+### Dev
+- nodemon moved to dev deps
 
 ## [0.19.0] - 2022-05-09
 ### Added
