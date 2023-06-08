@@ -109,6 +109,7 @@ type ThemeCSS = StitchesCSS<typeof config>;
 type OverwriteProps<
     // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-use-before-define
     T extends StyledComponent<Type, OldProps, Media, TheCSS>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Props, Type = any, OldProps = any, Media = any, TheCSS = any,
 > = StyledComponent<Type, Props, Media, TheCSS>;
 

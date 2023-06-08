@@ -58,6 +58,22 @@
             "rules": {
                 "react/no-multi-comp": "off"
             }
+        },
+        {
+            "files": [
+                "src/**/*.stories.*"
+            ],
+            "rules": {
+                "import/no-default-export": "off"
+            }
+        },
+        {
+            "files": [
+                "src/**/*.styled.*"
+            ],
+            "rules": {
+                "@typescript-eslint/no-magic-numbers": "off"
+            }
         }
     ],
     "settings": {
