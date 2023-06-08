@@ -1,13 +1,11 @@
 import React, { useCallback, useId, useState } from "react";
 
-import classnames from "classnames";
-
 import type { ObjectValue, Value } from "../../../types/form";
 
 import { Suggestions } from "../Suggestions.js";
 
 import styles from "./Input.module.scss";
-import { InputStyled } from "./Input.styled";
+import { StyledInput, StyledWrapper, StyledPrefix, StyledSuffix } from "./Input.styled";
 
 interface CustomProps<T extends string> {
     children?: never;
@@ -19,8 +17,10 @@ interface CustomProps<T extends string> {
 
 type Props<T extends string> = Omit<React.InputHTMLAttributes<HTMLInputElement>, "prefix"> & CustomProps<T>;
 
-// eslint-disable-next-line max-lines-per-function
-const Input = <T extends string>({
+/**
+ * Input component.
+ */
+const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
     className, children,
     prefix, suffix,
     onFocus, onBlur, onKeyDown, onChange,
@@ -69,14 +69,8 @@ const Input = <T extends string>({
         onChange?.(e);
     }, [suggestions]);
 
-    const wrapperCls = classnames(styles.wrapper, {
-        [styles.wrapperFocused]: focused,
-        [styles.disabled]: props.disabled,
-        [styles.readOnly]: props.readOnly,
-    }, className);
-
-    const prefixElem = prefix ? <div className={styles.prefix}>{prefix}</div> : null;
-    const suffixElem = suffix ? <div className={styles.suffix}>{suffix}</div> : null;
+    const prefixElem = prefix ? <StyledPrefix>{prefix}</StyledPrefix> : null;
+    const suffixElem = suffix ? <StyledSuffix>{suffix}</StyledSuffix> : null;
 
     const extraProps: { list?: string } = {};
     if (suggestions) {
@@ -84,9 +78,14 @@ const Input = <T extends string>({
     }
 
     return (
-        <div className={wrapperCls}>
+        <StyledWrapper
+            className={className}
+            focused={Boolean(focused)}
+            disabled={Boolean(props.disabled)}
+            readOnly={Boolean(props.readOnly)}
+        >
             {prefixElem}
-            <InputStyled
+            <StyledInput
                 {...props}
                 {...extraProps}
                 onChange={handleChange}
@@ -97,7 +96,7 @@ const Input = <T extends string>({
             />
             <Suggestions id={suggestionsId} suggestions={suggestions} />
             {suffixElem}
-        </div>
+        </StyledWrapper>
     );
 };
 

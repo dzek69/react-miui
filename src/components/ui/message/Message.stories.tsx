@@ -2,7 +2,7 @@ import React from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { styled } from "../../../theme";
+import { styled } from "../../../theme.js";
 
 import { Message } from "./Message.js";
 

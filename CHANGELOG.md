@@ -5,10 +5,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.19.0+]
 ### Added
-- storybook
-- `Message` storybook
+- loader components: CoveringLoader, FullLoader, Loader, Loading, PopLoader
+### Fixed
+- exported `ThemeCSS` type (Stitches CSS type)
 ### Dev
 - nodemon moved to dev deps
+- added storybook
+- added `Message` storybook
+- added `Input` storybook
+- `Input` converted to stitches
 
 ## [0.19.0] - 2022-05-09
 ### Added

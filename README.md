@@ -4,6 +4,8 @@ Old MIUI inspired design components for React. Breaking changes may happen until
 
 Usage:
 - Import `global.scss`
+- Import `cssReset` named export and include it in `<style>` tag
+- Import `getCssText` named export, call it and include result in `<style>` tag
 - Import any needed component from named exports
 
 Your bundler needs to handle scss files, including scss modules.

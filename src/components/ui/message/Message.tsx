@@ -1,8 +1,7 @@
 import type React from "react";
 
 import type { ComponentProps } from "@stitches/react";
-import type { StyledComponent } from "@stitches/react/types/styled-component";
-import type { ThemeCSS } from "../../../theme";
+import type { OverwriteProps } from "../../../theme";
 
 import { StyledMessage } from "./Message.styled.js";
 
@@ -31,6 +30,6 @@ interface Props extends StitchesProps {
 /**
  * A component that usually displays result of some action or a tip for the user.
  */
-const Message = StyledMessage as unknown as StyledComponent<"div", Props, {}, ThemeCSS>;
+const Message = StyledMessage as unknown as OverwriteProps<typeof StyledMessage, Props>;
 
 export { Message };
