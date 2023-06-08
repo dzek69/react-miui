@@ -69,7 +69,9 @@
         },
         {
             "files": [
-                "src/**/*.styled.*"
+                "src/**/*.styled.*",
+                "src/**/*.css.*",
+                "src/*.css.*"
             ],
             "rules": {
                 "@typescript-eslint/no-magic-numbers": "off"

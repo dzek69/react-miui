@@ -3,7 +3,7 @@ export * from "./components/form/choice/Choice.js";
 export * from "./components/form/Checkbox.js";
 export * from "./components/form/Label.js";
 export * from "./components/form/Select.js";
-export * from "./components/form/TextArea.js";
+export * from "./components/form/textarea/TextArea.js";
 export * from "./components/form/Toggle.js";
 
 export * from "./components/form/index.js";
@@ -44,6 +44,8 @@ export * from "./components/ui/toaster/Toaster.js";
 export * from "./components/utils/HandleEsc.js";
 export * from "./components/utils/If.js";
 export * from "./components/utils/Spacer.js";
+
+export * from "./scrollbars.css.js";
 
 export type { ThemeCSS } from "./theme.js";
 

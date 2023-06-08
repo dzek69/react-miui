@@ -1,15 +1,13 @@
 import React, { useCallback, useState } from "react";
 
-import classnames from "classnames";
-
-import styles from "./input/Input.module.scss";
+import { StyledTextArea } from "./TextArea.styled";
 
 interface Props {
     children?: never;
 }
 
 const TextArea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement> & Props> = ({
-    className, children,
+    children,
     onFocus, onBlur,
     ...props
 }) => {
@@ -25,12 +23,15 @@ const TextArea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement> & Pro
         onBlur?.(e);
     }, [onBlur]);
 
-    const cls = classnames(styles.wrapper, {
-        [styles.wrapperFocused]: focused,
-    }, styles.input, styles.textarea, className);
-
     return (
-        <textarea {...props} onFocus={handleFocus} onBlur={handleBlur} className={cls} />
+        <StyledTextArea
+            {...props}
+            disabled={Boolean(props.disabled)}
+            readOnly={Boolean(props.readOnly)}
+            focused={focused}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+        />
     );
 };
 
