@@ -98,9 +98,11 @@ const {
         },
     },
     utils: {
-        mx: (value: string) => ({ marginLeft: value, marginRight: value }),
-        my: (value: string) => ({ marginTop: value, marginBottom: value }),
-        size: (value: string) => ({ width: value, height: value }),
+        mx: (value: string | number) => ({ marginLeft: value, marginRight: value }),
+        my: (value: string | number) => ({ marginTop: value, marginBottom: value }),
+        px: (value: string | number) => ({ paddingLeft: value, paddingRight: value }),
+        py: (value: string | number) => ({ paddingTop: value, paddingBottom: value }),
+        size: (value: string | number) => ({ width: value, height: value }),
     },
 });
 

@@ -21,7 +21,8 @@ const input = {
     "&:read-only, &:disabled": {
         color: "inherit",
     },
-} satisfies ThemeCSS;
+};
+// satisfies ThemeCSS; @TODO restore
 
 const wrapper = {
     background: "white",
@@ -50,7 +51,8 @@ const wrapper = {
             },
         },
     },
-} satisfies ThemeCSS;
+};
+// satisfies ThemeCSS; TODO restore
 
 export {
     input,

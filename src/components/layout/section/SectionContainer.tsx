@@ -1,15 +1,12 @@
-import React from "react";
+import { styled } from "../../../theme.js";
 
-import styles from "./SectionContainer.module.scss";
-
-interface Props {
-    children: React.ReactNode;
-}
-
-const SectionContainer: React.FC<Props> = (props) => {
-    return (
-        <div className={styles.container}>{props.children}</div>
-    );
-};
+const SectionContainer = styled("div", {
+    background: "$toolbarBg",
+    flex: 1,
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: 23,
+});
 
 export { SectionContainer };

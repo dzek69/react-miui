@@ -1,37 +1,37 @@
-import React from "react";
-
-import classnames from "classnames";
-
-import { makeVariants } from "../../../utils/makeVariants.js";
+import { pxToRem, styled } from "../../../theme.js";
 
 import { SectionContainer } from "./SectionContainer.js";
-import styles from "./Section.module.scss";
 
 interface SubComponents {
     Container: typeof SectionContainer;
 }
 
-type Variant = "horizontal" | "vertical";
+const SectionCmp = styled("div", {
+    background: "$background",
 
-interface Props {
-    variant?: Variant | Variant[];
-    className?: string;
-    children: React.ReactNode;
-}
+    variants: {
+        vertical: {
+            true: {
+                // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+                py: pxToRem(23),
+            },
+        },
+        horizontal: {
+            true: {
+                // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+                px: pxToRem(23),
+            },
+        },
+    },
+});
 
-const Section: React.FC<Props> & SubComponents = (props) => {
-    const v = makeVariants(props.variant);
-
-    const cls = classnames(props.className, styles.section, {
-        [styles.vertical]: v.includes("vertical"),
-        [styles.horizontal]: v.includes("horizontal"),
-    });
-    return (
-        <section className={cls}>
-            {props.children}
-        </section>
-    );
-};
+/**
+ * A section is a container that can be used to group related content.
+ *
+ * You should use it along with the `Section.Container` component. Container stretches to fill the available space and
+ * has darker background color, sections are lighter and have a gap between them.
+ */
+const Section = SectionCmp as typeof SectionCmp & SubComponents;
 
 Section.Container = SectionContainer;
 
