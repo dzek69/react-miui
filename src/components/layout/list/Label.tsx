@@ -1,24 +1,33 @@
 import React from "react";
 import type { ReactNode } from "react";
 
-import classnames from "classnames";
+import { dimensionsPxToRem, fontPxToRem, styled } from "../../../theme.js";
 
-import styles from "./Label.module.scss";
+const SubLabel = styled("div", {
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    fontSize: fontPxToRem(27),
+    color: "$sub",
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    marginTop: fontPxToRem(27 / 3),
+});
 
-interface Props {
-    sub?: ReactNode;
-    className?: string;
-    children: React.ReactNode;
-}
+const StyledLabel = styled("div", {
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    padding: `${dimensionsPxToRem(54)} 0`,
+});
 
-const Label: React.FC<Props> = (props) => {
-    const sub = props.sub ? <div className={styles.sub}>{props.sub}</div> : null;
+type StyledLabelProps = React.ComponentProps<typeof StyledLabel>;
 
+/**
+ * Use this to render a label within `Item`, optionally you can render a sublabel as well (with a tip message for
+ * example).
+ */
+const Label: React.FC<StyledLabelProps & { sub?: ReactNode }> = ({ sub, ...props }) => {
     return (
-        <div className={classnames(styles.root, props.className)}>
+        <StyledLabel {...props}>
             <div>{props.children}</div>
-            {sub}
-        </div>
+            {sub && <SubLabel>{sub}</SubLabel>}
+        </StyledLabel>
     );
 };
 

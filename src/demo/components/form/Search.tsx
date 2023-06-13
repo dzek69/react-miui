@@ -1,6 +1,8 @@
 import React from "react";
 
-import { SearchContainer, Input, ICON, Icon, Section, List, Item } from "../../../index.js";
+import { SearchContainer, Input, ICON, Icon, Section, List } from "../../../index.js";
+
+const Item = List.Item;
 
 const SearchDemo = () => {
     return (

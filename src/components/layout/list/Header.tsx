@@ -1,32 +1,49 @@
 import React from "react";
 
-import classnames from "classnames";
+import type { VariantProps } from "@stitches/react";
 
-import { makeVariants } from "../../../utils/index.js";
+import { dimensionsPxToRem, fontPxToRem, styled } from "../../../theme.js";
 
-import styles from "./Item.module.scss";
-import headerStyles from "./Header.module.scss";
+import { Item, ItemInnerContainerClassName } from "./Item.js";
 
-type Variant = "inset";
+const StyledContent = styled("div", {});
 
-interface Props {
-    className?: string;
-    variant?: Variant | Variant[];
-    children: React.ReactNode;
-}
+const StyledHeader = styled(Item, {
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    paddingTop: dimensionsPxToRem(80),
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    paddingBottom: dimensionsPxToRem(40),
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    fontSize: fontPxToRem(26),
+    color: "$sub",
+    textTransform: "uppercase",
 
-const Header: React.FC<Props> = (props) => {
-    const v = makeVariants(props.variant);
+    [`& ${ItemInnerContainerClassName}`]: {
+        minHeight: 0,
+    },
 
-    const cls = classnames(props.className, styles.item, headerStyles.header, {
-        [styles.inset]: v.includes("inset"),
-    });
+    variants: {
+        inset: {
+            true: {
+                paddingLeft: 0,
+                paddingRight: 0,
+            },
+        },
+    },
+});
 
-    // @TODO way to use h1, h2, h3 instead of div
+type StyledHeaderProps = React.ComponentProps<typeof StyledHeader>;
+type Variants = VariantProps<typeof StyledHeader>;
+
+/**
+ * Use this to render a header within a `List`.
+ * Use `as` prop to define which tag to use.
+ */
+const Header: React.FC<StyledHeaderProps & Variants & { as?: string }> = ({ as, ...props }) => {
     return (
-        <li className={cls}>
-            <div>{props.children}</div>
-        </li>
+        <StyledHeader {...props}>
+            <StyledContent {...(as ? { as } : undefined)}>{props.children}</StyledContent>
+        </StyledHeader>
     );
 };
 

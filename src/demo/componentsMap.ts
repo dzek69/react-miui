@@ -14,7 +14,6 @@ import {
     StickyHeaderDemo, StickyHeaderLeftCenterDemo, StickyHeaderLeftDemo, StickyHeaderRightDemo,
     StickyHeaderTopBottomDemo,
 } from "./components/layout/header/StickyHeader.js";
-import { ListItemDemo } from "./components/layout/list/List.Item.js";
 import { DirectionPadDemo } from "./components/ui/directionPad/Pad.js";
 import { IconsDemo } from "./components/ui/icons/Icons.js";
 import { ButtonDemo } from "./components/ui/button/ButtonDemo.js";
@@ -26,23 +25,14 @@ import {
     ActionsOnLeft,
 } from "./components/ui/action/Action.js";
 import { ToggleDemo } from "./components/form/Toggle.js";
-import { ItemRatioDemo } from "./components/layout/list/ItemRatio.js";
-import { ItemLabelDemo } from "./components/layout/list/Label.js";
-import { ListHeaderDemo } from "./components/layout/list/Header.js";
-import { ValueDemo } from "./components/layout/list/Value.js";
-import { SectionDemo } from "./components/layout/section/Section.js";
 import { CardDemo } from "./components/layout/card/Card.js";
-import { InputDemo } from "./components/form/Input.js";
 import { FormDemo } from "./components/form/Form.js";
 import { SearchDemo } from "./components/form/Search.js";
 import { LabelDemo } from "./components/form/Label.js";
 import { ToasterDemo } from "./components/ui/toaster/Toaster.js";
 import { ModalCenteredDemo, ModalDemo, ModalOptionsDemo } from "./components/ui/modal/Modal.js";
-import { ListInsetDemo } from "./components/layout/list/Inset.js";
-import { ListSelectionDemo } from "./components/layout/list/Selection.js";
 import { TabsDemo } from "./components/ui/tabs/Tabs.js";
 import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice.js";
-import { MessageDemo } from "./components/ui/message/Message.js";
 import { PopDemo } from "./components/ui/pop/Pop.js";
 import { DrawerDemo } from "./components/ui/drawer/Drawer.js";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats.js";
@@ -66,10 +56,6 @@ const componentsMap: TheMap = {
         name: "Form",
         Component: FormDemo,
         children: {
-            Input: {
-                name: "Input",
-                Component: InputDemo,
-            },
             Select: {
                 name: "Select",
                 Component: SelectDemo,
@@ -186,40 +172,6 @@ const componentsMap: TheMap = {
         name: "Tabs",
         Component: TabsDemo,
     },
-    ListItem: {
-        name: "List & Item",
-        Component: ListItemDemo,
-        children: {
-            Ratio: {
-                name: "Alignment",
-                Component: ItemRatioDemo,
-            },
-            Header: {
-                name: "Header",
-                Component: ListHeaderDemo,
-            },
-            Inset: {
-                name: "Inset",
-                Component: ListInsetDemo,
-            },
-            Selection: {
-                name: "Selection",
-                Component: ListSelectionDemo,
-            },
-            Label: {
-                name: "Label",
-                Component: ItemLabelDemo,
-            },
-            Value: {
-                name: "Value",
-                Component: ValueDemo,
-            },
-        },
-    },
-    Section: {
-        name: "Section",
-        Component: SectionDemo,
-    },
     Card: {
         name: "Card",
         Component: CardDemo,
@@ -249,10 +201,6 @@ const componentsMap: TheMap = {
     Toaster: {
         name: "Toaster",
         Component: ToasterDemo,
-    },
-    Message: {
-        name: "Message",
-        Component: MessageDemo,
     },
     Drawer: {
         name: "Drawer",

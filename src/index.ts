@@ -15,7 +15,6 @@ export * from "./components/layout/header/Header.js";
 export * from "./components/layout/header/HeaderIconAction.js";
 export * from "./components/layout/header/StickyHeader.js";
 export * from "./components/layout/list/List.js";
-export * from "./components/layout/list/Item.js";
 export * from "./components/layout/section/SearchContainer.js";
 export * from "./components/layout/section/Section.js";
 export * from "./components/layout/table/Table.js";

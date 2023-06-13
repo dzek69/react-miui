@@ -1,47 +1,58 @@
 import React from "react";
 
-import classnames from "classnames";
-
-import { makeVariants } from "../../../utils/index.js";
+import { pxToRem, styled } from "../../../theme.js";
 
 import { Header } from "./Header.js";
 import { Item } from "./Item.js";
-import styles from "./List.module.scss";
-
-type Variant = "inset";
-
-interface Props {
-    className?: string;
-    variant?: Variant | Variant[];
-    children: React.ReactNode;
-}
 
 interface SubComponents {
     Header: typeof Header;
+    Item: typeof Item;
 }
 
-const List: React.FC<Props> & SubComponents = (props) => {
-    const v = makeVariants(props.variant);
+const StyledList = styled("ul", {
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    margin: `0 ${pxToRem(23)}`,
+    padding: 0,
 
+    variants: {
+        inset: {
+            true: {
+                margin: 0,
+            },
+        },
+    },
+});
+
+type StyledListProps = React.ComponentProps<typeof StyledList>;
+
+/**
+ * Component for rendering menu lists.
+ *
+ * It has two subcomponents:
+ * - `Item`: for rendering list items
+ * - `Header`: for rendering list headers
+ *
+ * List has one variant: `inset`, which removes the margin from the list. If used it will be automatically applied to
+ * all children.
+ *
+ * See `Item` and `Header` for more information about their usage.
+ */
+const List: React.FC<StyledListProps> & SubComponents = (props) => {
     const chld = React.Children.map(props.children, (child) => {
         if (child && typeof child === "object" && "type" in child && (child.type === Item || child.type === Header)) {
             return React.cloneElement(child, {
-                // @TODO this will override but should merge?
-                variant: props.variant,
+                inset: props.inset,
             });
         }
         return child;
     });
 
-    const cls = classnames(props.className, styles.list, {
-        [styles.inset]: v.includes("inset"),
-    });
-
     return (
-        <ul className={cls}>{chld}</ul>
+        <StyledList {...props}>{chld}</StyledList>
     );
 };
-
 List.Header = Header;
+List.Item = Item;
 
 export { List };

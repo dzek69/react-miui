@@ -9,7 +9,7 @@ const FormDemo = () => {
     return (
         <Section.Container>
             <Section>
-                <Section variant={["vertical", "horizontal"]}>
+                <Section vertical={true} horizontal={true}>
                     <Label label={"First name"}>
                         <Input placeholder={""} />
                     </Label>

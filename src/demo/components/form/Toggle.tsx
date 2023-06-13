@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-import { Toggle, List, Item, useToaster } from "../../../index.js";
+import { Toggle, List, useToaster } from "../../../index.js";
+
+const Item = List.Item;
 
 const handleNoop = () => undefined;
 

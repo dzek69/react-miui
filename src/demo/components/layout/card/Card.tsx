@@ -6,13 +6,13 @@ const CardDemo = () => {
     return (
         <Section.Container>
             <Card>
-                <Section variant={["vertical", "horizontal"]}>Content</Section>
+                <Section vertical={true} horizontal={true}>Content</Section>
             </Card>
             <Card>
-                <Section variant={["vertical", "horizontal"]}>Content</Section>
+                <Section vertical={true} horizontal={true}>Content</Section>
             </Card>
             <Card variant={"margin"}>
-                <Section variant={["vertical", "horizontal"]}>Content</Section>
+                <Section vertical={true} horizontal={true}>Content</Section>
             </Card>
         </Section.Container>
     );

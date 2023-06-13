@@ -1,4 +1,4 @@
-import type { ThemeCSS } from "../../../theme";
+// import type { ThemeCSS } from "../../../theme"; TODO restore
 
 import { dimensionsPxToRem, fontPxToRem, borderPxToRem } from "../../../theme.js";
 

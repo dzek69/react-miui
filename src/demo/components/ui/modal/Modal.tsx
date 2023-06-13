@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from "react";
 
-import { Modal, Button, Input, Checkbox, Label, ModalButtons, List, Item } from "../../../../index.js";
+import { Modal, Button, Input, Checkbox, Label, ModalButtons, List } from "../../../../index.js";
+
+const Item = List.Item;
 
 interface Props {}
 
@@ -89,7 +91,7 @@ const ModalOptionsDemo: React.FC<Props> = (props) => {
             <Button onClick={handleOpen}>Open modal</Button>
             <Modal onClose={handleClose} isOpen={open} title={"Format C:?"}>
                 <Modal.NegateMargin>
-                    <List variant={"inset"}>
+                    <List inset={true}>
                         <Item selected={false} onClick={handleClose}>First item</Item>
                         <Item selected={true} onClick={handleClose}>Second item</Item>
                         <Item selected={false} onClick={handleClose}>Third item</Item>

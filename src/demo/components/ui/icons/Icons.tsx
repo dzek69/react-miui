@@ -1,6 +1,8 @@
 import React from "react";
 
-import { Icon, ICON, Item, List } from "../../../../index.js";
+import { Icon, ICON, List } from "../../../../index.js";
+
+const Item = List.Item;
 
 const IconsDemo: React.FC = () => {
     const icons = Object.values(ICON).map((value) => {

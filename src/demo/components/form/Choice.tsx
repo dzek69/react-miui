@@ -12,7 +12,7 @@ const ChoiceDemo: React.FC<Props> = () => {
     const [current, handleCurrent] = useState(values[0]);
 
     return (
-        <Section variant={["vertical", "horizontal"]}>
+        <Section vertical={true} horizontal={true}>
             <Choice values={values} value={current} name={"rnd"} onChange={handleCurrent} />
         </Section>
     );
@@ -34,7 +34,7 @@ const ChoiceDemo2: React.FC<Props> = () => {
 
     return (
         <>
-            <Section variant={["vertical", "horizontal"]}>
+            <Section vertical={true} horizontal={true}>
                 <Choice
                     values={values2}
                     value={current}
@@ -46,7 +46,7 @@ const ChoiceDemo2: React.FC<Props> = () => {
 
                 Current: {current}
             </Section>
-            <Section variant={["vertical", "horizontal"]}>
+            <Section vertical={true} horizontal={true}>
                 <Choice
                     values={values2}
                     value={current}

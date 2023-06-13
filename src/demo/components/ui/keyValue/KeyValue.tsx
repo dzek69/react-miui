@@ -40,7 +40,7 @@ const items = [
 
 const KeyValueDemo: React.FC<Props> = (props) => {
     return (
-        <Section variant={["vertical", "horizontal"]}>
+        <Section vertical={true} horizontal={true}>
             <KeyValue items={items} valueFirst={true} cols={3} />
         </Section>
     );

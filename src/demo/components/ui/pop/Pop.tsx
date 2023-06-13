@@ -66,7 +66,7 @@ const PopDemo: React.FC<Props> = () => {
                 Some place
             </Header>
             <StickyHeader.Content>
-                <Section variant={["vertical", "horizontal"]}>
+                <Section horizontal={true} vertical={true}>
                     Click on the left or right icon to open the menu
                 </Section>
             </StickyHeader.Content>

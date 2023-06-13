@@ -2,8 +2,8 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { List } from "../list/List";
-import { Item } from "../list/Item";
+import { List } from "../list/List.js";
+import { Item } from "../list/Item.js";
 
 import { Section } from "./Section.js";
 
