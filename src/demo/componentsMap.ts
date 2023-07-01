@@ -16,7 +16,6 @@ import {
 } from "./components/layout/header/StickyHeader.js";
 import { DirectionPadDemo } from "./components/ui/directionPad/Pad.js";
 import { IconsDemo } from "./components/ui/icons/Icons.js";
-import { ButtonDemo } from "./components/ui/button/ButtonDemo.js";
 import {
     ActionDemo,
     ActionLabelsOnBottom,
@@ -36,7 +35,6 @@ import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice.js";
 import { PopDemo } from "./components/ui/pop/Pop.js";
 import { DrawerDemo } from "./components/ui/drawer/Drawer.js";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats.js";
-import { SelectDemo } from "./components/form/Select.js";
 import { TableDemo } from "./components/layout/table/TableDemo.js";
 import { KeyValueDemo } from "./components/ui/keyValue/KeyValue.js";
 
@@ -56,10 +54,6 @@ const componentsMap: TheMap = {
         name: "Form",
         Component: FormDemo,
         children: {
-            Select: {
-                name: "Select",
-                Component: SelectDemo,
-            },
             Label: {
                 name: "Label",
                 Component: LabelDemo,
@@ -67,10 +61,6 @@ const componentsMap: TheMap = {
             Search: {
                 name: "Search",
                 Component: SearchDemo,
-            },
-            Button: {
-                name: "Button",
-                Component: ButtonDemo,
             },
             Checkbox: {
                 name: "Checkbox",

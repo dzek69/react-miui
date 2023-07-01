@@ -1,21 +1,24 @@
-import React from "react";
+import { borderPxToRem, dimensionsPxToRem, pxToRem, styled } from "../../theme.js";
 
-import classnames from "classnames";
+const Select = styled("select", {
+    "boxSizing": "border-box",
+    "height": dimensionsPxToRem(103),
+    "color": "$text",
+    "display": "flex",
+    "alignItems": "center",
+    "width": "100%",
+    "background": "white",
+    "fontFamily": "inherit",
+    "borderRadius": pxToRem(2),
+    "padding": `0 ${dimensionsPxToRem(36)}`,
+    "border": `${borderPxToRem(1)} solid $border`,
+    "appearance": "auto",
 
-import styles from "./Select.module.scss";
-
-interface Props {
-}
-
-const Select: React.FC<React.SelectHTMLAttributes<HTMLSelectElement> & Props> = ({ className, children, ...props }) => {
-    const wrapperCls = classnames(styles.select, className);
-
-    return (
-        <select className={wrapperCls} {...props}>
-            {children}
-        </select>
-    );
-};
+    "&:disabled": {
+        background: "$inputDisabledBg",
+        color: "$inputDisabledText",
+    },
+});
 
 export {
     Select,

@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.21.0+]
+### Breaking
+- `Button` no longer accepts `variant`, it has direct `inline` and `outline` props now
+### Fixed
+- some Button, Select & PopOption styles when using new css reset
+### Dev
+- `Button` converted to stitches
+- `Select` converted to stitches
+
 ## [0.21.0] - 2022-06-13
 ### Breaking
 - `Section` no longer accepts `variant`, it has direct `horizontal` and `vertical` props now
