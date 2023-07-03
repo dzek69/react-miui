@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import classnames from "classnames";
 import { createPortal } from "react-dom";
 
-import { makeVariants } from "../../../utils/index.js";
+import type { ThemeCSS } from "../../../theme";
 
-import { ModalNegateMargin } from "./ModalNoMargin.js";
-import styles from "./Modal.module.scss";
+import { ContainerStyled, NEGATIVE_PADDING, OverlayStyled, RemovePadding, TitleStyled } from "./Modal.styled";
 
-type Variant = "bottom" | "full";
+type OverlayProps = React.ComponentProps<typeof OverlayStyled>;
+type ContainerProps = React.ComponentProps<typeof ContainerStyled>;
 
 interface Props {
     onOverlayClick?: (() => void) | "close" | null;
@@ -17,14 +16,18 @@ interface Props {
     isOpen: boolean;
     title?: React.ReactNode;
     className?: string;
-    variant?: Variant | Variant[];
     portal?: boolean | HTMLElement;
     children: React.ReactNode;
+
+    position?: OverlayProps["position"];
+    full?: ContainerProps["full"];
 }
 
 interface SubComponents {
-    NegateMargin: typeof ModalNegateMargin;
+    RemovePadding: typeof RemovePadding;
 }
+
+// @TODO proper docs + buttons
 
 // eslint-disable-next-line max-lines-per-function,max-statements
 const Modal: React.FC<Props> & SubComponents = ({
@@ -36,14 +39,13 @@ const Modal: React.FC<Props> & SubComponents = ({
     onOverlayClick = "close",
     closeOnEsc = true,
     portal = true,
-    variant,
+    position,
+    full,
 }) => {
     const [isClosing, setIsClosing] = useState(false);
     const [isRendered, setIsRendered] = useState(false);
     const overlayRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-
-    const v = makeVariants(variant);
 
     useEffect(() => {
         if (!isOpen || !closeOnEsc) {
@@ -87,7 +89,7 @@ const Modal: React.FC<Props> & SubComponents = ({
         containerRef.current.style.removeProperty("animation");
     }, [isClosing]);
 
-    const titleElem = title && <div className={styles.title}>{title}</div>;
+    const titleElem = title ? <TitleStyled>{title}</TitleStyled> : null;
 
     const handleOverlayClick = useCallback((e: React.MouseEvent) => {
         if (e.target !== e.currentTarget) {
@@ -113,28 +115,49 @@ const Modal: React.FC<Props> & SubComponents = ({
         return null;
     }
 
-    const overlayCls = classnames(styles.overlay, {
-        [styles.isClosing]: isClosing,
-        [styles.overlayOnBottom]: v.includes("bottom"),
-    });
+    const overlayVariants: Pick<OverlayProps, "isClosing" | "position"> = {};
+    isClosing && (overlayVariants.isClosing = true);
+    position != null && (overlayVariants.position = position);
 
-    const containerCls = classnames(styles.container, className, {
-        [styles.isClosing]: isClosing,
-        [styles.full]: v.includes("full"),
+    const containerVariants: Pick<ContainerProps, "isClosing" | "full"> = {};
+    isClosing && (containerVariants.isClosing = true);
+    full != null && (containerVariants.full = full);
+
+    const childrenCount = React.Children.count(children);
+
+    const chld = React.Children.map(children, (child, index) => {
+        if (React.isValidElement(child)) {
+            if (child.type === RemovePadding) {
+                // eslint-disable-next-line max-len
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
+                const css: ThemeCSS = child.props.css ?? {};
+                if (index === 0 && titleElem == null) {
+                    css.marginTop = NEGATIVE_PADDING;
+                }
+                if (index === childrenCount - 1) {
+                    css.marginBottom = NEGATIVE_PADDING;
+                }
+
+                // @ts-expect-error TODO handle types correctly
+                return React.cloneElement(child, { css });
+            }
+            return child;
+        }
+        return child;
     });
 
     const tree = (
-        <div
-            className={overlayCls}
+        <OverlayStyled
+            {...overlayVariants}
             onClick={handleOverlayClick}
             ref={overlayRef}
             onAnimationEnd={handleAnimationEnd}
         >
-            <div className={containerCls} ref={containerRef}>
+            <ContainerStyled className={className} {...containerVariants} ref={containerRef}>
                 {titleElem}
-                {children}
-            </div>
-        </div>
+                {chld}
+            </ContainerStyled>
+        </OverlayStyled>
     );
 
     if (portal) {
@@ -144,6 +167,6 @@ const Modal: React.FC<Props> & SubComponents = ({
 
     return tree;
 };
-Modal.NegateMargin = ModalNegateMargin;
+Modal.RemovePadding = RemovePadding;
 
 export { Modal };

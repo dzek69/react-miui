@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { styled } from "../../../theme";
+import { styled } from "../../../theme.js";
 
 import { Button } from "./Button.js";
 

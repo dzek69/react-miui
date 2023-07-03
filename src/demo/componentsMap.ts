@@ -29,7 +29,6 @@ import { FormDemo } from "./components/form/Form.js";
 import { SearchDemo } from "./components/form/Search.js";
 import { LabelDemo } from "./components/form/Label.js";
 import { ToasterDemo } from "./components/ui/toaster/Toaster.js";
-import { ModalCenteredDemo, ModalDemo, ModalOptionsDemo } from "./components/ui/modal/Modal.js";
 import { TabsDemo } from "./components/ui/tabs/Tabs.js";
 import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice.js";
 import { PopDemo } from "./components/ui/pop/Pop.js";
@@ -195,20 +194,6 @@ const componentsMap: TheMap = {
     Drawer: {
         name: "Drawer",
         Component: DrawerDemo,
-    },
-    Modal: {
-        name: "Modal",
-        Component: ModalDemo,
-        children: {
-            Centered: {
-                name: "Centered & smaller",
-                Component: ModalCenteredDemo,
-            },
-            WithOptions: {
-                name: "With options to pick",
-                Component: ModalOptionsDemo,
-            },
-        },
     },
     Pop: {
         name: "Pop up menu",
