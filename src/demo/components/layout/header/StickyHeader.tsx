@@ -91,7 +91,7 @@ const StickyColoredBg = () => {
                 variant={"colored"}
                 before={<HeaderIconAction icon={ICON.back} onClick={handleNoop} />}
                 after={"Text"}
-                className={styles.header}
+                className={styles.header as string}
             >
                 Some text
             </Header>

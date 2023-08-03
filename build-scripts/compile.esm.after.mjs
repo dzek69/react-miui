@@ -1,16 +1,8 @@
-import fs from "fs-extra";
-import glob from "fast-glob";
+import {run} from "./utils.mjs";
 
 (async () => {
     console.info("[ESM compile post-processing started]");
-
-    const list = await glob("./src/**/*.scss");
-    const p = list.map(file => {
-        const target = file.replace(/^\.\/src/, "./esm");
-        return fs.copy(file, target);
-    })
-    await Promise.all(p)
-    console.info("Copied", ...list);
-
+    await run("resolve-tspaths", ["--project", "tsconfig.esm.json"]);
+    console.info("Resolved TypeScript import paths");
     console.info("[ESM compile post-processing ended]");
 })();

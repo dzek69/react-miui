@@ -61,3 +61,5 @@ const Action: React.FC<Props> = (props) => {
 };
 
 export { Action };
+
+export type { Props as ActionProps };

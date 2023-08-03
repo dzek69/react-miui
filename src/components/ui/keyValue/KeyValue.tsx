@@ -25,8 +25,8 @@ const KeyValue: React.FC<Props> = (props) => {
         const isFirstRow = key < cols;
         const isFirstCol = (key % cols) === 0;
         const className = classnames(styles.item, {
-            [styles.itemNotFirstRow]: !isFirstRow,
-            [styles.itemNotFirstCol]: !isFirstCol,
+            [styles.itemNotFirstRow as string]: !isFirstRow,
+            [styles.itemNotFirstCol as string]: !isFirstCol,
         });
 
         const kvKey = value.key != null ? <div className={styles.key}>{value.key}</div> : null;

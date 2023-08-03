@@ -7,9 +7,10 @@ import type { TheMap, TheMapItem } from "./componentsMap";
 
 import { Choice } from "../components/form/choice/Choice.js";
 
-import styles from "./Main.module.scss";
 import { safeUseHash } from "./utils/safeUseHash.js";
 import { componentsMap } from "./componentsMap.js";
+
+import styles from "./Main.module.scss";
 
 type BG = "white" | "transparent" | "mobile";
 
@@ -64,8 +65,8 @@ const Main: React.FC = (props) => {
     const Component = info.Component;
 
     const componentCls = classnames(styles.component, {
-        [styles["component--transparent"]]: bg === "transparent",
-        [styles["component--mobile"]]: bg === "mobile",
+        [styles["component--transparent"] as string]: bg === "transparent",
+        [styles["component--mobile"] as string]: bg === "mobile",
     });
 
     return (

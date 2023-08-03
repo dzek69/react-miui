@@ -3,6 +3,7 @@ import React from "react";
 import classnames from "classnames";
 
 import { Action } from "./Action.js";
+
 import styles from "./EqualActions.module.scss";
 
 interface Props {
@@ -23,7 +24,7 @@ const EqualActions: React.FC<Props> = (props) => {
         "--actions-count": React.Children.count(props.children),
     } as React.CSSProperties;
 
-    const cls = classnames(styles.actions, props.className, { [styles.vertical]: props.mode === "vertical" });
+    const cls = classnames(styles.actions, props.className, { [styles.vertical as string]: props.mode === "vertical" });
 
     return (
         <div className={cls} style={style}>

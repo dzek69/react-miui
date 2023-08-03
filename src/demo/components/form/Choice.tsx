@@ -9,7 +9,7 @@ interface Props {}
 const values: ("Single" | "Multiple words")[] = ["Single", "Multiple words"];
 
 const ChoiceDemo: React.FC<Props> = () => {
-    const [current, handleCurrent] = useState(values[0]);
+    const [current, handleCurrent] = useState(values[0]!);
 
     return (
         <Section vertical={true} horizontal={true}>
@@ -30,7 +30,7 @@ const values2 = [
 ];
 
 const ChoiceDemo2: React.FC<Props> = () => {
-    const [current, handleCurrent] = useState(values2[0].value);
+    const [current, handleCurrent] = useState(values2[0]!.value);
 
     return (
         <>
@@ -40,7 +40,7 @@ const ChoiceDemo2: React.FC<Props> = () => {
                     value={current}
                     name={"rnd"}
                     onChange={handleCurrent}
-                    className={styles.darker}
+                    className={styles.darker as string}
                     variant={"wide"}
                 />
 

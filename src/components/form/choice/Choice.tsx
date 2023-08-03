@@ -7,6 +7,7 @@ import type { ObjectValue, Value } from "../../../types/form";
 import { makeVariants, toObjectValue } from "../../../utils/index.js";
 
 import { ChoiceItem } from "./ChoiceItem.js";
+
 import styles from "./Choice.module.scss";
 
 type Variant = "wide" | "left";
@@ -41,8 +42,8 @@ const Choice = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>
 
     const cls = classnames(
         styles.choice, props.className,
-        { [styles.wide]: v.includes("wide") },
-        { [styles.left]: v.includes("left") },
+        { [styles.wide as string]: v.includes("wide") },
+        { [styles.left as string]: v.includes("left") },
     );
 
     return <div className={cls}>{opts}</div>;

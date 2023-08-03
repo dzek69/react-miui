@@ -128,7 +128,6 @@ const Modal: React.FC<Props> & SubComponents = ({
     const chld = React.Children.map(children, (child, index) => {
         if (React.isValidElement(child)) {
             if (child.type === RemovePadding) {
-                // eslint-disable-next-line max-len
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
                 const css: ThemeCSS = child.props.css ?? {};
                 if (index === 0 && titleElem == null) {

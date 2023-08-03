@@ -16,7 +16,6 @@
 /esm/pages
 /esm/demo-global.scss
 
-/babel.config.js
 /jest.config.cjs
 /yarn.lock
 /*.tgz

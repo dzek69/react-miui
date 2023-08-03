@@ -17,7 +17,7 @@ interface Props {
 const Card: React.FC<Props> = (props) => {
     const v = makeVariants(props.variant);
     const cls = classnames(props.className, styles.card, {
-        [styles.margin]: v.includes("margin"),
+        [styles.margin as string]: v.includes("margin"),
     });
 
     // @TODO auto wrap some children in Section

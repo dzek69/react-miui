@@ -31,7 +31,7 @@ const Stats: React.FC<Props> = (props) => {
     }
 
     const cls = classnames(styles.stats, {
-        [styles["stats-dark"]]: props.variant === "dark",
+        [styles["stats-dark"] as string]: props.variant === "dark",
     }, props.className);
 
     return (

@@ -4,8 +4,9 @@ import type { ObjectValue, Value } from "../../../types/form";
 
 import { Suggestions } from "../Suggestions.js";
 
-import styles from "./Input.module.scss";
 import { StyledInput, StyledWrapper, StyledPrefix, StyledSuffix } from "./Input.styled";
+
+import styles from "./Input.module.scss";
 
 interface CustomProps<T extends string> {
     children?: never;

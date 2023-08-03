@@ -29,7 +29,7 @@ const HeaderIconAction: React.FC<Props> = (props) => {
 
     let content: ReactNode = icon;
     if (typeof icon === "string") {
-        content = <Icon className={styles.icon} name={icon as ICON} />;
+        content = <Icon className={styles.icon as string} name={icon as ICON} />;
     }
 
     if (to) {

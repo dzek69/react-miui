@@ -18,7 +18,7 @@ const Item: React.FC<Props> = (props) => {
     }, [props.onClick, props.value.value, props.value.label]);
 
     const cls = classnames(styles.button, {
-        [styles.active]: props.active,
+        [styles.active as string]: props.active,
     });
 
     return <button onClick={handleClick} className={cls} type={"button"}>{props.value.label}</button>;

@@ -4,10 +4,11 @@ import Head from "next/head";
 
 import type { AppProps } from "next/app";
 
+import { cssReset } from "../theme.css-reset";
+
 import "../global.scss";
 import "../demo-global.scss";
 import "../scrollbars.scss";
-import { cssReset } from "../theme.css-reset";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
     <>

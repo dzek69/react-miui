@@ -17,7 +17,7 @@ const Label: React.FC<Props> = (props) => {
     const v = makeVariants(props.variant);
 
     const labelCls = classnames(styles.text, {
-        [styles.textBig]: v.includes("big"),
+        [styles.textBig as string]: v.includes("big"),
     });
 
     const label = props.label ? <div className={labelCls}>{props.label}</div> : null;

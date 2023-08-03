@@ -26,7 +26,7 @@ const Toggle: React.FC<Props> = (props) => {
     }, [props.onChange, props.value]);
 
     const cls = classnames(props.className, styles.container, {
-        [styles.disabled]: props.disabled,
+        [styles.disabled as string]: props.disabled,
     });
 
     return (

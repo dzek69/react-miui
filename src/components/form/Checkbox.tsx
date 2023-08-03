@@ -22,14 +22,14 @@ const Checkbox: React.FC<Props> = (props) => {
     props.color && (style.color = props.color);
 
     const cls = classnames(props.className, styles.checkbox, {
-        [styles.disabled]: props.disabled,
-        [styles.readOnly]: props.readOnly,
+        [styles.disabled as string]: props.disabled,
+        [styles.readOnly as string]: props.readOnly,
     });
 
     const checkmarkCls = classnames(styles.checkmark, {
-        [styles.checkmarkDisabled]: props.disabled,
-        [styles.checkmarkChecked]: props.checked,
-        [styles.checkmarkReadOnly]: props.readOnly,
+        [styles.checkmarkDisabled as string]: props.disabled,
+        [styles.checkmarkChecked as string]: props.checked,
+        [styles.checkmarkReadOnly as string]: props.readOnly,
     });
 
     return (

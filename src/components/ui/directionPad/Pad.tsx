@@ -4,6 +4,7 @@ import classnames from "classnames";
 
 import { PadButton as Button } from "./Button.js";
 import { PadMiddle as Middle } from "./Middle.js";
+
 import styles from "./Pad.module.scss";
 
 interface Props {

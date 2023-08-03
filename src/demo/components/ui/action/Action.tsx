@@ -32,7 +32,7 @@ const ActionDemo: React.FC = () => {
 const ActionsOnLeft = () => {
     return (
         <StickyHeader position={"left"}>
-            <Header center={true} className={styles.header}>
+            <Header center={true} className={styles.header as string}>
                 <Action icon={ICON.checkmark} />
                 <Action icon={ICON.checkmark} />
                 <Action icon={ICON.checkmark} />
@@ -48,7 +48,7 @@ const ActionsOnLeft = () => {
 const ActionsOnBottom = () => {
     return (
         <StickyHeader position={"bottom"}>
-            <Header center={true} className={styles.header}>
+            <Header center={true} className={styles.header as string}>
                 <Action icon={ICON.checkmark} />
                 <Action icon={ICON.checkmark} />
                 <Action icon={ICON.checkmark} />
@@ -64,14 +64,14 @@ const ActionsOnBottom = () => {
 const ActionLabelsOnBottom = () => {
     return (
         <StickyHeader position={"bottom"}>
-            <Header center={true} className={styles.header}>
+            <Header center={true} className={styles.header as string}>
                 <Action icon={ICON.checkmark} label={"Add"} />
                 <Action icon={ICON.checkmark} label={"Delete"} />
                 <Action icon={ICON.checkmark} label={"Share on Web"} />
             </Header>
             <StickyHeader.Content>
                 <StickyHeader position={"top"}>
-                    <Header center={true} className={styles.header}>
+                    <Header center={true} className={styles.header as string}>
                         <Action icon={ICON.checkmark} label={"Add"} />
                         <Action icon={ICON.checkmark} label={"Delete"} />
                         <Action icon={ICON.checkmark} label={"Share"} />

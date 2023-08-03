@@ -25,7 +25,7 @@ const Notification: React.FC<Props> = (props) => {
     return (
         <div
             className={classnames(styles.toast, {
-                [styles.hide]: props.toast.hide || forceHide,
+                [styles.hide as string]: props.toast.hide || forceHide,
             })}
             key={props.toast.id}
             onTransitionEnd={handleRemove}

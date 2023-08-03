@@ -31,15 +31,15 @@ const Header: React.FC<Props> = (props) => {
     });
 
     const cls = classnames(styles.header, {
-        [styles["header--center"]]: center,
-        [styles["header--toolbar"]]: variant === "toolbar",
-        [styles["header--colored"]]: variant === "colored",
+        [styles["header--center"] as string]: center,
+        [styles["header--toolbar"] as string]: variant === "toolbar",
+        [styles["header--colored"] as string]: variant === "colored",
     }, styles[`header--${position}`], props.className);
 
     let contents = children;
     if (justActions) {
         const mode = position === "top" || position === "bottom" ? "horizontal" : "vertical";
-        contents = <EqualActions className={styles.actions} mode={mode}>{contents}</EqualActions>;
+        contents = <EqualActions className={styles.actions as string} mode={mode}>{contents}</EqualActions>;
     }
 
     let before: ReactNode;

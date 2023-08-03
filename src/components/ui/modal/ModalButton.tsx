@@ -18,7 +18,7 @@ const ModalButton: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & Prop
     const v = makeVariants(variant);
 
     const cls = classnames(styles.button, {
-        [styles.buttonMain]: v.includes("main"),
+        [styles.buttonMain as string]: v.includes("main"),
     }, className);
 
     return <button {...props} className={cls}>{children}</button>;

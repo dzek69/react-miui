@@ -27,7 +27,7 @@ const StatsDemo: React.FC<Props> = (props) => {
             <Header
                 center={true}
                 variant={"colored"}
-                className={styles.header}
+                className={styles.header as string}
             >
                 Battery
             </Header>
@@ -45,7 +45,7 @@ const StatsDarkDemo = () => (
         <Header
             center={true}
             variant={"colored"}
-            className={styles.header2}
+            className={styles.header2 as string}
         >
             Battery
         </Header>
