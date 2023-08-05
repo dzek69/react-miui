@@ -6,7 +6,9 @@ import { dimensionsPxToRem, fontPxToRem, styled } from "../../../theme.js";
 
 import { Item, ItemInnerContainerClassName } from "./Item.js";
 
-const StyledContent = styled("div", {});
+const StyledContent = styled("div", {
+    flex: 1,
+});
 
 const StyledHeader = styled(Item, {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers

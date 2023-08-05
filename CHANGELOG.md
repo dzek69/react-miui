@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.23.2] - 2023-08-05
+### Fixed
+- section background covers max 100% height only
+- list header content not taking all the space
+
 ## [0.23.1] - 2023-08-04
 ### Fixed
 - regression: missing css files in npm package
