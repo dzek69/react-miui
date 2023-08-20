@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TextArea } from "../../../index.js";
+import { TextArea } from "../../../index";
 
 const TextAreaDemo: React.FC = () => {
     return (

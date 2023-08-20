@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Choice, Section } from "../../../index.js";
+import { Choice, Section } from "../../../index";
 
 import styles from "./Choice.module.scss";
 

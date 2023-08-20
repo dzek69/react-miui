@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Icon, ICON, List } from "../../../../index.js";
+import { Icon, ICON, List } from "../../../../index";
 
 const Item = List.Item;
 

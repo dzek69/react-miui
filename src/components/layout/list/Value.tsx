@@ -1,4 +1,4 @@
-import { fontPxToRem, styled } from "../../../theme.js";
+import { fontPxToRem, styled } from "../../../theme";
 
 /**
  * Use this to render a value within `Item`. It's most useful when used with `Item.Label`.

@@ -1,4 +1,4 @@
-import { dimensionsPxToRem, pxToRem, styled } from "../../../theme.js";
+import { dimensionsPxToRem, pxToRem, styled } from "../../../theme";
 
 const StyledMessage = styled("div", {
     borderStyle: "solid",

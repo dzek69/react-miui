@@ -1,9 +1,9 @@
 import React from "react";
 
-import { pxToRem, styled } from "../../../theme.js";
+import { pxToRem, styled } from "../../../theme";
 
-import { Header } from "./Header.js";
-import { Item } from "./Item.js";
+import { Header } from "./Header";
+import { Item } from "./Item";
 
 interface SubComponents {
     Header: typeof Header;

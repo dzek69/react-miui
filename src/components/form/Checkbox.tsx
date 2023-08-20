@@ -2,7 +2,7 @@ import React from "react";
 
 import classnames from "classnames";
 
-import { Checkmark } from "../icons/Checkmark.js";
+import { Checkmark } from "../icons/Checkmark";
 
 import styles from "./Checkbox.module.scss";
 

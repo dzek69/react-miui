@@ -2,9 +2,9 @@ import React from "react";
 
 import type { VariantProps } from "@stitches/react";
 
-import { dimensionsPxToRem, fontPxToRem, styled } from "../../../theme.js";
+import { dimensionsPxToRem, fontPxToRem, styled } from "../../../theme";
 
-import { Item, ItemInnerContainerClassName } from "./Item.js";
+import { Item, ItemInnerContainerClassName } from "./Item";
 
 const StyledContent = styled("div", {
     flex: 1,

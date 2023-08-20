@@ -2,10 +2,9 @@ import React, { useCallback, useId, useState } from "react";
 
 import type { ObjectValue, Value } from "../../../types/form";
 
-import { Suggestions } from "../Suggestions.js";
+import { Suggestions } from "../Suggestions";
 
 import { StyledInput, StyledWrapper, StyledPrefix, StyledSuffix } from "./Input.styled";
-
 import styles from "./Input.module.scss";
 
 interface CustomProps<T extends string> {

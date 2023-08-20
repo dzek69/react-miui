@@ -1,1 +1,1 @@
-export { Select } from "./Select.styled.js";
+export { Select } from "./Select.styled";

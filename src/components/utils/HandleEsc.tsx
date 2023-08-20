@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import type React from "react";
 
-import { useKeyPress } from "../../utils/index.js";
+import { useKeyPress } from "../../utils/index";
 
 interface Props {
     onPress: () => void;

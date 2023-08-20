@@ -1,7 +1,7 @@
 import React from "react";
 
-import { PopLoader } from "./PopLoader.js";
-import { FullLoader } from "./FullLoader.js";
+import { PopLoader } from "./PopLoader";
+import { FullLoader } from "./FullLoader";
 
 interface Props {
     data?: unknown;

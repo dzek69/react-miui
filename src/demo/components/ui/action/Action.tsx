@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Action, ICON, StickyHeader, Header, EqualActions } from "../../../../index.js";
-import { NextLink } from "../../../NextLink.js";
+import { Action, ICON, StickyHeader, Header, EqualActions } from "../../../../index";
+import { NextLink } from "../../../NextLink";
 
 import styles from "./ActionDemo.module.scss";
 

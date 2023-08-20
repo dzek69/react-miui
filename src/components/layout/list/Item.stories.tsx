@@ -2,10 +2,10 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { NextLink } from "../../../demo/NextLink.js";
+import { NextLink } from "../../../demo/NextLink";
 
-import { Item } from "./Item.js";
-import { List } from "./List.js";
+import { Item } from "./Item";
+import { List } from "./List";
 
 const meta: Meta = {
     title: "Components/Layout/List/Item",

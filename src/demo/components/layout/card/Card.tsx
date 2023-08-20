@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Card, Section } from "../../../../index.js";
+import { Card, Section } from "../../../../index";
 
 const CardDemo = () => {
     return (

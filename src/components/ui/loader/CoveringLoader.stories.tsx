@@ -2,7 +2,7 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { CoveringLoader } from "./CoveringLoader.js";
+import { CoveringLoader } from "./CoveringLoader";
 
 const meta: Meta = {
     title: "Components/UI/Loader/CoveringLoader",

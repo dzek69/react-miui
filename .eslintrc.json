@@ -78,6 +78,15 @@
             "rules": {
                 "@typescript-eslint/no-magic-numbers": "off"
             }
+        },
+        {
+            "files": [
+                "src/**/*",
+                "src/*"
+            ],
+            "rules": {
+                "import/extensions": "off"
+            }
         }
     ],
     "settings": {

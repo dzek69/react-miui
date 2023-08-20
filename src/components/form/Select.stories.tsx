@@ -2,7 +2,7 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { Select } from "./Select.js";
+import { Select } from "./Select";
 
 const meta: Meta = {
     title: "Components/Form/Select",

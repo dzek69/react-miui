@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Icon, ICON, KeyValue, Section } from "../../../../index.js";
+import { Icon, ICON, KeyValue, Section } from "../../../../index";
 
 interface Props {}
 

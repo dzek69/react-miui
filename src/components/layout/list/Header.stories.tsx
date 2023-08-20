@@ -2,8 +2,8 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { Header } from "./Header.js";
-import { List } from "./List.js";
+import { Header } from "./Header";
+import { List } from "./List";
 
 const meta: Meta = {
     title: "Components/Layout/List/Header",

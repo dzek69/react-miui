@@ -1,7 +1,7 @@
 import React from "react";
 import type { ReactNode } from "react";
 
-import { dimensionsPxToRem, fontPxToRem, styled } from "../../../theme.js";
+import { dimensionsPxToRem, fontPxToRem, styled } from "../../../theme";
 
 const SubLabel = styled("div", {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers

@@ -4,10 +4,9 @@ import classnames from "classnames";
 
 import type { ObjectValue, Value } from "../../../types/form";
 
-import { makeVariants, toObjectValue } from "../../../utils/index.js";
+import { makeVariants, toObjectValue } from "../../../utils/index";
 
-import { ChoiceItem } from "./ChoiceItem.js";
-
+import { ChoiceItem } from "./ChoiceItem";
 import styles from "./Choice.module.scss";
 
 type Variant = "wide" | "left";

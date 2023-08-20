@@ -1,4 +1,4 @@
-import { borderPxToRem, dimensionsPxToRem, fontPxToRem, pxToRem, styled } from "../../../theme.js";
+import { borderPxToRem, dimensionsPxToRem, fontPxToRem, pxToRem, styled } from "../../../theme";
 
 /**
  * Call-to-action button.

@@ -2,9 +2,9 @@ import React from "react";
 
 import type { Loader } from "./Loader";
 
-import { styled } from "../../../theme.js";
+import { styled } from "../../../theme";
 
-import { FullLoader } from "./FullLoader.js";
+import { FullLoader } from "./FullLoader";
 
 interface Props extends React.ComponentProps<typeof Loader> {
     /**

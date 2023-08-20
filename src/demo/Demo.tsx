@@ -1,12 +1,12 @@
 import React from "react";
 
-import { ToasterProvider } from "../components/ui/toaster/Toaster.js";
-
-import { Menu } from "./Menu.js";
-import { Main } from "./Main.js";
-import { componentsMap } from "./componentsMap.js";
-
 import "@icon-park/react/styles/index.css";
+
+import { ToasterProvider } from "../components/ui/toaster/Toaster";
+
+import { Menu } from "./Menu";
+import { Main } from "./Main";
+import { componentsMap } from "./componentsMap";
 import styles from "./Demo.module.scss";
 
 const Demo: React.FC = (props) => {

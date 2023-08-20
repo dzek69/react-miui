@@ -1,6 +1,6 @@
-import { pxToRem, styled } from "../../../theme.js";
+import { pxToRem, styled } from "../../../theme";
 
-import { SectionContainer } from "./SectionContainer.js";
+import { SectionContainer } from "./SectionContainer";
 
 interface SubComponents {
     Container: typeof SectionContainer;

@@ -1,4 +1,4 @@
-import { borderPxToRem, dimensionsPxToRem, pxToRem, styled } from "../../theme.js";
+import { borderPxToRem, dimensionsPxToRem, pxToRem, styled } from "../../theme";
 
 const Select = styled("select", {
     "boxSizing": "border-box",

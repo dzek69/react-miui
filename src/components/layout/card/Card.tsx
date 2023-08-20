@@ -2,7 +2,7 @@ import React from "react";
 
 import classnames from "classnames";
 
-import { makeVariants } from "../../../utils/makeVariants.js";
+import { makeVariants } from "../../../utils/makeVariants";
 
 import styles from "./Card.module.scss";
 

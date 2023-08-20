@@ -1,6 +1,6 @@
 import type { ThemeCSS } from "./theme";
 
-import { pxToRem } from "./theme.js";
+import { pxToRem } from "./theme";
 
 const thumbStyle = {
     background: "var(--scrollbars-thumb)",

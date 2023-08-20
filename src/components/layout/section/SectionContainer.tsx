@@ -1,4 +1,4 @@
-import { styled } from "../../../theme.js";
+import { styled } from "../../../theme";
 
 const SectionContainer = styled("div", {
     background: "$toolbarBg",

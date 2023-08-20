@@ -2,9 +2,9 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { Icon, ICON } from "../../icons/Icon.js";
+import { Icon, ICON } from "../../icons/Icon";
 
-import { List } from "./List.js";
+import { List } from "./List";
 
 const meta: Meta = {
     title: "Components/Layout/List/List",

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Header, HeaderIconAction, ICON, StickyHeader } from "../../../../index.js";
+import { Header, HeaderIconAction, ICON, StickyHeader } from "../../../../index";
 
 import styles from "./StickyHeader.module.scss";
 

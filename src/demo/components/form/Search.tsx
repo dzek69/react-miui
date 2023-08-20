@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SearchContainer, Input, ICON, Icon, Section, List } from "../../../index.js";
+import { SearchContainer, Input, ICON, Icon, Section, List } from "../../../index";
 
 const Item = List.Item;
 

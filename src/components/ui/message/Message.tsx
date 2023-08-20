@@ -3,7 +3,7 @@ import type React from "react";
 import type { ComponentProps } from "@stitches/react";
 import type { OverwriteProps } from "../../../theme";
 
-import { StyledMessage } from "./Message.styled.js";
+import { StyledMessage } from "./Message.styled";
 
 type StitchesProps = ComponentProps<typeof StyledMessage>;
 

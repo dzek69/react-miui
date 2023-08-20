@@ -4,10 +4,9 @@ import classnames from "classnames";
 
 import type { Value } from "../../../types/form";
 
-import { toObjectValue } from "../../../utils/index.js";
+import { toObjectValue } from "../../../utils/index";
 
-import { Item } from "./Item.js";
-
+import { Item } from "./Item";
 import styles from "./Selector.module.scss";
 
 interface Props<T extends string> {

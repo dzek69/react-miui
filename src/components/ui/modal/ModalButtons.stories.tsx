@@ -2,8 +2,8 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { ModalButtons } from "./ModalButtons.js";
-import { Modal } from "./Modal.js";
+import { ModalButtons } from "./ModalButtons";
+import { Modal } from "./Modal";
 
 const meta: Meta = {
     title: "Components/UI/ModalButtons",

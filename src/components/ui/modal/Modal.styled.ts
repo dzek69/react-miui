@@ -1,4 +1,4 @@
-import { dimensionsPxToRem, fontPxToRem, keyframes, pxToRem, styled } from "../../../theme.js";
+import { dimensionsPxToRem, fontPxToRem, keyframes, pxToRem, styled } from "../../../theme";
 
 const PADDING = pxToRem(20);
 const NEGATIVE_PADDING = pxToRem(-20);

@@ -2,7 +2,7 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { FullLoader } from "./FullLoader.js";
+import { FullLoader } from "./FullLoader";
 
 const meta: Meta = {
     title: "Components/UI/Loader/FullLoader",

@@ -2,9 +2,9 @@ import React from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { styled } from "../../../theme.js";
+import { styled } from "../../../theme";
 
-import { Message } from "./Message.js";
+import { Message } from "./Message";
 
 const meta: Meta<typeof Message> = {
     title: "Components/UI/Message",

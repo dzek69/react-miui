@@ -5,11 +5,10 @@ import classnames from "classnames";
 import type { AnyComponent } from "../types";
 import type { TheMap, TheMapItem } from "./componentsMap";
 
-import { Choice } from "../components/form/choice/Choice.js";
+import { Choice } from "../components/form/choice/Choice";
 
-import { safeUseHash } from "./utils/safeUseHash.js";
-import { componentsMap } from "./componentsMap.js";
-
+import { safeUseHash } from "./utils/safeUseHash";
+import { componentsMap } from "./componentsMap";
 import styles from "./Main.module.scss";
 
 type BG = "white" | "transparent" | "mobile";

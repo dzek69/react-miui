@@ -1,1 +1,1 @@
-export { Button } from "./Button.styled.js";
+export { Button } from "./Button.styled";

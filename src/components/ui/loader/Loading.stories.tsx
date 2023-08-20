@@ -2,9 +2,9 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { styled } from "../../../theme.js";
+import { styled } from "../../../theme";
 
-import { Loading } from "./Loading.js";
+import { Loading } from "./Loading";
 
 const meta: Meta = {
     title: "Components/UI/Loader/Loading",

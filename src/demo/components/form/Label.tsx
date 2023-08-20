@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Label, Input, ICON, Icon } from "../../../index.js";
+import { Label, Input, ICON, Icon } from "../../../index";
 
 const LabelDemo = () => {
     return (

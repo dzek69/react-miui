@@ -2,9 +2,9 @@ import React, { useCallback } from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { styled } from "../../../theme.js";
+import { styled } from "../../../theme";
 
-import { Button } from "./Button.js";
+import { Button } from "./Button";
 
 // TODO better docs
 

@@ -1,10 +1,10 @@
 import React from "react";
 
-import { ICON, Icon } from "../../icons/Icon.js";
-import { dimensionsPxToRem, fontPxToRem, pxToRem, styled } from "../../../theme.js";
+import { ICON, Icon } from "../../icons/Icon";
+import { dimensionsPxToRem, fontPxToRem, pxToRem, styled } from "../../../theme";
 
-import { Value } from "./Value.js";
-import { Label } from "./Label.js";
+import { Value } from "./Value";
+import { Label } from "./Label";
 
 interface LinkProps {
     href: string;

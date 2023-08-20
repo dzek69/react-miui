@@ -2,10 +2,10 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { List } from "../list/List.js";
-import { Item } from "../list/Item.js";
+import { List } from "../list/List";
+import { Item } from "../list/Item";
 
-import { Section } from "./Section.js";
+import { Section } from "./Section";
 
 const meta: Meta = {
     title: "Components/Layout/Section",

@@ -2,15 +2,15 @@ import React from "react";
 
 import type { AnyComponent } from "../../types";
 
-import { Checkmark } from "./Checkmark.js";
-import { Back } from "./Back.js";
-import { Forward } from "./Forward.js";
-import { Search } from "./Search.js";
-import { Battery } from "./Battery.js";
-import { Heart } from "./Heart.js";
-import { Trash } from "./Trash.js";
-import { Config } from "./Config.js";
-import { Dots } from "./Dots.js";
+import { Checkmark } from "./Checkmark";
+import { Back } from "./Back";
+import { Forward } from "./Forward";
+import { Search } from "./Search";
+import { Battery } from "./Battery";
+import { Heart } from "./Heart";
+import { Trash } from "./Trash";
+import { Config } from "./Config";
+import { Dots } from "./Dots";
 
 enum ICON {
     checkmark = "checkmark",

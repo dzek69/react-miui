@@ -1,4 +1,4 @@
-import { dimensionsPxToRem, styled } from "../../../theme.js";
+import { dimensionsPxToRem, styled } from "../../../theme";
 
 import { NEGATIVE_PADDING } from "./Modal.styled";
 

@@ -2,7 +2,7 @@ import React from "react";
 
 import classnames from "classnames";
 
-import { makeVariants } from "../../../utils/index.js";
+import { makeVariants } from "../../../utils/index";
 
 import styles from "./ModalButtons.module.scss";
 

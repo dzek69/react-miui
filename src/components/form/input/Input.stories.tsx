@@ -2,10 +2,10 @@ import React from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { Icon, ICON } from "../../icons/Icon.js";
+import { Icon, ICON } from "../../icons/Icon";
 import { countries } from "../../../demo/components/form/countries.const";
 
-import { Input } from "./Input.js";
+import { Input } from "./Input";
 
 const meta: Meta<typeof Input> = {
     title: "Components/Form/Input",

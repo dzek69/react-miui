@@ -2,14 +2,14 @@ import React, { useCallback, useState } from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
-import { Button } from "../button/Button.js";
-import { Label } from "../../form/Label.js";
-import { Input } from "../../form/input/Input.js";
-import { Checkbox } from "../../form/Checkbox.js";
-import { List } from "../../layout/list/List.js";
+import { Button } from "../button/Button";
+import { Label } from "../../form/Label";
+import { Input } from "../../form/input/Input";
+import { Checkbox } from "../../form/Checkbox";
+import { List } from "../../layout/list/List";
 
-import { Modal } from "./Modal.js";
-import { ModalButtons } from "./ModalButtons.js";
+import { Modal } from "./Modal";
+import { ModalButtons } from "./ModalButtons";
 import { RemovePadding } from "./Modal.styled";
 
 const meta: Meta = {

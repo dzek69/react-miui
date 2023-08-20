@@ -2,11 +2,10 @@ import React, { Component, createRef } from "react";
 
 import classnames from "classnames";
 
-import { HandleEsc } from "../../utils/HandleEsc.js";
+import { HandleEsc } from "../../utils/HandleEsc";
 
-import { OnButtonClick } from "./OnButtonClick.js";
-import { PopOption } from "./PopOption.js";
-
+import { OnButtonClick } from "./OnButtonClick";
+import { PopOption } from "./PopOption";
 import styles from "./Pop.module.scss";
 
 interface Props {

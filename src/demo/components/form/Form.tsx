@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Section, Input, Label, Button, TextArea } from "../../../index.js";
+import { Section, Input, Label, Button, TextArea } from "../../../index";
 
 // @TODO add checkbox
 // @TODO add toggle

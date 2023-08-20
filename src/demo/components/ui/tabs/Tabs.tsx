@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Header, Selector } from "../../../../index.js";
+import { Header, Selector } from "../../../../index";
 
 interface Props {}
 

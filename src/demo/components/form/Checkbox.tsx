@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 
-import { Checkbox } from "../../../index.js";
+import { Checkbox } from "../../../index";
 
 const handleChangeNoop = () => undefined;
 

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 
 import { SunOne } from "@icon-park/react";
 
-import { Pop, Header, StickyHeader, HeaderIconAction, ICON, Section, Icon } from "../../../../index.js";
+import { Pop, Header, StickyHeader, HeaderIconAction, ICON, Section, Icon } from "../../../../index";
 
 interface Props {}
 

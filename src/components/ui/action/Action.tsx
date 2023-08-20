@@ -5,7 +5,7 @@ import classnames from "classnames";
 
 import type { ICON } from "../../icons/Icon";
 
-import { Icon } from "../../icons/Icon.js";
+import { Icon } from "../../icons/Icon";
 
 import styles from "./Action.module.scss";
 

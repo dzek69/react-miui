@@ -1,1 +1,1 @@
-export { ModalButtons } from "./ModalButtons.styled.js";
+export { ModalButtons } from "./ModalButtons.styled";

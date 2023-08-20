@@ -1,8 +1,8 @@
 import React from "react";
 
-import { styled } from "../../../theme.js";
+import { styled } from "../../../theme";
 
-import { Loader } from "./Loader.js";
+import { Loader } from "./Loader";
 
 type Props = React.ComponentProps<typeof Loader>;
 

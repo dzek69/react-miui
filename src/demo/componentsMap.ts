@@ -1,7 +1,7 @@
 /* eslint-disable max-lines, import/max-dependencies */
 import type { AnyComponent } from "../types";
 
-import { CheckboxDemo } from "./components/form/Checkbox.js";
+import { CheckboxDemo } from "./components/form/Checkbox";
 import {
     CenteredHeaderDemo,
     HeaderDemo,
@@ -14,8 +14,8 @@ import {
     StickyHeaderDemo, StickyHeaderLeftCenterDemo, StickyHeaderLeftDemo, StickyHeaderRightDemo,
     StickyHeaderTopBottomDemo,
 } from "./components/layout/header/StickyHeader.js";
-import { DirectionPadDemo } from "./components/ui/directionPad/Pad.js";
-import { IconsDemo } from "./components/ui/icons/Icons.js";
+import { DirectionPadDemo } from "./components/ui/directionPad/Pad";
+import { IconsDemo } from "./components/ui/icons/Icons";
 import {
     ActionDemo,
     ActionLabelsOnBottom,
@@ -23,19 +23,19 @@ import {
     ActionsOnBottom,
     ActionsOnLeft,
 } from "./components/ui/action/Action.js";
-import { ToggleDemo } from "./components/form/Toggle.js";
-import { CardDemo } from "./components/layout/card/Card.js";
-import { FormDemo } from "./components/form/Form.js";
-import { SearchDemo } from "./components/form/Search.js";
-import { LabelDemo } from "./components/form/Label.js";
-import { ToasterDemo } from "./components/ui/toaster/Toaster.js";
-import { TabsDemo } from "./components/ui/tabs/Tabs.js";
-import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice.js";
-import { PopDemo } from "./components/ui/pop/Pop.js";
-import { DrawerDemo } from "./components/ui/drawer/Drawer.js";
-import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats.js";
-import { TableDemo } from "./components/layout/table/TableDemo.js";
-import { KeyValueDemo } from "./components/ui/keyValue/KeyValue.js";
+import { ToggleDemo } from "./components/form/Toggle";
+import { CardDemo } from "./components/layout/card/Card";
+import { FormDemo } from "./components/form/Form";
+import { SearchDemo } from "./components/form/Search";
+import { LabelDemo } from "./components/form/Label";
+import { ToasterDemo } from "./components/ui/toaster/Toaster";
+import { TabsDemo } from "./components/ui/tabs/Tabs";
+import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice";
+import { PopDemo } from "./components/ui/pop/Pop";
+import { DrawerDemo } from "./components/ui/drawer/Drawer";
+import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
+import { TableDemo } from "./components/layout/table/TableDemo";
+import { KeyValueDemo } from "./components/ui/keyValue/KeyValue";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define

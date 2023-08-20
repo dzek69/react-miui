@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 
 import classnames from "classnames";
 
-import { Action } from "../../ui/action/Action.js";
-import { EqualActions } from "../../ui/action/EqualActions.js";
+import { Action } from "../../ui/action/Action";
+import { EqualActions } from "../../ui/action/EqualActions";
 
 import styles from "./Header.module.scss";
 

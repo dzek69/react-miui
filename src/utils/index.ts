@@ -1,3 +1,3 @@
-export * from "./makeVariants.js";
-export * from "./toObjectValue.js";
-export * from "./useKeyPress.js";
+export * from "./makeVariants";
+export * from "./toObjectValue";
+export * from "./useKeyPress";

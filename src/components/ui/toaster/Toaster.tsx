@@ -3,7 +3,7 @@ import React, { createContext, useContext } from "react";
 import type { Toast } from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-shadow
-import { Notification } from "./Notification.js";
+import { Notification } from "./Notification";
 
 type ToasterFn = (text: string) => void;
 

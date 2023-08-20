@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Timeout } from "oop-timers";
 import classnames from "classnames";
 
-import { HandleEsc } from "../../utils/HandleEsc.js";
+import { HandleEsc } from "../../utils/HandleEsc";
 
 import styles from "./Drawer.module.scss";
 

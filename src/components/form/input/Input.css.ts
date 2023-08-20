@@ -1,6 +1,6 @@
 // import type { ThemeCSS } from "../../../theme"; TODO restore
 
-import { dimensionsPxToRem, fontPxToRem, borderPxToRem } from "../../../theme.js";
+import { dimensionsPxToRem, fontPxToRem, borderPxToRem } from "../../../theme";
 
 const input = {
     "height": dimensionsPxToRem(103),
