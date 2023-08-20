@@ -3,6 +3,7 @@ import React from "react";
 import classnames from "classnames";
 
 import { Action } from "./Action";
+
 import styles from "./EqualActions.module.scss";
 
 interface Props {

@@ -7,6 +7,7 @@ import type { ObjectValue, Value } from "../../../types/form";
 import { makeVariants, toObjectValue } from "../../../utils/index";
 
 import { ChoiceItem } from "./ChoiceItem";
+
 import styles from "./Choice.module.scss";
 
 type Variant = "wide" | "left";

@@ -9,6 +9,7 @@ import { Choice } from "../components/form/choice/Choice";
 
 import { safeUseHash } from "./utils/safeUseHash";
 import { componentsMap } from "./componentsMap";
+
 import styles from "./Main.module.scss";
 
 type BG = "white" | "transparent" | "mobile";

@@ -3,6 +3,7 @@ import React from "react";
 import classnames from "classnames";
 
 import { Header } from "./Header";
+
 import styles from "./StickyHeader.module.scss";
 
 const err = new TypeError("StickyHeader needs two children - Header and StickyHeader.Content");

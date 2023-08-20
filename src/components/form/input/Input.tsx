@@ -5,6 +5,7 @@ import type { ObjectValue, Value } from "../../../types/form";
 import { Suggestions } from "../Suggestions";
 
 import { StyledInput, StyledWrapper, StyledPrefix, StyledSuffix } from "./Input.styled";
+
 import styles from "./Input.module.scss";
 
 interface CustomProps<T extends string> {
@@ -102,4 +103,9 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
 
 export {
     Input,
+};
+
+export type {
+    Props as InputProps,
+    CustomProps as InputCustomProps,
 };

@@ -3,9 +3,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.23.2+]
+## [0.23.3] - 2023-08-20
+### Fixed
+- missing export of Input type props
 ### Dev
 - removed js extension from imports
+- use `pnpm` instead of `yarn` commands in package.json
+- bump some dev deps
 
 ## [0.23.2] - 2023-08-05
 ### Fixed
