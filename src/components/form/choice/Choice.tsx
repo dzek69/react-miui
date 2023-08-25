@@ -50,3 +50,7 @@ const Choice = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>
 };
 
 export { Choice };
+
+export type {
+    Props as ChoiceProps,
+};
