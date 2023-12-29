@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.23.6] - 2023-12-29
+### Fixed
+- `Header` missing classNames
+### Dev
+- fixed not building docs
+
 ## [0.23.5] - 2023-12-29
 ### Changed
 - `Action` converted to stitches

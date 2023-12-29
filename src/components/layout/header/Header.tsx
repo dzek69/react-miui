@@ -22,7 +22,14 @@ interface Props {
 }
 
 const Header: React.FC<React.ComponentProps<typeof Div> & Props> = (props) => {
-    const { center, variant, position = "top", before: _before, after: _after, children, ...rest } = props;
+    const {
+        center,
+        variant,
+        position = "top",
+        className: _className, before: _before, after: _after,
+        children,
+        ...rest
+    } = props;
 
     const chld = React.Children.toArray(props.children);
     const justActions = chld.every(c => {
