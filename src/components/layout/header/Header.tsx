@@ -5,6 +5,7 @@ import classnames from "classnames";
 
 import { Action } from "../../ui/action/Action";
 import { EqualActions } from "../../ui/action/EqualActions";
+import { Div } from "../../native";
 
 import styles from "./Header.module.scss";
 
@@ -13,17 +14,15 @@ interface Props {
     variant?: "toolbar" | "colored";
     /**
      * This indicates just how the borders are drawn and how content is aligned, not the actual position on the screen.
-     * To set up position on the screen you need to properly style parent element.
+     * To set up position on the screen, you need to properly style the parent element.
      */
     position?: "top" | "left" | "right" | "bottom"; // @TODO disallow left/right if not inside StickyHeader?
-    className?: string;
     before?: ReactNode;
     after?: ReactNode;
-    children: React.ReactNode;
 }
 
-const Header: React.FC<Props> = (props) => {
-    const { center, children, variant, position = "top" } = props;
+const Header: React.FC<React.ComponentProps<typeof Div> & Props> = (props) => {
+    const { center, variant, position = "top", before: _before, after: _after, children, ...rest } = props;
 
     const chld = React.Children.toArray(props.children);
     const justActions = chld.every(c => {
@@ -53,13 +52,13 @@ const Header: React.FC<Props> = (props) => {
     }
 
     return (
-        <div className={cls}>
+        <Div className={cls} {...rest}>
             {before}
             <div className={styles.contents}>
                 {contents}
             </div>
             {after}
-        </div>
+        </Div>
     );
 };
 

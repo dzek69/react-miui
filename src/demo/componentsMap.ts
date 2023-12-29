@@ -7,13 +7,13 @@ import {
     HeaderDemo,
     HeaderWithButtonsDemo,
     HeaderWithButtonsOnSideDemo, ToolbarVariantDemo,
-} from "./components/layout/header/Header.js";
+} from "./components/layout/header/Header";
 import {
     StickyColoredBg,
     StickyHeaderBottomDemo,
     StickyHeaderDemo, StickyHeaderLeftCenterDemo, StickyHeaderLeftDemo, StickyHeaderRightDemo,
     StickyHeaderTopBottomDemo,
-} from "./components/layout/header/StickyHeader.js";
+} from "./components/layout/header/StickyHeader";
 import { DirectionPadDemo } from "./components/ui/directionPad/Pad";
 import { IconsDemo } from "./components/ui/icons/Icons";
 import {
@@ -22,7 +22,7 @@ import {
     ActionsDemo,
     ActionsOnBottom,
     ActionsOnLeft,
-} from "./components/ui/action/Action.js";
+} from "./components/ui/action/Action";
 import { ToggleDemo } from "./components/form/Toggle";
 import { CardDemo } from "./components/layout/card/Card";
 import { FormDemo } from "./components/form/Form";
@@ -136,7 +136,7 @@ const componentsMap: TheMap = {
         },
     },
     Action: {
-        name: "Action",
+        name: "Action", // TODO move all action demos to storybook
         Component: ActionDemo,
         children: {
             ActionOnBottom: {

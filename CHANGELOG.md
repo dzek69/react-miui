@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.23.5] - 2023-12-29
+### Changed
+- `Action` converted to stitches
+- `Header` now accepts `css` and all standard div props
+
 ## [0.23.4] - 2023-08-25
 ### Fixed
 - missing export of Choice type props
