@@ -17,6 +17,7 @@ const preview: Preview = {
                 <style id={"miui-css-reset"} dangerouslySetInnerHTML={{__html: cssReset}}/>
                 <style>
                     {`.docblock-argstable textarea[id] { box-sizing: content-box; }`}
+                    {`#storybook-root { height: 100%; }`}
                 </style>
                 <Story/>
             </>

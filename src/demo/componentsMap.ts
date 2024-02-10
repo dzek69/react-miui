@@ -1,19 +1,7 @@
-/* eslint-disable max-lines, import/max-dependencies */
+/* eslint-disable import/max-dependencies */
 import type { AnyComponent } from "../types";
 
 import { CheckboxDemo } from "./components/form/Checkbox";
-import {
-    CenteredHeaderDemo,
-    HeaderDemo,
-    HeaderWithButtonsDemo,
-    HeaderWithButtonsOnSideDemo, ToolbarVariantDemo,
-} from "./components/layout/header/Header";
-import {
-    StickyColoredBg,
-    StickyHeaderBottomDemo,
-    StickyHeaderDemo, StickyHeaderLeftCenterDemo, StickyHeaderLeftDemo, StickyHeaderRightDemo,
-    StickyHeaderTopBottomDemo,
-} from "./components/layout/header/StickyHeader";
 import { DirectionPadDemo } from "./components/ui/directionPad/Pad";
 import { IconsDemo } from "./components/ui/icons/Icons";
 import {
@@ -76,60 +64,6 @@ const componentsMap: TheMap = {
                     Darker: {
                         name: "Customized colors",
                         Component: ChoiceDemo2,
-                    },
-                },
-            },
-        },
-    },
-    Header: {
-        name: "Header",
-        Component: HeaderDemo,
-        children: {
-            Centered: {
-                name: "Centered",
-                Component: CenteredHeaderDemo,
-            },
-            Toolbar: {
-                name: "Toolbar",
-                Component: ToolbarVariantDemo,
-            },
-            WithButtons: {
-                name: "With buttons",
-                Component: HeaderWithButtonsDemo,
-                children: {
-                    OnLeft: {
-                        name: "On the side",
-                        Component: HeaderWithButtonsOnSideDemo,
-                    },
-                },
-            },
-            Sticky: {
-                name: "Sticky",
-                Component: StickyHeaderDemo,
-                children: {
-                    StickyBottom: {
-                        name: "On bottom",
-                        Component: StickyHeaderBottomDemo,
-                    },
-                    StickyTopBottom: {
-                        name: "On top & bottom",
-                        Component: StickyHeaderTopBottomDemo,
-                    },
-                    StickyLeft: {
-                        name: "On left",
-                        Component: StickyHeaderLeftDemo,
-                    },
-                    StickyRight: {
-                        name: "On right",
-                        Component: StickyHeaderRightDemo,
-                    },
-                    StickyLeftCentered: {
-                        name: "On left centered",
-                        Component: StickyHeaderLeftCenterDemo,
-                    },
-                    StickyColoredBg: {
-                        name: "With colored background",
-                        Component: StickyColoredBg,
                     },
                 },
             },

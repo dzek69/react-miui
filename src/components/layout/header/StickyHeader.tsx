@@ -1,14 +1,11 @@
 import React from "react";
 
-import classnames from "classnames";
-
 import { Header } from "./Header";
-
-import styles from "./StickyHeader.module.scss";
+import { Content, StyledStickyHeader } from "./StickyHeader.styled";
 
 const err = new TypeError("StickyHeader needs two children - Header and StickyHeader.Content");
 
-interface Content {
+interface ContentComponent {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     Content: React.FC<ContentProps>;
 }
@@ -24,10 +21,10 @@ interface Props {
     children: React.ReactNode;
 }
 
-const StickyHeader: React.FC<Props> & Content = (props) => {
-    const position = props.position || "top";
+const StickyHeader: React.FC<Props> & ContentComponent = (props) => {
+    const { children: _children, position = "top", ...rest } = props;
 
-    const children = React.Children.toArray(props.children);
+    const children = React.Children.toArray(_children);
 
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     if (children.length !== 2) {
@@ -44,21 +41,15 @@ const StickyHeader: React.FC<Props> & Content = (props) => {
     header = header as never; // @TODO find a better way to silence TS on cloneElement
     content = content as never;
 
-    const cls = classnames(styles.stickyHeader, styles[`stickyHeader--${position}`], props.className);
-
-    const contentCls = classnames(
-        styles.stickyHeader__content,
-        styles[`stickyHeader__content--${position}`],
-        (content as { props: ContentProps }).props.className,
-    );
+    const contentCls = (content as { props: ContentProps }).props.className;
 
     return (
-        <div className={cls}>
+        <StyledStickyHeader {...rest} position={position}>
             {React.cloneElement(header, { position })}
-            <div className={contentCls}>
+            <Content className={contentCls} position={position}>
                 {content}
-            </div>
-        </div>
+            </Content>
+        </StyledStickyHeader>
     );
 };
 // eslint-disable-next-line react/no-multi-comp

@@ -50,3 +50,7 @@ const Icon: React.FC<Props> = ({ name: iconName, ...props }) => {
 };
 
 export { Icon, ICON };
+
+export type {
+    Props as IconProps,
+};

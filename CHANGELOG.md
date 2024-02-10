@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [UNRELEASED]
+### Changed
+- `Header`, `StickyHeader` and `HeaderIconAction` converted to stitches
+### Fixed
+- `HeaderIconAction` sometimes is squashed
+### Removed
+- unused `label` prop from `HeaderIconAction`
+
 ## [0.23.6] - 2023-12-29
 ### Fixed
 - `Header` missing classNames
