@@ -1,11 +1,11 @@
 import type { ThemeCSS } from "../../../theme";
 
-import { styled } from "../../../theme";
+import { pxToRem, styled } from "../../../theme";
 import { Icon } from "../../icons/Icon";
 
 const sharedStyles: ThemeCSS = {
-    "blockSize": "100%",
-    "aspectRatio": "1",
+    "width": pxToRem(30),
+    "height": pxToRem(30),
     "background": "none",
     "borderRadius": "666px",
     "display": "inline-flex",

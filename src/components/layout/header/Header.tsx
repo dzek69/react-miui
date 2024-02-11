@@ -32,6 +32,12 @@ interface Props {
     after?: ReactNode;
 }
 
+/**
+ * General purpose header component.
+ * It has the main section, `before` and `after` sections.
+ * The main section is left-aligned by default, but it can be centered with `center` prop.
+ * `before` and `after` sections are usually used for actions.
+ */
 const Header: React.FC<React.ComponentProps<typeof Div> & Props> = (props) => {
     const {
         position = "top",

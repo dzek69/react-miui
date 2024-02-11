@@ -6,6 +6,7 @@ import { EqualActions } from "../../ui/action/EqualActions";
 const Contents = styled("div", {
     flex: 1,
     display: "flex",
+    alignItems: "center",
 });
 
 const Before = styled("div", {
@@ -17,7 +18,6 @@ const After = styled("div", {
 });
 
 const topBottomBeforeAfter: ThemeCSS = {
-    height: "100%",
     padding: "7px 0",
     boxSizing: "border-box",
     display: "flex",
@@ -26,7 +26,6 @@ const topBottomBeforeAfter: ThemeCSS = {
 };
 
 const leftRightBeforeAfter: ThemeCSS = {
-    width: "100%",
     padding: "0 7px",
     boxSizing: "border-box",
     display: "flex",
@@ -36,7 +35,7 @@ const leftRightBeforeAfter: ThemeCSS = {
 
 const topBottomShared: ThemeCSS = {
     padding: "0 16.666px",
-    height: "44px",
+    minHeight: pxToRem(45),
 
     [`& ${Before.toString()}`]: topBottomBeforeAfter,
     [`& ${After.toString()}`]: topBottomBeforeAfter,
@@ -48,7 +47,7 @@ const topBottomShared: ThemeCSS = {
 
 const leftRightShared: ThemeCSS = {
     padding: "16.666px 0",
-    width: "44px",
+    minWidth: pxToRem(45),
     flexDirection: "column",
 
     [`& ${Contents.toString()}`]: {
@@ -77,7 +76,7 @@ const StyledHeader = styled("div", {
     "backgroundClip": "padding-box",
     "background": "var(--background-color)",
     "display": "flex",
-    "alignItems": "center",
+    "alignItems": "stretch",
     "fontSize": pxToRem(15),
     "fontWeight": "bold",
     "boxSizing": "border-box",

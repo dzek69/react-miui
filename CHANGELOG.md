@@ -6,10 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 ### Changed
 - `Header`, `StickyHeader` and `HeaderIconAction` converted to stitches
+- `HeaderIconAction` no longer tries to fit the space, it's always the same size
+- some changes to the `Header` styles, hopefully not breaking
 ### Fixed
 - `HeaderIconAction` sometimes is squashed
 ### Removed
 - unused `label` prop from `HeaderIconAction`
+### Dev
+- simplified `StickyHeader` code, noting because possible regressions
 
 ## [0.23.6] - 2023-12-29
 ### Fixed

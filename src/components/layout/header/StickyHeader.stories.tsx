@@ -19,10 +19,17 @@ const Primary: Story = {
         const longContent = new Array(1000).fill(null).map((_, key) => <div key={key}>content</div>);
 
         return (
-            <StickyHeader {...args}>
-                <Header>x<br />x<br />x</Header>
-                <StickyHeader.Content>{longContent}</StickyHeader.Content>
-            </StickyHeader>
+            <>
+                <style>
+                    {`#story--components-layout-header-stickyheader--primary--primary-inner {
+                        height: 400px;
+                    }`}
+                </style>
+                <StickyHeader {...args}>
+                    <Header>x</Header>
+                    <StickyHeader.Content>{longContent}</StickyHeader.Content>
+                </StickyHeader>
+            </>
         );
     },
 };

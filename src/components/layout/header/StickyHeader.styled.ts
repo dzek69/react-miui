@@ -2,39 +2,28 @@ import { styled } from "../../../theme";
 
 const StyledStickyHeader = styled("div", {
     height: "100%",
-    display: "flex",
-    flexDirection: "column",
+    display: "grid",
+    gridTemplateRows: "auto 1fr",
+    gridTemplateColumns: "1fr",
 
     variants: {
         position: {
             top: {},
             left: {
-                flexDirection: "row",
+                gridTemplateRows: "1fr",
+                gridTemplateColumns: "auto 1fr",
             },
             bottom: {},
             right: {
-                flexDirection: "row",
+                gridTemplateRows: "1fr",
+                gridTemplateColumns: "1fr auto",
             },
         },
     },
 });
 
 const Content = styled("div", {
-    flex: 1,
     overflow: "auto",
-
-    variants: {
-        position: {
-            top: {},
-            bottom: {
-                order: 1,
-            },
-            left: {},
-            right: {
-                order: 1,
-            },
-        },
-    },
 });
 
 export {
