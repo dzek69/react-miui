@@ -46,7 +46,7 @@ const StickyHeader: React.FC<Props> & ContentComponent = (props) => {
     return (
         <StyledStickyHeader {...rest} position={position}>
             {React.cloneElement(header, { position })}
-            <Content className={contentCls}>
+            <Content className={contentCls} position={position}>
                 {content}
             </Content>
         </StyledStickyHeader>
