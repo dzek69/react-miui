@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import { useForceUpdate } from "@ezez/hooks";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
@@ -9,6 +11,21 @@ const meta: Meta = {
     title: "Components/Layout/Header/StickyHeader",
     component: StickyHeader,
     tags: ["autodocs", "layout"],
+    argTypes: {
+        children: {
+            control: {
+                disable: true,
+            },
+            description: "Usual children",
+        },
+        position: {
+            control: {
+                type: "select",
+            },
+            description: "Position of the header",
+            options: ["top", "left", "right", "bottom"],
+        },
+    },
 };
 
 type Story = StoryObj<typeof StickyHeader>;
@@ -34,8 +51,37 @@ const Primary: Story = {
     },
 };
 
+const RefsDemo: Story = {
+    render: (args) => {
+        const ref = React.useRef<HTMLDivElement>(null);
+        const refContent = React.useRef<HTMLDivElement>(null);
+        const handleForceUpdate = useForceUpdate();
+
+        useEffect(() => {
+            handleForceUpdate();
+        }, []);
+
+        console.info("RefsDemo", {
+            ref: ref.current, refContent: refContent.current,
+        });
+
+        return (
+            <>
+                <StickyHeader {...args} ref={ref}>
+                    <Header>x</Header>
+                    <StickyHeader.Content ref={refContent}>
+                        {`Ref: ${ref.current ? `set ${ref.current.nodeName}` : "not set"}`}<br />
+                        {`RefContent: ${refContent.current ? `set ${refContent.current.nodeName}` : "not set"}`}<br />
+                    </StickyHeader.Content>
+                </StickyHeader>
+            </>
+        );
+    },
+};
+
 export {
     Primary,
+    RefsDemo,
 };
 
 export default meta;

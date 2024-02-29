@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import { Header } from "./Header";
 import { Content, StyledStickyHeader } from "./StickyHeader.styled";
@@ -6,23 +6,36 @@ import { Content, StyledStickyHeader } from "./StickyHeader.styled";
 const err = new TypeError("StickyHeader needs two children - Header and StickyHeader.Content");
 
 interface ContentComponent {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    Content: React.FC<ContentProps>;
-}
-
-interface ContentProps {
-    className?: string;
-    children: React.ReactNode;
+    Content: typeof Content;
 }
 
 interface Props {
+    /**
+     * Position of the header
+     */
     position?: "top" | "left" | "right" | "bottom";
+    /**
+     * Additional class name
+     */
     className?: string;
+    /**
+     * If you need to pass custom children for some reason and you are sure that you are doing it right - use this prop
+     * to disable children type check.
+     */
+    __dangerouslyDisableChildrenGuard?: boolean;
     children: React.ReactNode;
 }
 
-const StickyHeader: React.FC<Props> & ContentComponent = (props) => {
-    const { children: _children, position = "top", ...rest } = props;
+const StickyHeaderRaw = forwardRef<HTMLDivElement, Props>((props, ref) => {
+    const { children: _children, position = "top", __dangerouslyDisableChildrenGuard, ...rest } = props;
+
+    if (__dangerouslyDisableChildrenGuard) {
+        return (
+            <StyledStickyHeader ref={ref} {...rest} position={position}>
+                {_children}
+            </StyledStickyHeader>
+        );
+    }
 
     const children = React.Children.toArray(_children);
 
@@ -32,7 +45,7 @@ const StickyHeader: React.FC<Props> & ContentComponent = (props) => {
     }
 
     let header = children.find(c => typeof c === "object" && "type" in c && c.type === Header),
-        content = children.find(c => typeof c === "object" && "type" in c && c.type === StickyHeader.Content);
+        content = children.find(c => typeof c === "object" && "type" in c && c.type === Content);
 
     if (!header || !content) {
         throw err;
@@ -41,20 +54,18 @@ const StickyHeader: React.FC<Props> & ContentComponent = (props) => {
     header = header as never; // @TODO find a better way to silence TS on cloneElement
     content = content as never;
 
-    const contentCls = (content as { props: ContentProps }).props.className;
-
     return (
-        <StyledStickyHeader {...rest} position={position}>
+        <StyledStickyHeader ref={ref} {...rest} position={position}>
             {React.cloneElement(header, { position })}
-            <Content className={contentCls} position={position}>
-                {content}
-            </Content>
+            {React.cloneElement(content, { position })}
         </StyledStickyHeader>
     );
-};
-// eslint-disable-next-line react/no-multi-comp
-StickyHeader.Content = ({ children }) => {
-    return <>{children}</>;
-};
+});
+
+type StickyHeaderType = React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLDivElement>> & ContentComponent;
+
+const StickyHeader = StickyHeaderRaw as StickyHeaderType;
+StickyHeader.Content = Content; // @TODO remove "position" from this component props
 
 export { StickyHeader };
+export type { Props as StickyHeaderProps };

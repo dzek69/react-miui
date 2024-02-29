@@ -3,11 +3,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [UNRELEASED]
+## [0.23.7] - 2024-02-29
 ### Changed
 - `Header`, `StickyHeader` and `HeaderIconAction` converted to stitches
 - `HeaderIconAction` no longer tries to fit the space, it's always the same size
 - some changes to the `Header` styles, hopefully not breaking
+- `StickyHeader` now accepts `ref`
+- `StickyHeader.Content` is now "real" component, not a wrapper
+### Added
+- `__dangerouslyDisableChildrenGuard` prop for `StickyHeader` escape hatch
 ### Fixed
 - `HeaderIconAction` sometimes is squashed
 ### Removed
