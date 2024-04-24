@@ -19,7 +19,6 @@ import { TabsDemo } from "./components/ui/tabs/Tabs";
 import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
-import { TableDemo } from "./components/layout/table/TableDemo";
 import { KeyValueDemo } from "./components/ui/keyValue/KeyValue";
 
 interface TheMap {
@@ -121,10 +120,6 @@ const componentsMap: TheMap = {
     Drawer: {
         name: "Drawer",
         Component: DrawerDemo,
-    },
-    Table: {
-        name: "Table",
-        Component: TableDemo,
     },
 };
 

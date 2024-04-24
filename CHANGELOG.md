@@ -4,8 +4,13 @@ The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [UNRELEASED]
+### Breaking
+- `Table` variants are now separated boolean props
+### Removed
+- `Table` `raw` variant, use standard `<table>` instead
 ### Changed
 - `Checkbox` converted to stitches
+- `Table` converted to stitches
 - `Checkbox` readOnly works as expected now
 - `Checkbox` color prop deprecated
 - `Checkbox` all input props are exposed now
