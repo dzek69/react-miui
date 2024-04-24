@@ -14,7 +14,6 @@ import { CardDemo } from "./components/layout/card/Card";
 import { FormDemo } from "./components/form/Form";
 import { SearchDemo } from "./components/form/Search";
 import { LabelDemo } from "./components/form/Label";
-import { ToasterDemo } from "./components/ui/toaster/Toaster";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
 import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
@@ -112,10 +111,6 @@ const componentsMap: TheMap = {
     Icons: {
         name: "Icons",
         Component: IconsDemo,
-    },
-    Toaster: {
-        name: "Toaster",
-        Component: ToasterDemo,
     },
     Drawer: {
         name: "Drawer",

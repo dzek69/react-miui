@@ -1,10 +1,8 @@
 import React, { useCallback, useState } from "react";
 
-import classnames from "classnames";
-
 import type { Toast } from "./types";
 
-import styles from "./Toaster.module.scss";
+import { StyledToast } from "./Toaster.styled";
 
 interface Props {
     toast: Toast;
@@ -23,16 +21,14 @@ const Notification: React.FC<Props> = (props) => {
     }, []);
 
     return (
-        <div
-            className={classnames(styles.toast, {
-                [styles.hide as string]: props.toast.hide || forceHide,
-            })}
+        <StyledToast
+            hide={props.toast.hide || forceHide}
             key={props.toast.id}
             onTransitionEnd={handleRemove}
             onClick={handleForceHide}
         >
             <span>{props.toast.text}</span>
-        </div>
+        </StyledToast>
     );
 };
 

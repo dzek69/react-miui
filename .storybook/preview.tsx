@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import { cssReset } from "../src";
+import {cssReset, ToasterProvider} from "../src";
 
 const preview: Preview = {
     parameters: {
@@ -19,7 +19,9 @@ const preview: Preview = {
                     {`.docblock-argstable textarea[id] { box-sizing: content-box; }`}
                     {`#storybook-root { height: 100%; }`}
                 </style>
+                <ToasterProvider>
                 <Story/>
+                </ToasterProvider>
             </>
         ),
     ]

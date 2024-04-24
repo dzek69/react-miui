@@ -5,7 +5,7 @@ import type { Toast } from "./types";
 // eslint-disable-next-line @typescript-eslint/no-shadow
 import { Notification } from "./Notification";
 
-type ToasterFn = (text: string) => void;
+type ToasterFn = (text: string, timeout?: number) => void;
 
 const ToasterContext = createContext<ToasterFn>(() => {
     throw new Error("Toaster Provider missing in the tree");
@@ -32,7 +32,7 @@ class ToasterProvider extends React.Component<Props, State> {
         };
     }
 
-    private readonly _add = (text: string) => {
+    private readonly _add = (text: string, timeout = DEFAULT_TIMEOUT) => {
         this._removeAllToasts();
 
         const id = prefix + String(counter++);
@@ -60,7 +60,7 @@ class ToasterProvider extends React.Component<Props, State> {
                     };
                 }),
             }));
-        }, DEFAULT_TIMEOUT);
+        }, timeout);
     };
 
     private readonly _handleRemove = (id: Toast["id"]) => {

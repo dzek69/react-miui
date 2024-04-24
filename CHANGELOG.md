@@ -11,9 +11,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - `Checkbox` converted to stitches
 - `Table` converted to stitches
+- `Toaster` converted to stitches
 - `Checkbox` readOnly works as expected now
 - `Checkbox` color prop deprecated
 - `Checkbox` all input props are exposed now
+### Added
+- timeout support for `Toaster`
 
 ## [0.24.0] - 2024-04-24
 ### Added
