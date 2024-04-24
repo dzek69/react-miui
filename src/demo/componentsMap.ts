@@ -19,7 +19,6 @@ import { LabelDemo } from "./components/form/Label";
 import { ToasterDemo } from "./components/ui/toaster/Toaster";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
 import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice";
-import { PopDemo } from "./components/ui/pop/Pop";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
 import { TableDemo } from "./components/layout/table/TableDemo";
@@ -128,10 +127,6 @@ const componentsMap: TheMap = {
     Drawer: {
         name: "Drawer",
         Component: DrawerDemo,
-    },
-    Pop: {
-        name: "Pop up menu",
-        Component: PopDemo,
     },
     Table: {
         name: "Table",

@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.24.0] - 2024-04-24
+### Added
+- `Progress` component
+### Changed
+- `Pop` converted to stitches
+### Dev
+- storybook version bump
+
 ## [0.23.7] - 2024-02-29
 ### Changed
 - `Header`, `StickyHeader` and `HeaderIconAction` converted to stitches

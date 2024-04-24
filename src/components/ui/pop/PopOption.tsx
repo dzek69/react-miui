@@ -1,8 +1,6 @@
 import React from "react";
 
-import classnames from "classnames";
-
-import styles from "./Pop.module.scss";
+import { Button, FakeIcon, Icon, ListItem } from "./Pop.styled";
 
 interface Props {
     icon?: React.ReactElement;
@@ -14,13 +12,13 @@ interface Props {
 
 const PopOption: React.FC<Props> = (props) => {
     const ic = props.icon
-        ? <div className={styles.icon}>{props.icon}</div>
-        : ((props.forceEmptyIcon ?? true) ? <span className={styles.fakeIcon} /> : null);
+        ? <Icon>{props.icon}</Icon>
+        : ((props.forceEmptyIcon ?? true) ? <FakeIcon /> : null);
 
     return (
-        <li className={classnames(props.className, styles.li)}>
-            <button onClick={props.onClick} className={styles.button}>{ic}{props.children}</button>
-        </li>
+        <ListItem className={props.className}>
+            <Button onClick={props.onClick}>{ic}{props.children}</Button>
+        </ListItem>
     );
 };
 

@@ -33,6 +33,7 @@ export * from "./components/ui/loader/PopLoader";
 export * from "./components/ui/message/Message";
 export * from "./components/ui/modal/Modal";
 export * from "./components/ui/modal/ModalButtons";
+export * from "./components/ui/progress/Progress";
 export * from "./components/ui/pop/Pop";
 export * from "./components/ui/pop/PopOption";
 export * from "./components/ui/stats/Stats";

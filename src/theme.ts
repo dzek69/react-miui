@@ -5,7 +5,7 @@ import type { CSS as StitchesCSS } from "@stitches/react";
 
 const RATIOS = {
     dimensions: 3,
-    border: 2.666666,
+    border: 1,
     font: 1.666666,
 };
 
@@ -76,6 +76,8 @@ const {
             blue1: "#038bf4",
             blue2: "#b7d6f5",
             blue3: "#dbe6ff",
+            blue4: "#33b4ff",
+            blue5: "#30a2e6",
             orange1: "#ff7200",
             orange1Darker: "#cc5b00",
             purple1: "#7357e8",

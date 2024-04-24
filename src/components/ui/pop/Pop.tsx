@@ -1,13 +1,12 @@
 import React, { Component, createRef } from "react";
 
-import classnames from "classnames";
+import type { ThemeCSS } from "../../../theme";
 
 import { HandleEsc } from "../../utils/HandleEsc";
 
 import { OnButtonClick } from "./OnButtonClick";
 import { PopOption } from "./PopOption";
-
-import styles from "./Pop.module.scss";
+import { List, Overlay } from "./Pop.styled";
 
 interface Props {
     open: boolean;
@@ -51,6 +50,11 @@ const getElementLocation = (element: HTMLElement, outerElement = html): [State["
     return [verticalLocation, horizontalLocation];
 };
 
+/**
+ * Popup menu component.
+ *
+ * It has a bug that miscalculates the position inside Storybook.
+ */
 class Pop extends Component<Props, State> {
     public constructor(props: Props) {
         super(props);
@@ -125,7 +129,7 @@ class Pop extends Component<Props, State> {
     };
 
     public override render() {
-        const style: React.CSSProperties = {};
+        const style: ThemeCSS = {};
 
         if (this.state.vertical === "top") {
             style.top = this.state.y;
@@ -148,17 +152,15 @@ class Pop extends Component<Props, State> {
         const closeOnEsc = this.props.closeOnEsc ?? true;
         const esc = closeOnEsc && <HandleEsc onPress={this.handleEsc} />;
 
-        const cls = classnames(this.props.className, styles.overlay);
-
         return (
-            <div className={cls} ref={this.rootRef} onClick={this.handleOverlayClick}>
+            <Overlay className={this.props.className} ref={this.rootRef} onClick={this.handleOverlayClick}>
                 {esc}
                 <OnButtonClick onClick={this.handleEsc}>
-                    <ul className={styles.pop} style={style}>
+                    <List css={style}>
                         {this.props.children}
-                    </ul>
+                    </List>
                 </OnButtonClick>
-            </div>
+            </Overlay>
         );
     }
 }
