@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [UNRELEASED]
+### Changed
+- `Checkbox` converted to stitches
+- `Checkbox` readOnly works as expected now
+- `Checkbox` color prop deprecated
+- `Checkbox` all input props are exposed now
+
 ## [0.24.0] - 2024-04-24
 ### Added
 - `Progress` component

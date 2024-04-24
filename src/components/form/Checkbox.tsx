@@ -1,50 +1,57 @@
-import React from "react";
+import React, { useCallback } from "react";
 
-import classnames from "classnames";
+import type { ThemeCSS } from "../../theme";
 
 import { Checkmark } from "../icons/Checkmark";
 
-import styles from "./Checkbox.module.scss";
+import { CheckmarkWrapper, LabelWrapper, TextLabel } from "./Checkbox.styled";
 
-interface Props {
+type WrapperProps = React.ComponentProps<typeof LabelWrapper>;
+type InputProps = React.ComponentProps<"input">;
+
+interface Props extends Pick<WrapperProps, "css" | "className">, Omit<InputProps, "className"> {
+    /**
+     * @deprecated use --color css variable instead
+     */
     color?: string;
-    name?: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    checked?: boolean;
-    disabled?: boolean;
-    readOnly?: boolean;
-    className?: string;
     children: React.ReactNode;
 }
 
-const Checkbox: React.FC<Props> = (props) => {
-    const style: React.CSSProperties = {};
-    props.color && (style.color = props.color);
+/**
+ * Checkbox component
+ */
+const Checkbox: React.FC<Props> = ({
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    color, name, onChange, children, css, className, ...inputProps
+}) => {
+    const style: ThemeCSS = {};
+    color && (style["--color"] = color);
 
-    const cls = classnames(props.className, styles.checkbox, {
-        [styles.disabled as string]: props.disabled,
-        [styles.readOnly as string]: props.readOnly,
-    });
+    const wrapperProps: { css?: NonNullable<typeof css>; className?: typeof className } = { className };
+    if (css) {
+        wrapperProps.css = css;
+    }
 
-    const checkmarkCls = classnames(styles.checkmark, {
-        [styles.checkmarkDisabled as string]: props.disabled,
-        [styles.checkmarkChecked as string]: props.checked,
-        [styles.checkmarkReadOnly as string]: props.readOnly,
-    });
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
+        if (inputProps.readOnly) {
+            // eslint-disable-next-line no-param-reassign
+            e.currentTarget.checked = !e.currentTarget.checked;
+            return;
+        }
+        onChange?.(e);
+    }, [inputProps.readOnly, onChange]);
 
     return (
-        <label className={cls}>
+        <LabelWrapper {...wrapperProps}>
             <input
                 type={"checkbox"}
-                name={props.name}
-                onChange={props.onChange}
-                checked={props.checked}
-                disabled={props.disabled}
-                readOnly={props.readOnly}
+                name={name}
+                onChange={handleChange}
+                {...inputProps}
             />
-            <span style={style} className={checkmarkCls}><Checkmark /></span>
-            <span className={styles.label}>{props.children}</span>
-        </label>
+            <CheckmarkWrapper css={style}><Checkmark /></CheckmarkWrapper>
+            <TextLabel>{children}</TextLabel>
+        </LabelWrapper>
     );
 };
 

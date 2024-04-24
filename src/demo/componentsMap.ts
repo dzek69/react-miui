@@ -1,7 +1,5 @@
-/* eslint-disable import/max-dependencies */
 import type { AnyComponent } from "../types";
 
-import { CheckboxDemo } from "./components/form/Checkbox";
 import { DirectionPadDemo } from "./components/ui/directionPad/Pad";
 import { IconsDemo } from "./components/ui/icons/Icons";
 import {
@@ -47,10 +45,6 @@ const componentsMap: TheMap = {
             Search: {
                 name: "Search",
                 Component: SearchDemo,
-            },
-            Checkbox: {
-                name: "Checkbox",
-                Component: CheckboxDemo,
             },
             Toggle: {
                 name: "Toggle",
