@@ -49,5 +49,5 @@ export * from "./scrollbars.css";
 
 export type { ThemeCSS } from "./theme";
 
-export { getCssText, styled } from "./theme";
+export * from "./theme";
 export { cssReset } from "./theme.css-reset";

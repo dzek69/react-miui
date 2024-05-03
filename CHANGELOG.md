@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [UNRELEASED]
+## [0.25.0] - 2024-05-03
 ### Breaking
 - `Table` variants are now separated boolean props
 ### Removed
@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Checkbox` all input props are exposed now
 ### Added
 - timeout support for `Toaster`
+- exports of all `stitches` stuff like `css` and `pxToRem`
 
 ## [0.24.0] - 2024-04-24
 ### Added
