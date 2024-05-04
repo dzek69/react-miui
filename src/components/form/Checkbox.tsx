@@ -9,7 +9,7 @@ import { CheckmarkWrapper, LabelWrapper, TextLabel } from "./Checkbox.styled";
 type WrapperProps = React.ComponentProps<typeof LabelWrapper>;
 type InputProps = React.ComponentProps<"input">;
 
-interface Props extends Pick<WrapperProps, "css" | "className">, Omit<InputProps, "className"> {
+interface Props extends Partial<Pick<WrapperProps, "css" | "className">>, Omit<InputProps, "className"> {
     /**
      * @deprecated use --color css variable instead
      */

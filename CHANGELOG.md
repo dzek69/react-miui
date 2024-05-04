@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.25.1] - 2024-05-04
+### Fixed
+- `Checkbox` `css` and `className` props being required
+
 ## [0.25.0] - 2024-05-03
 ### Breaking
 - `Table` variants are now separated boolean props
