@@ -38,9 +38,9 @@ export * from "./components/ui/progress/Progress";
 export * from "./components/ui/pop/Pop";
 export * from "./components/ui/pop/PopOption";
 export * from "./components/ui/stats/Stats";
-
 export * from "./components/ui/tabs/Selector";
 export * from "./components/ui/toaster/Toaster";
+export * from "./components/ui/toolButton/ToolButton";
 
 export * from "./components/utils/HandleEsc";
 export * from "./components/utils/If";

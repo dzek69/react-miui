@@ -97,6 +97,8 @@ const {
             scrollbarsThumb: "#737373",
             scrollbarsBg: "transparent",
             tableStripedBg: "#fafafa",
+
+            toolButtonText: "#666e80",
         },
     },
     utils: {
