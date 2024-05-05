@@ -25,6 +25,7 @@ export * from "./components/ui/button/Button";
 export * from "./components/ui/directionPad/Pad";
 export * from "./components/ui/drawer/Drawer";
 export * from "./components/ui/keyValue/KeyValue";
+export * from "./components/ui/line/Line";
 export * from "./components/ui/loader/CoveringLoader";
 export * from "./components/ui/loader/FullLoader";
 export * from "./components/ui/loader/Loader";
