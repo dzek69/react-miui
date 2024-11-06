@@ -17,7 +17,8 @@ interface Props {
 
 const Stats: React.FC<Props> = (props) => {
     const list = props.stats.map((s, k) => (
-        <li key={String(k)} className={styles.item}>
+        // eslint-disable-next-line react/no-array-index-key
+        <li key={k} className={styles.item}>
             <span className={styles.value}>{s.value}</span>
             <span className={styles.label}>{s.label}</span>
         </li>

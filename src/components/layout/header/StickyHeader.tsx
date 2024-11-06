@@ -61,6 +61,7 @@ const StickyHeaderRaw = forwardRef<HTMLDivElement, Props>((props, ref) => {
         </StyledStickyHeader>
     );
 });
+StickyHeaderRaw.displayName = "StickyHeader";
 
 type StickyHeaderType = React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLDivElement>> & ContentComponent;
 

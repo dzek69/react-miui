@@ -120,6 +120,10 @@ body {
 body {
   font-family: sans-serif;
 }
+
+small {
+  font-size: smaller;
+}
 `;
 
 /**

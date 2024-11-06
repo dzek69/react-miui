@@ -145,7 +145,6 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
     if (href) {
         return (
             <StyledItem {...props}>
-                {/* eslint-disable-next-line react/jsx-handler-names */}
                 <StyledInnerContainer as={"a"} href={href} onClick={onClick}>{ren}</StyledInnerContainer>
             </StyledItem>
         );
@@ -154,7 +153,6 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
     if (onClick) {
         return (
             <StyledItem {...props}>
-                {/* eslint-disable-next-line react/jsx-handler-names */}
                 <StyledInnerContainer as={"button"} onClick={onClick}>{ren}</StyledInnerContainer>
             </StyledItem>
         );

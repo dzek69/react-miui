@@ -32,7 +32,6 @@ class Drawer extends Component<Props, State> {
 
     public override componentDidMount() {
         this.timeout = new Timeout(() => {
-            // eslint-disable-next-line react/no-did-mount-set-state
             this.setState({ shouldRenderWhenClosed: false });
         }, RENDER_TIMEOUT);
     }
@@ -85,6 +84,7 @@ class Drawer extends Component<Props, State> {
             <div className={cls} style={style}>
                 {esc}
                 <div className={styles.content}>
+                    {/* eslint-disable-next-line react/jsx-no-leaked-render */}
                     {shouldRender && this.props.children}
                 </div>
             </div>

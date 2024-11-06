@@ -26,7 +26,7 @@ const Label: React.FC<StyledLabelProps & { sub?: ReactNode }> = ({ sub, ...props
     return (
         <StyledLabel {...props}>
             <div>{props.children}</div>
-            {sub && <SubLabel>{sub}</SubLabel>}
+            {sub != null && <SubLabel>{sub}</SubLabel>}
         </StyledLabel>
     );
 };
