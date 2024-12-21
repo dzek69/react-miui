@@ -6,7 +6,7 @@ import type { ThemeCSS } from "../../../theme";
 
 import { Icon } from "../../icons/Icon";
 
-import { Anchor, Button, StyledAction } from "./Action.styled";
+import { Anchor, Badge, Button, StyledAction } from "./Action.styled";
 
 interface LinkProps { // @TODO extract? - same on list item
     href: string;
@@ -46,6 +46,7 @@ interface Props {
      * Custom CSS
      */
     css?: ThemeCSS;
+    badge?: ReactNode;
 }
 
 /**
@@ -66,7 +67,7 @@ const Action: React.FC<Props> = (props) => {
 
     const content = (
         <>
-            <StyledAction>{iconElem}</StyledAction>
+            <StyledAction>{props.badge ? <Badge>{props.badge}</Badge> : null}{iconElem}</StyledAction>
             {labelElem}
         </>
     );

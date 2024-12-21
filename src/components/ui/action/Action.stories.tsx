@@ -8,6 +8,16 @@ const meta: Meta = {
     title: "Components/UI/Action",
     component: Action,
     tags: ["autodocs", "ui"],
+    args: {
+        badge: "",
+    },
+    argTypes: {
+        badge: {
+            control: {
+                type: "text",
+            },
+        },
+    },
 };
 
 type Story = StoryObj<typeof Action>;

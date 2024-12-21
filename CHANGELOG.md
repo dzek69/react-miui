@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.27.2] - 2024-12-21
+### Changed
+- `Action` now supports `badge` prop
+
 ## [0.27.1] - 2024-11-06
 ### Fixed
 - `small` HTML element has no default styles

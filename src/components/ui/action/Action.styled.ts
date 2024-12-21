@@ -1,6 +1,6 @@
 import type { ThemeCSS } from "../../../theme";
 
-import { borderPxToRem, dimensionsPxToRem, styled } from "../../../theme";
+import { fontPxToRem, borderPxToRem, dimensionsPxToRem, styled } from "../../../theme";
 
 const StyledAction = styled("div", {
     height: dimensionsPxToRem(102),
@@ -12,6 +12,25 @@ const StyledAction = styled("div", {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    position: "relative",
+});
+
+const Badge = styled("div", {
+    position: "absolute",
+    background: "$red1",
+    color: "white",
+    fontWeight: "bold",
+    top: "-25%",
+    right: "-25%",
+    overflow: "hidden",
+    display: "flex",
+    fontSize: fontPxToRem(17),
+    padding: dimensionsPxToRem(17),
+    width: dimensionsPxToRem(60),
+    height: dimensionsPxToRem(60),
+    alignItems: "center", // Vertically center content
+    justifyContent: "center", // Horizontally center content
+    borderRadius: "50%", // Make it circular
 });
 
 const sharedCss: ThemeCSS = {
@@ -35,6 +54,7 @@ const Button = styled("button", {
 
 export {
     StyledAction,
+    Badge,
     Anchor,
     Button,
 };
