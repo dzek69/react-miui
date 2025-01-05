@@ -17,6 +17,7 @@ const meta: Meta = {
                 type: "text",
             },
         },
+        href: { type: "string" },
     },
 };
 
@@ -38,8 +39,45 @@ const Primary: Story = {
     },
 };
 
+const Button: Story = {
+    args: {
+        label: "I am a button",
+        icon: "checkmark",
+        onClick: () => { alert("Clicked"); },
+    },
+};
+
+const Link: Story = {
+    args: {
+        label: "I am a link",
+        icon: "checkmark",
+        href: "https://example.com",
+    },
+};
+
+const WithCustomLink: Story = {
+    args: {
+        label: "I am a custom link",
+        icon: "checkmark",
+        to: "/subpage",
+        Link: (props) => {
+            return (
+                <a
+                    href={props.href}
+                    onClick={(e) => { e.preventDefault(); alert("I'd take you to " + props.href); }}
+                >
+                    {props.children}
+                </a>
+            );
+        },
+    },
+};
+
 export {
     Primary,
+    Button,
+    Link,
+    WithCustomLink,
 };
 
 export default meta;
