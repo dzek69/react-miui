@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.27.5] - 2025-01-05
+### Fixed
+- `Input` error state should color text too, should not color prefix and suffix
+
 ## [0.27.4] - 2025-01-05
 ### Fixed
 - `Checkbox` readonly styles

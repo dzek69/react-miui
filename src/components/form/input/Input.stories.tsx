@@ -17,6 +17,7 @@ const meta: Meta<typeof Input> = {
         readOnly: { type: "boolean" },
         prefix: { type: "string" },
         suffix: { type: "string" },
+        children: { table: { disable: true } },
     },
 };
 

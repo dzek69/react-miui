@@ -9,11 +9,13 @@ const StyledWrapper = styled("div", wrapper);
 const StyledPrefix = styled("div", {
     marginRight: dimensionsPxToRem(36),
     display: "flex",
+    color: "$text",
 });
 
 const StyledSuffix = styled("div", {
     marginLeft: dimensionsPxToRem(36),
     display: "flex",
+    color: "$text",
 });
 
 export {

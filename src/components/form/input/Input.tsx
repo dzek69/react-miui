@@ -6,8 +6,6 @@ import { Suggestions } from "../Suggestions";
 
 import { StyledInput, StyledWrapper, StyledPrefix, StyledSuffix } from "./Input.styled";
 
-import styles from "./Input.module.scss";
-
 interface CustomProps<T extends string> {
     children?: never;
     prefix?: React.ReactNode;
@@ -95,7 +93,7 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
                 onKeyDown={handleKeyDown}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                className={styles.input}
+                data-error={Boolean(props.error)}
             />
             <Suggestions id={suggestionsId} suggestions={suggestions} />
             {suffixElem}

@@ -18,7 +18,7 @@ const input = {
         color: "$sub",
     },
 
-    "&:read-only, &:disabled": {
+    "&:read-only, &:disabled, &[data-error=true]": {
         color: "inherit",
     },
 };
