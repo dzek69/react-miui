@@ -26,6 +26,7 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
     onFocus, onBlur, onKeyDown, onChange,
     suggestions,
     onSuggestionMatch,
+    error,
     ...props
 }: Props<T>): ReturnType<React.FC<Props<T>>> => {
     const [focused, setFocused] = useState(false);
@@ -83,7 +84,7 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
             focused={Boolean(focused)}
             disabled={Boolean(props.disabled)}
             readOnly={Boolean(props.readOnly)}
-            error={Boolean(props.error)}
+            error={Boolean(error)}
         >
             {prefixElem}
             <StyledInput
@@ -93,7 +94,7 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
                 onKeyDown={handleKeyDown}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                data-error={Boolean(props.error)}
+                data-error={Boolean(error)}
             />
             <Suggestions id={suggestionsId} suggestions={suggestions} />
             {suffixElem}
