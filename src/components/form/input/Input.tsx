@@ -68,7 +68,7 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
         }
         info.picked = false;
         onChange?.(e);
-    }, [suggestions]);
+    }, [suggestions, onChange]);
 
     const prefixElem = prefix ? <StyledPrefix>{prefix}</StyledPrefix> : null;
     const suffixElem = suffix ? <StyledSuffix>{suffix}</StyledSuffix> : null;

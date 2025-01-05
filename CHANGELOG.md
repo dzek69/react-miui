@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.27.3] - 2025-01-05
+### Fixed
+- `Input` does not react to `onChange` changes
+
 ## [0.27.2] - 2024-12-21
 ### Changed
 - `Action` now supports `badge` prop
