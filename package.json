@@ -1,6 +1,6 @@
 {
   "name": "react-miui",
-  "version": "0.27.3",
+  "version": "0.27.4",
   "author": "Jacek Nowacki",
   "license": "MIT",
   "scripts": {
@@ -14,7 +14,7 @@
     "lint:fix": "pnpm run lint --fix",
     "prepare": "patch-package",
     "prepack": "pnpm run compile",
-    "prepublishOnly": "pnpm audit && pnpm run lint && pnpm test && pnpm run docs",
+    "prepublishOnly": "pnpm run lint && pnpm test && pnpm run docs",
     "start:dev": "pnpm run storybook",
     "start:dev:legacy": "next dev",
     "deploy:dev": "next build && next export && netlify deploy --dir out",

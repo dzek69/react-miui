@@ -12,12 +12,11 @@ const meta: Meta<typeof Input> = {
     component: Input,
     tags: ["autodocs", "form"],
     argTypes: {
-        prefix: {
-            type: "string",
-        },
-        suffix: {
-            type: "string",
-        },
+        error: { type: "boolean" },
+        disabled: { type: "boolean" },
+        readOnly: { type: "boolean" },
+        prefix: { type: "string" },
+        suffix: { type: "string" },
     },
 };
 

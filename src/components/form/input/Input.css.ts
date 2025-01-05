@@ -24,6 +24,15 @@ const input = {
 };
 // satisfies ThemeCSS; @TODO restore
 
+const focusCSS = {
+    borderColor: "$focusColor",
+};
+
+const errorCSS = {
+    borderColor: "$pinky2",
+    color: "$red1",
+};
+
 const wrapper = {
     background: "white",
     display: "inline-flex",
@@ -46,8 +55,11 @@ const wrapper = {
             },
         },
         focused: {
+            true: focusCSS,
+        },
+        error: {
             true: {
-                borderColor: "$focusColor",
+                "&": errorCSS,
             },
         },
     },
@@ -57,4 +69,6 @@ const wrapper = {
 export {
     input,
     wrapper,
+    focusCSS,
+    errorCSS,
 };

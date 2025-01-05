@@ -4,6 +4,7 @@ import { StyledTextArea } from "./TextArea.styled";
 
 interface Props {
     children?: never;
+    error?: boolean;
 }
 
 const TextArea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement> & Props> = ({

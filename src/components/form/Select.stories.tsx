@@ -8,6 +8,10 @@ const meta: Meta = {
     title: "Components/Form/Select",
     component: Select,
     tags: ["autodocs", "form"],
+    argTypes: {
+        error: { type: "boolean" },
+        disabled: { type: "boolean" },
+    },
 };
 
 type Story = StoryObj<typeof Select>;

@@ -12,6 +12,7 @@ interface CustomProps<T extends string> {
     children?: never;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
+    error?: boolean;
     suggestions?: Value<T>[];
     onSuggestionMatch?: (value: Exclude<Value<T>, ObjectValue>, __chromiumPickedFromList: boolean) => void;
 }
@@ -84,6 +85,7 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
             focused={Boolean(focused)}
             disabled={Boolean(props.disabled)}
             readOnly={Boolean(props.readOnly)}
+            error={Boolean(props.error)}
         >
             {prefixElem}
             <StyledInput

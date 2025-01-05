@@ -45,9 +45,16 @@ const CheckmarkWrapper = styled("div", {
         },
     },
 
-    ":readonly + &": {
+    "[readonly] + &": {
         [`+ ${TextLabel.toString()}`]: {
             color: "$inputDisabledText",
+        },
+    },
+
+    "[data-error=true] + &": {
+        borderColor: "$pinky2",
+        [`+ ${TextLabel.toString()}`]: {
+            color: "$red1",
         },
     },
 });

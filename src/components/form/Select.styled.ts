@@ -1,5 +1,7 @@
 import { borderPxToRem, dimensionsPxToRem, pxToRem, styled } from "../../theme";
 
+import { errorCSS, focusCSS } from "./input/Input.css";
+
 const Select = styled("select", {
     "boxSizing": "border-box",
     "height": dimensionsPxToRem(103),
@@ -14,9 +16,17 @@ const Select = styled("select", {
     "border": `${borderPxToRem(1)} solid $border`,
     "appearance": "auto",
 
-    "&:disabled": {
+    "&:where(:disabled)": {
         background: "$inputDisabledBg",
         color: "$inputDisabledText",
+    },
+
+    "&:focus": focusCSS,
+
+    "variants": {
+        error: {
+            true: errorCSS,
+        },
     },
 });
 

@@ -15,6 +15,7 @@ interface Props extends Partial<Pick<WrapperProps, "css" | "className">>, Omit<I
      */
     color?: string;
     children: React.ReactNode;
+    error?: boolean;
 }
 
 /**
@@ -22,7 +23,7 @@ interface Props extends Partial<Pick<WrapperProps, "css" | "className">>, Omit<I
  */
 const Checkbox: React.FC<Props> = ({
     // eslint-disable-next-line @typescript-eslint/no-shadow
-    color, name, onChange, children, css, className, ...inputProps
+    color, error, name, onChange, children, css, className, ...inputProps
 }) => {
     const style: ThemeCSS = {};
     color && (style["--color"] = color);
@@ -47,6 +48,7 @@ const Checkbox: React.FC<Props> = ({
                 type={"checkbox"}
                 name={name}
                 onChange={handleChange}
+                data-error={error}
                 {...inputProps}
             />
             <CheckmarkWrapper css={style}><Checkmark /></CheckmarkWrapper>

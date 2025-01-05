@@ -39,6 +39,11 @@ const meta: Meta = {
                 type: "boolean",
             },
         },
+        error: {
+            control: {
+                type: "boolean",
+            },
+        },
         onChange: {
             action: "onChange",
         },

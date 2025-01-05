@@ -12,7 +12,6 @@ const StyledTextArea = styled("textarea", {
     height: "unset",
     resize: "vertical",
     minHeight: dimensionsPxToRem(103),
-
 });
 
 export {
