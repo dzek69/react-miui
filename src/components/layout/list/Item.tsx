@@ -1,22 +1,37 @@
 import React from "react";
 
-import { ICON, Icon } from "../../icons/Icon";
-import { dimensionsPxToRem, fontPxToRem, pxToRem, styled } from "../../../theme";
+import { ICON } from "../../icons/Icon";
+import { styled } from "../../../theme";
 
 import { Value } from "./Value";
 import { Label } from "./Label";
+import { StyledIcon, StyledInnerContainer, StyledItem, StyledNoIcon } from "./Item.styled";
 
 interface LinkProps {
     href: string;
     children: React.ReactNode;
 }
 
+type Ratio = `${number}` | ``;
+
+type SlashSeparatedNumbers =
+    | Ratio
+    | `${Ratio}/${Ratio}`
+    | `${Ratio}/${Ratio}/${Ratio}`
+    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`;
+
 interface Props {
     href?: string;
     to?: string;
     onClick?: () => void;
     Link?: React.ComponentClass<LinkProps> | React.FC<LinkProps>;
-    ratio?: string; // @TODO number/number/number/.. type?
+    ratio?: SlashSeparatedNumbers;
 }
 
 interface SubComponents {
@@ -24,72 +39,16 @@ interface SubComponents {
     Value: typeof Value;
 }
 
-const iconStyles = {
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    width: pxToRem(7),
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    marginRight: pxToRem(10),
-    display: "inline-block",
-}; // TODO satisfies
-
-const StyledIcon = styled(Icon, iconStyles);
-const StyledNoIcon = styled("span", iconStyles);
-
 const icon = <StyledIcon name={ICON.forward} />;
 const noIcon = <StyledNoIcon />;
 
-const StyledInnerContainer = styled("div", {
-    display: "flex",
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    minHeight: dimensionsPxToRem(174),
-    alignItems: "center",
-    gap: "1rem",
-
-    border: "none",
-    background: "none",
-    width: "100%",
-    textAlign: "left",
-    fontFamily: "inherit",
-    fontSize: "inherit",
-});
-
 const ItemInnerContainerClassName = StyledInnerContainer.toString();
-
-const StyledItem = styled("li", {
-    "listStyleType": "none",
-    "margin": 0,
-    "padding": 0,
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    "fontSize": fontPxToRem(34),
-
-    "&:not(:first-child)": {
-        borderTop: "0.37px solid $headerBorder",
-    },
-
-    "> *": {
-        display: "block",
-        padding: 0,
-        textDecoration: "none",
-    },
-
-    "variants": {
-        inset: {
-            true: {
-                // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-                paddingLeft: dimensionsPxToRem(37),
-                // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-                paddingRight: dimensionsPxToRem(37),
-            },
-        },
-        selected: {
-            true: {
-                color: "$mainColor",
-            },
-        },
-    },
-});
-
 type StyledItemProps = React.ComponentProps<typeof StyledItem>;
+
+const ArrowHolder = styled("div", {
+    display: "flex",
+    alignItems: "center",
+});
 
 /**
  * Represents a single item in a list.
@@ -127,7 +86,7 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
         if (index in r) {
             flex = r[index];
         }
-        return <div style={flex ? { flex } : undefined}>{pre}{child}</div>;
+        return <ArrowHolder css={flex ? { flex } : { }}>{pre}{child}</ArrowHolder>;
     });
 
     if (to) {
