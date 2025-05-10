@@ -1,7 +1,6 @@
 import React from "react";
 
 import { ICON } from "../../icons/Icon";
-import { styled } from "../../../theme";
 
 import { Value } from "./Value";
 import { Label } from "./Label";
@@ -45,11 +44,6 @@ const noIcon = <StyledNoIcon />;
 const ItemInnerContainerClassName = StyledInnerContainer.toString();
 type StyledItemProps = React.ComponentProps<typeof StyledItem>;
 
-const ArrowHolder = styled("div", {
-    display: "flex",
-    alignItems: "center",
-});
-
 /**
  * Represents a single item in a list.
  *
@@ -75,19 +69,28 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
     const r = ratio ? ratio.split("/") : [];
 
     const pre = typeof props.selected === "boolean"
-        ? (props.selected ? icon : noIcon)
+        ? <Label>{props.selected ? icon : noIcon}</Label>
         : null;
 
-    const ren = React.Children.map(props.children, (child, index) => {
-        let flex = undefined;
-        if (!r.length && child && typeof child === "object" && "type" in child && child.type === Value) {
-            return child;
-        }
-        if (index in r) {
-            flex = r[index];
-        }
-        return <ArrowHolder css={flex ? { flex } : { }}>{pre}{child}</ArrowHolder>;
-    });
+    const ren = !r.length
+        ? props.children
+        : React.Children.map(props.children, (child, index) => {
+            if (child && typeof child === "object" && "type" in child && child.type === Value) {
+                return child;
+            }
+            if (!child || typeof child !== "object" || !("type" in child)) {
+                return child;
+            }
+
+            const flex = index in r ? r[index] : undefined;
+            if (flex === undefined) {
+                return child;
+            }
+            return React.cloneElement(child, {
+                style: { flex },
+                css: { flex },
+            });
+        }) ?? [];
 
     if (to) {
         if (!Link) {
@@ -96,7 +99,7 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
 
         return (
             <StyledItem {...props}>
-                <Link href={to}><StyledInnerContainer as={"a"} href={to}>{ren}</StyledInnerContainer></Link>
+                <Link href={to}><StyledInnerContainer as={"a"} href={to}>{pre}{ren}</StyledInnerContainer></Link>
             </StyledItem>
         );
     }
@@ -104,7 +107,7 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
     if (href) {
         return (
             <StyledItem {...props}>
-                <StyledInnerContainer as={"a"} href={href} onClick={onClick}>{ren}</StyledInnerContainer>
+                <StyledInnerContainer as={"a"} href={href} onClick={onClick}>{pre}{ren}</StyledInnerContainer>
             </StyledItem>
         );
     }
@@ -112,12 +115,12 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
     if (onClick) {
         return (
             <StyledItem {...props}>
-                <StyledInnerContainer as={"button"} onClick={onClick}>{ren}</StyledInnerContainer>
+                <StyledInnerContainer as={"button"} onClick={onClick}>{pre}{ren}</StyledInnerContainer>
             </StyledItem>
         );
     }
 
-    return <StyledItem {...props}><StyledInnerContainer>{ren}</StyledInnerContainer></StyledItem>;
+    return <StyledItem {...props}><StyledInnerContainer>{pre}{ren}</StyledInnerContainer></StyledItem>;
 };
 
 Item.Label = Label;

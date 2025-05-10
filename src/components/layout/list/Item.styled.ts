@@ -3,11 +3,9 @@ import { Icon } from "../../icons/Icon";
 
 const StyledInnerContainer = styled("div", {
     display: "flex",
-
     minHeight: dimensionsPxToRem(174),
     alignItems: "center",
     gap: "1rem",
-
     border: "none",
     background: "none",
     width: "100%",
@@ -20,7 +18,6 @@ const StyledItem = styled("li", {
     "listStyleType": "none",
     "margin": 0,
     "padding": 0,
-
     "fontSize": fontPxToRem(34),
 
     "&:not(:first-child)": {
@@ -36,9 +33,7 @@ const StyledItem = styled("li", {
     "variants": {
         inset: {
             true: {
-
                 paddingLeft: dimensionsPxToRem(37),
-
                 paddingRight: dimensionsPxToRem(37),
             },
         },
@@ -51,10 +46,7 @@ const StyledItem = styled("li", {
 });
 
 const iconStyles = css({
-
     width: pxToRem(7),
-
-    marginRight: pxToRem(10),
     display: "inline-block",
 });
 

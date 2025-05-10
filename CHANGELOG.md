@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.27.9] - 2025-05-10
+### Fixed
+- `selected` Item prop makes `ratio` prop not working
+### Dev
+- next.js bump to fix audit issues
+
 ## [0.27.8] - 2025-05-10
 ### Fixed
 - `selected` Item prop arrow rendering incorrectly when used with Item.Label
