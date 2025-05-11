@@ -50,11 +50,12 @@ type StyledItemProps = React.ComponentProps<typeof StyledItem>;
  * It has two subcomponents:
  * - `Label`: for rendering the label with sublabel (usually on the left)
  * - `Value`: for rendering the value (usually on the right)
+ * It can be however used with any children.
  *
- * It can be however used with any children, its children are rendered in a flexbox container, `ratio` prop can be used
- * to set the flex ratio of each child.
+ * `ratio` prop can be used to set the flex ratio of each child. The child must support either `style` or `css` prop
+ * that accept object like: `{ flex: 1 }`.
  *
- * It has two variants:
+ * List.Item has two variants:
  * - `inset`: which adds padding to the left and right side of the item - it should be used when the list is inset (it's
  * applied automatically if used within `List` component)
  * - `selected`: which renders an arrow on the left side, useful when creating a radio-like list (please note that not
@@ -75,14 +76,11 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
     const ren = !r.length
         ? props.children
         : React.Children.map(props.children, (child, index) => {
-            if (child && typeof child === "object" && "type" in child && child.type === Value) {
-                return child;
-            }
             if (!child || typeof child !== "object" || !("type" in child)) {
                 return child;
             }
 
-            const flex = index in r ? r[index] : undefined;
+            const flex = r[index] ?? undefined;
             if (flex === undefined) {
                 return child;
             }
