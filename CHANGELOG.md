@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.27.11] - 2025-05-19
+### Breaking
+- Removed `BackgroundClassName` and `ValueClassName` from `Progress` component, that shouldn't be exported in the first place
+### Changed
+- `Progress` component now has to-be-standarized `selectors` prop on the function, allowing to more flexible styles override
+- `StickyHeader` now has `selectors` prop
+
 ## [0.27.10] - 2025-05-11
 ### Fixed
 - Item `ratio` prop will be used on `Value` as well

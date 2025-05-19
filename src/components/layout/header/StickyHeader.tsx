@@ -1,13 +1,11 @@
 import React, { forwardRef } from "react";
 
+import { fnWithProps } from "../../../types/fnWithProps";
+
 import { Header } from "./Header";
 import { Content, StyledStickyHeader } from "./StickyHeader.styled";
 
 const err = new TypeError("StickyHeader needs two children - Header and StickyHeader.Content");
-
-interface ContentComponent {
-    Content: typeof Content;
-}
 
 interface Props {
     /**
@@ -26,7 +24,7 @@ interface Props {
     children: React.ReactNode;
 }
 
-const StickyHeaderRaw = forwardRef<HTMLDivElement, Props>((props, ref) => {
+const StickyHeader = fnWithProps(forwardRef<HTMLDivElement, Props>((props, ref) => { // eslint-disable-line react/display-name,max-len
     const { children: _children, position = "top", __dangerouslyDisableChildrenGuard, ...rest } = props;
 
     if (__dangerouslyDisableChildrenGuard) {
@@ -60,13 +58,17 @@ const StickyHeaderRaw = forwardRef<HTMLDivElement, Props>((props, ref) => {
             {React.cloneElement(content, { position })}
         </StyledStickyHeader>
     );
+}), {
+    displayName: "StickyHeader",
+    Content: Content, // @TODO remove "position" from this component props
+    selectors: {
+        root: StyledStickyHeader.toString(),
+    },
 });
-StickyHeaderRaw.displayName = "StickyHeader";
+StickyHeader.displayName = "StickyHeader";
 
-type StickyHeaderType = React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLDivElement>> & ContentComponent;
+export {
+    StickyHeader,
+};
 
-const StickyHeader = StickyHeaderRaw as StickyHeaderType;
-StickyHeader.Content = Content; // @TODO remove "position" from this component props
-
-export { StickyHeader };
 export type { Props as StickyHeaderProps };

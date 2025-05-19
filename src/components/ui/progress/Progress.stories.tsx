@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { styled } from "../../../theme";
 
-import { Progress, ValueClassName } from "./Progress";
+import { Progress } from "./Progress";
 
 const meta: Meta = {
     title: "Components/UI/Progress",
@@ -26,7 +26,7 @@ const CustomProgress = styled(Progress, {
     "--value-background-color":
         "linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff)",
 
-    [`& ${ValueClassName}`]: {
+    [`& ${Progress.selectors.value}`]: {
         borderWidth: 0,
     },
 });
