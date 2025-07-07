@@ -1,47 +1,59 @@
 import type { ChangeEvent } from "react";
 import React, { useCallback } from "react";
 
-import classnames from "classnames";
+import { StyledContainer, StyledToggle } from "./Toggle.styled";
 
-import styles from "./Toggle.module.scss";
+type ContainerProps = React.ComponentProps<typeof StyledContainer>;
 
-interface Props {
+interface Props extends Partial<Pick<ContainerProps, "css" | "className">> {
     onChange: (newValue: boolean) => void;
     onContextMenu?: React.MouseEventHandler;
+    /**
+     * If the toggle is in an undetermined state (value is null),
+     * clicking it will change the value to this.
+     */
     undeterminedClickValue?: boolean;
+    /**
+     * If true, the toggle is disabled and cannot be interacted with.
+     */
     disabled?: boolean;
     value: boolean | null;
-    className?: string;
 }
 
 const Toggle: React.FC<Props> = (props) => {
+    const { onChange, onContextMenu, undeterminedClickValue, disabled, value, ...rest } = props;
+
     const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        if (props.value == null) {
-            if (typeof props.undeterminedClickValue === "boolean") {
-                props.onChange(props.undeterminedClickValue);
+        if (value == null) {
+            if (typeof undeterminedClickValue === "boolean") {
+                onChange(undeterminedClickValue);
             }
             return;
         }
-        props.onChange(e.target.checked);
-    }, [props.onChange, props.value]);
-
-    const cls = classnames(props.className, styles.container, {
-        [styles.disabled as string]: props.disabled,
-    });
+        onChange(e.target.checked);
+    }, [onChange, value, undeterminedClickValue]);
 
     return (
-        <label className={cls} onContextMenu={props.onContextMenu}>
+        <StyledContainer
+            {...rest}
+            disabled={Boolean(disabled)}
+            onContextMenu={onContextMenu}
+        >
             <input
                 type={"checkbox"}
-                checked={Boolean(props.value)}
-                data-undetermined={props.value == null}
-                readOnly={props.value == null}
-                disabled={props.disabled}
+                checked={Boolean(value)}
+                data-undetermined={value == null}
+                readOnly={value == null}
+                disabled={disabled}
                 onChange={handleChange}
             />
-            <div className={styles.toggle} />
-        </label>
+            <StyledToggle />
+        </StyledContainer>
     );
 };
 
 export { Toggle };
+
+export type {
+    Props as ToggleProps,
+};

@@ -9,11 +9,9 @@ import {
     ActionsOnBottom,
     ActionsOnLeft,
 } from "./components/ui/action/Action";
-import { ToggleDemo } from "./components/form/Toggle";
 import { CardDemo } from "./components/layout/card/Card";
 import { FormDemo } from "./components/form/Form";
 import { SearchDemo } from "./components/form/Search";
-import { LabelDemo } from "./components/form/Label";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
 import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
@@ -36,17 +34,9 @@ const componentsMap: TheMap = {
         name: "Form",
         Component: FormDemo,
         children: {
-            Label: {
-                name: "Label",
-                Component: LabelDemo,
-            },
             Search: {
                 name: "Search",
                 Component: SearchDemo,
-            },
-            Toggle: {
-                name: "Toggle",
-                Component: ToggleDemo,
             },
             Choice: {
                 name: "Choice",
