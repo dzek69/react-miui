@@ -13,7 +13,6 @@ import { CardDemo } from "./components/layout/card/Card";
 import { FormDemo } from "./components/form/Form";
 import { SearchDemo } from "./components/form/Search";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
-import { ChoiceDemo, ChoiceDemo2 } from "./components/form/Choice";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
 import { KeyValueDemo } from "./components/ui/keyValue/KeyValue";
@@ -37,16 +36,6 @@ const componentsMap: TheMap = {
             Search: {
                 name: "Search",
                 Component: SearchDemo,
-            },
-            Choice: {
-                name: "Choice",
-                Component: ChoiceDemo,
-                children: {
-                    Darker: {
-                        name: "Customized colors",
-                        Component: ChoiceDemo2,
-                    },
-                },
             },
         },
     },

@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - `Label` converted to stitches
 - `Toggle` converted to stitches
+- `Choice` converted to stitches
 
 ## [0.27.11] - 2025-05-19
 ### Breaking
