@@ -1,6 +1,7 @@
 /* eslint-disable import/max-dependencies */
 export * from "./components/form/choice/Choice";
 export * from "./components/form/Checkbox";
+export * from "./components/form/ColorPicker";
 export * from "./components/form/Label";
 export * from "./components/form/Select";
 export * from "./components/form/textarea/TextArea";
