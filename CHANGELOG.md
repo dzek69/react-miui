@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Choice` converted to stitches
 ### Dev
 - updated some deps
+- do not build stories on compile step, works around some typescript+storybook issues
+- do not lint Choice stories file, same workaround as above
 
 ## [0.27.11] - 2025-05-19
 ### Breaking

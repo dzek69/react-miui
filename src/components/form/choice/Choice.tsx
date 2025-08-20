@@ -11,7 +11,7 @@ type Variant = "wide" | "left";
 
 type StyledProps = React.ComponentProps<typeof StyledChoice>;
 
-type Props<T extends string> = StyledProps & {
+type Props<T extends string> = Omit<StyledProps, "onChange"> & {
     values: Value<T>[];
     value: string;
     name: string;

@@ -19,7 +19,9 @@
     "rules": {
         "react/prop-types": "off"
     },
-    "ignorePatterns": [],
+    "ignorePatterns": [
+        "Choice.stories.tsx"
+    ],
     "overrides": [
         {
             "files": [
