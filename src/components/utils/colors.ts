@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
+
 // TODO move to some ezez lib
 
 const contrastColor = (hex: string) => {
@@ -5,7 +7,7 @@ const contrastColor = (hex: string) => {
     const g = parseInt(hex.substring(3, 5), 16);
     const b = parseInt(hex.substring(5, 7), 16);
     // Perceived brightness
-    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    const brightness = ((r * 299) + (g * 587) + (b * 114)) / 1000;
     return brightness > 128 ? "#000000" : "#FFFFFF";
 };
 

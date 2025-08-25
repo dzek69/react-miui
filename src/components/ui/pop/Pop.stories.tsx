@@ -31,7 +31,6 @@ const handleClick = () => {
 };
 
 const Primary: Story = {
-    // eslint-disable-next-line max-lines-per-function
     render: (args) => {
         // eslint-disable-next-line @typescript-eslint/no-shadow
         const [open, setOpen] = useState(false);

@@ -2,7 +2,7 @@ import React from "react";
 
 import type { ObjectValue, Value } from "../../../types/form";
 
-import { makeVariants, toObjectValue } from "../../../utils/index";
+import { toObjectValue } from "../../../utils/index";
 
 import { ChoiceItem } from "./ChoiceItem";
 import { StyledChoice } from "./Choice.styled";
@@ -11,20 +11,20 @@ type Variant = "wide" | "left";
 
 type StyledProps = React.ComponentProps<typeof StyledChoice>;
 
-type Props<T extends string> = Omit<StyledProps, "onChange"> & {
-    values: Value<T>[];
+type Props = Omit<StyledProps, "onChange"> & {
+    values: Value<string>[];
     value: string;
     name: string;
-    onChange: (value: Exclude<Value<T>, ObjectValue>) => void;
+    onChange: (value: Exclude<Value<string>, ObjectValue>) => void;
     variant?: Variant | Variant[];
 };
 
 // @TODO handle disabled / readonly!
 
-const Choice = <T extends string>({
+const Choice: React.FC<Props> = ({
     // eslint-disable-next-line @typescript-eslint/no-shadow
     value, values, name, onChange, ...props
-}: Props<T>): ReturnType<React.FC<Props<T>>> => {
+}) => {
     const opts = values.map(option => {
         const opt = toObjectValue(option);
         return (

@@ -19,9 +19,7 @@
     "rules": {
         "react/prop-types": "off"
     },
-    "ignorePatterns": [
-        "Choice.stories.tsx"
-    ],
+    "ignorePatterns": [],
     "overrides": [
         {
             "files": [
@@ -66,9 +64,11 @@
                 "src/**/*.stories.*"
             ],
             "rules": {
+                "max-lines-per-function": "off",
                 "import/no-default-export": "off",
                 "react/no-multi-comp": "off",
-                "react/jsx-no-bind": "off"
+                "react/jsx-no-bind": "off",
+                "@typescript-eslint/no-empty-function": "off"
             }
         },
         {

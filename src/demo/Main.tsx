@@ -47,7 +47,7 @@ const getComponentByHash = (hash: string): ComponentInfo | null => {
 const values: BG[] = ["white", "transparent", "mobile"];
 
 const Main: React.FC = (props) => {
-    const [bg, handleBgChange] = useState<BG>("white");
+    const [bg, handleBgChange] = useState<string>("white");
 
     const hash = safeUseHash();
     const hashWithoutHash = hash.substr(1);

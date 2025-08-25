@@ -24,4 +24,4 @@ const StyledText = styled("div", {
 export {
     StyledLabel,
     StyledText,
-}; 
+};

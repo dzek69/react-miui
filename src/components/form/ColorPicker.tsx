@@ -39,9 +39,9 @@ const ColorPicker: React.FC<Props> = ({
         ...(value.startsWith("#") ? { color: contrastColor(value) } : {}),
     };
 
-    const wrapperProps: { css?: NonNullable<typeof css>; className?: typeof className } = {
-        className: className,
-    };
+    const wrapperProps: {
+        css?: NonNullable<typeof css>; className?: typeof className;
+    } = { className };
     if (css) {
         wrapperProps.css = css;
     }
