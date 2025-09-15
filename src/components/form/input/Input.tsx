@@ -20,7 +20,7 @@ type Props<T extends string> = Omit<React.InputHTMLAttributes<HTMLInputElement>,
 /**
  * Input component.
  */
-const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
+const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-function
     className, children,
     prefix, suffix,
     onFocus, onBlur, onKeyDown, onChange,
@@ -28,7 +28,7 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
     onSuggestionMatch,
     error,
     ...props
-}: Props<T>): ReturnType<React.FC<Props<T>>> => {
+}: Props<T>, ref: React.Ref<HTMLInputElement>) => {
     const [focused, setFocused] = useState(false);
     const suggestionsId = useId();
     const [info] = useState<{ picked?: boolean }>({});
@@ -88,6 +88,7 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
         >
             {prefixElem}
             <StyledInput
+                ref={ref}
                 {...props}
                 {...extraProps}
                 onChange={handleChange}
@@ -101,6 +102,11 @@ const Input = <T extends string>({ // eslint-disable-line max-lines-per-function
         </StyledWrapper>
     );
 };
+
+// Forward ref wrapper for Input
+const Input = React.forwardRef(InputInner) as <T extends string>(
+    props: Props<T> & React.RefAttributes<HTMLInputElement>
+) => JSX.Element;
 
 export {
     Input,

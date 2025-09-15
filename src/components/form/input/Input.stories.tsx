@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import type { StoryObj, Meta } from "@storybook/react";
 
 import { Icon, ICON } from "../../icons/Icon";
 import { countries } from "../../../demo/components/form/countries.const";
+import { Button } from "../../ui/button/Button";
 
 import { Input } from "./Input";
 
@@ -52,8 +53,27 @@ const Mixed: Story = {
     ),
 };
 
+const InputRef: Story = {
+    render: () => {
+        const ref = React.useRef<HTMLInputElement>(null);
+
+        const handleRandomValue = useCallback(() => {
+            if (ref.current) {
+                ref.current.value = (Math.random() * 100).toFixed(2);
+            }
+        }, []);
+
+        return (
+            <>
+                <Input ref={ref} placeholder={"Capacity"} prefix={<Icon name={ICON.battery} />} suffix={"kWh"} />
+                <Button onClick={handleRandomValue}>Set random value</Button>
+            </>
+        );
+    },
+};
+
 export {
-    Primary, Mixed,
+    Primary, Mixed, InputRef,
 };
 
 export default meta;

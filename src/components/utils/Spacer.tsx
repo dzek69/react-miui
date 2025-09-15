@@ -1,11 +1,5 @@
-import React from "react";
+import { styled } from "../../theme";
 
-import styles from "./Spacer.module.scss";
-
-interface Props {}
-
-const Spacer: React.FC<Props> = (props) => {
-    return <div className={styles.spacer} />;
-};
+const Spacer = styled("div", { flex: 1 });
 
 export { Spacer };
