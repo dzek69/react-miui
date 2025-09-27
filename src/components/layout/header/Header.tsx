@@ -78,4 +78,10 @@ const Header: React.FC<React.ComponentProps<typeof Div> & Props> = (props) => {
     );
 };
 
-export { Header };
+Header.toString = () => StyledHeader.toString();
+
+const HeaderBeforeSelector = () => Before.toString();
+const HeaderContentsSelector = () => Contents.toString();
+const HeaderAfterSelector = () => After.toString();
+
+export { Header, HeaderBeforeSelector, HeaderContentsSelector, HeaderAfterSelector };

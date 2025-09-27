@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.28.3] - 2025-09-15
+### Fixed
+- `Header` now has `toString()` on it, so it allows to target it with stitches
+### Added
+- exported `Header` sub-elements selectors for styles targeting
+
 ## [0.28.2] - 2025-09-15
 ### Change
 - `Input` now forwards ref
