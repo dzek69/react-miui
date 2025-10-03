@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Dev
 - `EqualActions`, `DirectionPad` demo converted to storybook
 ### Fixed
+- `Battery`, `Checkmark`, `Config`, `Dots`, `Heart`, `Trash` icons did not follow current color
 - exported `Header` selectors should be strings, not functions
 
 ## [0.28.3] - 2025-09-15
