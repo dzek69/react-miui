@@ -1,6 +1,5 @@
 import type { AnyComponent } from "../types";
 
-import { DirectionPadDemo } from "./components/ui/directionPad/Pad";
 import { IconsDemo } from "./components/ui/icons/Icons";
 import { CardDemo } from "./components/layout/card/Card";
 import { FormDemo } from "./components/form/Form";
@@ -39,10 +38,6 @@ const componentsMap: TheMap = {
     Card: {
         name: "Card",
         Component: CardDemo,
-    },
-    Pad: {
-        name: "Direction pad",
-        Component: DirectionPadDemo,
     },
     Stats: {
         name: "Stats",

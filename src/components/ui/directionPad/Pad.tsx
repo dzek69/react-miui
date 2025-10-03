@@ -1,13 +1,10 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-import classnames from "classnames";
-
-import { PadButton as Button } from "./Button";
+import { PadButton as Button, PadButtonDotSelector } from "./Button";
 import { PadMiddle as Middle } from "./Middle";
+import { StyledPad, StyledLine } from "./Pad.styled";
 
-import styles from "./Pad.module.scss";
-
-interface Props {
+type DirectionPadProps = {
     onUpPress?: () => void;
     onDownPress?: () => void;
     onLeftPress?: () => void;
@@ -15,24 +12,38 @@ interface Props {
     onMiddlePress?: () => void;
     middleLabel?: string;
     className?: string;
-}
+};
 
-const Pad: React.FC<Props> = (props) => {
+const Pad = forwardRef<HTMLDivElement, DirectionPadProps>((props, ref) => {
     return (
-        <div className={classnames(props.className, styles.pad)}>
-            <div className={styles.pad__line}>
+        <StyledPad className={props.className} ref={ref}>
+            <StyledLine>
                 <Button onClick={props.onUpPress} />
-            </div>
-            <div className={styles.pad__line}>
+            </StyledLine>
+            <StyledLine>
                 <Button onClick={props.onLeftPress} />
                 <Middle onClick={props.onMiddlePress} label={props.middleLabel} />
                 <Button onClick={props.onRightPress} />
-            </div>
-            <div className={styles.pad__line}>
+            </StyledLine>
+            <StyledLine>
                 <Button onClick={props.onDownPress} />
-            </div>
-        </div>
+            </StyledLine>
+        </StyledPad>
     );
-};
+});
 
-export { Pad as DirectionPad };
+Pad.displayName = "DirectionPad";
+Pad.toString = () => StyledPad.toString();
+
+const DirectionPadLineSelector = StyledLine.toString();
+const DirectionPadButtonSelector = Button.toString();
+const DirectionPadMiddleSelector = Middle.toString();
+
+export {
+    Pad as DirectionPad,
+    DirectionPadLineSelector,
+    DirectionPadButtonSelector,
+    DirectionPadMiddleSelector,
+    PadButtonDotSelector as DirectionPadButtonDotSelector,
+};
+export type { DirectionPadProps };

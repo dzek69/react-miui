@@ -1,15 +1,23 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-import styles from "./Pad.module.scss";
+import { StyledButton, StyledDot } from "./Button.styled";
 
-interface Props {
+type PadButtonProps = {
     onClick?: (() => void) | undefined;
-}
-
-const PadButton: React.FC<Props> = (props) => {
-    return (
-        <button {...props} className={styles.pad__button}><span className={styles.pad__dot} /></button>
-    );
 };
 
-export { PadButton };
+const PadButton = forwardRef<HTMLButtonElement, PadButtonProps>((props, ref) => {
+    return (
+        <StyledButton {...props} ref={ref}>
+            <StyledDot />
+        </StyledButton>
+    );
+});
+
+PadButton.displayName = "PadButton";
+PadButton.toString = () => StyledButton.toString();
+
+const PadButtonDotSelector = StyledDot.toString();
+
+export { PadButton, PadButtonDotSelector };
+export type { PadButtonProps };
