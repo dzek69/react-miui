@@ -7,7 +7,6 @@ import { SearchDemo } from "./components/form/Search";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
 import { DrawerDemo } from "./components/ui/drawer/Drawer";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
-import { KeyValueDemo } from "./components/ui/keyValue/KeyValue";
 
 interface TheMap {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -48,10 +47,6 @@ const componentsMap: TheMap = {
                 Component: StatsDarkDemo,
             },
         },
-    },
-    KeyValue: {
-        name: "Key Value blocks",
-        Component: KeyValueDemo,
     },
     Icons: {
         name: "Icons",

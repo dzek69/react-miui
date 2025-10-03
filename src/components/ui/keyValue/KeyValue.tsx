@@ -1,20 +1,25 @@
 import type { ReactElement } from "react";
-import React from "react";
+import React, { forwardRef } from "react";
 
-import classnames from "classnames";
+import {
+    Container,
+    Item,
+    Key,
+    KeyValuePair,
+    Value,
+    Icon,
+} from "./KeyValue.styled";
 
-import styles from "./KeyValue.module.scss";
-
-interface Props {
+type KeyValueProps = {
     items: { key?: React.ReactNode; value?: React.ReactNode; icon?: React.ReactNode; onClick?: () => void }[];
     cols?: number;
     valueFirst?: boolean;
     className?: string;
-}
+};
 
 const DEFAULT_COLS = 2;
 
-const KeyValue: React.FC<Props> = (props) => {
+const KeyValue = forwardRef<HTMLDivElement, KeyValueProps>((props, ref) => {
     const cols = props.cols ?? DEFAULT_COLS;
 
     const items: ReactElement[] = props.items.map((value, key) => {
@@ -24,25 +29,26 @@ const KeyValue: React.FC<Props> = (props) => {
 
         const isFirstRow = key < cols;
         const isFirstCol = (key % cols) === 0;
-        const className = classnames(styles.item, {
-            [styles.itemNotFirstRow as string]: !isFirstRow,
-            [styles.itemNotFirstCol as string]: !isFirstCol,
-        });
 
-        const kvKey = value.key != null ? <div className={styles.key}>{value.key}</div> : null;
-        const kvValue = value.value != null ? <div className={styles.value}>{value.value}</div> : null;
+        const kvKey = value.key != null ? <Key>{value.key}</Key> : null;
+        const kvValue = value.value != null ? <Value>{value.value}</Value> : null;
 
         const keyValue = (
-            <div className={styles.kv}>
+            <KeyValuePair>
                 {props.valueFirst ? kvValue : kvKey}{!props.valueFirst ? kvValue : kvKey}
-            </div>
+            </KeyValuePair>
         );
-        const icon = value.icon != null ? <div className={styles.icon}>{value.icon}</div> : null;
+        const icon = value.icon != null ? <Icon>{value.icon}</Icon> : null;
 
         const component = value.onClick ? "button" : "div";
-        return React.createElement(component, {
+        return React.createElement(Item, {
             // eslint-disable-next-line react/no-array-index-key
-            key, style, className,
+            key: key,
+            style: style,
+            // @ts-expect-error idk why ts can't figure it out, but it works
+            as: component,
+            notFirstRow: !isFirstRow,
+            notFirstCol: !isFirstCol,
         }, <>{icon}{keyValue}</>);
     });
 
@@ -52,18 +58,37 @@ const KeyValue: React.FC<Props> = (props) => {
         // eslint-disable-next-line @typescript-eslint/no-magic-numbers
         const width = `${(100 / cols) * (missingItems)}%`;
         const style = { width };
-        const cls = classnames(styles.item, styles.missingItem);
+
+        const firstRow = items.length < cols;
+        const firstCol = (items.length % cols) === 0;
 
         items.push(
-            <div key={"extra"} style={style} className={cls} />,
+            <Item key={"extra"} css={style} notFirstCol={!firstCol} notFirstRow={!firstRow} />,
         );
     }
 
     return (
-        <div className={classnames(styles.container, props.className)}>
+        <Container className={props.className} ref={ref}>
             {items}
-        </div>
+        </Container>
     );
-};
+});
 
-export { KeyValue };
+KeyValue.displayName = "KeyValue";
+KeyValue.toString = () => Container.toString();
+
+const KeyValueItemSelector = Item.toString();
+const KeyValuePairSelector = KeyValuePair.toString();
+const KeyValueKeySelector = Key.toString();
+const KeyValueValueSelector = Value.toString();
+const KeyValueIconSelector = Icon.toString();
+
+export {
+    KeyValue,
+    KeyValueItemSelector,
+    KeyValuePairSelector,
+    KeyValueKeySelector,
+    KeyValueValueSelector,
+    KeyValueIconSelector,
+};
+export type { KeyValueProps };
