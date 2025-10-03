@@ -1,11 +1,11 @@
 import type { ChangeEvent } from "react";
-import React, { useCallback } from "react";
+import React, { forwardRef, useCallback } from "react";
 
 import { StyledContainer, StyledToggle } from "./Toggle.styled";
 
 type ContainerProps = React.ComponentProps<typeof StyledContainer>;
 
-interface Props extends Partial<Pick<ContainerProps, "css" | "className">> {
+type ToggleProps = Partial<Pick<ContainerProps, "css" | "className">> & {
     onChange: (newValue: boolean) => void;
     onContextMenu?: React.MouseEventHandler;
     /**
@@ -18,9 +18,9 @@ interface Props extends Partial<Pick<ContainerProps, "css" | "className">> {
      */
     disabled?: boolean;
     value: boolean | null;
-}
+};
 
-const Toggle: React.FC<Props> = (props) => {
+const Toggle = forwardRef<HTMLInputElement, ToggleProps>((props, ref) => {
     const { onChange, onContextMenu, undeterminedClickValue, disabled, value, ...rest } = props;
 
     const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
@@ -46,14 +46,17 @@ const Toggle: React.FC<Props> = (props) => {
                 readOnly={value == null}
                 disabled={disabled}
                 onChange={handleChange}
+                ref={ref}
             />
             <StyledToggle />
         </StyledContainer>
     );
-};
+});
 
-export { Toggle };
+Toggle.displayName = "Toggle";
+Toggle.toString = () => StyledContainer.toString();
 
-export type {
-    Props as ToggleProps,
-};
+const ToggleStyledToggleSelector = StyledToggle.toString();
+
+export { Toggle, ToggleStyledToggleSelector };
+export type { ToggleProps };

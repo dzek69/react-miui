@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { forwardRef, useCallback } from "react";
 
 import type { ThemeCSS } from "../../theme";
 
@@ -10,7 +10,7 @@ type WrapperProps = React.ComponentProps<typeof LabelWrapper>;
 type ColorDisplayProps = React.ComponentProps<typeof ColorDisplay>;
 type InputProps = React.ComponentProps<"input">;
 
-type Props = Partial<Pick<WrapperProps, "css" | "className">>
+type ColorPickerProps = Partial<Pick<WrapperProps, "css" | "className">>
 & Omit<InputProps, "className" | "type" | "value">
 & Pick<ColorDisplayProps, "variant">
 & {
@@ -23,7 +23,7 @@ type Props = Partial<Pick<WrapperProps, "css" | "className">>
 /**
  * ColorPicker component that uses native color input but with custom styling
  */
-const ColorPicker: React.FC<Props> = ({
+const ColorPicker = forwardRef<HTMLInputElement, ColorPickerProps>(({
     error,
     css,
     className,
@@ -33,7 +33,7 @@ const ColorPicker: React.FC<Props> = ({
     children, // just extract children, so they are not passed down to the input
     onChange,
     ...inputProps
-}) => {
+}, ref) => {
     const style: ThemeCSS = {
         "--selected-color": value,
         ...(value.startsWith("#") ? { color: contrastColor(value) } : {}),
@@ -59,6 +59,7 @@ const ColorPicker: React.FC<Props> = ({
                 type={"color"}
                 value={value}
                 onChange={handleChange}
+                ref={ref}
                 {...inputProps}
             />
             <ColorDisplay css={style} variant={variant!}>
@@ -66,6 +67,12 @@ const ColorPicker: React.FC<Props> = ({
             </ColorDisplay>
         </LabelWrapper>
     );
-};
+});
 
-export { ColorPicker };
+ColorPicker.displayName = "ColorPicker";
+ColorPicker.toString = () => LabelWrapper.toString();
+
+const ColorPickerColorDisplaySelector = ColorDisplay.toString();
+
+export { ColorPicker, ColorPickerColorDisplaySelector };
+export type { ColorPickerProps };

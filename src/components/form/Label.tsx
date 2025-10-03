@@ -1,16 +1,16 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import { StyledLabel, StyledText } from "./Label.styled";
 
-type LabelProps = React.ComponentProps<typeof StyledLabel>;
+type StyledLabelProps = React.ComponentProps<typeof StyledLabel>;
 
-interface Props extends Partial<Pick<LabelProps, "css" | "className">> {
+type LabelProps = Partial<Pick<StyledLabelProps, "css" | "className">> & {
     label?: React.ReactNode;
     variant?: "big";
     children: React.ReactNode;
-}
+};
 
-const Label: React.FC<Props> = (props) => {
+const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
     const { label, variant, children, ...rest } = props;
 
     const labelElement = label
@@ -22,15 +22,17 @@ const Label: React.FC<Props> = (props) => {
         : null;
 
     return (
-        <StyledLabel {...rest}>
+        <StyledLabel {...rest} ref={ref}>
             {labelElement}
             {children}
         </StyledLabel>
     );
-};
+});
 
-export { Label };
+Label.displayName = "Label";
+Label.toString = () => StyledLabel.toString();
 
-export type {
-    Props as LabelProps,
-};
+const LabelTextSelector = StyledText.toString();
+
+export { Label, LabelTextSelector };
+export type { LabelProps };

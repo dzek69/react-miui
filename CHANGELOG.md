@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.28.3+]
 ### Changed
-- `Choice`, `TextArea`, `Checkbox`, now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
+- `Choice`, `TextArea`, `Checkbox`, `ColorPicker`, `Label`, `Select` and `Toggle` now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
 - `EqualActions` converted to stitches
 ### Dev
 - `EqualActions` demo converted to storybook
