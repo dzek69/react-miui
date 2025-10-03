@@ -2,11 +2,14 @@ import React, { useCallback } from "react";
 
 import type { ObjectValue, Value } from "../../../types/form";
 
+import { StyledChoiceLabel } from "./ChoiceItem.styled";
+
 interface Props<T extends string> {
     name: string;
     value: ObjectValue;
     onChange: (value: Exclude<Value<T>, ObjectValue>) => void;
     active: boolean;
+    className?: string;
 }
 
 const ChoiceItem = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>>> => {
@@ -15,7 +18,7 @@ const ChoiceItem = <T extends string>(props: Props<T>): ReturnType<React.FC<Prop
     }, [props.onChange]);
 
     return (
-        <label key={props.value.value} tabIndex={0}>
+        <StyledChoiceLabel key={props.value.value} tabIndex={0} className={props.className}>
             <input
                 type={"radio"}
                 name={props.name}
@@ -24,8 +27,10 @@ const ChoiceItem = <T extends string>(props: Props<T>): ReturnType<React.FC<Prop
                 onChange={handleChange}
             />
             <span>{props.value.label}</span>
-        </label>
+        </StyledChoiceLabel>
     );
 };
+
+ChoiceItem.toString = () => StyledChoiceLabel.toString();
 
 export { ChoiceItem };

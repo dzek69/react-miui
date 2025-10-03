@@ -2,13 +2,6 @@ import type { AnyComponent } from "../types";
 
 import { DirectionPadDemo } from "./components/ui/directionPad/Pad";
 import { IconsDemo } from "./components/ui/icons/Icons";
-import {
-    ActionDemo,
-    ActionLabelsOnBottom,
-    ActionsDemo,
-    ActionsOnBottom,
-    ActionsOnLeft,
-} from "./components/ui/action/Action";
 import { CardDemo } from "./components/layout/card/Card";
 import { FormDemo } from "./components/form/Form";
 import { SearchDemo } from "./components/form/Search";
@@ -36,28 +29,6 @@ const componentsMap: TheMap = {
             Search: {
                 name: "Search",
                 Component: SearchDemo,
-            },
-        },
-    },
-    Action: {
-        name: "Action", // TODO move all action demos to storybook
-        Component: ActionDemo,
-        children: {
-            ActionOnBottom: {
-                name: "Actions on header",
-                Component: ActionsOnBottom,
-            },
-            ActionLabelsOnBottom: {
-                name: "Actions with labels on header",
-                Component: ActionLabelsOnBottom,
-            },
-            ActionOnLeft: {
-                name: "Actions on left header",
-                Component: ActionsOnLeft,
-            },
-            EqualActions: {
-                name: "EqualActions (wrapper)",
-                Component: ActionsDemo,
             },
         },
     },

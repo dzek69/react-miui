@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.28.3+]
+### Changed
+- `Choice`, `TextArea`, `Checkbox`, now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
+- `EqualActions` converted to stitches
+### Dev
+- `EqualActions` demo converted to storybook
+### Fixed
+- exported `Header` selectors should be strings, not functions
+
 ## [0.28.3] - 2025-09-15
 ### Fixed
 - `Header` now has `toString()` on it, so it allows to target it with stitches

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { forwardRef, useCallback } from "react";
 
 import type { ThemeCSS } from "../../theme";
 
@@ -6,25 +6,26 @@ import { Checkmark } from "../icons/Checkmark";
 
 import { CheckmarkWrapper, LabelWrapper, TextLabel } from "./Checkbox.styled";
 
-type WrapperProps = React.ComponentProps<typeof LabelWrapper>;
+type LabelWrapperProps = React.ComponentProps<typeof LabelWrapper>;
 type InputProps = React.ComponentProps<"input">;
 
-interface Props extends Partial<Pick<WrapperProps, "css" | "className">>, Omit<InputProps, "className"> {
+type CheckboxProps = Partial<Pick<LabelWrapperProps, "css" | "className">>
+& Omit<InputProps, "className"> & {
     /**
      * @deprecated use --color css variable instead
      */
     color?: string;
     children: React.ReactNode;
     error?: boolean;
-}
+};
 
 /**
  * Checkbox component
  */
-const Checkbox: React.FC<Props> = ({
+const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
     // eslint-disable-next-line @typescript-eslint/no-shadow
     color, error, name, onChange, children, css, className, ...inputProps
-}) => {
+}, ref) => {
     const style: ThemeCSS = {};
     color && (style["--color"] = color);
 
@@ -49,12 +50,20 @@ const Checkbox: React.FC<Props> = ({
                 name={name}
                 onChange={handleChange}
                 data-error={error}
+                ref={ref}
                 {...inputProps}
             />
             <CheckmarkWrapper css={style}><Checkmark /></CheckmarkWrapper>
             <TextLabel>{children}</TextLabel>
         </LabelWrapper>
     );
-};
+});
 
-export { Checkbox };
+Checkbox.displayName = "Checkbox";
+Checkbox.toString = () => LabelWrapper.toString();
+
+const CheckboxCheckmarkWrapperSelector = CheckmarkWrapper.toString();
+const CheckboxTextLabelSelector = TextLabel.toString();
+
+export { Checkbox, CheckboxCheckmarkWrapperSelector, CheckboxTextLabelSelector };
+export type { CheckboxProps };

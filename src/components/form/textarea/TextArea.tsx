@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { forwardRef, useCallback, useState } from "react";
 
 import { StyledTextArea } from "./TextArea.styled";
 
@@ -7,11 +7,13 @@ interface Props {
     error?: boolean;
 }
 
-const TextArea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement> & Props> = ({
+type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & Props;
+
+const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
     children,
     onFocus, onBlur,
     ...props
-}) => {
+}, ref) => {
     const [focused, setFocused] = useState(false);
 
     const handleFocus = useCallback((e: React.FocusEvent<HTMLTextAreaElement>) => {
@@ -27,6 +29,7 @@ const TextArea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement> & Pro
     return (
         <StyledTextArea
             {...props}
+            ref={ref}
             disabled={Boolean(props.disabled)}
             readOnly={Boolean(props.readOnly)}
             focused={focused}
@@ -34,8 +37,10 @@ const TextArea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement> & Pro
             onBlur={handleBlur}
         />
     );
-};
+});
 
-export {
-    TextArea,
-};
+TextArea.displayName = "TextArea";
+TextArea.toString = () => StyledTextArea.toString();
+
+export { TextArea };
+export type { TextAreaProps };

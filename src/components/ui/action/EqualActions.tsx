@@ -1,18 +1,15 @@
-import React from "react";
-
-import classnames from "classnames";
+import React, { forwardRef } from "react";
 
 import { Action } from "./Action";
+import { StyledEqualActions } from "./EqualActions.styled";
 
-import styles from "./EqualActions.module.scss";
-
-interface Props {
+type EqualActionsProps = {
     className?: string;
     mode?: "horizontal" | "vertical";
     children: React.ReactNode;
-}
+};
 
-const EqualActions: React.FC<Props> = (props) => {
+const EqualActions = forwardRef<HTMLDivElement, EqualActionsProps>((props, ref) => {
     React.Children.forEach(props.children, (child) => {
         if (!child || typeof child !== "object" || !("type" in child) || child.type !== Action) {
             throw new TypeError("Every child of EqualActions must be an Action component");
@@ -24,13 +21,22 @@ const EqualActions: React.FC<Props> = (props) => {
         "--actions-count": React.Children.count(props.children),
     } as React.CSSProperties;
 
-    const cls = classnames(styles.actions, props.className, { [styles.vertical as string]: props.mode === "vertical" });
+    const isVertical = props.mode === "vertical";
 
     return (
-        <div className={cls} style={style}>
+        <StyledEqualActions
+            className={props.className}
+            vertical={isVertical}
+            style={style}
+            ref={ref}
+        >
             {props.children}
-        </div>
+        </StyledEqualActions>
     );
-};
+});
+
+EqualActions.displayName = "EqualActions";
+EqualActions.toString = () => StyledEqualActions.toString();
 
 export { EqualActions };
+export type { EqualActionsProps };

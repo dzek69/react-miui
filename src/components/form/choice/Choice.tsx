@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import type { ObjectValue, Value } from "../../../types/form";
 
@@ -11,7 +11,7 @@ type Variant = "wide" | "left";
 
 type StyledProps = React.ComponentProps<typeof StyledChoice>;
 
-type Props = Omit<StyledProps, "onChange"> & {
+type ChoiceProps = Omit<StyledProps, "onChange"> & {
     values: Value<string>[];
     value: string;
     name: string;
@@ -21,10 +21,10 @@ type Props = Omit<StyledProps, "onChange"> & {
 
 // @TODO handle disabled / readonly!
 
-const Choice: React.FC<Props> = ({
+const Choice = forwardRef<HTMLDivElement, ChoiceProps>(({
     // eslint-disable-next-line @typescript-eslint/no-shadow
     value, values, name, onChange, ...props
-}) => {
+}, ref) => {
     const opts = values.map(option => {
         const opt = toObjectValue(option);
         return (
@@ -39,14 +39,19 @@ const Choice: React.FC<Props> = ({
     });
 
     return (
-        <StyledChoice {...props}>
+        <StyledChoice {...props} ref={ref}>
             {opts}
         </StyledChoice>
     );
-};
+});
 
-export { Choice };
+Choice.displayName = "Choice";
+Choice.toString = () => StyledChoice.toString();
+
+const ChoiceItemSelector = ChoiceItem.toString();
+
+export { Choice, ChoiceItemSelector };
 
 export type {
-    Props as ChoiceProps,
+    ChoiceProps,
 };

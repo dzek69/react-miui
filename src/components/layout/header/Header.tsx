@@ -1,7 +1,5 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import type { ReactNode } from "react";
-
-import type { Div } from "../../native";
 
 import { Action } from "../../ui/action/Action";
 import { EqualActions } from "../../ui/action/EqualActions";
@@ -32,13 +30,15 @@ interface Props {
     after?: ReactNode;
 }
 
+type HeaderProps = React.ComponentProps<typeof StyledHeader> & Props;
+
 /**
  * General purpose header component.
  * It has the main section, `before` and `after` sections.
  * The main section is left-aligned by default, but it can be centered with `center` prop.
  * `before` and `after` sections are usually used for actions.
  */
-const Header: React.FC<React.ComponentProps<typeof Div> & Props> = (props) => {
+const Header = forwardRef<HTMLDivElement, HeaderProps>((props, ref) => {
     const {
         position = "top",
         before: _before, after: _after,
@@ -68,7 +68,7 @@ const Header: React.FC<React.ComponentProps<typeof Div> & Props> = (props) => {
     }
 
     return (
-        <StyledHeader {...rest} position={position} data-header-position={position}>
+        <StyledHeader {...rest} position={position} data-header-position={position} ref={ref}>
             {before}
             <Contents>
                 {contents}
@@ -76,12 +76,14 @@ const Header: React.FC<React.ComponentProps<typeof Div> & Props> = (props) => {
             {after}
         </StyledHeader>
     );
-};
+});
 
+Header.displayName = "Header";
 Header.toString = () => StyledHeader.toString();
 
-const HeaderBeforeSelector = () => Before.toString();
-const HeaderContentsSelector = () => Contents.toString();
-const HeaderAfterSelector = () => After.toString();
+const HeaderBeforeSelector = Before.toString();
+const HeaderContentsSelector = Contents.toString();
+const HeaderAfterSelector = After.toString();
 
 export { Header, HeaderBeforeSelector, HeaderContentsSelector, HeaderAfterSelector };
+export type { HeaderProps };
