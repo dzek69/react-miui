@@ -1,45 +1,55 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-import classnames from "classnames";
+import type { ComponentProps } from "@stitches/react";
 
-import styles from "./Stats.module.scss";
+import { StyledStats, Item, Separator, Label, Value } from "./Stats.styled";
 
-interface Stat {
+type Stat = {
     label: string;
     value: React.ReactNode;
-}
+};
 
-interface Props {
+type StyledStatsProps = ComponentProps<typeof StyledStats>;
+
+type StatsProps = StyledStatsProps & {
     stats: Stat[];
-    variant?: "dark";
-    className?: string;
-}
+};
 
-const Stats: React.FC<Props> = (props) => {
-    const list = props.stats.map((s, k) => (
+const Stats = forwardRef<HTMLUListElement, StatsProps>(({ stats, ...props }, ref) => {
+    const list = stats.map((s, k) => (
         // eslint-disable-next-line react/no-array-index-key
-        <li key={k} className={styles.item}>
-            <span className={styles.value}>{s.value}</span>
-            <span className={styles.label}>{s.label}</span>
-        </li>
+        <Item key={k}>
+            <Value>{s.value}</Value>
+            <Label>{s.label}</Label>
+        </Item>
     ));
 
     const len = list.length;
-
     for (let i = 0; i < len - 1; i++) {
         // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-        list.splice((i * 2) + 1, 0, <li key={"separator" + String(i)} className={styles.separator} />);
+        list.splice((i * 2) + 1, 0, <Separator key={`separator${i}`} />);
     }
 
-    const cls = classnames(styles.stats, {
-        [styles["stats-dark"] as string]: props.variant === "dark",
-    }, props.className);
-
     return (
-        <ul className={cls}>
+        <StyledStats {...props} ref={ref}>
             {list}
-        </ul>
+        </StyledStats>
     );
-};
+});
 
-export { Stats };
+Stats.displayName = "Stats";
+Stats.toString = () => StyledStats.toString();
+
+const StatsItemSelector = Item.toString();
+const StatsSeparatorSelector = Separator.toString();
+const StatsLabelSelector = Label.toString();
+const StatsValueSelector = Value.toString();
+
+export {
+    Stats,
+    StatsItemSelector,
+    StatsSeparatorSelector,
+    StatsLabelSelector,
+    StatsValueSelector,
+};
+export type { StatsProps, Stat };
