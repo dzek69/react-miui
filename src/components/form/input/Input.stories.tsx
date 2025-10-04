@@ -5,6 +5,7 @@ import type { StoryObj, Meta } from "@storybook/react";
 import { Icon, ICON } from "../../icons/Icon";
 import { countries } from "../../../demo/components/form/countries.const";
 import { Button } from "../../ui/button/Button";
+import { Gap } from "../../utils/Gap";
 
 import { Input } from "./Input";
 
@@ -38,7 +39,7 @@ const handleSuggestionMatch = (s: string, picked: boolean) => {
 
 const Mixed: Story = {
     render: () => (
-        <>
+        <Gap>
             <Input placeholder={"Capacity"} prefix={<Icon name={ICON.battery} />} suffix={"kWh"} />
             <Input value={"William J. Welter"} />
             <Input prefix={"Text prefix"} value={"Polly W. Wilson"} />
@@ -49,7 +50,7 @@ const Mixed: Story = {
                 suggestions={countries}
                 onSuggestionMatch={handleSuggestionMatch}
             />
-        </>
+        </Gap>
     ),
 };
 

@@ -4,6 +4,8 @@ The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [0.28.3+]
+### Added
+- `Gap` util component
 ### Changed
 - `Choice`, `TextArea`, `Checkbox`, `ColorPicker`, `Label`, `Select`, `Toggle`, `DirectionPad`, `KeyValue`, and `Card` now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
 - `EqualActions`, `DirectionPad`, `KeyValue`, `Card` converted to stitches
