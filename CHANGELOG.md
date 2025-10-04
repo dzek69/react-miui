@@ -5,10 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.28.3+]
 ### Changed
-- `Choice`, `TextArea`, `Checkbox`, `ColorPicker`, `Label`, `Select`, `Toggle`, `DirectionPad`, and `KeyValue` now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
-- `EqualActions`, `DirectionPad`, `KeyValue` converted to stitches
+- `Choice`, `TextArea`, `Checkbox`, `ColorPicker`, `Label`, `Select`, `Toggle`, `DirectionPad`, `KeyValue`, and `Card` now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
+- `EqualActions`, `DirectionPad`, `KeyValue`, `Card` converted to stitches
 ### Dev
-- `EqualActions`, `DirectionPad`, `KeyValue` demo converted to storybook
+- `EqualActions`, `DirectionPad`, `KeyValue`, `Card` demo converted to storybook
 ### Fixed
 - `Battery`, `Checkmark`, `Config`, `Dots`, `Heart`, `Trash` icons did not follow current color
 - exported `Header` selectors should be strings, not functions

@@ -1,30 +1,8 @@
-import React from "react";
+import type { ComponentProps } from "@stitches/react";
 
-import classnames from "classnames";
+import { StyledCard } from "./Card.styled";
 
-import { makeVariants } from "../../../utils/makeVariants";
+type CardProps = ComponentProps<typeof StyledCard>;
 
-import styles from "./Card.module.scss";
-
-type Variants = "margin";
-
-interface Props {
-    variant?: Variants;
-    className?: string;
-    children: React.ReactNode;
-}
-
-const Card: React.FC<Props> = (props) => {
-    const v = makeVariants(props.variant);
-    const cls = classnames(props.className, styles.card, {
-        [styles.margin as string]: v.includes("margin"),
-    });
-
-    // @TODO auto wrap some children in Section
-
-    return (
-        <div className={cls}>{props.children}</div>
-    );
-};
-
-export { Card };
+export { StyledCard as Card };
+export type { CardProps };
