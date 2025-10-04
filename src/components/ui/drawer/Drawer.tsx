@@ -1,95 +1,72 @@
-import React, { Component } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 
 import { Timeout } from "oop-timers";
-import classnames from "classnames";
 
 import { HandleEsc } from "../../utils/HandleEsc";
 
-import styles from "./Drawer.module.scss";
+import { StyledDrawer, Content } from "./Drawer.styled";
 
 const RENDER_TIMEOUT = 500;
 
-interface Props {
+type DrawerProps = {
     isOpen: boolean;
     closeOnEsc?: boolean;
     onClose: () => void;
     className?: string;
     children: React.ReactNode;
-}
+};
 
-interface State {
-    shouldRenderWhenClosed: boolean;
-}
+const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
+    const [shouldRenderWhenClosed, setShouldRenderWhenClosed] = useState(false);
+    const timeoutRef = useRef<Timeout | null>(null);
 
-class Drawer extends Component<Props, State> {
-    public constructor(props: Props) {
-        super(props);
-
-        this.state = {
-            shouldRenderWhenClosed: false,
-        };
-    }
-
-    public override componentDidMount() {
-        this.timeout = new Timeout(() => {
-            this.setState({ shouldRenderWhenClosed: false });
+    useEffect(() => {
+        timeoutRef.current = new Timeout(() => {
+            setShouldRenderWhenClosed(false);
         }, RENDER_TIMEOUT);
-    }
 
-    public override componentDidUpdate(prevProps: Props) {
-        if (!prevProps.isOpen && this.props.isOpen) {
-            this.onOpen();
+        return () => {
+            timeoutRef.current?.stop();
+            timeoutRef.current = null;
+        };
+    }, []);
+
+    useEffect(() => {
+        if (props.isOpen) {
+            timeoutRef.current?.stop();
+            setShouldRenderWhenClosed(true);
         }
-
-        if (prevProps.isOpen && !this.props.isOpen) {
-            this.onClose();
+        else {
+            timeoutRef.current?.start();
         }
-    }
+    }, [props.isOpen]);
 
-    public override componentWillUnmount() {
-        this.timeout?.stop();
-        this.timeout = null;
-    }
-
-    private timeout: Timeout | null = null;
-
-    private onOpen() {
-        this.timeout?.stop();
-        this.setState({ shouldRenderWhenClosed: true });
-    }
-
-    private onClose() {
-        this.timeout?.start();
-    }
-
-    private readonly handleEsc = () => {
-        this.props.onClose();
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    const y = props.isOpen ? 0 : 100;
+    const style = {
+        transform: `translateY(${y}%)`,
     };
 
-    public override render() {
-        // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-        const y = this.props.isOpen ? 0 : 100;
-        const style = {
-            transform: `translateY(${y}%)`,
-        };
+    const shouldRender = props.isOpen || shouldRenderWhenClosed;
 
-        const shouldRender = this.props.isOpen || this.state.shouldRenderWhenClosed;
+    const closeOnEsc = props.closeOnEsc ?? true;
+    const esc = closeOnEsc && <HandleEsc onPress={props.onClose} />;
 
-        const closeOnEsc = this.props.closeOnEsc ?? true;
-        const esc = closeOnEsc && <HandleEsc onPress={this.handleEsc} />;
+    return (
+        <StyledDrawer className={props.className} style={style} ref={ref}>
+            {esc}
+            <Content>
+                {/* eslint-disable-next-line react/jsx-no-leaked-render */}
+                {shouldRender && props.children}
+            </Content>
+        </StyledDrawer>
+    );
+});
 
-        const cls = classnames(this.props.className, styles.drawer);
+Drawer.displayName = "Drawer";
+Drawer.toString = () => StyledDrawer.toString();
 
-        return (
-            <div className={cls} style={style}>
-                {esc}
-                <div className={styles.content}>
-                    {/* eslint-disable-next-line react/jsx-no-leaked-render */}
-                    {shouldRender && this.props.children}
-                </div>
-            </div>
-        );
-    }
-}
+const DrawerContentSelector = Content.toString();
 
-export { Drawer };
+export { Drawer, DrawerContentSelector };
+export type { DrawerProps };

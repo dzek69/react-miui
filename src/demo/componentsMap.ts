@@ -1,10 +1,7 @@
 import type { AnyComponent } from "../types";
 
 import { IconsDemo } from "./components/ui/icons/Icons";
-import { FormDemo } from "./components/form/Form";
-import { SearchDemo } from "./components/form/Search";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
-import { DrawerDemo } from "./components/ui/drawer/Drawer";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
 
 interface TheMap {
@@ -19,16 +16,6 @@ interface TheMapItem {
 }
 
 const componentsMap: TheMap = {
-    Form: {
-        name: "Form",
-        Component: FormDemo,
-        children: {
-            Search: {
-                name: "Search",
-                Component: SearchDemo,
-            },
-        },
-    },
     Tabs: {
         name: "Tabs",
         Component: TabsDemo,
@@ -46,10 +33,6 @@ const componentsMap: TheMap = {
     Icons: {
         name: "Icons",
         Component: IconsDemo,
-    },
-    Drawer: {
-        name: "Drawer",
-        Component: DrawerDemo,
     },
 };
 
