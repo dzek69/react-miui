@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   and `Drawer` now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
 - `EqualActions`, `DirectionPad`, `KeyValue`, `Card`, `Drawer` converted to stitches
 ### Dev
-- `EqualActions`, `DirectionPad`, `KeyValue`, `Card`, `Drawer` demo converted to storybook
+- `EqualActions`, `DirectionPad`, `KeyValue`, `Card`, `Drawer`, `Icons` demo converted to storybook
 - removed some old or unused demos
 ### Fixed
 - `Battery`, `Checkmark`, `Config`, `Dots`, `Heart`, `Trash` icons did not follow current color

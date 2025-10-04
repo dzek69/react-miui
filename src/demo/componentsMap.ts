@@ -1,6 +1,5 @@
 import type { AnyComponent } from "../types";
 
-import { IconsDemo } from "./components/ui/icons/Icons";
 import { TabsDemo } from "./components/ui/tabs/Tabs";
 import { StatsDarkDemo, StatsDemo } from "./components/ui/stats/Stats";
 
@@ -29,10 +28,6 @@ const componentsMap: TheMap = {
                 Component: StatsDarkDemo,
             },
         },
-    },
-    Icons: {
-        name: "Icons",
-        Component: IconsDemo,
     },
 };
 
