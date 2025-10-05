@@ -1,5 +1,7 @@
 import React, { forwardRef } from "react";
 
+import type { ThemeCSS } from "../../../theme";
+
 import { Action } from "./Action";
 import { StyledEqualActions } from "./EqualActions.styled";
 
@@ -16,10 +18,9 @@ const EqualActions = forwardRef<HTMLDivElement, EqualActionsProps>((props, ref) 
         }
     });
 
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    const style = {
+    const style: ThemeCSS = {
         "--actions-count": React.Children.count(props.children),
-    } as React.CSSProperties;
+    };
 
     const isVertical = props.mode === "vertical";
 
@@ -27,7 +28,7 @@ const EqualActions = forwardRef<HTMLDivElement, EqualActionsProps>((props, ref) 
         <StyledEqualActions
             className={props.className}
             vertical={isVertical}
-            style={style}
+            css={style}
             ref={ref}
         >
             {props.children}

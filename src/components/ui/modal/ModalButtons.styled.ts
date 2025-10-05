@@ -1,4 +1,5 @@
 import { dimensionsPxToRem, styled } from "../../../theme";
+import { fnWithProps } from "../../../types/fnWithProps";
 
 import { NEGATIVE_PADDING } from "./Modal.styled";
 
@@ -41,10 +42,9 @@ const Button = styled("button", {
     },
 });
 
-const ModalButtons = Container as typeof Container & {
-    Button: typeof Button;
-};
-ModalButtons.Button = Button;
+const ModalButtons = fnWithProps(Container, {
+    Button,
+});
 
 export {
     ModalButtons,

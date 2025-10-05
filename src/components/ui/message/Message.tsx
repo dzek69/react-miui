@@ -30,6 +30,6 @@ interface Props extends StitchesProps {
 /**
  * A component that usually displays result of some action or a tip for the user.
  */
-const Message = StyledMessage as unknown as OverwriteProps<typeof StyledMessage, Props>;
+const Message = StyledMessage as unknown as OverwriteProps<typeof StyledMessage, Props>; // eslint-disable-line @typescript-eslint/no-unsafe-type-assertion
 
 export { Message };

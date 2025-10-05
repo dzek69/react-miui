@@ -24,8 +24,13 @@
 /nodemon.json
 /.editorconfig
 /tsconfig.*
-/.eslintrc.json
 
 
 /pagesconfig.json
 /next-env.d.ts
+
+/eslint.config.mjs
+/typedoc.mjs
+/.prettierignore
+/.prettierrc.json
+/.husky

@@ -101,9 +101,13 @@ class Pop extends Component<Props, State> {
             console.warn("PopOptions can not find anchor element");
             return;
         }
+        if (!(anchorElement instanceof HTMLElement)) {
+            console.warn("PopOptions anchor element not a HTMLElement");
+            return;
+        }
         // @todo use get derived state
 
-        const [vertical, horizontal] = getElementLocation(anchorElement as HTMLElement);
+        const [vertical, horizontal] = getElementLocation(anchorElement);
         const dimensions = getElementDimensions(html!);
         const rect = anchorElement.getBoundingClientRect();
 

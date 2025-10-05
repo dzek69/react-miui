@@ -15,7 +15,7 @@ const OnButtonClick: React.FC<Props> = (props) => {
         }
 
         const cb = (e: MouseEvent) => {
-            if ((e.target as HTMLDivElement).nodeName.toLowerCase() === "button") {
+            if (e.target instanceof HTMLElement && e.target.nodeName.toLowerCase() === "button") {
                 setTimeout(() => {
                     props.onClick();
                 }, 0);

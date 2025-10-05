@@ -46,6 +46,7 @@ const HeaderIconAction: React.FC<Props> = (props) => {
 
     let content: ReactNode = icon;
     if (typeof icon === "string") {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         content = <StyledIcon name={icon as ICON} />;
     }
 

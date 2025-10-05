@@ -52,7 +52,7 @@ const LabelWrapper = styled("label", {
 
     "&:has(input:disabled)": {
         cursor: "not-allowed",
-        [`${ColorDisplay.toString()}`]: {
+        [ColorDisplay.toString()]: {
             opacity: 0.5,
         },
     },

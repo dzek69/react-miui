@@ -10,6 +10,7 @@ type ToasterFn = (text: string, timeout?: number) => void;
 const ToasterContext = createContext<ToasterFn>(() => {
     throw new Error("Toaster Provider missing in the tree");
 });
+ToasterContext.displayName = "ToasterContext";
 
 const prefix = `${Date.now()}_`;
 let counter = 0;

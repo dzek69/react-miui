@@ -11,14 +11,14 @@ type ColorDisplayProps = React.ComponentProps<typeof ColorDisplay>;
 type InputProps = React.ComponentProps<"input">;
 
 type ColorPickerProps = Partial<Pick<WrapperProps, "css" | "className">>
-& Omit<InputProps, "className" | "type" | "value">
-& Pick<ColorDisplayProps, "variant">
-& {
-    children?: never;
-    error?: boolean;
-    label?: string;
-    value?: string;
-};
+    & Omit<InputProps, "className" | "type" | "value">
+    & Pick<ColorDisplayProps, "variant">
+    & {
+        children?: never;
+        error?: boolean;
+        label?: string;
+        value?: string;
+    };
 
 /**
  * ColorPicker component that uses native color input but with custom styling

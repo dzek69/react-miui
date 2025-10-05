@@ -76,13 +76,13 @@ type Props = (NativeLinkProps | RouterLinkProps | ButtonProps) & CommonProps;
 const Action: React.FC<Props> = (props) => {
     const { icon, label, css, ..._restProps } = props;
     const restProps = omit(
-        _restProps as unknown as Record<string, string>, ["to", "Link", "href", "type"],
+        _restProps as Record<string, unknown>, ["to", "Link", "href", "type"],
     ) as Omit<Props, "to" | "Link" | "href" | "type" | "icon" | "label" | "css">;
     const maybeCss = css ? { css } : {};
 
     let iconElem: ReactNode = icon;
     if (typeof icon === "string") {
-        iconElem = <Icon name={icon as ICON} />;
+        iconElem = <Icon name={icon as ICON} />; // eslint-disable-line @typescript-eslint/no-unsafe-type-assertion
     }
 
     const labelElem = label ? <div>{label}</div> : null;

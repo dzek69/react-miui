@@ -24,7 +24,7 @@ interface Props {
     children: React.ReactNode;
 }
 
-const StickyHeader = fnWithProps(forwardRef<HTMLDivElement, Props>((props, ref) => { // eslint-disable-line react/display-name,max-len
+const StickyHeader = fnWithProps(forwardRef<HTMLDivElement, Props>((props, ref) => { // eslint-disable-line react/display-name
     const { children: _children, position = "top", __dangerouslyDisableChildrenGuard, ...rest } = props;
 
     if (__dangerouslyDisableChildrenGuard) {
@@ -49,7 +49,9 @@ const StickyHeader = fnWithProps(forwardRef<HTMLDivElement, Props>((props, ref) 
         throw err;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
     header = header as never; // @TODO find a better way to silence TS on cloneElement
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
     content = content as never;
 
     return (

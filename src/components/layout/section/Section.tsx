@@ -1,10 +1,7 @@
 import { pxToRem, styled } from "../../../theme";
+import { fnWithProps } from "../../../types/fnWithProps";
 
 import { SectionContainer } from "./SectionContainer";
-
-interface SubComponents {
-    Container: typeof SectionContainer;
-}
 
 const SectionCmp = styled("div", {
     background: "$background",
@@ -31,8 +28,8 @@ const SectionCmp = styled("div", {
  * You should use it along with the `Section.Container` component. Container stretches to fill the available space and
  * has darker background color, sections are lighter and have a gap between them.
  */
-const Section = SectionCmp as typeof SectionCmp & SubComponents;
-
-Section.Container = SectionContainer;
+const Section = fnWithProps(SectionCmp, {
+    Container: SectionContainer,
+});
 
 export { Section };

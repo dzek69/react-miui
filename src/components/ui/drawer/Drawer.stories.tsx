@@ -24,19 +24,19 @@ type Story = StoryObj<typeof Drawer>;
  */
 const Default: Story = {
     render: () => {
-        const [open, setOpen] = useState(false);
+        const [isOpen, setisOpen] = useState(false);
 
         const handleToggleOpen = useCallback(() => {
-            setOpen((prev) => !prev);
+            setisOpen((prev) => !prev);
         }, []);
 
         const handleClose = useCallback(() => {
-            setOpen(false);
+            setisOpen(false);
         }, []);
 
         return (
             <div style={{ padding: "20px" }}>
-                <Drawer isOpen={open} onClose={handleClose}>
+                <Drawer isOpen={isOpen} onClose={handleClose}>
                     <div style={{ padding: "20px" }}>
                         <h2>Drawer Content</h2>
                         <p>This is the content inside the drawer.</p>
@@ -44,7 +44,7 @@ const Default: Story = {
                     </div>
                 </Drawer>
                 <Button onClick={handleToggleOpen}>
-                    {open ? "Close Drawer" : "Open Drawer"}
+                    {isOpen ? "Close Drawer" : "Open Drawer"}
                 </Button>
             </div>
         );
@@ -90,24 +90,24 @@ const NoEscClose: Story = {
  */
 const WithLongContent: Story = {
     render: () => {
-        const [open, setOpen] = useState(false);
+        const [isOpen, setIsOpen] = useState(false);
 
         const handleToggleOpen = useCallback(() => {
-            setOpen(prev => !prev);
+            setIsOpen(prev => !prev);
         }, []);
 
         const handleClose = useCallback(() => {
-            setOpen(false);
+            setIsOpen(false);
         }, []);
 
         return (
             <div style={{ padding: "20px" }}>
-                <Drawer isOpen={open} onClose={handleClose}>
+                <Drawer isOpen={isOpen} onClose={handleClose}>
                     <div style={{ padding: "20px" }}>
                         <h2>Drawer with Long Content</h2>
                         <p>This drawer has enough content to demonstrate scrolling behavior.</p>
                         {Array(20).fill(0).map((_, i) => (
-                            <Section key={i} vertical={true} horizontal={true}>
+                            <Section key={String(`${i}`)} vertical={true} horizontal={true}>
                                 <h3>Section {i + 1}</h3>
                                 <p>This is content section {i + 1} in the scrollable drawer.</p>
                             </Section>
@@ -115,7 +115,7 @@ const WithLongContent: Story = {
                     </div>
                 </Drawer>
                 <Button onClick={handleToggleOpen}>
-                    {open ? "Close Drawer" : "Open Drawer with Long Content"}
+                    {isOpen ? "Close Drawer" : "Open Drawer with Long Content"}
                 </Button>
             </div>
         );
@@ -136,19 +136,19 @@ const CustomStyledDrawer = styled(Drawer, {
  */
 const CustomStyled: Story = {
     render: () => {
-        const [open, setOpen] = useState(false);
+        const [isOpen, setIsOpen] = useState(false);
 
         const handleToggleOpen = useCallback(() => {
-            setOpen(prev => !prev);
+            setIsOpen(prev => !prev);
         }, []);
 
         const handleClose = useCallback(() => {
-            setOpen(false);
+            setIsOpen(false);
         }, []);
 
         return (
             <div style={{ padding: "20px" }}>
-                <CustomStyledDrawer isOpen={open} onClose={handleClose}>
+                <CustomStyledDrawer isOpen={isOpen} onClose={handleClose}>
                     <div style={{ padding: "20px" }}>
                         <h2>Custom Styled Drawer</h2>
                         <p>This drawer has custom styling with a gradient background</p>
@@ -156,7 +156,7 @@ const CustomStyled: Story = {
                     </div>
                 </CustomStyledDrawer>
                 <Button onClick={handleToggleOpen}>
-                    {open ? "Close Custom Drawer" : "Open Custom Drawer"}
+                    {isOpen ? "Close Custom Drawer" : "Open Custom Drawer"}
                 </Button>
             </div>
         );

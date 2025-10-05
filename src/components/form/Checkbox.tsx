@@ -10,14 +10,14 @@ type LabelWrapperProps = React.ComponentProps<typeof LabelWrapper>;
 type InputProps = React.ComponentProps<"input">;
 
 type CheckboxProps = Partial<Pick<LabelWrapperProps, "css" | "className">>
-& Omit<InputProps, "className"> & {
-    /**
-     * @deprecated use --color css variable instead
-     */
-    color?: string;
-    children: React.ReactNode;
-    error?: boolean;
-};
+    & Omit<InputProps, "className"> & {
+        /**
+         * @deprecated use --color css variable instead
+         */
+        color?: string;
+        children: React.ReactNode;
+        error?: boolean;
+    };
 
 /**
  * Checkbox component

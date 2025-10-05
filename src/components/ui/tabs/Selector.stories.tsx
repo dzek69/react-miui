@@ -26,7 +26,7 @@ type Story = StoryObj<typeof Selector>;
 
 const Primary: Story = {
     render: (args) => {
-        const [current, setCurrent] = useState(args.value as string);
+        const [current, setCurrent] = useState(args.value ?? "");
 
         return (
             <Selector
@@ -45,7 +45,7 @@ const Primary: Story = {
 
 const WithinHeader: Story = {
     render: (args) => {
-        const [current, setCurrent] = useState(args.value as string);
+        const [current, setCurrent] = useState(args.value ?? "");
 
         return (
             <Header>
@@ -79,7 +79,7 @@ const CustomStyledSelector = styled(Selector, {
 
 const CustomStyled: Story = {
     render: (args) => {
-        const [current, setCurrent] = useState(args.value as string);
+        const [current, setCurrent] = useState(args.value ?? "");
 
         return (
             <CustomStyledSelector

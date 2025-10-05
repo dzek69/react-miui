@@ -8,7 +8,7 @@ const StyledStats = styled("ul", {
 
     "display": "flex",
     "width": "100%",
-    "padding": `${dimensionsPxToRem(60)}`,
+    "padding": dimensionsPxToRem(60),
     "margin": "0",
     "borderTop": "var(--stats-border)",
     "background": "var(--stats-bg)",
@@ -34,7 +34,7 @@ const Item = styled("li", {
     justifyContent: "center",
     flexDirection: "column",
     textAlign: "center",
-    gap: `${dimensionsPxToRem(20)}`,
+    gap: dimensionsPxToRem(20),
 });
 
 const Separator = styled("li", {
@@ -44,7 +44,7 @@ const Separator = styled("li", {
 const Label = styled("span", {
     display: "block",
     color: "var(--stats-label-color)",
-    fontSize: `${fontPxToRem(22)}`,
+    fontSize: fontPxToRem(22),
 });
 
 const Value = styled("span", {

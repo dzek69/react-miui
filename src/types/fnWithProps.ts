@@ -6,7 +6,7 @@
  * @param fn - The function to which you want to add properties
  * @param props - The properties you want to add to the function
  */
-const fnWithProps = <T extends (...args: any[]) => any, P extends object>( // eslint-disable-line @typescript-eslint/no-explicit-any,max-len
+const fnWithProps = <T extends (...args: any[]) => any, P extends object>( // eslint-disable-line @typescript-eslint/no-explicit-any
     fn: T,
     props: P,
 ): T & P => {

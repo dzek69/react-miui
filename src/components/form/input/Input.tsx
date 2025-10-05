@@ -64,6 +64,7 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
             return s.value === val;
         });
         if (matched) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
             onSuggestionMatch?.(val as Exclude<Value<T>, ObjectValue>, Boolean(info.picked));
         }
         info.picked = false;
@@ -103,10 +104,10 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
     );
 };
 
-// Forward ref wrapper for Input
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
 const Input = React.forwardRef(InputInner) as <T extends string>(
     props: Props<T> & React.RefAttributes<HTMLInputElement>
-) => JSX.Element;
+) => React.ReactElement;
 
 export {
     Input,

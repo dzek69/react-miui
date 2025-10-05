@@ -14,6 +14,7 @@ interface Props<T extends string> {
 
 const ChoiceItem = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>>> => {
     const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         props.onChange(e.currentTarget.value as Exclude<Value<T>, ObjectValue>);
     }, [props.onChange]);
 

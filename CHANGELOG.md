@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - upgraded storybook
 - `EqualActions`, `DirectionPad`, `KeyValue`, `Card`, `Drawer`, `Icons`, `Stats`, and `Selector` demo converted to storybook
 - removed some old or unused demos
+- deps bump
 ### Fixed
 - `Battery`, `Checkmark`, `Config`, `Dots`, `Heart`, `Trash` icons did not follow current color
 - exported `Header` selectors should be strings, not functions
