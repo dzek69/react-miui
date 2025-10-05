@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Gap` util component
 ### Changed
 - `Choice`, `TextArea`, `Checkbox`, `ColorPicker`, `Label`, `Select`, `Toggle`, `DirectionPad`, `KeyValue`, `Card`,
-  `Drawer`, `Stats`, and `Selector` now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
-- `EqualActions`, `DirectionPad`, `KeyValue`, `Card`, `Drawer`, `Stats` and `Selector` converted to stitches
+  `Drawer`, `Stats`, `Selector` and `SearchContainer` now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
+- `EqualActions`, `DirectionPad`, `KeyValue`, `Card`, `Drawer`, `Stats`, `Selector` and `SearchContainer` converted to stitches
 ### Dev
 - `EqualActions`, `DirectionPad`, `KeyValue`, `Card`, `Drawer`, `Icons`, `Stats`, and `Selector` demo converted to storybook
 - removed some old or unused demos
