@@ -34,6 +34,7 @@ const CustomProgress = styled(Progress, {
 const CustomizedColors: Story = {
     render: (args) => {
         return (
+            // @ts-ignore :shrug:
             <CustomProgress {...args} />
         );
     },

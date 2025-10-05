@@ -90,7 +90,6 @@ const Progress = fnWithProps<typeof ProgressBase, Selectors>(ProgressBase, {
 
 Progress.toString = () => Container.toString();
 
-// Export selectors for the subcomponents
 const ProgressBackgroundSelector = Background.toString();
 const ProgressValueSelector = Value.toString();
 
