@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 
-import type { StoryObj, Meta } from "@storybook/react";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Button } from "../button/Button";
 import { Label } from "../../form/Label";

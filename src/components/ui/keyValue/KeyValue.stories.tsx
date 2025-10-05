@@ -2,7 +2,7 @@ import React from "react";
 
 import { omit } from "@ezez/utils";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
 import { Icon, ICON } from "../../icons/Icon";

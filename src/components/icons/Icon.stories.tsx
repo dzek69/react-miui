@@ -1,8 +1,7 @@
 import React from "react";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { styled } from "../../theme";
 import { List } from "../layout/list/List";
 
 import { Icon, ICON } from "./Icon";

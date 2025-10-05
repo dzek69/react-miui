@@ -22,7 +22,7 @@ const ListItem = styled("li", {
     "listStyleType": "none",
 
     "& + &": {
-        borderTop: "1px solid var(--border)",
+        borderTop: "1px solid $border",
     },
 });
 

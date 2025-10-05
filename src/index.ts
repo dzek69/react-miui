@@ -54,3 +54,4 @@ export type { ThemeCSS } from "./theme";
 
 export * from "./theme";
 export { cssReset } from "./theme.css-reset";
+export { injectGlobalStyles } from "./theme.css-global";

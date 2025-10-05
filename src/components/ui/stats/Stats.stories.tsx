@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
 import { Div } from "../../native";
@@ -62,16 +62,16 @@ const Default: Story = {
  */
 const DarkVariant: Story = {
     render: () => (
-        <div
-            style={{
-                background: "var(--active-bg, #f5f5f5)",
+        <Div
+            css={{
+                background: "$activeBg",
                 height: "200px",
                 display: "flex",
                 alignItems: "flex-end",
             }}
         >
             <Stats stats={sampleStats} variant={"dark"} />
-        </div>
+        </Div>
     ),
 };
 
@@ -93,16 +93,16 @@ const WithMoreItems: Story = {
         ];
 
         return (
-            <div
-                style={{
-                    background: "var(--green1-darker, #2e7d32)",
+            <Div
+                css={{
+                    background: "$green1Darker",
                     height: "200px",
                     display: "flex",
                     alignItems: "flex-end",
                 }}
             >
                 <Stats stats={moreStats} />
-            </div>
+            </Div>
         );
     },
 };

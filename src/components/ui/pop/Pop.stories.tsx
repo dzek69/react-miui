@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 
 import { SunOne } from "@icon-park/react";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { HeaderIconAction } from "../../layout/header/HeaderIconAction";
 import { Icon, ICON } from "../../icons/Icon";

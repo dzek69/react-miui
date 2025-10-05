@@ -14,11 +14,11 @@ const thumbActive: ThemeCSS = {
     border: "2px solid var(--scrollbars-bg)",
 };
 
-// @TODO use colors from theme
 const miuiScrollbars: ThemeCSS = {
-    "--scrollbars-thumb": "#737373",
-    "--scrollbars-thumb-active": "#737373",
+    "--scrollbars-thumb": "$scrollbarsThumb",
+    "--scrollbars-thumb-active": "$scrollbarsThumb",
     "--scrollbars-bg": "transparent",
+
     "scrollbar-color": "var(--scrollbars-thumb) var(--scrollbars-bg)",
     "scrollbar-width": "thin !important",
 

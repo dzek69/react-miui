@@ -2,9 +2,7 @@ import React from "react";
 
 import { omit } from "@ezez/utils";
 
-import type { StoryObj, Meta } from "@storybook/react";
-
-import { NextLink } from "../../../demo/NextLink";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Item } from "./Item";
 import { List } from "./List";
@@ -44,7 +42,6 @@ type Story = StoryObj<typeof Item>;
 const Primary: Story = {
     args: {
         children: "I am a list item",
-        Link: NextLink,
     },
     render: (rawProps) => {
         const renderList = (rawProps as { renderList: boolean | undefined }).renderList;

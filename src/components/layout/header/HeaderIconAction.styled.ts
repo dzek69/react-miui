@@ -1,6 +1,6 @@
 import type { ThemeCSS } from "../../../theme";
 
-import { pxToRem, styled } from "../../../theme";
+import { borderPxToRem, pxToRem, styled } from "../../../theme";
 import { Icon } from "../../icons/Icon";
 
 const sharedStyles: ThemeCSS = {
@@ -11,7 +11,7 @@ const sharedStyles: ThemeCSS = {
     "display": "inline-flex",
     "alignItems": "center",
     "justifyContent": "center",
-    "border": "calc(2px / var(--ratio-border)) solid transparent",
+    "border": borderPxToRem(2),
     "color": "currentColor",
 
     "&:hover": {

@@ -1,9 +1,9 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
-import {cssReset, ToasterProvider} from "../src";
+import {cssReset, injectGlobalStyles, ToasterProvider} from "../src";
 
 const preview: Preview = {
     parameters: {
-        actions: {argTypesRegex: "^on[A-Z].*"},
         controls: {
             matchers: {
                 color: /(background|color)$/i,
@@ -12,18 +12,21 @@ const preview: Preview = {
         },
     },
     decorators: [
-        (Story) => (
-            <>
-                <style id={"miui-css-reset"} dangerouslySetInnerHTML={{__html: cssReset}}/>
-                <style>
-                    {`.docblock-argstable textarea[id] { box-sizing: content-box; }`}
-                    {`#storybook-root { height: 100%; }`}
-                </style>
-                <ToasterProvider>
-                <Story/>
-                </ToasterProvider>
-            </>
-        ),
+        (Story) =>{
+            injectGlobalStyles();
+            return (
+                <>
+                    <style id={"miui-css-reset"} dangerouslySetInnerHTML={{__html: cssReset}}/>
+                    <style>
+                        {`.docblock-argstable textarea[id] { box-sizing: content-box; }`}
+                        {`#storybook-root { height: 100%; }`}
+                    </style>
+                    <ToasterProvider>
+                        <Story/>
+                    </ToasterProvider>
+                </>
+            );
+        },
     ]
 
 };

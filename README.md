@@ -3,8 +3,8 @@ WIP.
 Old MIUI inspired design components for React. Breaking changes may happen until `1.0.0`.
 
 Usage:
-- Import `global.scss`
 - Import `cssReset` named export and include it in `<style>` tag
+- Import `injectGlobalStyles` function, call it from your root component
 - Import `getCssText` named export, call it and include result in `<style>` tag
 - Import any needed component from named exports
 

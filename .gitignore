@@ -15,3 +15,5 @@
 *.tsbuildinfo
 
 /.next
+*storybook.log
+storybook-static

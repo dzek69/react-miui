@@ -111,14 +111,12 @@ html, body {
 
 body {
   -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+  font-size: 16px;
 }
 
 #root, #__next {
   isolation: isolate;
-}
-
-body {
-  font-family: sans-serif;
 }
 
 small {

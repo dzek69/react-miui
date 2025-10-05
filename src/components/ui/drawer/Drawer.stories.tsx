@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
 import { Section } from "../../layout/section/Section";
@@ -27,7 +27,7 @@ const Default: Story = {
         const [open, setOpen] = useState(false);
 
         const handleToggleOpen = useCallback(() => {
-            setOpen(prev => !prev);
+            setOpen((prev) => !prev);
         }, []);
 
         const handleClose = useCallback(() => {
@@ -56,11 +56,11 @@ const Default: Story = {
  */
 const NoEscClose: Story = {
     render: () => {
-        // eslint-disable-next-line @typescript-eslint/no-shadow
+    // eslint-disable-next-line @typescript-eslint/no-shadow
         const [open, setOpen] = useState(false);
 
         const handleToggleOpen = useCallback(() => {
-            setOpen(prev => !prev);
+            setOpen((prev) => !prev);
         }, []);
 
         const handleClose = useCallback(() => {

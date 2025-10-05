@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { useForceUpdate } from "@ezez/hooks";
 
-import type { StoryObj, Meta } from "@storybook/react";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { StickyHeader } from "./StickyHeader";
 import { Header } from "./Header";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import type { StoryObj, Meta } from "@storybook/react";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
 import { Section } from "../../layout/section/Section";

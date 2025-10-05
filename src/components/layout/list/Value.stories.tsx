@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { StoryObj, Meta } from "@storybook/react";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Value } from "./Value";
 import { List } from "./List";

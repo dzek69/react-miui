@@ -11,7 +11,7 @@ const Container = styled("div", {
     right: 20,
     top: 20,
     background: "white",
-    border: "1px solid var(--toolbar-border)",
+    border: "1px solid $toolbarBorder",
     borderRadius: 666,
     padding: 10,
 });

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 
 import { omit } from "@ezez/utils";
 
-import type { StoryObj, Meta } from "@storybook/react";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Div } from "../native";
 import { styled } from "../../theme";

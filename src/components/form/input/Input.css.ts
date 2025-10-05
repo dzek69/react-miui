@@ -1,4 +1,4 @@
-// import type { ThemeCSS } from "../../../theme"; TODO restore
+import type { ThemeCSS } from "../../../theme";
 
 import { dimensionsPxToRem, fontPxToRem, borderPxToRem } from "../../../theme";
 
@@ -21,8 +21,7 @@ const input = {
     "&:read-only, &:disabled, &[data-error=true]": {
         color: "inherit",
     },
-};
-// satisfies ThemeCSS; @TODO restore
+} satisfies ThemeCSS;
 
 const focusCSS = {
     borderColor: "$focusColor",
@@ -63,8 +62,7 @@ const wrapper = {
             },
         },
     },
-};
-// satisfies ThemeCSS; TODO restore
+} satisfies ThemeCSS;
 
 export {
     input,
