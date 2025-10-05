@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import { cap, scale } from "@ezez/utils";
 
@@ -8,7 +8,7 @@ import { fnWithProps } from "../../../types/fnWithProps";
 
 import { Background, Container, Value } from "./Progress.styled";
 
-interface Props extends React.ComponentProps<typeof Container> {
+type ProgressProps = React.ComponentProps<typeof Container> & {
     /**
      * The value of the progress bar. If used alone, it's the percentage value of the progress bar.
      */
@@ -25,7 +25,7 @@ interface Props extends React.ComponentProps<typeof Container> {
      * Redefines the scale of the progress bar. By default, the scale is 0-100. This controls the ending point of the progress bar.
      */
     scaleTo?: number;
-}
+};
 
 type Selectors = {
     selectors: {
@@ -39,7 +39,7 @@ type Selectors = {
  *
  * At the moment, no value (undefined) means starting point, but in the future it will mean "undetermined" state.
  */
-const Progress = fnWithProps<React.FC<Props>, Selectors>((props) => {
+const ProgressBase = forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const { value, valueFrom, scaleFrom = 0, scaleTo = 100, ...rest } = props;
 
@@ -63,17 +63,36 @@ const Progress = fnWithProps<React.FC<Props>, Selectors>((props) => {
     };
 
     return (
-        <Container {...rest}>
+        <Container ref={ref} {...rest}>
             <Background />
             <Value css={css} zero={isZeroWidth} />
         </Container>
     );
-}, {
+});
+
+ProgressBase.displayName = "Progress";
+
+const Progress = fnWithProps<typeof ProgressBase, Selectors>(ProgressBase, {
+    /**
+     * @deprecated, use Progress-*-Selector exports
+     */
     selectors: {
+        /**
+         * @deprecated use ProgressBackgroundSelector instead
+         */
         background: Background.toString(),
+        /**
+         * @deprecated use ProgressValueSelector instead
+         */
         value: Value.toString(),
     },
 });
 
-export { Progress };
+Progress.toString = () => Container.toString();
+
+// Export selectors for the subcomponents
+const ProgressBackgroundSelector = Background.toString();
+const ProgressValueSelector = Value.toString();
+
+export { Progress, type ProgressProps, ProgressBackgroundSelector, ProgressValueSelector };
 

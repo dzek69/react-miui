@@ -10,9 +10,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - all scss styles AND SETUP replaced with stitches
 ### Changed
 - `Choice`, `TextArea`, `Checkbox`, `ColorPicker`, `Label`, `Select`, `Toggle`, `DirectionPad`, `KeyValue`, `Card`,
-  `Drawer`, `Stats`, `Selector` and `SearchContainer` now forward refs, can be composed upon, has own selector as `toString()` and exports sub-components selectors
+  `Drawer`, `Stats`, `Selector`, `SearchContainer` and `Progress` now forward refs, can be composed upon, has own
+  selector as `toString()` and exports sub-components selectors
 - `EqualActions`, `DirectionPad`, `KeyValue`, `Card`, `Drawer`, `Stats`, `Selector` and `SearchContainer` converted to stitches
 - ensure unique class name for generic Div component
+- deprecated `.selectors` property on some components in favor of new `ComponentSubSelector` exports
 ### Dev
 - upgraded storybook
 - `EqualActions`, `DirectionPad`, `KeyValue`, `Card`, `Drawer`, `Icons`, `Stats`, and `Selector` demo converted to storybook

@@ -61,11 +61,17 @@ const StickyHeader = fnWithProps(forwardRef<HTMLDivElement, Props>((props, ref) 
 }), {
     displayName: "StickyHeader",
     Content: Content, // @TODO remove "position" from this component props
+    /**
+     * @deprecated use StickyHeader.toString() instead
+     */
     selectors: {
+        /**
+         * @deprecated use StickyHeader.toString() instead
+         */
         root: StyledStickyHeader.toString(),
     },
+    toString: () => StyledStickyHeader.toString(),
 });
-StickyHeader.displayName = "StickyHeader";
 
 export {
     StickyHeader,
