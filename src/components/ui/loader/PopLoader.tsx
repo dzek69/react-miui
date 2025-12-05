@@ -26,7 +26,7 @@ const BlockLoader = styled(Loader, {
  *
  * Requires a parent with `position: relative`.
  */
-const PopLoader: React.FC<Props> = ({ className, ...props }) => {
+const PopLoader: React.FC<Props> = ({ ...props }) => {
     return <Container><BlockLoader size={"1rem"} {...props} /></Container>;
 };
 

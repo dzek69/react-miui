@@ -1,10 +1,10 @@
 import React from "react";
 
+import type { LoaderProps } from "./Loader";
+
 import { styled } from "../../../theme";
 
 import { Loader } from "./Loader";
-
-type Props = React.ComponentProps<typeof Loader>;
 
 const Container = styled("div", {
     height: "100%",
@@ -17,7 +17,7 @@ const Container = styled("div", {
 /**
  * A loader that renders in the middle of available space
  */
-const FullLoader: React.FC<Props> = (props) => {
+const FullLoader: React.FC<LoaderProps> = (props) => {
     return <Container><Loader {...props} /></Container>;
 };
 

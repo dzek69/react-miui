@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Loader } from "./Loader";
 
 const meta: Meta<typeof Loader> = {
-    title: "Components/UI/Loader/Basic",
+    title: "Components/UI/Loader/Loader (basic)",
     component: Loader,
     tags: ["autodocs", "ui"],
     argTypes: {

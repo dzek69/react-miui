@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.30.0] - 2025-12-06;
+### Breaking
+- loader spinner is no longer rendered as svg, but a div with background image (same looks)
+- loader spinner no longer accepts className
+- `CoveringLoader` rewritten with different logic, please refer to Storybook documentation
+
 ## [0.29.0] - 2025-10-05
 ### Added
 - `Gap` util component
