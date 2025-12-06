@@ -87,7 +87,7 @@ const CoveringLoader = forwardRef<HTMLElement, Props>(({ // eslint-disable-line 
             : "";
         const spinnerCss = `z-index: 1;
 content: "";
-position: fixed;
+position: absolute;
 inset: 0;
 background: url('${spinnerBg}') no-repeat center center;
 ${backgroundCss}
