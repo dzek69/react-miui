@@ -1,8 +1,10 @@
 import React from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { CoveringLoader } from "./CoveringLoader";
+
+// const DivNoRef = () => <div>div without ref forwarding</div>;
 
 const meta: Meta = {
     title: "Components/UI/Loader/CoveringLoader",

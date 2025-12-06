@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.30.1] - 2025-12-06;
+### Breaking
+- `CoveringLoader` will crash if it receives a child without HTMLElement ref instead of silently not working
+### Fixed
+- `CoveringLoader` `inertMode` prop is typed as optional as it should be
+
 ## [0.30.0] - 2025-12-06;
 ### Breaking
 - loader spinner is no longer rendered as svg, but a div with background image (same looks)

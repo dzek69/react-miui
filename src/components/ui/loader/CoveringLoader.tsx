@@ -1,15 +1,15 @@
-import type React from "react";
-import { useRef, useId, Children, cloneElement, forwardRef, useEffect } from "react";
+import { Children, cloneElement, forwardRef, useEffect, useId, useRef } from "react";
 
 import { useForwardedRef } from "@bedrock-layout/use-forwarded-ref";
 
+import type React from "react";
 import type { LoaderProps } from "./Loader";
 
 import { useTailSpin } from "../../../utils";
 
 type Props = LoaderProps & {
     mode?: "before" | "after" | "over";
-    inertMode: "block-interaction" | "cover-element" | "pass-through";
+    inertMode?: "block-interaction" | "cover-element" | "pass-through";
     children: React.ReactElement;
 };
 
@@ -53,6 +53,11 @@ const CoveringLoader = forwardRef<HTMLElement, Props>(({ // eslint-disable-line 
     // eslint-disable-next-line max-lines-per-function,max-statements
     const effect = () => {
         const current = innerRef.current as HTMLElement | null;
+        if (current !== null && !(current instanceof HTMLElement)) {
+            throw new Error(
+                "CoveringLoader child ref is not an HTMLElement, got: (" + typeof current + ") " + String(current),
+            );
+        }
         if (!current || !show) {
             return;
         }
@@ -65,14 +70,12 @@ const CoveringLoader = forwardRef<HTMLElement, Props>(({ // eslint-disable-line 
             extraLoaderElem = document.createElement("div");
             extraLoaderElem.classList.add(id);
             prnt.appendChild(extraLoaderElem);
-            // @ts-ignore no types right now
             if (inertMode === "block-interaction") {
                 prnt.inert = true;
             }
         }
         else {
             current.classList.add(id);
-            // @ts-ignore no types right now
             if (inertMode === "block-interaction") {
                 current.inert = true;
             }
@@ -80,8 +83,8 @@ const CoveringLoader = forwardRef<HTMLElement, Props>(({ // eslint-disable-line 
 
         const inertCss = inertMode === "pass-through" ? passThroughCss : "";
         const backgroundCss = mode !== "over"
-            ? `background-color: rgba(255, 255, 255, 0.5); mix-blend-mode: luminosity;`
-            : ``;
+            ? "background-color: rgba(255, 255, 255, 0.5); mix-blend-mode: luminosity;"
+            : "";
         const spinnerCss = `z-index: 1;
 content: "";
 position: fixed;
@@ -89,7 +92,7 @@ inset: 0;
 background: url('${spinnerBg}') no-repeat center center;
 ${backgroundCss}
 ${inertCss}`;
-        const parentCss = `position: relative;`;
+        const parentCss = "position: relative;";
 
         if (mode !== "over") {
             stylesheet.current!.textContent = `

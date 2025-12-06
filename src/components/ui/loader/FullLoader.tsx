@@ -3,7 +3,6 @@ import React from "react";
 import type { LoaderProps } from "./Loader";
 
 import { styled } from "../../../theme";
-
 import { Loader } from "./Loader";
 
 const Container = styled("div", {
