@@ -5,10 +5,10 @@ const NEGATIVE_PADDING = pxToRem(-20);
 
 const overlay = keyframes({
     from: {
-        background: "#00000000",
+        background: "rgba($background, 0)",
     },
     to: {
-        background: "#0000004c",
+        background: "rgba($background, 0.3)",
     },
 });
 
@@ -86,7 +86,7 @@ const ContainerStyled = styled("div", {
 const TitleStyled = styled("div", { // TODO header by default? expose this as `titleAs`?
     fontSize: fontPxToRem(40),
     textAlign: "center",
-    color: "black",
+    color: "$text3",
     margin: `${dimensionsPxToRem(90)} 0`,
 });
 

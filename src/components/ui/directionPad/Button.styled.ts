@@ -15,7 +15,7 @@ const StyledDot = styled("span", {
     width: "4px",
     height: "4px",
     borderRadius: "666px",
-    background: "black",
+    background: "$text3",
     margin: "auto",
 });
 

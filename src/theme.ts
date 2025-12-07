@@ -1,7 +1,7 @@
 import { createStitches } from "@stitches/react";
 
-import type { StyledComponent } from "@stitches/react/types/styled-component";
 import type { CSS as StitchesCSS } from "@stitches/react";
+import type { StyledComponent } from "@stitches/react/types/styled-component";
 
 const RATIOS = {
     dimensions: 3,
@@ -50,6 +50,8 @@ const {
             headerBg: "#efeff0",
             headerText: "#484848",
             text: "#323232",
+            text2: "#181818",
+            text3: "#000000",
             sub: "#959595",
 
             popText: "#666",

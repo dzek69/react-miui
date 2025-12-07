@@ -10,7 +10,7 @@ const Overlay = styled("div", {
 const List = styled("ul", {
     zIndex: 5,
     position: "absolute",
-    background: "white",
+    background: "$background",
     margin: 0,
     padding: 0,
     listStyleType: "none",
@@ -28,7 +28,7 @@ const ListItem = styled("li", {
 
 const Button = styled("button", {
     "border": "none",
-    "background": "white",
+    "background": "$background",
     "height": dimensionsPxToRem(116),
     "padding": `0 ${dimensionsPxToRem(42)}`,
     "boxSizing": "border-box",

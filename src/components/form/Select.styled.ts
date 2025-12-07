@@ -1,5 +1,4 @@
 import { borderPxToRem, dimensionsPxToRem, pxToRem, styled } from "../../theme";
-
 import { errorCSS, focusCSS } from "./input/Input.css";
 
 const Select = styled("select", {
@@ -9,7 +8,7 @@ const Select = styled("select", {
     "display": "flex",
     "alignItems": "center",
     "width": "100%",
-    "background": "white",
+    "background": "$background",
     "fontFamily": "inherit",
     "borderRadius": pxToRem(2),
     "padding": `0 ${dimensionsPxToRem(36)}`,

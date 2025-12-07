@@ -9,7 +9,7 @@ const StyledPad = styled("div", {
     borderRadius: "666px",
     width: "150px",
     border: "1px solid #aaa",
-    background: "white",
+    background: "$background",
 });
 
 const StyledLine = styled("div", {

@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.31.0] - 2025-12-07
+### Changed
+- replaced hardcoded occurrences of `white` with `$background`
+### Added
+- `$text2` and `$text3` colors with more contrast
+
 ## [0.30.2] - 2025-12-06
 ### Fixed
 - `CoveringLoader` should have `position: absolute`, not `fixed`

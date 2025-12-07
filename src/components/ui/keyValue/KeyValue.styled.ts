@@ -13,7 +13,7 @@ const item = css({
 const Container = styled("div", {
     "--kv-border-color": "$colors$headerBorder",
     "--kv-border": `${borderPxToRem(1)} solid var(--kv-border-color)`,
-    "--kv-background-color": "white",
+    "--kv-background-color": "$colors$background",
     "--kv-hover-background-color": "$colors$activeBg",
     "border": "1px solid var(--kv-border-color)",
     "backgroundColor": "var(--kv-background-color)",

@@ -6,7 +6,7 @@ const StyledDrawer = styled("div", {
     left: 0,
     right: 0,
     bottom: 0,
-    background: "white",
+    background: "$background",
     zIndex: 1,
     transition: "transform 300ms",
     overflow: "auto",

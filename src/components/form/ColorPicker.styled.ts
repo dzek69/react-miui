@@ -23,7 +23,7 @@ const ColorDisplay = styled("div", {
                 alignItems: "center",
                 justifyContent: "center",
                 fontSize: "14px",
-                color: "white",
+                color: "white", // TODO verify if that should be $background
                 fontWeight: "500",
             },
         },

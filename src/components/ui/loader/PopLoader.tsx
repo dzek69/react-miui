@@ -1,7 +1,6 @@
 import React from "react";
 
 import { styled } from "../../../theme";
-
 import { Loader } from "./Loader";
 
 type Props = React.ComponentProps<typeof Loader>;
@@ -10,7 +9,7 @@ const Container = styled("div", {
     position: "absolute",
     right: 20,
     top: 20,
-    background: "white",
+    background: "$background",
     border: "1px solid $toolbarBorder",
     borderRadius: 666,
     padding: 10,

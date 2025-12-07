@@ -18,7 +18,7 @@ const CheckmarkWrapper = styled("div", {
         display: "none",
         width: "9px",
         height: "9px",
-        color: "white",
+        color: "white", // must be actually white
     },
 
     [`+ ${TextLabel.toString()}`]: {

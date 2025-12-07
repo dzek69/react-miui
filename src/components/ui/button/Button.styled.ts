@@ -7,7 +7,7 @@ const Button = styled("button", {
     "height": dimensionsPxToRem(118),
     "background": "$green1",
     "border": `${borderPxToRem(1)} solid $green1Darker`,
-    "color": "white",
+    "color": "$background",
     "borderRadius": "1000px",
     "display": "flex",
     "alignItems": "center",
@@ -30,7 +30,7 @@ const Button = styled("button", {
         },
         outline: {
             true: {
-                background: "white",
+                background: "$background",
                 borderColor: "$buttonBorder",
                 color: "$grey1",
             },

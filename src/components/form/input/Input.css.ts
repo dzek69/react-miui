@@ -1,6 +1,6 @@
 import type { ThemeCSS } from "../../../theme";
 
-import { dimensionsPxToRem, fontPxToRem, borderPxToRem } from "../../../theme";
+import { borderPxToRem, dimensionsPxToRem, fontPxToRem } from "../../../theme";
 
 const input = {
     "height": dimensionsPxToRem(103),
@@ -33,7 +33,7 @@ const errorCSS = {
 };
 
 const wrapper = {
-    background: "white",
+    background: "$background",
     display: "inline-flex",
     width: "100%",
     borderRadius: "2px",
