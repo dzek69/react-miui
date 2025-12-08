@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.32.0] - 2025-12-08
+### Added
+- dark theme
+
 ## [0.31.0] - 2025-12-07
 ### Changed
 - replaced hardcoded occurrences of `white` with `$background`

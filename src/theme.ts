@@ -112,6 +112,84 @@ const {
     },
 });
 
+const darkTheme = createTheme("theme-dark", {
+    colors: {
+        background: "#0f0f11",
+
+        mainColor: "#5bb8ff",
+        mainColorAlt: "#3a94d4",
+
+        activeBg: "#2a2a2d",
+        inactiveBg: "#1f1f23",
+        inactiveDarkBg: "#141414",
+
+        toggleHandleBg: "#2c2c2c",
+        toggleHandleBorder: "#3a3a3a",
+        toggleBgDisabled: "#1c1c1c",
+        toggleHandleBorderDisabled: "#6a513c",
+        toggleHandleBgDisabled: "#8a6447",
+
+        icon: "#c6c6c6",
+        border: "#2e2e2e",
+        buttonBorder: "#3a3a3a",
+
+        headerBorder: "#2c2c2d",
+        headerBg: "#1b1b1c",
+        headerText: "#e0e0e0",
+        text: "#dcdcdc",
+        text2: "#e0e0e0",
+        text3: "#fff",
+        sub: "#8b8b8b",
+
+        popText: "#b0b0b0",
+
+        toolbarBorder: "#2a2a2a",
+        toolbarBg: "#161618",
+        modalBg: "#1a1a1c",
+        modalButtonBg: "#1c1c1e",
+        modalButtonBorder: "#303030",
+
+        inputDisabledBg: "#202024",
+        inputDisabledText: "#777",
+
+        choiceBg: "#1a1a1a",
+        choiceText: "#999",
+        choiceActiveBg: "#252525",
+        choiceActiveText: "#efefef",
+        choiceBorder: "#3a3a3a",
+
+        selectorText: "#cdcdcd",
+        selectorActive: "#5bb8ff",
+
+        blue1: "#4fb4ff",
+        blue2: "#3a5167",
+        blue3: "#2b3242",
+        blue4: "#69c7ff",
+        blue5: "#4aaae4",
+        orange1: "#ff8a33",
+        orange1Darker: "#cc6b1f",
+        purple1: "#8b73ff",
+        green1: "#46d43a",
+        green1Darker: "#3ab12f",
+        pink1: "#ff5ca5",
+        red1: "#ff3d1a",
+        yellow1: "#caa562",
+        yellow2: "#a77d2c",
+        yellow3: "#4a3f28",
+        pinky1: "#7d5a54",
+        pinky2: "#8c4a39",
+        pinky3: "#6b504b",
+
+        grey1: "#9a9a9a",
+        focusColor: "#e2c34a",
+        scrollbarsThumb: "#575757",
+        scrollbarsBg: "transparent",
+        tableStripedBg: "#18181a",
+
+        toolButtonText: "#b4b9c8",
+    },
+});
+
 type ThemeCSS = StitchesCSS<typeof config>;
 
 type OverwriteProps<
@@ -127,8 +205,7 @@ export type {
 };
 
 export {
-    styled, css, globalCss, keyframes, getCssText, theme, createTheme, config,
-
+    styled, css, globalCss, keyframes, getCssText, theme, darkTheme, createTheme, config,
     pxToRem,
     dimensionsPxToRem,
     borderPxToRem,
