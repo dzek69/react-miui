@@ -65,13 +65,15 @@ const CoveringLoader = forwardRef<HTMLElement, Props>(({ // eslint-disable-line 
         let extraLoaderElem: HTMLDivElement | null = null;
 
         if (mode === "over") {
-            const prnt = current.parentElement!;
-            prnt.classList.add("parent-" + id);
+            const prnt = current.parentElement;
             extraLoaderElem = document.createElement("div");
             extraLoaderElem.classList.add(id);
-            prnt.appendChild(extraLoaderElem);
-            if (inertMode === "block-interaction") {
-                prnt.inert = true;
+            if (prnt) {
+                prnt.classList.add("parent-" + id);
+                prnt.appendChild(extraLoaderElem);
+                if (inertMode === "block-interaction") {
+                    prnt.inert = true;
+                }
             }
         }
         else {
@@ -119,11 +121,13 @@ ${inertCss}`;
         return () => {
             stylesheet.current!.textContent = "";
             if (mode === "over") {
-                const prnt = current.parentElement!;
+                const prnt = current.parentElement;
                 extraLoaderElem?.remove();
-                prnt.classList.add("parent-" + id);
-                if (inertMode === "block-interaction") {
-                    prnt.inert = false;
+                if (prnt) {
+                    prnt.classList.add("parent-" + id);
+                    if (inertMode === "block-interaction") {
+                        prnt.inert = false;
+                    }
                 }
             }
             else {
