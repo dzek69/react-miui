@@ -1,9 +1,7 @@
-import type { ThemeCSS } from "../../../theme";
-
-import { borderPxToRem, pxToRem, styled } from "../../../theme";
+import { borderPxToRem, css, pxToRem, styled } from "../../../theme";
 import { Icon } from "../../icons/Icon";
 
-const sharedStyles: ThemeCSS = {
+const sharedStyles = css({
     "width": pxToRem(30),
     "height": pxToRem(30),
     "background": "none",
@@ -21,7 +19,7 @@ const sharedStyles: ThemeCSS = {
         background: "#00000011",
         color: "currentColor",
     },
-};
+});
 
 const Btn = styled("button", sharedStyles);
 const A = styled("a", sharedStyles);
@@ -37,4 +35,5 @@ export {
     Btn,
     A,
     StyledIcon,
+    sharedStyles,
 };

@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - full stitches & ref compatibility (forwardRef, className forward, subcomponents selectors, displayName, toString) for:
   - `Input`
+  - `HeaderIconAction`
 
 ## [0.32.1] - 2025-12-19
 ### Fixed

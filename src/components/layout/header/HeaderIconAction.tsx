@@ -1,9 +1,9 @@
-import React from "react";
-import type { ReactNode } from "react";
+import React, { forwardRef } from "react";
 
+import type { ReactNode } from "react";
 import type { ICON } from "../../icons/Icon";
 
-import { A, Btn, StyledIcon } from "./HeaderIconAction.styled";
+import { A, Btn, sharedStyles, StyledIcon } from "./HeaderIconAction.styled";
 
 interface LinkProps { // @TODO extract? - same on list item
     href: string;
@@ -41,12 +41,11 @@ interface Props {
  * Use this component if you need a clickable icon that stylistically fits the header.
  * It can be a simple link, a button or a custom link component.
  */
-const HeaderIconAction: React.FC<Props> = (props) => {
+const HeaderIconAction = forwardRef<HTMLElement, Props>((props, ref) => {
     const { icon, href, to, Link, className, ...restProps } = props;
 
     let content: ReactNode = icon;
     if (typeof icon === "string") {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         content = <StyledIcon name={icon as ICON} />;
     }
 
@@ -55,18 +54,32 @@ const HeaderIconAction: React.FC<Props> = (props) => {
             throw new TypeError("`to` prop given without `Link` component");
         }
 
-        return <Link href={to} {...restProps}><A className={props.className}>{content}</A></Link>;
+        return (
+            <Link href={to} {...restProps}>
+                <A ref={ref as React.Ref<HTMLAnchorElement>} className={props.className}>{content}</A>
+            </Link>
+        );
     }
 
     if (href) {
-        return <A href={href} className={props.className} {...restProps}>{content}</A>;
+        return (
+            <A ref={ref as React.Ref<HTMLAnchorElement>} href={href} className={props.className} {...restProps}>
+                {content}
+            </A>
+        );
     }
 
     return (
-        <Btn className={props.className} onClick={props.onClick}>
+
+        <Btn ref={ref as React.Ref<HTMLButtonElement>} className={props.className} onClick={props.onClick}>
             {content}
         </Btn>
     );
-};
+});
 
-export { HeaderIconAction };
+HeaderIconAction.displayName = "HeaderIconAction";
+HeaderIconAction.toString = () => sharedStyles.selector;
+
+const HeaderIconActionIconSelector = StyledIcon.toString();
+
+export { HeaderIconAction, HeaderIconActionIconSelector };

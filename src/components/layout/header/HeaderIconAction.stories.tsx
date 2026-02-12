@@ -1,7 +1,8 @@
 import React from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import { styled } from "../../../theme";
 import { Header } from "./Header";
 import { HeaderIconAction } from "./HeaderIconAction";
 
@@ -39,9 +40,55 @@ const MultipleIcons: Story = {
     },
 };
 
+const HeaderWithCustomIcon = styled(Header, {
+    [`& ${HeaderIconAction}`]: {
+        color: "red",
+    },
+});
+
+const DeepSelector: Story = {
+    render: ({ onClick: _onClick, ...args }) => {
+        const after = (
+            <>
+                <div>some text</div>
+                <HeaderIconAction
+                    to={"/"}
+                    Link={({ children }) => (
+                        <a
+                            href={"/"}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                alert("custom link clicked");
+                            }}
+                        >{children}
+                        </a>
+                    )}
+                    {...args}
+                    icon={<>i</>}
+                />
+                <HeaderIconAction
+                    href={"/"}
+                    {...args}
+                    icon={<>i</>}
+                />
+                <HeaderIconAction
+                    {...args}
+                    icon={<>i</>}
+                />
+            </>
+        );
+        return (
+            <HeaderWithCustomIcon after={after}>
+                On the left you can see the icon
+            </HeaderWithCustomIcon>
+        );
+    },
+};
+
 export {
     Primary,
     MultipleIcons,
+    DeepSelector,
 };
 
 export default meta;
