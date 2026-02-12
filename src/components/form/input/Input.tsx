@@ -1,4 +1,4 @@
-import React, { useCallback, useId, useState } from "react";
+import React, { useCallback, useId, useRef, useState } from "react";
 
 import type { ObjectValue, Value } from "../../../types/form";
 
@@ -30,7 +30,7 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
 }: Props<T>, ref: React.Ref<HTMLInputElement>) => {
     const [focused, setFocused] = useState(false);
     const suggestionsId = useId();
-    const [info] = useState<{ picked?: boolean }>({});
+    const infoRef = useRef<{ picked?: boolean }>({});
 
     const handleFocus = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
         setFocused(true);
@@ -45,10 +45,10 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
     const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (e.code === undefined) { // pick from list on Chromium browsers
-            info.picked = true;
+            infoRef.current.picked = true;
         }
         onKeyDown?.(e);
-    }, []);
+    }, [onKeyDown]);
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
         if (!suggestions) {
@@ -63,11 +63,11 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
             return s.value === val;
         });
         if (matched) {
-            onSuggestionMatch?.(val as Exclude<Value<T>, ObjectValue>, Boolean(info.picked));
+            onSuggestionMatch?.(val as Exclude<Value<T>, ObjectValue>, Boolean(infoRef.current.picked));
         }
-        info.picked = false;
+        infoRef.current.picked = false;
         onChange?.(e);
-    }, [suggestions, onChange]);
+    }, [suggestions, onChange, onSuggestionMatch]);
 
     const prefixElem = prefix ? <StyledPrefix>{prefix}</StyledPrefix> : null;
     const suffixElem = suffix ? <StyledSuffix>{suffix}</StyledSuffix> : null;
@@ -80,7 +80,7 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
     return (
         <StyledWrapper
             className={className}
-            focused={Boolean(focused)}
+            focused={focused}
             disabled={Boolean(props.disabled)}
             readOnly={Boolean(props.readOnly)}
             error={Boolean(error)}
