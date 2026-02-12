@@ -3,15 +3,14 @@ import React, { useCallback, useId, useState } from "react";
 import type { ObjectValue, Value } from "../../../types/form";
 
 import { Suggestions } from "../Suggestions";
-
-import { StyledInput, StyledWrapper, StyledPrefix, StyledSuffix } from "./Input.styled";
+import { StyledInput, StyledPrefix, StyledSuffix, StyledWrapper } from "./Input.styled";
 
 interface CustomProps<T extends string> {
     children?: never;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     error?: boolean;
-    suggestions?: Value<T>[];
+    suggestions?: Array<Value<T>>;
     onSuggestionMatch?: (value: Exclude<Value<T>, ObjectValue>, __chromiumPickedFromList: boolean) => void;
 }
 
@@ -64,7 +63,6 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
             return s.value === val;
         });
         if (matched) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
             onSuggestionMatch?.(val as Exclude<Value<T>, ObjectValue>, Boolean(info.picked));
         }
         info.picked = false;
@@ -104,13 +102,23 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
     );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-const Input = React.forwardRef(InputInner) as <T extends string>(
-    props: Props<T> & React.RefAttributes<HTMLInputElement>
+const InputRef = React.forwardRef(InputInner);
+InputRef.displayName = "Input";
+InputRef.toString = () => StyledWrapper.toString();
+
+const Input = InputRef as <T extends string>(
+    props: Props<T> & React.RefAttributes<HTMLInputElement>,
 ) => React.ReactElement;
+
+const InputInputSelector = StyledInput.toString();
+const InputPrefixSelector = StyledPrefix.toString();
+const InputSuffixSelector = StyledSuffix.toString();
 
 export {
     Input,
+    InputInputSelector,
+    InputPrefixSelector,
+    InputSuffixSelector,
 };
 
 export type {

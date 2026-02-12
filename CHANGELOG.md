@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.32.1+]
+### Changed
+- full stitches & ref compatibility (forwardRef, className forward, subcomponents selectors, displayName, toString) for:
+  - `Input`
+
 ## [0.32.1] - 2025-12-19
 ### Fixed
 - `CoveringLoader` crashing on some race condition
