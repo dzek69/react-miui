@@ -41,7 +41,7 @@ interface Props {
  * Use this component if you need a clickable icon that stylistically fits the header.
  * It can be a simple link, a button or a custom link component.
  */
-const HeaderIconAction = forwardRef<HTMLElement, Props>((props, ref) => {
+const HeaderIconAction = forwardRef<HTMLAnchorElement | HTMLButtonElement, Props>((props, ref) => {
     const { icon, href, to, Link, className, ...restProps } = props;
 
     let content: ReactNode = icon;

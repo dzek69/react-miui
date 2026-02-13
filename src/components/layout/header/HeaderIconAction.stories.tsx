@@ -19,7 +19,7 @@ const meta: Meta = {
     },
 };
 
-type Story = StoryObj<typeof Header>;
+type Story = StoryObj<typeof HeaderIconAction>;
 
 const Primary: Story = {};
 
