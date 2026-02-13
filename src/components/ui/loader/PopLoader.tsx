@@ -1,9 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
+
+import type { LoaderProps } from "./Loader";
 
 import { styled } from "../../../theme";
 import { Loader } from "./Loader";
-
-type Props = React.ComponentProps<typeof Loader>;
 
 const Container = styled("div", {
     position: "absolute",
@@ -25,8 +25,11 @@ const BlockLoader = styled(Loader, {
  *
  * Requires a parent with `position: relative`.
  */
-const PopLoader: React.FC<Props> = ({ ...props }) => {
-    return <Container><BlockLoader size={"1rem"} {...props} /></Container>;
-};
+const PopLoader = forwardRef<HTMLDivElement, LoaderProps>(({ className, ...props }, ref) => {
+    return <Container ref={ref} className={className}><BlockLoader size={"1rem"} {...props} /></Container>;
+});
+
+PopLoader.displayName = "PopLoader";
+PopLoader.toString = () => Container.toString();
 
 export { PopLoader };

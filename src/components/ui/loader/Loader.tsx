@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import { useTailSpin } from "../../../utils";
 import { Div } from "../../native";
@@ -20,6 +20,7 @@ interface Props {
      * Whether to show the spinner or not
      */
     show?: boolean | undefined | null;
+    className?: string;
 }
 
 const DEFAULT_SPEED = 400;
@@ -31,10 +32,10 @@ const DEFAULT_SIZE = "2rem";
  * Based on MIT licensed code by Sam Herbert
  * https://github.com/SamHerbert/SVG-Loaders/blob/master/svg-loaders/tail-spin.svg
  */
-const Loader: React.FC<Props> = ({
+const Loader = forwardRef<HTMLDivElement, Props>(({
     color = "currentColor", speed = DEFAULT_SPEED, size = DEFAULT_SIZE,
     ...props
-}) => {
+}, ref) => {
     const spinnerBg = useTailSpin({ size, color, speed });
 
     if (props.show === false) {
@@ -42,9 +43,12 @@ const Loader: React.FC<Props> = ({
     }
 
     return (
-        <Div css={{ width: size, height: size, backgroundImage: `url('${spinnerBg}')` }} />
+        <Div ref={ref} className={props.className} css={{ width: size, height: size, backgroundImage: `url('${spinnerBg}')` }} />
     );
-};
+});
+
+Loader.displayName = "Loader";
+Loader.toString = () => Div.toString();
 
 export { Loader };
 export type { Props as LoaderProps };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import type { LoaderProps } from "./Loader";
 
@@ -16,8 +16,11 @@ const Container = styled("div", {
 /**
  * A loader that renders in the middle of available space
  */
-const FullLoader: React.FC<LoaderProps> = (props) => {
-    return <Container><Loader {...props} /></Container>;
-};
+const FullLoader = forwardRef<HTMLDivElement, LoaderProps>(({ className, ...props }, ref) => {
+    return <Container ref={ref} className={className}><Loader {...props} /></Container>;
+});
+
+FullLoader.displayName = "FullLoader";
+FullLoader.toString = () => Container.toString();
 
 export { FullLoader };

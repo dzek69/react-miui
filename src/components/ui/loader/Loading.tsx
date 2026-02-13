@@ -26,4 +26,6 @@ const Loading: React.FC<Props> = (props) => {
     return (<>{l}{props.children}</>);
 };
 
+Loading.displayName = "Loading";
+
 export { Loading };
