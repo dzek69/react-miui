@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `HeaderIconAction`
   - `List`
   - all loader components
+  - pop components (no ref on Pop)
 ### Fixed
 - `Input` stale `onKeyDown` and `onSuggestionMatch` may be called
 

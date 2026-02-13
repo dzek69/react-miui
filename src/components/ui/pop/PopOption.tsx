@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import { Button, FakeIcon, Icon, ListItem } from "./Pop.styled";
 
@@ -10,16 +10,22 @@ interface Props {
     children: React.ReactNode;
 }
 
-const PopOption: React.FC<Props> = (props) => {
+const PopOption = forwardRef<HTMLLIElement, Props>((props, ref) => {
     const ic = props.icon
         ? <Icon>{props.icon}</Icon>
         : ((props.forceEmptyIcon ?? true) ? <FakeIcon /> : null);
 
     return (
-        <ListItem className={props.className}>
+        <ListItem ref={ref} className={props.className}>
             <Button onClick={props.onClick}>{ic}{props.children}</Button>
         </ListItem>
     );
-};
+});
 
-export { PopOption };
+PopOption.displayName = "PopOption";
+PopOption.toString = () => ListItem.toString();
+
+const PopOptionButtonSelector = Button.toString();
+const PopOptionIconSelector = Icon.toString();
+
+export { PopOption, PopOptionButtonSelector, PopOptionIconSelector };

@@ -169,4 +169,9 @@ class Pop extends Component<Props, State> {
     }
 }
 
-export { Pop };
+Pop.toString = () => Overlay.toString();
+
+const PopOverlaySelector = Overlay.toString();
+const PopListSelector = List.toString();
+
+export { Pop, PopOverlaySelector, PopListSelector };
