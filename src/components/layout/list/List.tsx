@@ -1,14 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import { pxToRem, styled } from "../../../theme";
-
+import { fnWithProps } from "../../../types/fnWithProps";
 import { Header } from "./Header";
-import { Item } from "./Item";
-
-interface SubComponents {
-    Header: typeof Header;
-    Item: typeof Item;
-}
+import { Item, ListItemInnerContainerClassNameSelector } from "./Item";
 
 const StyledList = styled("ul", {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers
@@ -38,7 +33,7 @@ type StyledListProps = React.ComponentProps<typeof StyledList>;
  *
  * See `Item` and `Header` for more information about their usage.
  */
-const List: React.FC<StyledListProps> & SubComponents = (props) => {
+const ListBase = forwardRef<HTMLUListElement, StyledListProps>((props, ref) => {
     const chld = React.Children.map(props.children, (child) => {
         if (child && typeof child === "object" && "type" in child && (child.type === Item || child.type === Header)) {
             return React.cloneElement(child, {
@@ -49,10 +44,15 @@ const List: React.FC<StyledListProps> & SubComponents = (props) => {
     });
 
     return (
-        <StyledList {...props}>{chld}</StyledList>
+        <StyledList {...props} ref={ref}>{chld}</StyledList>
     );
-};
-List.Header = Header;
-List.Item = Item;
+});
+ListBase.displayName = "List";
 
-export { List };
+const List = fnWithProps(ListBase, { // it will keep displayName
+    Header,
+    Item,
+});
+List.toString = () => StyledList.toString();
+
+export { List, ListItemInnerContainerClassNameSelector };

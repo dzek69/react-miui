@@ -1,10 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import type { VariantProps } from "@stitches/react";
 
 import { dimensionsPxToRem, fontPxToRem, styled } from "../../../theme";
-
-import { Item, ItemInnerContainerClassName } from "./Item";
+import { Item, ListItemInnerContainerClassNameSelector } from "./Item";
 
 const StyledContent = styled("div", {
     flex: 1,
@@ -20,7 +19,7 @@ const StyledHeader = styled(Item, {
     color: "$sub",
     textTransform: "uppercase",
 
-    [`& ${ItemInnerContainerClassName}`]: {
+    [`& ${ListItemInnerContainerClassNameSelector}`]: {
         minHeight: 0,
     },
 
@@ -41,12 +40,17 @@ type Variants = VariantProps<typeof StyledHeader>;
  * Use this to render a header within a `List`.
  * Use `as` prop to define which tag to use.
  */
-const Header: React.FC<StyledHeaderProps & Variants & { as?: string }> = ({ as, ...props }) => {
+const Header = forwardRef<HTMLLIElement, StyledHeaderProps & Variants & { as?: string }>(({ as, ...props }, ref) => {
     return (
-        <StyledHeader {...props}>
+        <StyledHeader {...props} ref={ref}>
             <StyledContent {...(as ? { as } : undefined)}>{props.children}</StyledContent>
         </StyledHeader>
     );
-};
+});
 
-export { Header };
+Header.displayName = "List.Header";
+Header.toString = () => StyledHeader.toString();
+
+const ListHeaderContentSelector = StyledContent.toString();
+
+export { Header, ListHeaderContentSelector };

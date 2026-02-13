@@ -1,29 +1,29 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
+import { fnWithProps } from "../../../types/fnWithProps";
 import { ICON } from "../../icons/Icon";
-
-import { Value } from "./Value";
-import { Label } from "./Label";
 import { StyledIcon, StyledInnerContainer, StyledItem, StyledNoIcon } from "./Item.styled";
+import { Label } from "./Label";
+import { Value } from "./Value";
 
 interface LinkProps {
     href: string;
     children: React.ReactNode;
 }
 
-type Ratio = `${number}` | ``;
+type Ratio = `${number}` | "";
 
-type SlashSeparatedNumbers =
-    | Ratio
-    | `${Ratio}/${Ratio}`
-    | `${Ratio}/${Ratio}/${Ratio}`
-    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}`
-    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
-    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
-    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
-    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
-    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
-    | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`;
+type SlashSeparatedNumbers
+    = | Ratio
+        | `${Ratio}/${Ratio}`
+        | `${Ratio}/${Ratio}/${Ratio}`
+        | `${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+        | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+        | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+        | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+        | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+        | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`
+        | `${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}/${Ratio}`;
 
 interface Props {
     href?: string;
@@ -41,7 +41,7 @@ interface SubComponents {
 const icon = <StyledIcon name={ICON.forward} />;
 const noIcon = <StyledNoIcon />;
 
-const ItemInnerContainerClassName = StyledInnerContainer.toString();
+const ListItemInnerContainerClassNameSelector = StyledInnerContainer.toString();
 type StyledItemProps = React.ComponentProps<typeof StyledItem>;
 
 /**
@@ -66,7 +66,9 @@ type StyledItemProps = React.ComponentProps<typeof StyledItem>;
  * - `to`: if given it will render an anchor tag wrapped in a link using the given `Link` component
  * - `onClick`: if given it will render a button tag with the given onClick handler (it can be passed with `href` too)
  */
-const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onClick, Link, ratio, ...props }) => {
+const ItemBase = forwardRef<
+    HTMLLIElement, StyledItemProps & Props
+>(({ href, to, onClick, Link, ratio, ...props }, ref) => {
     const r = ratio ? ratio.split("/") : [];
 
     const pre = typeof props.selected === "boolean"
@@ -96,7 +98,7 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
         }
 
         return (
-            <StyledItem {...props}>
+            <StyledItem {...props} ref={ref}>
                 <Link href={to}><StyledInnerContainer as={"a"} href={to}>{pre}{ren}</StyledInnerContainer></Link>
             </StyledItem>
         );
@@ -104,7 +106,7 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
 
     if (href) {
         return (
-            <StyledItem {...props}>
+            <StyledItem {...props} ref={ref}>
                 <StyledInnerContainer as={"a"} href={href} onClick={onClick}>{pre}{ren}</StyledInnerContainer>
             </StyledItem>
         );
@@ -112,19 +114,24 @@ const Item: React.FC<StyledItemProps & Props> & SubComponents = ({ href, to, onC
 
     if (onClick) {
         return (
-            <StyledItem {...props}>
+            <StyledItem {...props} ref={ref}>
                 <StyledInnerContainer as={"button"} onClick={onClick}>{pre}{ren}</StyledInnerContainer>
             </StyledItem>
         );
     }
 
-    return <StyledItem {...props}><StyledInnerContainer>{pre}{ren}</StyledInnerContainer></StyledItem>;
-};
+    return <StyledItem {...props} ref={ref}><StyledInnerContainer>{pre}{ren}</StyledInnerContainer></StyledItem>;
+});
 
-Item.Label = Label;
-Item.Value = Value;
+ItemBase.displayName = "List.Item";
 
-export { Item, ItemInnerContainerClassName };
+const Item = fnWithProps(ItemBase, {
+    Label,
+    Value,
+});
+Item.toString = () => StyledItem.toString();
+
+export { Item, ListItemInnerContainerClassNameSelector };
 
 export type {
     Props as ItemProps,

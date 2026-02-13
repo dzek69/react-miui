@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - full stitches & ref compatibility (forwardRef, className forward, subcomponents selectors, displayName, toString) for:
   - `Input`
   - `HeaderIconAction`
+  - `List`
 ### Fixed
 - `Input` stale `onKeyDown` and `onSuggestionMatch` may be called
 
