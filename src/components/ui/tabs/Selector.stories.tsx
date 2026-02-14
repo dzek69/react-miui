@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
-import { Header } from "../../layout/header/Header";
+import { Header, HeaderContentsSelector } from "../../layout/header/Header";
 import { Selector, SelectorItemSelector } from "./Selector";
 
 const meta: Meta = {
@@ -98,10 +98,71 @@ const CustomStyled: Story = {
     },
 };
 
+const manyValues = [
+    "First element",
+    "Apple",
+    "Pie",
+    "Dogs and cats",
+    "Flying vehicles",
+    "Random text that is very long",
+    "Computer",
+    "Leaflet",
+    "Jar of nuts",
+    "POE Network Switch",
+];
+
+const MultiLine: Story = {
+    render: (args) => {
+        const [current, setCurrent] = useState(args.value ?? "");
+
+        return (
+            <Header>
+                <Selector
+                    {...args}
+                    multiLine={true}
+                    value={current}
+                    values={manyValues}
+                    onChange={(value: string) => {
+                        setCurrent(value);
+                        if (args.onChange) {
+                            args.onChange(value);
+                        }
+                    }}
+                />
+            </Header>
+        );
+    },
+};
+
+const Lengthy: Story = {
+    render: (args) => {
+        const [current, setCurrent] = useState(args.value ?? "");
+
+        return (
+            <Header css={{ [`& ${HeaderContentsSelector}`]: { overflow: "hidden" } }}>
+                <Selector
+                    {...args}
+                    values={manyValues}
+                    multiLine={false}
+                    value={current}
+                    onChange={(value: string) => {
+                        setCurrent(value);
+                        if (args.onChange) {
+                            args.onChange(value);
+                        }
+                    }}
+                />
+            </Header>
+        );
+    },
+};
+
 export {
     Primary,
     WithinHeader,
     CustomStyled,
+    Lengthy,
+    MultiLine,
 };
 
 export default meta;

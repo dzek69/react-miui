@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.32.1+]
+## [0.32.2] - 2026-02-14
 ### Changed
 - full stitches & ref compatibility (forwardRef, className forward, subcomponents selectors, displayName, toString) for:
   - `Input`
@@ -15,8 +15,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - all loader components
   - pop components (no ref on Pop)
 - modal has a blur backdrop filter by default
+- `Selector` has multi line mode now
 ### Fixed
 - `Input` stale `onKeyDown` and `onSuggestionMatch` may be called
+- `Selector` scrolls correctly when there are too many items
 ### Dev
 - lint fixes
 

@@ -8,6 +8,8 @@ export const StyledItem = styled("button", {
     fontSize: fontPxToRem(29),
     color: "var(--selector-text)",
     background: "none",
+    whiteSpace: "nowrap",
+    flexShrink: 0,
 
     variants: {
         active: {
