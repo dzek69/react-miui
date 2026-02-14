@@ -1,13 +1,12 @@
-import React from "react";
-import type { ReactNode } from "react";
+import React, { forwardRef } from "react";
 
 import { omit } from "@ezez/utils";
 
-import type { ICON } from "../../icons/Icon";
+import type { ReactNode } from "react";
 import type { ThemeCSS } from "../../../theme";
+import type { ICON } from "../../icons/Icon";
 
 import { Icon } from "../../icons/Icon";
-
 import { Anchor, Badge, Button, StyledAction } from "./Action.styled";
 
 interface LinkProps { // @TODO extract? - same on list item
@@ -73,7 +72,7 @@ type Props = (NativeLinkProps | RouterLinkProps | ButtonProps) & CommonProps;
  *
  * Its label is displayed below the circular shape.
  */
-const Action: React.FC<Props> = (props) => {
+const Action = forwardRef<HTMLAnchorElement | HTMLButtonElement, Props>((props, ref) => {
     const { icon, label, css, ..._restProps } = props;
     const restProps = omit(
         _restProps as Record<string, unknown>, ["to", "Link", "href", "type"],
@@ -82,7 +81,7 @@ const Action: React.FC<Props> = (props) => {
 
     let iconElem: ReactNode = icon;
     if (typeof icon === "string") {
-        iconElem = <Icon name={icon as ICON} />; // eslint-disable-line @typescript-eslint/no-unsafe-type-assertion
+        iconElem = <Icon name={icon as ICON} />;
     }
 
     const labelElem = label ? <div>{label}</div> : null;
@@ -101,22 +100,47 @@ const Action: React.FC<Props> = (props) => {
 
         return (
             <props.Link href={props.to} {...restProps}>
-                <Anchor className={props.className} {...maybeCss}>{content}</Anchor>
+                <Anchor ref={ref as React.Ref<HTMLAnchorElement>} className={props.className} {...maybeCss}>
+                    {content}
+                </Anchor>
             </props.Link>
         );
     }
 
     if ("href" in props) {
-        return <Anchor href={props.href} className={props.className} {...restProps} {...maybeCss}>{content}</Anchor>;
+        return (
+            <Anchor
+                ref={ref as React.Ref<HTMLAnchorElement>}
+                href={props.href}
+                className={props.className}
+                {...restProps}
+                {...maybeCss}
+            >
+                {content}
+            </Anchor>
+        );
     }
 
     return (
-        <Button onClick={props.onClick} className={props.className} {...maybeCss} type={props.type ?? "button"}>
+
+        <Button
+            ref={ref as React.Ref<HTMLButtonElement>}
+            onClick={props.onClick}
+            className={props.className}
+            {...maybeCss}
+            type={props.type ?? "button"}
+        >
             {content}
         </Button>
     );
-};
+});
 
-export { Action };
+Action.displayName = "Action";
+Action.toString = () => Button.toString();
+
+const ActionCircleSelector = StyledAction.toString();
+const ActionBadgeSelector = Badge.toString();
+
+export { Action, ActionCircleSelector, ActionBadgeSelector };
 
 export type { Props as ActionProps };
