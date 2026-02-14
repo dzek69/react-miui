@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `Input`
   - `HeaderIconAction`
   - `List`
+  - `Modal`
   - all loader components
   - pop components (no ref on Pop)
 ### Fixed

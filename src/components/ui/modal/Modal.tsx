@@ -1,8 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 
 import { createPortal } from "react-dom";
+import { useForwardedRef } from "@bedrock-layout/use-forwarded-ref";
 
 import type { ThemeCSS } from "../../../theme";
+import { fnWithProps } from "../../../types/fnWithProps";
 
 import { ContainerStyled, NEGATIVE_PADDING, OverlayStyled, RemovePadding, TitleStyled } from "./Modal.styled";
 
@@ -23,14 +25,10 @@ interface Props {
     full?: ContainerProps["full"];
 }
 
-interface SubComponents {
-    RemovePadding: typeof RemovePadding;
-}
-
 // @TODO proper docs + buttons
 
 // eslint-disable-next-line max-lines-per-function,max-statements
-const Modal: React.FC<Props> & SubComponents = ({
+const ModalBase = forwardRef<HTMLDivElement, Props>(({
     children,
     onClose,
     isOpen,
@@ -41,11 +39,11 @@ const Modal: React.FC<Props> & SubComponents = ({
     portal = true,
     position,
     full,
-}) => {
+}, ref) => {
     const [isClosing, setIsClosing] = useState(false);
     const [isRendered, setIsRendered] = useState(false);
     const overlayRef = useRef<HTMLDivElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const containerRef = useForwardedRef(ref);
 
     useEffect(() => {
         if (!isOpen || !closeOnEsc) {
@@ -165,7 +163,17 @@ const Modal: React.FC<Props> & SubComponents = ({
     }
 
     return tree;
-};
-Modal.RemovePadding = RemovePadding;
+});
 
-export { Modal };
+ModalBase.displayName = "Modal";
+
+const Modal = fnWithProps(ModalBase, {
+    RemovePadding,
+});
+Modal.toString = () => OverlayStyled.toString();
+
+const ModalContainerSelector = ContainerStyled.toString();
+const ModalTitleSelector = TitleStyled.toString();
+const ModalRemovePaddingSelector = RemovePadding.toString();
+
+export { Modal, ModalContainerSelector, ModalTitleSelector, ModalRemovePaddingSelector };
