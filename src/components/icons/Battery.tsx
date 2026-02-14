@@ -1,12 +1,13 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 interface Props {
     className?: string;
 }
 
-const Battery: React.FC<Props> = (props) => {
+const Battery = forwardRef<SVGSVGElement, Props>((props, ref) => {
     return (
         <svg
+            ref={ref}
             width={"16"}
             height={"16"}
             viewBox={"0 0 13 17"}
@@ -30,6 +31,8 @@ const Battery: React.FC<Props> = (props) => {
         </svg>
 
     );
-};
+});
+
+Battery.displayName = "Battery";
 
 export { Battery };

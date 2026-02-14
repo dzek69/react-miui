@@ -1,16 +1,14 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-import type { AnyComponent } from "../../types";
-
-import { Checkmark } from "./Checkmark";
 import { Back } from "./Back";
-import { Forward } from "./Forward";
-import { Search } from "./Search";
 import { Battery } from "./Battery";
-import { Heart } from "./Heart";
-import { Trash } from "./Trash";
+import { Checkmark } from "./Checkmark";
 import { Config } from "./Config";
 import { Dots } from "./Dots";
+import { Forward } from "./Forward";
+import { Heart } from "./Heart";
+import { Search } from "./Search";
+import { Trash } from "./Trash";
 
 enum ICON {
     checkmark = "checkmark",
@@ -29,7 +27,9 @@ interface Props {
     className?: string;
 }
 
-const iconsMap = new Map<ICON, AnyComponent<{ className?: string }>>([
+type IconComponent = React.ForwardRefExoticComponent<{ className?: string } & React.RefAttributes<SVGSVGElement>>;
+
+const iconsMap = new Map<ICON, IconComponent>([
     [ICON.checkmark, Checkmark],
     [ICON.back, Back],
     [ICON.forward, Forward],
@@ -41,13 +41,15 @@ const iconsMap = new Map<ICON, AnyComponent<{ className?: string }>>([
     [ICON.dots, Dots],
 ]);
 
-const Icon: React.FC<Props> = ({ name: iconName, ...props }) => {
+const Icon = forwardRef<SVGSVGElement, Props>(({ name: iconName, ...props }, ref) => {
     const C = iconsMap.get(iconName);
     if (!C) {
         throw new TypeError("Unknown icon: " + iconName);
     }
-    return <C {...props} />;
-};
+    return <C ref={ref} {...props} />;
+});
+
+Icon.displayName = "Icon";
 
 export { Icon, ICON };
 

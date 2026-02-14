@@ -1,12 +1,13 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 interface Props {
     className?: string;
 }
 
-const Search: React.FC<Props> = (props) => {
+const Search = forwardRef<SVGSVGElement, Props>((props, ref) => {
     return (
         <svg
+            ref={ref}
             width={"16"}
             height={"16"}
             viewBox={"0 0 16 16"}
@@ -24,6 +25,8 @@ const Search: React.FC<Props> = (props) => {
         </svg>
 
     );
-};
+});
+
+Search.displayName = "Search";
 
 export { Search };
