@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - modal has a blur backdrop filter by default
 ### Fixed
 - `Input` stale `onKeyDown` and `onSuggestionMatch` may be called
+### Dev
+- lint fixes
 
 ## [0.32.1] - 2025-12-19
 ### Fixed

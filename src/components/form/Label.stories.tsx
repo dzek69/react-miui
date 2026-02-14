@@ -3,7 +3,6 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { ICON, Icon } from "../icons/Icon";
-
 import { Input } from "./input/Input";
 import { Label } from "./Label";
 

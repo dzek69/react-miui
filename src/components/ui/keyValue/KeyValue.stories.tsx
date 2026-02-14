@@ -5,9 +5,8 @@ import { omit } from "@ezez/utils";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
-import { Icon, ICON } from "../../icons/Icon";
-
-import { KeyValue, KeyValueKeySelector, KeyValueValueSelector, KeyValueIconSelector } from "./KeyValue";
+import { ICON, Icon } from "../../icons/Icon";
+import { KeyValue, KeyValueIconSelector, KeyValueKeySelector, KeyValueValueSelector } from "./KeyValue";
 
 const meta: Meta<typeof KeyValue> = {
     title: "UI/KeyValue",
@@ -92,7 +91,7 @@ const items = [
  */
 const Default: Story = {
     args: {
-        items: items,
+        items,
         valueFirst: true,
         cols: 3,
     },
@@ -103,7 +102,7 @@ const Default: Story = {
  */
 const TwoColumn: Story = {
     args: {
-        items: items,
+        items,
         valueFirst: false,
         cols: 2,
     },
@@ -114,7 +113,7 @@ const TwoColumn: Story = {
  */
 const SingleColumn: Story = {
     args: {
-        items: items,
+        items,
         valueFirst: false,
         cols: 1,
     },

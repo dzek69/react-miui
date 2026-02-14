@@ -3,7 +3,6 @@ import React, { forwardRef, useCallback } from "react";
 import type { ThemeCSS } from "../../theme";
 
 import { contrastColor } from "../utils/colors";
-
 import { ColorDisplay, LabelWrapper } from "./ColorPicker.styled";
 
 type WrapperProps = React.ComponentProps<typeof LabelWrapper>;

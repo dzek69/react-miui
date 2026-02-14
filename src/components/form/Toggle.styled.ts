@@ -1,4 +1,4 @@
-import { styled, dimensionsPxToRem, borderPxToRem } from "../../theme";
+import { borderPxToRem, dimensionsPxToRem, styled } from "../../theme";
 
 const StyledToggle = styled("div", {
     boxSizing: "border-box",

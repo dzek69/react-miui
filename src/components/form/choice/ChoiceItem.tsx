@@ -13,10 +13,11 @@ interface Props<T extends string> {
 }
 
 const ChoiceItem = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>>> => {
+    const { onChange } = props;
+
     const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-        props.onChange(e.currentTarget.value as Exclude<Value<T>, ObjectValue>);
-    }, [props.onChange]);
+        onChange(e.currentTarget.value as Exclude<Value<T>, ObjectValue>);
+    }, [onChange]);
 
     return (
         <StyledChoiceLabel key={props.value.value} tabIndex={0} className={props.className}>

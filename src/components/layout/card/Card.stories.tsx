@@ -4,7 +4,6 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
 import { Section } from "../section/Section";
-
 import { Card } from "./Card";
 
 const meta: Meta<typeof Card> = {

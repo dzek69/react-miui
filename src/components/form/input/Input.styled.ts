@@ -1,5 +1,4 @@
 import { dimensionsPxToRem, styled } from "../../../theme";
-
 import { input, wrapper } from "./Input.css";
 
 const StyledInput = styled("input", input);

@@ -1,17 +1,18 @@
-import type { ReactElement } from "react";
 import React, { forwardRef } from "react";
+
+import type { ReactElement } from "react";
 
 import {
     Container,
+    Icon,
     Item,
     Key,
     KeyValuePair,
     Value,
-    Icon,
 } from "./KeyValue.styled";
 
 type KeyValueProps = {
-    items: { key?: React.ReactNode; value?: React.ReactNode; icon?: React.ReactNode; onClick?: () => void }[];
+    items: Array<{ key?: React.ReactNode; value?: React.ReactNode; icon?: React.ReactNode; onClick?: () => void }>;
     cols?: number;
     valueFirst?: boolean;
     className?: string;
@@ -43,8 +44,8 @@ const KeyValue = forwardRef<HTMLDivElement, KeyValueProps>((props, ref) => {
         const component = value.onClick ? "button" : "div";
         return React.createElement(Item, {
             // eslint-disable-next-line react/no-array-index-key
-            key: key,
-            style: style,
+            key,
+            style,
             // @ts-expect-error idk why ts can't figure it out, but it works
             as: component,
             notFirstRow: !isFirstRow,

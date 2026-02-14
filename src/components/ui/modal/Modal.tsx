@@ -1,11 +1,11 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
-
 import { createPortal } from "react-dom";
+
 import { useForwardedRef } from "@bedrock-layout/use-forwarded-ref";
 
 import type { ThemeCSS } from "../../../theme";
-import { fnWithProps } from "../../../types/fnWithProps";
 
+import { fnWithProps } from "../../../types/fnWithProps";
 import { ContainerStyled, NEGATIVE_PADDING, OverlayStyled, RemovePadding, TitleStyled } from "./Modal.styled";
 
 type OverlayProps = React.ComponentProps<typeof OverlayStyled>;
@@ -59,10 +59,11 @@ const ModalBase = forwardRef<HTMLDivElement, Props>(({
         return () => {
             document.removeEventListener("keydown", onKeyDown);
         };
-    }, [isOpen, closeOnEsc]);
+    }, [isOpen, closeOnEsc, onClose]);
 
     useEffect(() => {
         if (!isOpen) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsClosing(true);
             return;
         }
@@ -75,6 +76,7 @@ const ModalBase = forwardRef<HTMLDivElement, Props>(({
             return;
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (!overlayRef.current || !containerRef.current) {
             return;
         }
@@ -85,7 +87,7 @@ const ModalBase = forwardRef<HTMLDivElement, Props>(({
         overlayRef.current.offsetHeight; // force sync document reflow
         overlayRef.current.style.removeProperty("animation");
         containerRef.current.style.removeProperty("animation");
-    }, [isClosing]);
+    }, [isClosing, containerRef]);
 
     const titleElem = title ? <TitleStyled>{title}</TitleStyled> : null;
 

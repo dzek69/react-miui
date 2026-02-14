@@ -1,10 +1,10 @@
 import React from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import { Item } from "./Item";
 import { Label } from "./Label";
 import { List } from "./List";
-import { Item } from "./Item";
 
 const meta: Meta = {
     title: "Components/Layout/List/Label",

@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 
 import { fnWithProps } from "../../../types/fnWithProps";
-
 import { Header } from "./Header";
 import { Content, StyledStickyHeader } from "./StickyHeader.styled";
 
@@ -49,9 +48,8 @@ const StickyHeader = fnWithProps(forwardRef<HTMLDivElement, Props>((props, ref) 
         throw err;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
     header = header as never; // @TODO find a better way to silence TS on cloneElement
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+
     content = content as never;
 
     return (
@@ -62,7 +60,7 @@ const StickyHeader = fnWithProps(forwardRef<HTMLDivElement, Props>((props, ref) 
     );
 }), {
     displayName: "StickyHeader",
-    Content: Content, // @TODO remove "position" from this component props
+    Content, // @TODO remove "position" from this component props
     /**
      * @deprecated use StickyHeader.toString() instead
      */

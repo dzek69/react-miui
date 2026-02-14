@@ -1,16 +1,15 @@
 import React, { useCallback, useState } from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button } from "../button/Button";
-import { Label } from "../../form/Label";
-import { Input } from "../../form/input/Input";
 import { Checkbox } from "../../form/Checkbox";
+import { Input } from "../../form/input/Input";
+import { Label } from "../../form/Label";
 import { List } from "../../layout/list/List";
-
+import { Button } from "../button/Button";
 import { Modal } from "./Modal";
-import { ModalButtons } from "./ModalButtons";
 import { RemovePadding } from "./Modal.styled";
+import { ModalButtons } from "./ModalButtons";
 
 const meta: Meta = {
     title: "Components/UI/Modal",
@@ -25,7 +24,6 @@ const handleNoop = () => undefined;
 const Primary: Story = {
     args: {},
     render: () => {
-        // eslint-disable-next-line @typescript-eslint/no-shadow
         const [open, setIsOpen] = useState(false);
 
         const handleClose = useCallback(() => {
@@ -65,7 +63,6 @@ const Primary: Story = {
 const WithRemovedPaddingSections: Story = {
     args: {},
     render: () => {
-        // eslint-disable-next-line @typescript-eslint/no-shadow
         const [open, setIsOpen] = useState(false);
 
         const handleClose = useCallback(() => {
@@ -105,7 +102,6 @@ const WithRemovedPaddingSections: Story = {
 const WithList: Story = {
     args: {},
     render: () => {
-        // eslint-disable-next-line @typescript-eslint/no-shadow
         const [open, setIsOpen] = useState(false);
 
         const handleClose = useCallback(() => {

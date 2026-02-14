@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Header } from "../../layout/header/Header";
 import { styled } from "../../../theme";
-
+import { Header } from "../../layout/header/Header";
 import { Selector, SelectorItemSelector } from "./Selector";
 
 const meta: Meta = {

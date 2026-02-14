@@ -4,12 +4,11 @@ import { SunOne } from "@icon-park/react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { HeaderIconAction } from "../../layout/header/HeaderIconAction";
-import { Icon, ICON } from "../../icons/Icon";
-import { StickyHeader } from "../../layout/header/StickyHeader";
+import { ICON, Icon } from "../../icons/Icon";
 import { Header } from "../../layout/header/Header";
+import { HeaderIconAction } from "../../layout/header/HeaderIconAction";
+import { StickyHeader } from "../../layout/header/StickyHeader";
 import { Section } from "../../layout/section/Section";
-
 import { Pop } from "./Pop";
 
 const meta: Meta = {
@@ -32,7 +31,6 @@ const handleClick = () => {
 
 const Primary: Story = {
     render: (args) => {
-        // eslint-disable-next-line @typescript-eslint/no-shadow
         const [open, setOpen] = useState(false);
         const [leftOpen, setLeftOpen] = useState(false);
 

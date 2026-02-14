@@ -1,12 +1,11 @@
 import React, { useCallback } from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Icon, ICON } from "../../icons/Icon";
 import { countries } from "../../../demo/countries.const";
+import { ICON, Icon } from "../../icons/Icon";
 import { Button } from "../../ui/button/Button";
 import { Gap } from "../../utils/Gap";
-
 import { Input } from "./Input";
 
 const meta: Meta<typeof Input> = {

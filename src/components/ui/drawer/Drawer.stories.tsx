@@ -1,11 +1,10 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
 import { Section } from "../../layout/section/Section";
 import { Button } from "../button/Button";
-
 import { Drawer } from "./Drawer";
 
 const meta: Meta<typeof Drawer> = {
@@ -56,7 +55,6 @@ const Default: Story = {
  */
 const NoEscClose: Story = {
     render: () => {
-    // eslint-disable-next-line @typescript-eslint/no-shadow
         const [open, setOpen] = useState(false);
 
         const handleToggleOpen = useCallback(() => {
@@ -106,8 +104,8 @@ const WithLongContent: Story = {
                     <div style={{ padding: "20px" }}>
                         <h2>Drawer with Long Content</h2>
                         <p>This drawer has enough content to demonstrate scrolling behavior.</p>
-                        {Array(20).fill(0).map((_, i) => (
-                            <Section key={String(`${i}`)} vertical={true} horizontal={true}>
+                        {Array(20).fill(0).map((_: number, i) => (
+                            <Section key={i} vertical={true} horizontal={true}> {/* eslint-disable-line react/no-array-index-key */}
                                 <h3>Section {i + 1}</h3>
                                 <p>This is content section {i + 1} in the scrollable drawer.</p>
                             </Section>

@@ -12,9 +12,13 @@ interface Props {
 // eslint-disable-next-line @typescript-eslint/no-shadow
 const Notification: React.FC<Props> = (props) => {
     const [forceHide, setForceHide] = useState(false);
+
+    const toastId = props.toast.id;
+    const { onRemove } = props;
+
     const handleRemove = useCallback(() => {
-        props.onRemove(props.toast.id);
-    }, [props.toast.id]);
+        onRemove(toastId);
+    }, [toastId, onRemove]);
 
     const handleForceHide = useCallback(() => {
         setForceHide(true);

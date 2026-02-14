@@ -30,7 +30,7 @@ const useTailSpin = ({ size = DEFAULT_SIZE, color = DEFAULT_COLOR, speed = DEFAU
         const encoded = encodeURIComponent(svg).replace(/'/gu, "%27")
             .replace(/"/gu, "%22");
         return `data:image/svg+xml,${encoded}`;
-    }, [size, color, speed]);
+    }, [size, color, speed, id]);
 };
 
 export {

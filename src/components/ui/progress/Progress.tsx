@@ -5,7 +5,6 @@ import { cap, scale } from "@ezez/utils";
 import type { ThemeCSS } from "../../../theme";
 
 import { fnWithProps } from "../../../types/fnWithProps";
-
 import { Background, Container, Value } from "./Progress.styled";
 
 type ProgressProps = React.ComponentProps<typeof Container> & {

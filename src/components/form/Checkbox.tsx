@@ -3,7 +3,6 @@ import React, { forwardRef, useCallback } from "react";
 import type { ThemeCSS } from "../../theme";
 
 import { Checkmark } from "../icons/Checkmark";
-
 import { CheckmarkWrapper, LabelWrapper, TextLabel } from "./Checkbox.styled";
 
 type LabelWrapperProps = React.ComponentProps<typeof LabelWrapper>;
@@ -23,7 +22,7 @@ type CheckboxProps = Partial<Pick<LabelWrapperProps, "css" | "className">>
  * Checkbox component
  */
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
-    // eslint-disable-next-line @typescript-eslint/no-shadow
+
     color, error, name, onChange, children, css, className, ...inputProps
 }, ref) => {
     const style: ThemeCSS = {};

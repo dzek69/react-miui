@@ -1,10 +1,9 @@
 import React from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Div } from "../../native";
 import { Button } from "../button/Button";
-
 import { useToaster } from "./Toaster";
 
 const meta: Meta = {

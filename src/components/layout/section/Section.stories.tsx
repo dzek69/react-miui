@@ -1,10 +1,9 @@
 import React from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { List } from "../list/List";
 import { Item } from "../list/Item";
-
+import { List } from "../list/List";
 import { Section } from "./Section";
 
 const meta: Meta = {

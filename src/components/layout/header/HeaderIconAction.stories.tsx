@@ -41,7 +41,7 @@ const MultipleIcons: Story = {
 };
 
 const HeaderWithCustomIcon = styled(Header, {
-    [`& ${HeaderIconAction}`]: {
+    [`& ${HeaderIconAction.toString()}`]: {
         color: "red",
     },
 });

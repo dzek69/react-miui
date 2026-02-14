@@ -34,16 +34,21 @@ const DEFAULT_SIZE = "2rem";
  */
 const Loader = forwardRef<HTMLDivElement, Props>(({
     color = "currentColor", speed = DEFAULT_SPEED, size = DEFAULT_SIZE,
+    className, show,
     ...props
 }, ref) => {
     const spinnerBg = useTailSpin({ size, color, speed });
 
-    if (props.show === false) {
+    if (show === false) {
         return null;
     }
 
     return (
-        <Div ref={ref} className={props.className} css={{ width: size, height: size, backgroundImage: `url('${spinnerBg}')` }} />
+        <Div
+            ref={ref}
+            className={className}
+            css={{ width: size, height: size, backgroundImage: `url('${spinnerBg}')` }}
+        />
     );
 });
 

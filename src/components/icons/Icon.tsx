@@ -46,6 +46,8 @@ const Icon = forwardRef<SVGSVGElement, Props>(({ name: iconName, ...props }, ref
     if (!C) {
         throw new TypeError("Unknown icon: " + iconName);
     }
+    // this is not a new component creation!
+    // eslint-disable-next-line react-hooks/static-components
     return <C ref={ref} {...props} />;
 });
 

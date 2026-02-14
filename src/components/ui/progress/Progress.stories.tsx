@@ -3,7 +3,6 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
-
 import { Progress } from "./Progress";
 
 const meta: Meta = {
@@ -34,7 +33,7 @@ const CustomProgress = styled(Progress, {
 const CustomizedColors: Story = {
     render: (args) => {
         return (
-            // @ts-ignore :shrug:
+            // @ts-expect-error bad types from storybook
             <CustomProgress {...args} />
         );
     },

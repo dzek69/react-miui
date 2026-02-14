@@ -8,6 +8,8 @@ interface Props {
 const OnButtonClick: React.FC<Props> = (props) => {
     const theRef = useRef<HTMLDivElement>(null);
 
+    const { onClick } = props;
+
     useEffect(() => {
         const div = theRef.current;
         if (!div) {
@@ -17,14 +19,14 @@ const OnButtonClick: React.FC<Props> = (props) => {
         const cb = (e: MouseEvent) => {
             if (e.target instanceof HTMLElement && e.target.nodeName.toLowerCase() === "button") {
                 setTimeout(() => {
-                    props.onClick();
+                    onClick();
                 }, 0);
             }
         };
 
         div.addEventListener("click", cb);
         return () => { div.removeEventListener("click", cb); };
-    }, [theRef]);
+    }, [onClick]);
 
     return <div ref={theRef}>{props.children}</div>;
 };

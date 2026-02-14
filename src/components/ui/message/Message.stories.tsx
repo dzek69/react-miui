@@ -3,7 +3,6 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
-
 import { Message } from "./Message";
 
 const meta: Meta<typeof Message> = {

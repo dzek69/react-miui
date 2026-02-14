@@ -3,9 +3,8 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { ICON } from "../../icons/Icon";
-
-import { EqualActions } from "./EqualActions";
 import { Action } from "./Action";
+import { EqualActions } from "./EqualActions";
 
 const meta: Meta<typeof EqualActions> = {
     title: "Components/UI/EqualActions",

@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 
 import type { ComponentProps } from "@stitches/react";
 
-import { StyledStats, Item, Separator, Label, Value } from "./Stats.styled";
+import { Item, Label, Separator, StyledStats, Value } from "./Stats.styled";
 
 type Stat = {
     label: string;

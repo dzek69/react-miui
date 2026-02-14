@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 
 import { useForceUpdate } from "@ezez/hooks";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { StickyHeader } from "./StickyHeader";
 import { Header } from "./Header";
+import { StickyHeader } from "./StickyHeader";
 
 const meta: Meta = {
     title: "Components/Layout/Header/StickyHeader",
@@ -59,7 +59,7 @@ const RefsDemo: Story = {
 
         useEffect(() => {
             handleForceUpdate();
-        }, []);
+        }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
         console.info("RefsDemo", {
             ref: ref.current, refContent: refContent.current,

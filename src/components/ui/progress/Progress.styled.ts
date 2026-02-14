@@ -23,7 +23,7 @@ const Container = styled("div", {
 const sharedValueStyles = css({
     position: "absolute",
     top: 0,
-    height: `100%`,
+    height: "100%",
     borderRadius: "9999px",
     border: `${borderPxToRem(1)} solid $border`,
     background: "$background",

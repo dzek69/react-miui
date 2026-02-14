@@ -3,10 +3,9 @@ import React, { Component, createRef } from "react";
 import type { ThemeCSS } from "../../../theme";
 
 import { HandleEsc } from "../../utils/HandleEsc";
-
 import { OnButtonClick } from "./OnButtonClick";
-import { PopOption } from "./PopOption";
 import { List, Overlay } from "./Pop.styled";
+import { PopOption } from "./PopOption";
 
 interface Props {
     open: boolean;

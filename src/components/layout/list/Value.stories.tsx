@@ -1,10 +1,10 @@
 import React from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Value } from "./Value";
-import { List } from "./List";
 import { Item } from "./Item";
+import { List } from "./List";
+import { Value } from "./Value";
 
 const meta: Meta = {
     title: "Components/Layout/List/Value",

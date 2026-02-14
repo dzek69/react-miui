@@ -1,9 +1,8 @@
 import React from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Icon, ICON } from "../../icons/Icon";
-
+import { ICON, Icon } from "../../icons/Icon";
 import { List } from "./List";
 
 const meta: Meta = {

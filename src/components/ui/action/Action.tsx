@@ -72,7 +72,7 @@ type Props = (NativeLinkProps | RouterLinkProps | ButtonProps) & CommonProps;
  *
  * Its label is displayed below the circular shape.
  */
-const Action = forwardRef<HTMLAnchorElement | HTMLButtonElement, Props>((props, ref) => {
+const Action = forwardRef<HTMLAnchorElement | HTMLButtonElement, Props>((props, ref) => { // eslint-disable-line max-lines-per-function
     const { icon, label, css, ..._restProps } = props;
     const restProps = omit(
         _restProps as Record<string, unknown>, ["to", "Link", "href", "type"],

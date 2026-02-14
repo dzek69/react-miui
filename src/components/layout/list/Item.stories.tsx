@@ -2,11 +2,11 @@ import React from "react";
 
 import { omit } from "@ezez/utils";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Item } from "./Item";
-import { List } from "./List";
 import { Label } from "./Label";
+import { List } from "./List";
 import { Value } from "./Value";
 
 const demoControl = {

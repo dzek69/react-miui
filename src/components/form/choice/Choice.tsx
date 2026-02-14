@@ -3,16 +3,15 @@ import React, { forwardRef } from "react";
 import type { ObjectValue, Value } from "../../../types/form";
 
 import { toObjectValue } from "../../../utils/index";
-
-import { ChoiceItem } from "./ChoiceItem";
 import { StyledChoice } from "./Choice.styled";
+import { ChoiceItem } from "./ChoiceItem";
 
 type Variant = "wide" | "left";
 
 type StyledProps = React.ComponentProps<typeof StyledChoice>;
 
 type ChoiceProps = Omit<StyledProps, "onChange"> & {
-    values: Value<string>[];
+    values: Array<Value<string>>;
     value: string;
     name: string;
     onChange: (value: Exclude<Value<string>, ObjectValue>) => void;
@@ -22,7 +21,7 @@ type ChoiceProps = Omit<StyledProps, "onChange"> & {
 // @TODO handle disabled / readonly!
 
 const Choice = forwardRef<HTMLDivElement, ChoiceProps>(({
-    // eslint-disable-next-line @typescript-eslint/no-shadow
+
     value, values, name, onChange, ...props
 }, ref) => {
     const opts = values.map(option => {

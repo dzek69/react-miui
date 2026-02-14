@@ -1,4 +1,4 @@
-import { styled, fontPxToRem, dimensionsPxToRem } from "../../theme";
+import { dimensionsPxToRem, fontPxToRem, styled } from "../../theme";
 
 const StyledLabel = styled("label", {
     "& + &": {

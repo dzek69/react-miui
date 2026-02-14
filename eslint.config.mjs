@@ -15,6 +15,7 @@ export default [
     {
         files: ["**/*.stories.@(js|jsx|ts|tsx|mjs)"],
         rules: {
+            "react-hooks/rules-of-hooks": "off",
             "max-lines-per-function": "off",
             "import/no-default-export": "off",
             "react/no-multi-comp": "off",

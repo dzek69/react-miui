@@ -1,9 +1,8 @@
 import React from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { ICON } from "../../icons/Icon";
-
 import { Header } from "./Header";
 import { HeaderIconAction } from "./HeaderIconAction";
 

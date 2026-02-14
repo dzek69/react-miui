@@ -4,13 +4,12 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
 import { Div } from "../../native";
-
 import {
     Stats,
-    StatsLabelSelector,
-    StatsValueSelector,
     StatsItemSelector,
+    StatsLabelSelector,
     StatsSeparatorSelector,
+    StatsValueSelector,
 } from "./Stats";
 
 const meta: Meta<typeof Stats> = {

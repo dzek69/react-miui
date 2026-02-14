@@ -1,9 +1,8 @@
 import React, { useCallback } from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
-
 import { Button } from "./Button";
 
 // TODO better docs

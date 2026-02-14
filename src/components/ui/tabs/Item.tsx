@@ -11,9 +11,11 @@ type ItemProps = {
 };
 
 const Item = (props: ItemProps): React.ReactElement => {
+    const { onClick, value } = props;
+
     const handleClick = useCallback(() => {
-        props.onClick(props.value.value);
-    }, [props.onClick, props.value.value]);
+        onClick(value.value);
+    }, [onClick, value.value]);
 
     return (
         <StyledItem onClick={handleClick} active={props.active} type={"button"} data-active={props.active}>

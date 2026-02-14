@@ -1,5 +1,4 @@
 import type React from "react";
-
 import type { ComponentProps } from "@stitches/react";
 import type { OverwriteProps } from "../../../theme";
 
@@ -30,6 +29,6 @@ interface Props extends StitchesProps {
 /**
  * A component that usually displays result of some action or a tip for the user.
  */
-const Message = StyledMessage as unknown as OverwriteProps<typeof StyledMessage, Props>; // eslint-disable-line @typescript-eslint/no-unsafe-type-assertion
+const Message = StyledMessage as unknown as OverwriteProps<typeof StyledMessage, Props>;
 
 export { Message };

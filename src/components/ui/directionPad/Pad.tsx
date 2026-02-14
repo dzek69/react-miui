@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 
 import { PadButton as Button, PadButtonDotSelector } from "./Button";
 import { PadMiddle as Middle } from "./Middle";
-import { StyledPad, StyledLine } from "./Pad.styled";
+import { StyledLine, StyledPad } from "./Pad.styled";
 
 type DirectionPadProps = {
     onUpPress?: () => void;

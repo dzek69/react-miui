@@ -3,8 +3,7 @@ import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { Timeout } from "oop-timers";
 
 import { HandleEsc } from "../../utils/HandleEsc";
-
-import { StyledDrawer, Content } from "./Drawer.styled";
+import { Content, StyledDrawer } from "./Drawer.styled";
 
 const RENDER_TIMEOUT = 500;
 
@@ -34,6 +33,7 @@ const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     useEffect(() => {
         if (props.isOpen) {
             timeoutRef.current?.stop();
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setShouldRenderWhenClosed(true);
         }
         else {

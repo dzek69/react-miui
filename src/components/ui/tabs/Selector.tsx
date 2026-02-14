@@ -3,12 +3,11 @@ import React, { forwardRef, useCallback, useState } from "react";
 import type { Value } from "../../../types/form";
 
 import { toObjectValue } from "../../../utils";
-
 import { Item } from "./Item";
 import { Root } from "./Selector.styled";
 
 type SelectorProps = {
-    values: Value<string>[];
+    values: Array<Value<string>>;
     value?: string;
     onChange?: (value: string) => void;
     className?: string;
@@ -17,10 +16,12 @@ type SelectorProps = {
 const Selector = forwardRef<HTMLDivElement, SelectorProps>((props, ref) => {
     const [current, setCurrent] = useState(props.value);
 
+    const { onChange } = props;
+
     const handleCurrent = useCallback((value: string) => {
         setCurrent(value);
-        props.onChange?.(value);
-    }, [props.onChange]);
+        onChange?.(value);
+    }, [onChange]);
 
     const crr = props.value ?? current;
 

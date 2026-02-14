@@ -1,6 +1,5 @@
 import { dimensionsPxToRem, styled } from "../../../theme";
 import { fnWithProps } from "../../../types/fnWithProps";
-
 import { NEGATIVE_PADDING } from "./Modal.styled";
 
 const Container = styled("div", {

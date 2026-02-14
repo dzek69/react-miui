@@ -4,7 +4,7 @@ import type { Value } from "../../types/form";
 
 interface Props<T extends string> {
     id: string;
-    suggestions?: Value<T>[] | undefined;
+    suggestions?: Array<Value<T>> | undefined;
 }
 
 const Suggestions = <T extends string>(props: Props<T>): ReturnType<React.FC<Props<T>>> => {

@@ -1,6 +1,5 @@
 import { pxToRem, styled } from "../../../theme";
 import { fnWithProps } from "../../../types/fnWithProps";
-
 import { SectionContainer } from "./SectionContainer";
 
 const SectionCmp = styled("div", {

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
-import type { StoryObj, Meta } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { styled } from "../../../theme";
 import { Section } from "../../layout/section/Section";
-
 import { Choice } from "./Choice";
 
 const meta: Meta = {

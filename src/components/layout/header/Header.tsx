@@ -1,9 +1,9 @@
 import React, { forwardRef } from "react";
+
 import type { ReactNode } from "react";
 
 import { Action } from "../../ui/action/Action";
 import { EqualActions } from "../../ui/action/EqualActions";
-
 import { After, Before, Contents, StyledHeader } from "./Header.styled";
 
 interface Props {

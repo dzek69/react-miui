@@ -1,5 +1,6 @@
-import type { ChangeEvent } from "react";
 import React, { forwardRef, useCallback } from "react";
+
+import type { ChangeEvent } from "react";
 
 import { StyledContainer, StyledToggle } from "./Toggle.styled";
 
