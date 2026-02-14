@@ -24,6 +24,7 @@ const OverlayStyled = styled("div", {
     justifyContent: "center",
     animation: `${overlay.toString()} 300ms`,
     animationFillMode: "forwards",
+    backdropFilter: "blur(5px)",
 
     variants: {
         position: {

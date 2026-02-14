@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - all icons
   - all loader components
   - pop components (no ref on Pop)
+- modal has a blur backdrop filter by default
 ### Fixed
 - `Input` stale `onKeyDown` and `onSuggestionMatch` may be called
 
