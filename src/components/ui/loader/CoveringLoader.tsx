@@ -40,8 +40,6 @@ const CoveringLoader = forwardRef<HTMLElement, Props>(({ // eslint-disable-line 
     const id = "miui-" + useId().replace(/:/gu, "-");
     const stylesheet = useRef<HTMLStyleElement>();
 
-    const currentRef = innerRef.current;
-
     useEffect(() => {
         const styleEl = document.createElement("style");
         document.head.appendChild(styleEl);
@@ -54,7 +52,7 @@ const CoveringLoader = forwardRef<HTMLElement, Props>(({ // eslint-disable-line 
 
     // eslint-disable-next-line max-lines-per-function,max-statements
     const effect = () => {
-        const current = currentRef as HTMLElement | null;
+        const current = innerRef.current as HTMLElement | null;
         if (current !== null && !(current instanceof HTMLElement)) {
             throw new Error(
                 "CoveringLoader child ref is not an HTMLElement, got: (" + typeof current + ") " + String(current),
@@ -141,7 +139,8 @@ ${inertCss}`;
         };
     };
 
-    useEffect(effect, [currentRef, spinnerBg, show, color, size, speed, mode, inertMode, id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- innerRef.current must be read inside effect, not at render time
+    useEffect(effect, [innerRef.current, spinnerBg, show, color, size, speed, mode, inertMode, id]);
 
     return cloneElement(Children.only(children), {
         ref: innerRef,
