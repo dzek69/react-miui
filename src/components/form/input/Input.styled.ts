@@ -1,9 +1,13 @@
 import { dimensionsPxToRem, styled } from "../../../theme";
-import { input, wrapper } from "./Input.css";
+import { input, inputContainer, label, wrapper } from "./Input.css";
 
 const StyledInput = styled("input", input);
 
 const StyledWrapper = styled("div", wrapper);
+
+const StyledInputContainer = styled("div", inputContainer);
+
+const StyledLabel = styled("label", label);
 
 const StyledPrefix = styled("div", {
     marginRight: dimensionsPxToRem(36),
@@ -20,6 +24,8 @@ const StyledSuffix = styled("div", {
 export {
     StyledInput,
     StyledWrapper,
+    StyledInputContainer,
+    StyledLabel,
     StyledPrefix,
     StyledSuffix,
 };

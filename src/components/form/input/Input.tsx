@@ -3,13 +3,27 @@ import React, { useCallback, useId, useRef, useState } from "react";
 import type { ObjectValue, Value } from "../../../types/form";
 
 import { Suggestions } from "../Suggestions";
-import { StyledInput, StyledPrefix, StyledSuffix, StyledWrapper } from "./Input.styled";
+import {
+    StyledInput,
+    StyledInputContainer,
+    StyledLabel,
+    StyledPrefix,
+    StyledSuffix,
+    StyledWrapper,
+} from "./Input.styled";
 
 interface CustomProps<T extends string> {
     children?: never;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     error?: boolean;
+    label?: string;
+    /**
+     * When `true` (default), the label stays anchored to the top of the input.
+     * When `false`, the label sits inside the input like a placeholder and floats up
+     * on focus or when the input has a value.
+     */
+    pinnedLabel?: boolean;
     suggestions?: Array<Value<T>>;
     onSuggestionMatch?: (value: Exclude<Value<T>, ObjectValue>, __chromiumPickedFromList: boolean) => void;
 }
@@ -26,10 +40,22 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
     suggestions,
     onSuggestionMatch,
     error,
+    label,
+    pinnedLabel = true,
+    placeholder,
+    id,
     ...props
 }: Props<T>, ref: React.Ref<HTMLInputElement>) => {
     const [focused, setFocused] = useState(false);
+    const [internalHasValue, setInternalHasValue] = useState(() => {
+        return Boolean(props.value ?? props.defaultValue);
+    });
+    const isControlled = props.value !== undefined;
+    const hasValue = isControlled ? Boolean(props.value) : internalHasValue;
+
     const suggestionsId = useId();
+    const generatedInputId = useId();
+    const inputId = id ?? (label ? generatedInputId : undefined);
     const infoRef = useRef<{ picked?: boolean }>({});
 
     const handleFocus = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
@@ -51,6 +77,9 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
     }, [onKeyDown]);
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
+        if (!isControlled) {
+            setInternalHasValue(Boolean(e.currentTarget.value));
+        }
         if (!suggestions) {
             onChange?.(e);
             return;
@@ -67,7 +96,7 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
         }
         infoRef.current.picked = false;
         onChange?.(e);
-    }, [suggestions, onChange, onSuggestionMatch]);
+    }, [isControlled, suggestions, onChange, onSuggestionMatch]);
 
     const prefixElem = prefix ? <StyledPrefix>{prefix}</StyledPrefix> : null;
     const suffixElem = suffix ? <StyledSuffix>{suffix}</StyledSuffix> : null;
@@ -76,6 +105,22 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
     if (suggestions) {
         extraProps.list = suggestionsId;
     }
+
+    const floating = Boolean(label) && (pinnedLabel || focused || hasValue);
+    const showPlaceholder = !label || floating;
+    const effectivePlaceholder = showPlaceholder ? placeholder : undefined;
+
+    const labelElem = label
+        ? (
+            <StyledLabel
+                htmlFor={inputId}
+                floating={floating}
+                error={Boolean(error)}
+            >
+                {label}
+            </StyledLabel>
+        )
+        : null;
 
     return (
         <StyledWrapper
@@ -86,17 +131,22 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
             error={Boolean(error)}
         >
             {prefixElem}
-            <StyledInput
-                ref={ref}
-                {...props}
-                {...extraProps}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                data-error={Boolean(error)}
-            />
-            <Suggestions id={suggestionsId} suggestions={suggestions} />
+            <StyledInputContainer>
+                {labelElem}
+                <StyledInput
+                    ref={ref}
+                    {...props}
+                    {...extraProps}
+                    id={inputId}
+                    placeholder={effectivePlaceholder}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    data-error={Boolean(error)}
+                />
+                <Suggestions id={suggestionsId} suggestions={suggestions} />
+            </StyledInputContainer>
             {suffixElem}
         </StyledWrapper>
     );
@@ -110,12 +160,16 @@ const Input = InputRef as <T extends string>(
     props: Props<T> & React.RefAttributes<HTMLInputElement>,
 ) => React.ReactElement;
 
+const InputContainerSelector = StyledInputContainer.toString();
+const InputLabelSelector = StyledLabel.toString();
 const InputInputSelector = StyledInput.toString();
 const InputPrefixSelector = StyledPrefix.toString();
 const InputSuffixSelector = StyledSuffix.toString();
 
 export {
     Input,
+    InputContainerSelector,
+    InputLabelSelector,
     InputInputSelector,
     InputPrefixSelector,
     InputSuffixSelector,

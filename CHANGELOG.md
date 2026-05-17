@@ -3,11 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.32.3+]
+## [0.33.0] - 2026-05-17
 ### Dev
 - huge deps upgrade
 ### Changed
 - toaster is now based on `sonner`
+- `Input` and `TextArea` got `label` prop (and `pinnedLabel` enabled by default) that adds Android-like floating label for inputs
 
 ## [0.32.3] - 2026-02-15
 ### Fixed

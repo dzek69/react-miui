@@ -44,11 +44,42 @@ const Mixed: Story = {
             <Input prefix={"Text prefix"} value={"Polly W. Wilson"} />
             <Input prefix={"Disabled"} value={"Clayton J. Foster"} disabled={true} />
             <Input prefix={"Read only"} value={"Norma J. Gomez"} readOnly={true} />
+            <Input prefix={"Error state"} placeholder={"Placeholder"} value={""} error={true} />
             <Input
                 placeholder={"With suggestions, try country name"}
                 suggestions={countries}
                 onSuggestionMatch={handleSuggestionMatch}
             />
+        </Gap>
+    ),
+};
+
+const WithLabel: Story = {
+    args: {
+        label: "Capacity",
+        placeholder: "Enter value in kWh",
+        prefix: <Icon name={ICON.battery} />,
+        suffix: "kWh",
+    },
+};
+
+const FloatingLabel: Story = {
+    render: () => (
+        <Gap>
+            <Input label={"Pinned label (default)"} placeholder={"Placeholder visible"} />
+            <Input label={"Floating label"} pinnedLabel={false} placeholder={"Visible on focus"} />
+            <Input label={"Only label, no placeholder"} pinnedLabel={false} />
+            <Input label={"With prefix"} pinnedLabel={false} prefix={<Icon name={ICON.battery} />} />
+            <Input
+                label={"With prefix and suffix"}
+                pinnedLabel={false}
+                prefix={<Icon name={ICON.battery} />}
+                suffix={"kWh"}
+            />
+            <Input label={"Prefilled"} pinnedLabel={false} defaultValue={"Some value"} />
+            <Input label={"Error state"} pinnedLabel={false} error={true} />
+            <Input label={"Disabled"} pinnedLabel={false} disabled={true} />
+            <Input label={"Read only"} pinnedLabel={false} readOnly={true} defaultValue={"Read-only value"} />
         </Gap>
     ),
 };
@@ -73,7 +104,7 @@ const InputRef: Story = {
 };
 
 export {
-    Primary, Mixed, InputRef,
+    Primary, Mixed, WithLabel, FloatingLabel, InputRef,
 };
 
 export default meta;
