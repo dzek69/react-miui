@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.32.3+]
 ### Dev
 - huge deps upgrade
+### Changed
+- toaster is now based on `sonner`
 
 ## [0.32.3] - 2026-02-15
 ### Fixed

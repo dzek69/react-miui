@@ -1,105 +1,29 @@
-import React, { createContext, useContext } from "react";
+import React, { useCallback } from "react";
 
-import type { Toast } from "./types";
+import { toast, Toaster as SonnerToaster } from "sonner";
 
-// eslint-disable-next-line @typescript-eslint/no-shadow
-import { Notification } from "./Notification";
+type SonnerToasterProps = React.ComponentProps<typeof SonnerToaster>;
 
-type ToasterFn = (text: string, timeout?: number) => void;
-
-const ToasterContext = createContext<ToasterFn>(() => {
-    throw new Error("Toaster Provider missing in the tree");
-});
-ToasterContext.displayName = "ToasterContext";
-
-const prefix = `${Date.now()}_`;
-let counter = 0;
-
-interface Props {
-    children: React.ReactNode;
-}
-interface State {
-    list: Toast[];
+interface ToasterProviderProps extends SonnerToasterProps {
+    children?: React.ReactNode;
 }
 
-const DEFAULT_TIMEOUT = 5000;
+const ToasterProvider: React.FC<ToasterProviderProps> = ({ children, position = "bottom-center", ...rest }) => {
+    return (
+        <>
+            {children}
+            <SonnerToaster position={position} {...rest} />
+        </>
+    );
+};
 
-class ToasterProvider extends React.Component<Props, State> {
-    public constructor(props: Props, context: unknown) {
-        super(props, context);
+type ToasterFn = (text: string, timeout?: number) => string | number;
 
-        this.state = {
-            list: [],
-        };
-    }
+const useToaster = (): ToasterFn => {
+    return useCallback((text, timeout) => {
+        return toast(text, timeout != null ? { duration: timeout } : undefined);
+    }, []);
+};
 
-    private readonly _add = (text: string, timeout = DEFAULT_TIMEOUT) => {
-        this._removeAllToasts();
-
-        const id = prefix + String(counter++);
-        const hide = false;
-
-        this.setState(prev => ({
-            ...prev,
-            list: [...prev.list, {
-                id,
-                text,
-                hide,
-            }],
-        }));
-
-        setTimeout(() => {
-            this.setState(prev => ({
-                ...prev,
-                list: prev.list.map(p => {
-                    if (p.id !== id) {
-                        return p;
-                    }
-                    return {
-                        ...p,
-                        hide: true,
-                    };
-                }),
-            }));
-        }, timeout);
-    };
-
-    private readonly _handleRemove = (id: Toast["id"]) => {
-        this.setState(prev => ({
-            ...prev,
-            list: prev.list.filter(p => p.id !== id),
-        }));
-    };
-
-    private readonly _removeAllToasts = () => {
-        this.setState(prev => ({
-            ...prev,
-            list: prev.list.map(p => {
-                if (p.hide) {
-                    return p;
-                }
-                return {
-                    ...p,
-                    hide: true,
-                };
-            }),
-        }));
-    };
-
-    public override render() {
-        const notifications = this.state.list.map((t) => {
-            return <Notification onRemove={this._handleRemove} key={t.id} toast={t} />;
-        });
-
-        return (
-            <ToasterContext.Provider value={this._add}>
-                {notifications}
-                {this.props.children}
-            </ToasterContext.Provider>
-        );
-    }
-}
-
-const useToaster = () => useContext(ToasterContext);
-
-export { ToasterProvider, useToaster };
+export { ToasterProvider, useToaster, toast };
+export type { ToasterProviderProps };

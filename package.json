@@ -36,7 +36,8 @@
     "@ezez/utils": "^3.0.0",
     "@stitches/react": "^1.2.8",
     "classnames": "^2.5.1",
-    "oop-timers": "^5.2.1"
+    "oop-timers": "^5.2.1",
+    "sonner": "^2.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
