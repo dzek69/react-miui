@@ -6,6 +6,7 @@
         "importHelpers": false,
         "jsx": "react",
         "module": "commonjs",
+        "moduleResolution": "node",
         "noEmit": false,
         "noUncheckedIndexedAccess": true,
         "outDir": "./dist",

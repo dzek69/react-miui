@@ -28,7 +28,7 @@
         "mapRoot": null,
         "module": "esnext",
         "moduleDetection": "auto",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "moduleSuffixes": [
             ""
         ],
@@ -43,7 +43,9 @@
         "noUnusedParameters": false,
         "outDir": "./esm",
         "outFile": null,
-        "paths": {},
+        "paths": {
+            "@stitches/react/types/*": ["./node_modules/@stitches/react/types/*"]
+        },
         "preserveSymlinks": false,
         "preserveValueImports": false,
         "removeComments": true,

@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.32.3+]
+### Dev
+- huge deps upgrade
+
 ## [0.32.3] - 2026-02-15
 ### Fixed
 - CoveringLoader crashes with error about ref

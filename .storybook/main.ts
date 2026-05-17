@@ -12,6 +12,9 @@ const config: StorybookConfig = {
   "framework": {
     "name": "@storybook/react-vite",
     "options": {}
-  }
+  },
+  core: {
+    allowedHosts: ['hp.dzek'],
+  },
 };
 export default config;

@@ -1,7 +1,7 @@
-diff --git a/node_modules/@stitches/react/types/css-util.d.ts b/node_modules/@stitches/react/types/css-util.d.ts
+diff --git a/types/css-util.d.ts b/types/css-util.d.ts
 index 1668fc2ab56c421894c547b2e5a988166cd90e5f..cfdad3f208ef7f57c89de7fb94cdaecbd7378c63 100644
---- a/node_modules/@stitches/react/types/css-util.d.ts
-+++ b/node_modules/@stitches/react/types/css-util.d.ts
+--- a/types/css-util.d.ts
++++ b/types/css-util.d.ts
 @@ -117,3 +117,11 @@ export type $$ScaleValue = typeof $$ScaleValue
  export declare const $$ThemeValue: unique symbol
 
@@ -15,10 +15,10 @@ index 1668fc2ab56c421894c547b2e5a988166cd90e5f..cfdad3f208ef7f57c89de7fb94cdaecb
 +	readonly [K in $$ScaleValue]: T;
 +}
 \ No newline at end of file
-diff --git a/node_modules/@stitches/react/types/index.d.ts b/node_modules/@stitches/react/types/index.d.ts
+diff --git a/types/index.d.ts b/types/index.d.ts
 index 8dbcc9cad3f6c556a3f370065dd95300a02dd973..dafadd22e8b6285aadee2630936a7918c9c5b02b 100644
---- a/node_modules/@stitches/react/types/index.d.ts
-+++ b/node_modules/@stitches/react/types/index.d.ts
+--- a/types/index.d.ts
++++ b/types/index.d.ts
 @@ -35,7 +35,7 @@ export type ComponentProps<Component> = Component extends ((...args: any[]) => a
  /** Returns a type that expects a value to be a kind of CSS property value. */
  export type PropertyValue<Property extends keyof CSSUtil.CSSProperties, Config = null> = (

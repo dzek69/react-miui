@@ -137,7 +137,6 @@ const ModalBase = forwardRef<HTMLDivElement, Props>(({
                     css.marginBottom = NEGATIVE_PADDING;
                 }
 
-                // @ts-expect-error TODO handle types correctly
                 return React.cloneElement(child, { css });
             }
             return child;

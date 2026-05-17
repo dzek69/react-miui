@@ -16,16 +16,16 @@ type Story = StoryObj<typeof ModalButtons>;
 const Primary: Story = {
     args: {},
     render: () => (
-        <Modal onClose={() => null} isOpen={true} title={"System message"}>
+        <Modal onClose={() => {}} isOpen={true} title={"System message"}>
             <div>
                 Check out these pretty buttons. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                 consectetur, diam eget aliquam tincidunt, diam nisl ultrices velit, nec aliquet nunc diam eget.
             </div>
             <ModalButtons>
-                <ModalButtons.Button onClick={() => null}>
+                <ModalButtons.Button onClick={() => {}}>
                     Cancel
                 </ModalButtons.Button>
-                <ModalButtons.Button variant={"main"} onClick={() => null}>
+                <ModalButtons.Button variant={"main"} onClick={() => {}}>
                     Ok
                 </ModalButtons.Button>
             </ModalButtons>

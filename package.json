@@ -1,6 +1,6 @@
 {
   "name": "react-miui",
-  "version": "0.32.3",
+  "version": "0.32.3+",
   "author": "Jacek Nowacki",
   "license": "MIT",
   "scripts": {
@@ -12,7 +12,6 @@
     "typecheck": "tsc --noEmit",
     "lint": "ezlint src",
     "lint:fix": "pnpm run lint --fix",
-    "prepare": "patch-package",
     "prepack": "pnpm run compile",
     "prepublishOnly": "pnpm test && pnpm run docs",
     "start:dev": "pnpm run storybook",
@@ -37,35 +36,35 @@
     "@ezez/utils": "^3.0.0",
     "@stitches/react": "^1.2.8",
     "classnames": "^2.5.1",
-    "oop-timers": "^5.1.0",
-    "patch-package": "^8.0.1"
+    "oop-timers": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-typescript": "^7.26.0",
-    "@ezez/eslint": "^9.39.3",
-    "@ezez/hooks": "^2.2.0",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@ezez/eslint": "^9.39.4",
+    "@ezez/hooks": "^2.3.1",
     "@icon-park/react": "^1.4.2",
-    "@storybook/addon-docs": "^9.1.10",
-    "@storybook/addon-onboarding": "^9.1.10",
-    "@storybook/react-vite": "^9.1.10",
+    "@storybook/addon-docs": "^10.4.0",
+    "@storybook/addon-onboarding": "^10.4.0",
+    "@storybook/react-vite": "^10.4.0",
     "@types/jest": "^29.5.14",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
     "babel-plugin-module-extension": "^0.1.3",
-    "babel-plugin-module-resolver": "^5.0.2",
-    "eslint-plugin-storybook": "^10.2.8",
-    "jest": "^30.2.0",
+    "babel-plugin-module-resolver": "^5.0.3",
+    "eslint-plugin-storybook": "^10.4.0",
+    "jest": "^30.4.2",
     "must": "^0.13.4",
-    "prettier": "^3.4.2",
+    "prettier": "^3.8.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-use": "^17.5.1",
+    "react-use": "^17.6.0",
     "resolve-tspaths": "^0.8.23",
-    "storybook": "^9.1.10",
+    "storybook": "^10.4.0",
     "typedoc": "0.27.6",
-    "typescript": "^5.7.3"
+    "typescript": "^5.9.3",
+    "vite": "^7.3.2"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -76,5 +75,10 @@
     "language": "typescript",
     "fixDefaultForCommonJS": true,
     "jsx": true
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@stitches/react@1.2.8": "patches/@stitches__react@1.2.8.patch"
+    }
   }
 }
