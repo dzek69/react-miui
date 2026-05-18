@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.33.0+]
 ### Added
 - `Tooltip` component
+### Changed
+- `Drawer` upgrades: partial slide out, slide direction, background effects on partially slided out
 ### Fixed
 - toasts rendered under modals on some apps
 - drawer may be rendered incorrectly on some apps (added default portal)
