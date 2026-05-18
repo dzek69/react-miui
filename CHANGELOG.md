@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.33.0+]
+## [0.34.0] - 2026-05-18
 ### Added
 - `Tooltip` component
 ### Changed
