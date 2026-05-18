@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { Timeout } from "oop-timers";
 
@@ -12,6 +13,14 @@ type DrawerProps = {
     closeOnEsc?: boolean;
     onClose: () => void;
     className?: string;
+    /**
+     * Where to portal the drawer. `true` (default) portals to `document.body` so the
+     * drawer's `position: fixed` always anchors to the viewport — needed when any
+     * ancestor establishes a containing block (e.g. via `transform`, `filter`, or
+     * `will-change`). Pass an `HTMLElement` to portal to a specific node, or `false`
+     * to render in place.
+     */
+    portal?: boolean | HTMLElement;
     children: React.ReactNode;
 };
 
@@ -51,8 +60,9 @@ const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
 
     const closeOnEsc = props.closeOnEsc ?? true;
     const esc = closeOnEsc && <HandleEsc onPress={props.onClose} />;
+    const portal = props.portal ?? true;
 
-    return (
+    const tree = (
         <StyledDrawer className={props.className} style={style} ref={ref}>
             {esc}
             <Content>
@@ -61,6 +71,13 @@ const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
             </Content>
         </StyledDrawer>
     );
+
+    if (portal) {
+        const root = typeof portal === "boolean" ? document.body : portal;
+        return createPortal(tree, root);
+    }
+
+    return tree;
 });
 
 Drawer.displayName = "Drawer";

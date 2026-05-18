@@ -4,8 +4,11 @@ The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [0.33.0+]
+### Added
+- `Tooltip` component
 ### Fixed
 - toasts rendered under modals on some apps
+- drawer may be rendered incorrectly on some apps (added default portal)
 
 ## [0.33.0] - 2026-05-17
 ### Dev

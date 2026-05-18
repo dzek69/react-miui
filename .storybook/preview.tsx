@@ -1,6 +1,6 @@
 import React from "react";
 import type { Preview } from "@storybook/react";
-import {cssReset, injectGlobalStyles, ToasterProvider} from "../src";
+import {cssReset, injectGlobalStyles, ToasterProvider, TooltipProvider} from "../src";
 
 const preview: Preview = {
     parameters: {
@@ -25,7 +25,9 @@ const preview: Preview = {
                     {/* often do above ToasterProvider and surfaces the toast-under-modal bug. */}
                     <div style={{transform: "translateZ(0)"}}>
                         <ToasterProvider>
-                            <Story/>
+                            <TooltipProvider>
+                                <Story/>
+                            </TooltipProvider>
                         </ToasterProvider>
                     </div>
                 </>

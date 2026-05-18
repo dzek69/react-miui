@@ -17,3 +17,5 @@
 /.next
 *storybook.log
 storybook-static
+
+/.claude/

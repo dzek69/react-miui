@@ -42,6 +42,7 @@ export * from "./components/ui/stats/Stats";
 export * from "./components/ui/tabs/Selector";
 export * from "./components/ui/toaster/Toaster";
 export * from "./components/ui/toolButton/ToolButton";
+export * from "./components/ui/tooltip/Tooltip";
 
 export * from "./components/utils/Gap";
 export * from "./components/utils/HandleEsc";

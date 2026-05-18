@@ -34,6 +34,7 @@
   "dependencies": {
     "@bedrock-layout/use-forwarded-ref": "^2.0.17",
     "@ezez/utils": "^3.0.0",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "@stitches/react": "^1.2.8",
     "classnames": "^2.5.1",
     "oop-timers": "^5.2.1",
