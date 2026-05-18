@@ -21,9 +21,13 @@ const preview: Preview = {
                         {`.docblock-argstable textarea[id] { box-sizing: content-box; }`}
                         {`#storybook-root { height: 100%; }`}
                     </style>
-                    <ToasterProvider>
-                        <Story/>
-                    </ToasterProvider>
+                    {/* transform creates a stacking context — mirrors what real apps */}
+                    {/* often do above ToasterProvider and surfaces the toast-under-modal bug. */}
+                    <div style={{transform: "translateZ(0)"}}>
+                        <ToasterProvider>
+                            <Story/>
+                        </ToasterProvider>
+                    </div>
                 </>
             );
         },

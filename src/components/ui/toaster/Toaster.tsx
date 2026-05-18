@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { toast, Toaster as SonnerToaster } from "sonner";
 
@@ -9,10 +10,19 @@ interface ToasterProviderProps extends SonnerToasterProps {
 }
 
 const ToasterProvider: React.FC<ToasterProviderProps> = ({ children, position = "bottom-center", ...rest }) => {
+    const [body, setBody] = useState<HTMLElement | null>(null);
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setBody(document.body);
+    }, []);
+
+    const toaster = <SonnerToaster position={position} {...rest} />;
+
     return (
         <>
             {children}
-            <SonnerToaster position={position} {...rest} />
+            {body ? createPortal(toaster, body) : null}
         </>
     );
 };
