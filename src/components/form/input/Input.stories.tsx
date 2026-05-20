@@ -103,8 +103,54 @@ const InputRef: Story = {
     },
 };
 
+const Validation: Story = {
+    render: () => {
+        const [submitted, setSubmitted] = React.useState<Record<string, string> | null>(null);
+        return (
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    const data = new FormData(e.currentTarget);
+                    const result: Record<string, string> = {};
+                    data.forEach((v, k) => {
+                        if (typeof v === "string") {
+                            result[k] = v;
+                        }
+                    });
+                    setSubmitted(result);
+                }}
+            >
+                <Gap>
+                    <div>
+                        {"Every input reads native validity (pattern / required / type)."
+                            + " Type something, blur the field or hit Submit — invalid fields turn red on their own."}
+                    </div>
+                    <Input name={"email"} label={"Email"} type={"email"} required={true} />
+                    <Input name={"required"} label={"Required text"} required={true} />
+                    <Input
+                        name={"digits"}
+                        label={"4 digits only"}
+                        pattern={"\\d{4}"}
+                        placeholder={"1234"}
+                    />
+                    <Input
+                        name={"short"}
+                        label={"Min 5 characters"}
+                        minLength={5}
+                        defaultValue={"abc"}
+                    />
+                    <Button type={"submit"}>{"Submit"}</Button>
+                    {submitted
+                        ? <div>{"Submitted: " + JSON.stringify(submitted)}</div>
+                        : null}
+                </Gap>
+            </form>
+        );
+    },
+};
+
 export {
-    Primary, Mixed, WithLabel, FloatingLabel, InputRef,
+    Primary, Mixed, WithLabel, FloatingLabel, InputRef, Validation,
 };
 
 export default meta;

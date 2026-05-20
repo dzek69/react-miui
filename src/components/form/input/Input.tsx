@@ -2,6 +2,7 @@ import React, { useCallback, useId, useRef, useState } from "react";
 
 import type { ObjectValue, Value } from "../../../types/form";
 
+import { useNativeValidity } from "../../../utils";
 import { Suggestions } from "../Suggestions";
 import {
     StyledInput,
@@ -53,6 +54,8 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
     const isControlled = props.value !== undefined;
     const hasValue = isControlled ? Boolean(props.value) : internalHasValue;
 
+    const validity = useNativeValidity(error);
+
     const suggestionsId = useId();
     const generatedInputId = useId();
     const inputId = id ?? (label ? generatedInputId : undefined);
@@ -65,8 +68,9 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
 
     const handleBlur = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
         setFocused(false);
+        validity.onBlur(e);
         onBlur?.(e);
-    }, [onBlur]);
+    }, [onBlur, validity]);
 
     const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
@@ -80,6 +84,7 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
         if (!isControlled) {
             setInternalHasValue(Boolean(e.currentTarget.value));
         }
+        validity.onChange(e);
         if (!suggestions) {
             onChange?.(e);
             return;
@@ -96,7 +101,7 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
         }
         infoRef.current.picked = false;
         onChange?.(e);
-    }, [isControlled, suggestions, onChange, onSuggestionMatch]);
+    }, [isControlled, suggestions, onChange, onSuggestionMatch, validity]);
 
     const prefixElem = prefix ? <StyledPrefix>{prefix}</StyledPrefix> : null;
     const suffixElem = suffix ? <StyledSuffix>{suffix}</StyledSuffix> : null;
@@ -115,7 +120,7 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
             <StyledLabel
                 htmlFor={inputId}
                 floating={floating}
-                error={Boolean(error)}
+                error={validity.finalError}
             >
                 {label}
             </StyledLabel>
@@ -128,7 +133,7 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
             focused={focused}
             disabled={Boolean(props.disabled)}
             readOnly={Boolean(props.readOnly)}
-            error={Boolean(error)}
+            error={validity.finalError}
         >
             {prefixElem}
             <StyledInputContainer>
@@ -143,7 +148,8 @@ const InputInner = <T extends string>({ // eslint-disable-line max-lines-per-fun
                     onKeyDown={handleKeyDown}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    data-error={Boolean(error)}
+                    onInvalid={validity.onInvalid}
+                    data-error={validity.finalError}
                 />
                 <Suggestions id={suggestionsId} suggestions={suggestions} />
             </StyledInputContainer>

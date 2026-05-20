@@ -3,6 +3,7 @@ import React, { forwardRef } from "react";
 import { Back } from "./Back";
 import { Battery } from "./Battery";
 import { Checkmark } from "./Checkmark";
+import { Clock } from "./Clock";
 import { Config } from "./Config";
 import { Dots } from "./Dots";
 import { Forward } from "./Forward";
@@ -20,6 +21,7 @@ enum ICON {
     trash = "trash",
     config = "config",
     dots = "dots",
+    clock = "clock",
 }
 
 interface Props {
@@ -39,6 +41,7 @@ const iconsMap = new Map<ICON, IconComponent>([
     [ICON.trash, Trash],
     [ICON.config, Config],
     [ICON.dots, Dots],
+    [ICON.clock, Clock],
 ]);
 
 const Icon = forwardRef<SVGSVGElement, Props>(({ name: iconName, ...props }, ref) => {
