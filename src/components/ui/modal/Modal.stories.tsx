@@ -8,7 +8,6 @@ import { Label } from "../../form/Label";
 import { List } from "../../layout/list/List";
 import { Button } from "../button/Button";
 import { Modal } from "./Modal";
-import { RemovePadding } from "./Modal.styled";
 import { ModalButtons } from "./ModalButtons";
 
 const meta: Meta = {
@@ -77,19 +76,19 @@ const WithRemovedPaddingSections: Story = {
             <div>
                 <Button onClick={handleOpen}>Open modal</Button>
                 <Modal onClose={handleClose} isOpen={open} position={"bottom"} full={true}>
-                    <RemovePadding>
+                    <Modal.RemovePadding>
                         <Label>
                             <Input placeholder={"New station"} />
                         </Label>
-                    </RemovePadding>
+                    </Modal.RemovePadding>
                     <Label>
                         <Input placeholder={"New station"} />
                     </Label>
-                    <RemovePadding>
+                    <Modal.RemovePadding>
                         <Label>
                             <Input placeholder={"New station"} />
                         </Label>
-                    </RemovePadding>
+                    </Modal.RemovePadding>
                 </Modal>
             </div>
         );
@@ -116,14 +115,50 @@ const WithList: Story = {
             <div>
                 <Button onClick={handleOpen}>Open modal</Button>
                 <Modal onClose={handleClose} isOpen={open} position={"bottom"} full={true}>
-                    <RemovePadding>
+                    <Modal.RemovePadding>
                         <List inset={true}>
                             <List.Item selected={false} onClick={handleClose}>First item</List.Item>
                             <List.Item selected={true} onClick={handleClose}>Second item</List.Item>
                             <List.Item selected={false} onClick={handleClose}>Third item</List.Item>
                             <List.Item selected={false} onClick={handleClose}>Last option</List.Item>
                         </List>
-                    </RemovePadding>
+                    </Modal.RemovePadding>
+                </Modal>
+            </div>
+        );
+    },
+};
+
+/**
+ * Demonstrates a known issue: when the modal content is taller than the viewport,
+ * it gets clipped at the top and bottom because `ContainerStyled` has
+ * `maxHeight: 100%` but no `overflow: auto`. There is no scrolling inside the modal.
+ */
+const WithLongContent: Story = {
+    args: {},
+    render: () => {
+        const [open, setIsOpen] = useState(false);
+
+        const handleClose = useCallback(() => {
+            setIsOpen(false);
+        }, []);
+
+        const handleOpen = useCallback(() => {
+            setIsOpen(true);
+        }, []);
+
+        const lines = Array.from({ length: 60 }, (_, i) => i + 1);
+
+        return (
+            <div>
+                <Button onClick={handleOpen}>Open modal</Button>
+                <Modal onClose={handleClose} isOpen={open} title={"Long content"}>
+                    {lines.map((n) => (
+                        <p key={n}>
+                            Line {n} — Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                    ))}
                 </Modal>
             </div>
         );
@@ -134,6 +169,7 @@ export {
     Primary,
     WithRemovedPaddingSections,
     WithList,
+    WithLongContent,
 };
 
 export default meta;

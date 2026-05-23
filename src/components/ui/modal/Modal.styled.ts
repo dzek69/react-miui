@@ -13,20 +13,25 @@ const overlay = keyframes({
 });
 
 const OverlayStyled = styled("div", {
-    position: "fixed",
-    zIndex: 4,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    animation: `${overlay.toString()} 300ms`,
-    animationFillMode: "forwards",
-    backdropFilter: "blur(5px)",
+    "position": "fixed",
+    "zIndex": 4,
+    "top": 0,
+    "bottom": 0,
+    "left": 0,
+    "right": 0,
+    "display": "flex",
+    "alignItems": "center",
+    "justifyContent": "center",
+    "animation": `${overlay.toString()} 300ms`,
+    "animationFillMode": "forwards",
+    "backdropFilter": "blur(5px)",
 
-    variants: {
+    "@media (prefers-reduced-motion: reduce)": {
+        animation: "none",
+        background: "rgba($background, 0.3)",
+    },
+
+    "variants": {
         position: {
             bottom: {
                 alignItems: "flex-end",
@@ -57,18 +62,33 @@ const RemovePadding = styled("div", {
 });
 
 const ContainerStyled = styled("div", {
-    background: "$modalBg",
-    borderRadius: dimensionsPxToRem(12),
-    maxWidth: pxToRem(333),
-    maxHeight: "100%",
-    width: "calc(100% - 30px)",
-    padding: PADDING,
-    position: "relative",
-    boxSizing: "border-box",
-    animation: `${container.toString()} 300ms`,
-    animationFillMode: "forwards",
+    "background": "$modalBg",
+    "borderRadius": dimensionsPxToRem(12),
+    "maxWidth": pxToRem(333),
+    "maxHeight": "100%",
+    "width": "calc(100% - 30px)",
+    "padding": PADDING,
+    "position": "relative",
+    "boxSizing": "border-box",
+    "overflowY": "auto",
+    "overscrollBehavior": "contain",
+    "animation": `${container.toString()} 300ms`,
+    "animationFillMode": "forwards",
 
-    variants: {
+    // The dialog uses tabindex=-1 to be programmatically focusable for initial focus
+    // fallback (when there is no focusable child). Hide the outline since it's only
+    // there as a focus target, not a user-visible affordance.
+    "&:focus": {
+        outline: "none",
+    },
+
+    "@media (prefers-reduced-motion: reduce)": {
+        animation: "none",
+        opacity: 1,
+        transform: "none",
+    },
+
+    "variants": {
         // TODO this is very not rwd, it should be a media query
         full: {
             true: {
@@ -84,11 +104,12 @@ const ContainerStyled = styled("div", {
     },
 });
 
-const TitleStyled = styled("div", { // TODO header by default? expose this as `titleAs`?
+const TitleStyled = styled("h2", {
     fontSize: fontPxToRem(40),
     textAlign: "center",
     color: "$text3",
     margin: `${dimensionsPxToRem(90)} 0`,
+    fontWeight: "inherit",
 });
 
 export {

@@ -7,7 +7,6 @@ const injectGlobalStyles = globalCss({
     "*:focus-visible:focus-visible": {
         outline: "none !important",
         borderColor: "$focusColor",
-        backgroundColor: "var(--focus-bg-set)",
     },
     "body": {
         color: "$text",

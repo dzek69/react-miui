@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { useForwardedRef } from "@bedrock-layout/use-forwarded-ref";
@@ -6,18 +6,34 @@ import { useForwardedRef } from "@bedrock-layout/use-forwarded-ref";
 import type { ThemeCSS } from "../../../theme";
 
 import { fnWithProps } from "../../../types/fnWithProps";
+import { HandleEsc } from "../../utils/HandleEsc";
 import { ContainerStyled, NEGATIVE_PADDING, OverlayStyled, RemovePadding, TitleStyled } from "./Modal.styled";
 
 type OverlayProps = React.ComponentProps<typeof OverlayStyled>;
 type ContainerProps = React.ComponentProps<typeof ContainerStyled>;
 
-interface Props {
+const FOCUSABLE_SELECTOR = [
+    "a[href]",
+    "button:not([disabled])",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    "[tabindex]:not([tabindex=\"-1\"])",
+].join(",");
+
+const prefersReducedMotion = () => {
+    if (typeof window === "undefined") {
+        return false;
+    }
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+};
+
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
     onOverlayClick?: (() => void) | "close" | null;
     closeOnEsc?: boolean;
     onClose: () => void;
     isOpen: boolean;
     title?: React.ReactNode;
-    className?: string;
     portal?: boolean | HTMLElement;
     children: React.ReactNode;
 
@@ -39,57 +55,107 @@ const ModalBase = forwardRef<HTMLDivElement, Props>(({
     portal = true,
     position,
     full,
+    ...rest
 }, ref) => {
     const [isClosing, setIsClosing] = useState(false);
     const [isRendered, setIsRendered] = useState(false);
     const overlayRef = useRef<HTMLDivElement>(null);
     const containerRef = useForwardedRef(ref);
+    const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+    const titleId = useId();
 
     useEffect(() => {
-        if (!isOpen || !closeOnEsc) {
-            return;
-        }
-
-        const onKeyDown = (e: KeyboardEvent) => {
-            if (e.key === "Escape") {
-                onClose();
-            }
-        };
-        document.addEventListener("keydown", onKeyDown);
-        return () => {
-            document.removeEventListener("keydown", onKeyDown);
-        };
-    }, [isOpen, closeOnEsc, onClose]);
-
-    useEffect(() => {
-        if (!isOpen) {
+        if (isOpen) {
             // eslint-disable-next-line react-hooks/set-state-in-effect
-            setIsClosing(true);
+            setIsRendered(true);
+            setIsClosing(false);
             return;
         }
-        setIsRendered(true);
-        setIsClosing(false);
+        // Under reduced motion the close animation is disabled, so onAnimationEnd will
+        // never fire — unmount synchronously instead.
+        if (prefersReducedMotion()) {
+            setIsRendered(false);
+            setIsClosing(false);
+            return;
+        }
+        setIsClosing(true);
     }, [isOpen]);
 
     useEffect(() => {
         if (!isClosing) {
             return;
         }
-
+        const overlay = overlayRef.current;
+        const container = containerRef.current;
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-        if (!overlayRef.current || !containerRef.current) {
+        if (!overlay || !container) {
+            return;
+        }
+        // animationFillMode: forwards leaves the keyframe in its end state, so flipping
+        // animationDirection to reverse alone wouldn't replay it. Force a restart by
+        // clearing animation, triggering reflow, then letting the variant's reverse run.
+        overlay.style.animation = "none";
+        container.style.animation = "none";
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        overlay.offsetHeight;
+        overlay.style.removeProperty("animation");
+        container.style.removeProperty("animation");
+    }, [isClosing, containerRef]);
+
+    // Focus management: capture previous focus on open, set initial focus inside the
+    // dialog, restore focus on close. Tab containment + AT-hiding is delegated to the
+    // `inert` attribute on everything outside the modal subtree (native browser handles
+    // Tab cycling, screen-reader pruning, and pointer-event blocking).
+    useEffect(() => {
+        if (!isOpen || !isRendered) {
+            return;
+        }
+        const container = containerRef.current;
+        const overlay = overlayRef.current;
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+        if (!container || !overlay) {
             return;
         }
 
-        overlayRef.current.style.animation = "none";
-        containerRef.current.style.animation = "none";
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        overlayRef.current.offsetHeight; // force sync document reflow
-        overlayRef.current.style.removeProperty("animation");
-        containerRef.current.style.removeProperty("animation");
-    }, [isClosing, containerRef]);
+        previouslyFocusedRef.current = document.activeElement instanceof HTMLElement
+            ? document.activeElement
+            : null;
 
-    const titleElem = title ? <TitleStyled>{title}</TitleStyled> : null;
+        const focusables = container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR);
+        (focusables[0] ?? container).focus();
+
+        // Walk up from the overlay to <body>; at each level mark every sibling of the
+        // cursor as inert. Already-inert nodes (e.g. from a nesting modal) are skipped
+        // so that the outer owner remains responsible for cleanup — this gives correct
+        // stacking for nested modals without a separate registry.
+        const inerted: HTMLElement[] = [];
+        let cursor: HTMLElement = overlay;
+        while (cursor !== document.body) {
+            const parentEl: HTMLElement | null = cursor.parentElement;
+            if (!parentEl) {
+                break;
+            }
+            for (const child of Array.from(parentEl.children)) {
+                if (child === cursor || !(child instanceof HTMLElement)) {
+                    continue;
+                }
+                if (!child.hasAttribute("inert")) {
+                    child.setAttribute("inert", "");
+                    inerted.push(child);
+                }
+            }
+            cursor = parentEl;
+        }
+
+        return () => {
+            inerted.forEach((el) => {
+                el.removeAttribute("inert");
+            });
+            previouslyFocusedRef.current?.focus();
+        };
+    }, [isOpen, isRendered, containerRef]);
+
+    const titleElem = title ? <TitleStyled id={titleId}>{title}</TitleStyled> : null;
 
     const handleOverlayClick = useCallback((e: React.MouseEvent) => {
         if (e.target !== e.currentTarget) {
@@ -98,16 +164,18 @@ const ModalBase = forwardRef<HTMLDivElement, Props>(({
         if (onOverlayClick === "close") {
             onClose();
         }
-        if (typeof onOverlayClick === "function") {
+        else if (typeof onOverlayClick === "function") {
             onOverlayClick();
         }
     }, [onOverlayClick, onClose]);
 
-    const handleAnimationEnd = useCallback(() => {
+    const handleAnimationEnd = useCallback((e: React.AnimationEvent) => {
+        if (e.target !== e.currentTarget) {
+            return;
+        }
         if (isOpen) {
             return;
         }
-
         setIsRendered(false);
     }, [isOpen]);
 
@@ -116,30 +184,35 @@ const ModalBase = forwardRef<HTMLDivElement, Props>(({
     }
 
     const overlayVariants: Pick<OverlayProps, "isClosing" | "position"> = {};
-    isClosing && (overlayVariants.isClosing = true);
-    position != null && (overlayVariants.position = position);
+    if (isClosing) {
+        overlayVariants.isClosing = true;
+    }
+    if (position != null) {
+        overlayVariants.position = position;
+    }
 
     const containerVariants: Pick<ContainerProps, "isClosing" | "full"> = {};
-    isClosing && (containerVariants.isClosing = true);
-    full != null && (containerVariants.full = full);
+    if (isClosing) {
+        containerVariants.isClosing = true;
+    }
+    if (full != null) {
+        containerVariants.full = full;
+    }
 
     const childrenCount = React.Children.count(children);
 
     const chld = React.Children.map(children, (child, index) => {
-        if (React.isValidElement(child)) {
-            if (child.type === RemovePadding) {
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
-                const css: ThemeCSS = child.props.css ?? {};
-                if (index === 0 && titleElem == null) {
-                    css.marginTop = NEGATIVE_PADDING;
-                }
-                if (index === childrenCount - 1) {
-                    css.marginBottom = NEGATIVE_PADDING;
-                }
-
-                return React.cloneElement(child, { css });
+        if (React.isValidElement(child) && child.type === RemovePadding) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
+            const css: ThemeCSS = { ...(child.props.css ?? {}) };
+            if (index === 0 && titleElem == null) {
+                css.marginTop = NEGATIVE_PADDING;
             }
-            return child;
+            if (index === childrenCount - 1) {
+                css.marginBottom = NEGATIVE_PADDING;
+            }
+
+            return React.cloneElement(child, { css });
         }
         return child;
     });
@@ -151,7 +224,17 @@ const ModalBase = forwardRef<HTMLDivElement, Props>(({
             ref={overlayRef}
             onAnimationEnd={handleAnimationEnd}
         >
-            <ContainerStyled className={className} {...containerVariants} ref={containerRef}>
+            {closeOnEsc ? <HandleEsc onPress={onClose} /> : null}
+            <ContainerStyled
+                role={"dialog"}
+                aria-modal={true}
+                aria-labelledby={titleElem ? titleId : undefined}
+                tabIndex={-1}
+                className={className}
+                {...containerVariants}
+                ref={containerRef}
+                {...rest}
+            >
                 {titleElem}
                 {chld}
             </ContainerStyled>
