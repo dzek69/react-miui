@@ -1,6 +1,7 @@
 import { styled } from "../../../theme";
+import { rippleHostStyles } from "../../../utils/useRipple.styled";
 
-const StyledButton = styled("button", {
+const StyledButton = styled("button", rippleHostStyles, {
     height: "50px",
     width: "50px",
     margin: "0",

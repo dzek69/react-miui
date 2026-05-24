@@ -1,7 +1,8 @@
 import { css, dimensionsPxToRem, fontPxToRem, pxToRem, styled } from "../../../theme";
+import { rippleHostStyles } from "../../../utils/useRipple.styled";
 import { Icon } from "../../icons/Icon";
 
-const StyledInnerContainer = styled("div", {
+const StyledInnerContainer = styled("div", rippleHostStyles, {
     display: "flex",
     minHeight: dimensionsPxToRem(174),
     alignItems: "center",

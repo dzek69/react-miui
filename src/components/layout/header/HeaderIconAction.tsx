@@ -1,8 +1,11 @@
 import React, { forwardRef } from "react";
 
+import { useForwardedRef } from "@bedrock-layout/use-forwarded-ref";
+
 import type { ReactNode } from "react";
 import type { ICON } from "../../icons/Icon";
 
+import { useRipple } from "../../../utils/useRipple";
 import { A, Btn, sharedStyles, StyledIcon } from "./HeaderIconAction.styled";
 
 interface LinkProps { // @TODO extract? - same on list item
@@ -41,8 +44,10 @@ interface Props {
  * Use this component if you need a clickable icon that stylistically fits the header.
  * It can be a simple link, a button or a custom link component.
  */
-const HeaderIconAction = forwardRef<HTMLAnchorElement | HTMLButtonElement, Props>((props, ref) => {
+const HeaderIconAction = forwardRef<HTMLAnchorElement | HTMLButtonElement, Props>((props, ref) => { // eslint-disable-line max-lines-per-function
     const { icon, href, to, Link, className, ...restProps } = props;
+    const innerRef = useForwardedRef<HTMLAnchorElement | HTMLButtonElement | null>(ref);
+    const ripple = useRipple({ ref: innerRef });
 
     let content: ReactNode = icon;
     if (typeof icon === "string") {
@@ -56,23 +61,45 @@ const HeaderIconAction = forwardRef<HTMLAnchorElement | HTMLButtonElement, Props
 
         return (
             <Link href={to} {...restProps}>
-                <A ref={ref as React.Ref<HTMLAnchorElement>} className={props.className}>{content}</A>
+                <A
+                    ref={innerRef as React.Ref<HTMLAnchorElement>}
+                    className={props.className}
+                    onPointerDown={ripple.onPointerDown}
+                    onKeyDown={ripple.onKeyDown}
+                >
+                    {content}
+                    {ripple.ripples}
+                </A>
             </Link>
         );
     }
 
     if (href) {
         return (
-            <A ref={ref as React.Ref<HTMLAnchorElement>} href={href} className={props.className} {...restProps}>
+            <A
+                ref={innerRef as React.Ref<HTMLAnchorElement>}
+                href={href}
+                className={props.className}
+                onPointerDown={ripple.onPointerDown}
+                onKeyDown={ripple.onKeyDown}
+                {...restProps}
+            >
                 {content}
+                {ripple.ripples}
             </A>
         );
     }
 
     return (
-
-        <Btn ref={ref as React.Ref<HTMLButtonElement>} className={props.className} onClick={props.onClick}>
+        <Btn
+            ref={innerRef as React.Ref<HTMLButtonElement>}
+            className={props.className}
+            onClick={props.onClick}
+            onPointerDown={ripple.onPointerDown}
+            onKeyDown={ripple.onKeyDown}
+        >
             {content}
+            {ripple.ripples}
         </Btn>
     );
 });

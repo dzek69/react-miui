@@ -1,4 +1,5 @@
 import { dimensionsPxToRem, fontPxToRem, styled } from "../../../theme";
+import { rippleHostStyles } from "../../../utils/useRipple.styled";
 
 const Overlay = styled("div", {
     position: "fixed",
@@ -26,24 +27,20 @@ const ListItem = styled("li", {
     },
 });
 
-const Button = styled("button", {
-    "border": "none",
-    "background": "$background",
-    "height": dimensionsPxToRem(116),
-    "padding": `0 ${dimensionsPxToRem(42)}`,
-    "boxSizing": "border-box",
-    "width": "100%",
-    "minWidth": dimensionsPxToRem(460),
-    "textAlign": "left",
-    "color": "$popText",
-    "fontSize": fontPxToRem(26),
-    "fontWeight": "revert",
-    "display": "flex",
-    "alignItems": "center",
-
-    "&:hover": {
-        background: "$activeBg",
-    },
+const Button = styled("button", rippleHostStyles, {
+    border: "none",
+    background: "$background",
+    height: dimensionsPxToRem(116),
+    padding: `0 ${dimensionsPxToRem(42)}`,
+    boxSizing: "border-box",
+    width: "100%",
+    minWidth: dimensionsPxToRem(460),
+    textAlign: "left",
+    color: "$popText",
+    fontSize: fontPxToRem(26),
+    fontWeight: "revert",
+    display: "flex",
+    alignItems: "center",
 });
 
 const Icon = styled("div", {

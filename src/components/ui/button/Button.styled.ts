@@ -1,9 +1,10 @@
 import { borderPxToRem, dimensionsPxToRem, fontPxToRem, pxToRem, styled } from "../../../theme";
+import { rippleHostStyles } from "../../../utils/useRipple.styled";
 
 /**
  * Call-to-action button.
  */
-const Button = styled("button", {
+const StyledButton = styled("button", rippleHostStyles, {
     "height": dimensionsPxToRem(118),
     "background": "$green1",
     "border": `${borderPxToRem(1)} solid $green1Darker`,
@@ -39,5 +40,5 @@ const Button = styled("button", {
 });
 
 export {
-    Button,
+    StyledButton,
 };

@@ -1,6 +1,7 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 
 import { fnWithProps } from "../../../types/fnWithProps";
+import { useRipple } from "../../../utils/useRipple";
 import { ICON } from "../../icons/Icon";
 import { StyledIcon, StyledInnerContainer, StyledItem, StyledNoIcon } from "./Item.styled";
 import { Label } from "./Label";
@@ -68,7 +69,10 @@ type StyledItemProps = React.ComponentProps<typeof StyledItem>;
  */
 const ItemBase = forwardRef<
     HTMLLIElement, StyledItemProps & Props
->(({ href, to, onClick, Link, ratio, ...props }, ref) => {
+>(({ href, to, onClick, Link, ratio, ...props }, ref) => { // eslint-disable-line max-lines-per-function
+    const innerRef = useRef<HTMLElement | null>(null);
+    const ripple = useRipple({ ref: innerRef });
+
     const r = ratio ? ratio.split("/") : [];
 
     const pre = typeof props.selected === "boolean"
@@ -92,6 +96,11 @@ const ItemBase = forwardRef<
             });
         }) ?? [];
 
+    const interactive = Boolean(onClick ?? href ?? to);
+    const rippleProps = interactive
+        ? { onPointerDown: ripple.onPointerDown, onKeyDown: ripple.onKeyDown }
+        : {};
+
     if (to) {
         if (!Link) {
             throw new TypeError("`to` prop given without `Link` component");
@@ -99,7 +108,16 @@ const ItemBase = forwardRef<
 
         return (
             <StyledItem {...props} ref={ref}>
-                <Link href={to}><StyledInnerContainer as={"a"} href={to}>{pre}{ren}</StyledInnerContainer></Link>
+                <Link href={to}>
+                    <StyledInnerContainer
+                        as={"a"}
+                        href={to}
+                        ref={innerRef as React.Ref<HTMLAnchorElement>}
+                        {...rippleProps}
+                    >
+                        {pre}{ren}{ripple.ripples}
+                    </StyledInnerContainer>
+                </Link>
             </StyledItem>
         );
     }
@@ -107,7 +125,15 @@ const ItemBase = forwardRef<
     if (href) {
         return (
             <StyledItem {...props} ref={ref}>
-                <StyledInnerContainer as={"a"} href={href} onClick={onClick}>{pre}{ren}</StyledInnerContainer>
+                <StyledInnerContainer
+                    as={"a"}
+                    href={href}
+                    onClick={onClick}
+                    ref={innerRef as React.Ref<HTMLAnchorElement>}
+                    {...rippleProps}
+                >
+                    {pre}{ren}{ripple.ripples}
+                </StyledInnerContainer>
             </StyledItem>
         );
     }
@@ -115,7 +141,14 @@ const ItemBase = forwardRef<
     if (onClick) {
         return (
             <StyledItem {...props} ref={ref}>
-                <StyledInnerContainer as={"button"} onClick={onClick}>{pre}{ren}</StyledInnerContainer>
+                <StyledInnerContainer
+                    as={"button"}
+                    onClick={onClick}
+                    ref={innerRef as React.Ref<HTMLButtonElement>}
+                    {...rippleProps}
+                >
+                    {pre}{ren}{ripple.ripples}
+                </StyledInnerContainer>
             </StyledItem>
         );
     }

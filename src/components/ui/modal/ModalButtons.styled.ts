@@ -1,5 +1,5 @@
 import { dimensionsPxToRem, styled } from "../../../theme";
-import { fnWithProps } from "../../../types/fnWithProps";
+import { rippleHostStyles } from "../../../utils/useRipple.styled";
 import { NEGATIVE_PADDING } from "./Modal.styled";
 
 const Container = styled("div", {
@@ -9,7 +9,7 @@ const Container = styled("div", {
     marginBottom: NEGATIVE_PADDING,
 });
 
-const Button = styled("button", {
+const StyledButton = styled("button", rippleHostStyles, {
     "border": "none",
     "borderTop": "1px solid $modalButtonBorder",
     "background": "$modalButtonBg",
@@ -41,10 +41,7 @@ const Button = styled("button", {
     },
 });
 
-const ModalButtons = fnWithProps(Container, {
-    Button,
-});
-
 export {
-    ModalButtons,
+    Container,
+    StyledButton,
 };

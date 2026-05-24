@@ -1,6 +1,7 @@
 import { styled } from "../../../theme";
+import { rippleHostStyles } from "../../../utils/useRipple.styled";
 
-const StyledMiddle = styled("button", {
+const StyledMiddle = styled("button", rippleHostStyles, {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

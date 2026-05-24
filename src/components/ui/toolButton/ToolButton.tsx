@@ -3,17 +3,17 @@ import React, { forwardRef } from "react";
 import { useForwardedRef } from "@bedrock-layout/use-forwarded-ref";
 
 import { useRipple } from "../../../utils/useRipple";
-import { StyledButton } from "./Button.styled";
+import { StyledToolButton } from "./ToolButton.styled";
 
-type Props = React.ComponentProps<typeof StyledButton>;
+type Props = React.ComponentProps<typeof StyledToolButton>;
 
-const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
+const ToolButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
     const { children, onPointerDown, onKeyDown, ...rest } = props;
     const innerRef = useForwardedRef(ref);
     const ripple = useRipple({ ref: innerRef, onPointerDown, onKeyDown });
 
     return (
-        <StyledButton
+        <StyledToolButton
             ref={innerRef}
             onPointerDown={ripple.onPointerDown}
             onKeyDown={ripple.onKeyDown}
@@ -21,13 +21,13 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
         >
             {children}
             {ripple.ripples}
-        </StyledButton>
+        </StyledToolButton>
     );
 });
 
-Button.displayName = "Button";
-Button.toString = () => StyledButton.toString();
+ToolButton.displayName = "ToolButton";
+ToolButton.toString = () => StyledToolButton.toString();
 
 export {
-    Button,
+    ToolButton,
 };
