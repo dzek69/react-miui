@@ -10,7 +10,8 @@
         "noEmit": false,
         "noUncheckedIndexedAccess": true,
         "outDir": "./dist",
-        "target": "es2017"
+        "target": "es2017",
+        "paths": {}
     },
     "include": [
         "src/",

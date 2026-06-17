@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [EZEZ Changelog](https://ezez.dev/guidelines/changelog/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.36.1] - 2026-06-17
+### Fixed
+- broken types from `styled()` since 0.33.0
+
 ## [0.36.0] - 2026-05-24
 ### Added
 - ripple effect on click on most clickable elements (fallback to color on reduced motion preference)
